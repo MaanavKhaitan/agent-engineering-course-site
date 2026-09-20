@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>0 · Setup &amp; Orientation | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="0 · Setup &amp; Orientation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="0 · Setup &amp; Orientation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"0 · Setup &amp; Orientation","url":"/agent-engineering-course-site/00-setup.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-0--setup--orientation">
+  
+  
+    <a href="#module-0--setup--orientation" class="anchor-heading" aria-labelledby="module-0--setup--orientation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 0 — Setup &amp; Orientation
+  
+  
+</h1>
+    
+
+<p>Goal: a working environment, an API key, and a clear picture of the model landscape you’ll be building on. ~30 minutes.</p><hr />
+<h2 id="01-environment">
+  
+  
+    <a href="#01-environment" class="anchor-heading" aria-labelledby="01-environment"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.1 Environment
+  
+  
+</h2>
+    
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># A fresh project directory and virtualenv</span>
+<span class="nb">mkdir </span>scout <span class="o">&amp;&amp;</span> <span class="nb">cd </span>scout
+python3 <span class="nt">-m</span> venv .venv <span class="o">&amp;&amp;</span> <span class="nb">source</span> .venv/bin/activate
+python <span class="nt">--version</span>   <span class="c"># need 3.10+</span>
+
+<span class="c"># Core libraries used across the course</span>
+pip <span class="nb">install </span>anthropic openai python-dotenv pydantic rich
+<span class="c"># (later modules add: langgraph, langfuse, chromadb, etc. — installed as needed)</span>
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">.env</code> file (and add it to <code class="language-plaintext highlighter-rouge">.gitignore</code> immediately):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ANTHROPIC_API_KEY=sk-ant-...
+# Optional, used in a few comparisons:
+OPENAI_API_KEY=sk-...
+</code></pre></div></div>
+
+<p>Load it in code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="nf">load_dotenv</span><span class="p">()</span>  <span class="c1"># now os.environ["ANTHROPIC_API_KEY"] is available
+</span></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Never hardcode keys.</strong> Treat them like database credentials. The agent you build will execute model-chosen actions — you do not want a leaked key attached to that. (Security is Module 11; the habit starts now.)</p>
+</blockquote>
+<h2 id="02-get-an-api-key">
+  
+  
+    <a href="#02-get-an-api-key" class="anchor-heading" aria-labelledby="02-get-an-api-key"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.2 Get an API key
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Anthropic (Claude):</strong> console.anthropic.com → API keys. Used as the primary provider in this course.</li>
+  <li><strong>OpenAI:</strong> platform.openai.com → API keys. Used in a couple of comparisons (Module 7).</li>
+</ul>
+
+<p>You can do the entire course with just one provider. Examples default to Claude.</p>
+<h2 id="03-hello-model--verify-your-setup">
+  
+  
+    <a href="#03-hello-model--verify-your-setup" class="anchor-heading" aria-labelledby="03-hello-model--verify-your-setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.3 Hello, model — verify your setup
+  
+  
+</h2>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>  <span class="c1"># reads ANTHROPIC_API_KEY from the environment
+</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>          <span class="c1"># cheap + fast; great default for learning
+</span>    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">In one sentence: what is an agent?</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">text</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">)</span>  <span class="c1"># note input_tokens / output_tokens — you'll care about these
+</span></code></pre></div></div>
+
+<p>If that prints a sentence and a usage object, you’re ready.</p>
+<h2 id="04-the-model-landscape-as-of-mid-2026">
+  
+  
+    <a href="#04-the-model-landscape-as-of-mid-2026" class="anchor-heading" aria-labelledby="04-the-model-landscape-as-of-mid-2026"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.4 The model landscape (as of mid-2026)
+  
+  
+</h2>
+    
+
+<p>You don’t need to memorize this, but you should know the shape of the menu. Models are priced per <strong>million tokens</strong> (MTok), input and output billed separately. Bigger/smarter = more expensive and slower.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>ID (string you pass)</th>
+      <th>Context</th>
+      <th>Input $/MTok</th>
+      <th>Output $/MTok</th>
+      <th>Use it for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Claude Opus 4.8</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-opus-4-8</code></td>
+      <td>1M</td>
+      <td>$5</td>
+      <td>$25</td>
+      <td>The hard reasoning / main agent loop. The default “smart” model.</td>
+    </tr>
+    <tr>
+      <td>Claude Sonnet 4.6</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-sonnet-4-6</code></td>
+      <td>1M</td>
+      <td>$3</td>
+      <td>$15</td>
+      <td>High-volume production; the learning default in this course.</td>
+    </tr>
+    <tr>
+      <td>Claude Haiku 4.5</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code></td>
+      <td>200K</td>
+      <td>$1</td>
+      <td>$5</td>
+      <td>Cheap/fast subtasks: classification, sub-agent search, commit messages.</td>
+    </tr>
+    <tr>
+      <td>Claude Fable 5</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-fable-5</code></td>
+      <td>1M</td>
+      <td>$10</td>
+      <td>$50</td>
+      <td>The most capable model; longest-horizon agentic work.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>(There are also <code class="language-plaintext highlighter-rouge">claude-opus-4-7</code>, <code class="language-plaintext highlighter-rouge">claude-opus-4-6</code>, etc. — previous generations, still available.)</p>
+
+<p><strong>Three facts that will matter throughout the course:</strong></p>
+
+<ol>
+  <li><strong>Model tiering is an engineering lever, not a detail.</strong> A real agent uses a <em>cheap</em> model for grunt work (summarizing, searching, routing) and an <em>expensive</em> model only where judgment is needed. This is the single biggest cost lever (Module 10). For learning, default to Sonnet; switch to Opus/Fable when you want maximum capability.</li>
+  <li><strong>Context windows are large but finite.</strong> “1M tokens” sounds infinite; a long-running agent exhausts it routinely. Managing it is Module 4.</li>
+  <li><strong>The exact model ID string matters.</strong> Pass it verbatim — no date suffixes on these aliases. A typo’d model ID is a 404, not a fallback.</li>
+</ol>
+<h3 id="a-note-on-thinking--reasoning">
+  
+  
+    <a href="#a-note-on-thinking--reasoning" class="anchor-heading" aria-labelledby="a-note-on-thinking--reasoning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A note on “thinking” / reasoning
+  
+  
+</h3>
+    
+
+<p>Current frontier models support an <strong>extended reasoning</strong> mode where the model thinks before answering. On Claude 4.6+ you enable it with <code class="language-plaintext highlighter-rouge">thinking={"type": "adaptive"}</code> (the model decides how much to think) and tune depth with <code class="language-plaintext highlighter-rouge">output_config={"effort": "low"|"medium"|"high"|"max"}</code>. You’ll use this in later modules; for now just know it exists and that it trades latency/cost for quality. (The old “fixed token budget” style of thinking is deprecated on the latest models — use adaptive.)</p>
+<h2 id="05-repo-layout-for-the-course">
+  
+  
+    <a href="#05-repo-layout-for-the-course" class="anchor-heading" aria-labelledby="05-repo-layout-for-the-course"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.5 Repo layout for the course
+  
+  
+</h2>
+    
+
+<p>You’ll accumulate code as you go. A suggested structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scout/
+  .env
+  .gitignore
+  notes.md            # your lab notebook — keep it!
+  scout/              # the agent package you build
+    __init__.py
+    loop.py           # Module 3
+    tools.py          # Module 3
+    memory.py         # Module 4
+    retrieval.py      # Module 5
+  evals/              # Module 8
+  exercises/          # per-module scratch work
+</code></pre></div></div>
+<h2 id="06-mindset">
+  
+  
+    <a href="#06-mindset" class="anchor-heading" aria-labelledby="06-mindset"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 0.6 Mindset
+  
+  
+</h2>
+    
+
+<p>Three framings to carry through the whole course:</p>
+
+<ul>
+  <li><strong>The model is a CPU; the harness is the OS.</strong> The model does one “instruction” per call — given the current state, pick the next action. Everything else — tools (syscalls), context management (memory), the loop and sub-agents (scheduling), permissions (protection rings) — is the harness, and it’s where nearly all the engineering lives.</li>
+  <li><strong>Move correctness out of the model and into the boundary.</strong> Exact-match edits, schema validation, permission gates, forced verification — each converts “hope the model is right” into “detect cheaply and let it retry.” You’ll see this pattern in every module.</li>
+  <li><strong>Tokens are a scarce, priced resource with cache locality.</strong> Design transcript layout, truncation, delegation, and model tiering the way you’d design around a memory hierarchy.</li>
+</ul>
+
+<p>→ Continue to <strong><a href="/agent-engineering-course-site/01-foundations-model-and-api.html">Module 01 — The Base Model &amp; the Completion API</a></strong>. If your Python is solid but not deep (async generators, <code class="language-plaintext highlighter-rouge">contextvars</code>, process groups…), skim <strong><a href="/agent-engineering-course-site/00b-python-for-scout.html">Module 0B — The Python You Need for Scout</a></strong> first and keep it open as a reference while you build.</p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

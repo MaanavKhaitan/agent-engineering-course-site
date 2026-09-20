@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(10)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(10) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(10) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(10) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>6 · Multi-Agent Orchestration | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="6 · Multi-Agent Orchestration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="6 · Multi-Agent Orchestration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"6 · Multi-Agent Orchestration","url":"/agent-engineering-course-site/06-multi-agent-orchestration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-06--multi-agent-systems--orchestration">
+  
+  
+    <a href="#module-06--multi-agent-systems--orchestration" class="anchor-heading" aria-labelledby="module-06--multi-agent-systems--orchestration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 06 — Multi-Agent Systems &amp; Orchestration
+  
+  
+</h1>
+    
+
+<p>In Module 03 you built Scout: one loop, one context window, one model deciding everything. In Module 04 you spawned a <code class="language-plaintext highlighter-rouge">delegate</code> sub-agent — a child loop with its own window — but only as a context firewall, a way to keep the parent’s transcript small. This module is about the other reason to reach for multiple agents and, more importantly, <em>when not to</em>.</p>
+
+<p>Here is the trap. “Multi-agent” sounds like the sophisticated thing to build, the architecture that separates a real system from a toy. It is mostly the opposite. Most of what gets sold as a “multi-agent system” is a handful of LLM calls wired together with ordinary code — a pipeline, a router, a fan-out — with at most one or two genuinely agentic leaves. The engineering skill here is not “how do I make agents talk to each other.” It’s <em>recognizing which parts of your problem need a model deciding the control flow at runtime, and which parts you should just write as code</em> — because every bit of model-driven autonomy you add trades latency, cost, and predictability for flexibility, and you only want that trade where flexibility actually pays.</p>
+
+<p>The frame we’ll use throughout is Anthropic’s, from “Building Effective Agents”: the distinction between <strong>workflows</strong> and <strong>agents</strong>, and a small set of composable patterns that cover almost everything you’ll build. Frameworks (Module 07) are just packaging for these patterns — learn the patterns first and the frameworks become obvious.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<ul>
+  <li>State the workflow-vs-agent distinction precisely (who controls the control flow: your code, or the model) and apply “start simple — only add autonomy where it clearly pays.”</li>
+  <li>Recognize and implement the five composable patterns: prompt chaining, routing, parallelization (sectioning and voting), orchestrator-worker, and evaluator-optimizer.</li>
+  <li>Build the sub-agent process-tree mental model: a task description down, a summary up, isolated context in between.</li>
+  <li>Diagnose the <strong>lossy interface</strong> between parent and child — the central hard problem of multi-agent systems — and harden it with templated prompts, structured output, redundancy, and deterministic code orchestration.</li>
+  <li>Reason quantitatively about the cost and latency of fan-out: pipeline vs. barrier, and when multi-agent is worth 4–15× the tokens of a single agent.</li>
+</ul>
+<h2 id="workflows-vs-agents-who-holds-the-control-flow">
+  
+  
+    <a href="#workflows-vs-agents-who-holds-the-control-flow" class="anchor-heading" aria-labelledby="workflows-vs-agents-who-holds-the-control-flow"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Workflows vs. agents: who holds the control flow
+  
+  
+</h2>
+    
+
+<p>This is the load-bearing distinction. Hold it in your head as a systems question about <em>where the control flow lives</em>.</p>
+
+<blockquote>
+  <p>📖 <strong>Workflows</strong> are systems where LLM calls and tools are orchestrated through <strong>predefined code paths</strong>. <em>You</em> wrote the <code class="language-plaintext highlighter-rouge">if</code>, the <code class="language-plaintext highlighter-rouge">for</code>, the sequence of steps. The model fills in the blanks at each step, but it does not decide what the next step is.</p>
+
+  <p><strong>Agents</strong> are systems where the <strong>model dynamically directs its own process and tool use</strong> — it chooses which tool to call, in what order, when to stop. The control flow is decided at runtime, by the model, inside the loop.</p>
+</blockquote>
+
+<p>Scout is an agent: its loop hands the model a set of tools and the model decides, turn by turn, what to do. A function that calls the model to classify a ticket, then <code class="language-plaintext highlighter-rouge">match</code>es on the label to call one of three other prompts, is a workflow: the model classifies, but <em>your code</em> routes.</p>
+
+<p>The dataflow analogy: a workflow is a static dataflow graph you compiled ahead of time — you can read it, test each node, predict its shape. An agent is a graph that rewrites itself as it runs. The agentic graph is strictly more powerful and strictly less predictable, and that’s the entire tradeoff.</p>
+
+<p><strong>Why this matters for what you build.</strong> Autonomy is not free. Each time you let the model decide the next step instead of writing that decision in code, you pay:</p>
+
+<ul>
+  <li><strong>Latency</strong> — an extra round trip (or several) where code would have branched instantly.</li>
+  <li><strong>Cost</strong> — more tokens, re-sent history every turn, often a bigger model to make the decision reliably.</li>
+  <li><strong>Unpredictability</strong> — a path you can’t fully enumerate, can’t unit-test exhaustively, and can’t reason about the way you reason about a <code class="language-plaintext highlighter-rouge">switch</code>.</li>
+</ul>
+
+<p>You buy <strong>flexibility</strong> — the ability to handle inputs and trajectories you didn’t anticipate. That’s worth a lot for open-ended tasks (“turn this design doc into a PR”) and worth nothing for closed ones (“extract the invoice total from this PDF”). The discipline, straight from “Building Effective Agents”:</p>
+
+<blockquote>
+  <p><strong>Find the simplest thing that works. Add agentic autonomy only when the flexibility from model-driven decisions clearly improves the outcome.</strong> Sometimes the right answer is a single LLM call. Sometimes it’s a workflow. Sometimes — honestly — it’s no LLM at all.</p>
+</blockquote>
+
+<p>A useful gut check before reaching for “an agent” (or worse, “several agents”): is the task genuinely hard to specify up front, does the outcome justify the extra latency and cost, is the model actually good at this task type, and can you catch and recover from its mistakes? If any answer is “no,” drop down a tier. Most production systems that <em>feel</em> agentic are 90% workflow with one or two agentic leaves — and that’s a feature, not a compromise.</p>
+<h2 id="the-composable-patterns">
+  
+  
+    <a href="#the-composable-patterns" class="anchor-heading" aria-labelledby="the-composable-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The composable patterns
+  
+  
+</h2>
+    
+
+<p>These five patterns, again from Anthropic’s taxonomy, are the building blocks. They compose: a real system is usually a workflow whose nodes are sometimes single calls, sometimes other patterns, and occasionally a full agent. We’ll teach each with a text diagram, when to use it, and a code sketch. All sketches reuse Scout’s <code class="language-plaintext highlighter-rouge">client</code> and its <code class="language-plaintext highlighter-rouge">run_agent</code> / sub-agent loop from Modules 03–04; only the orchestration around them changes.</p>
+
+<p>A note on models, carried through every sketch: <strong>the orchestrator and judge are the expensive, intelligence-sensitive roles — default them to <code class="language-plaintext highlighter-rouge">claude-opus-4-8</code>. The workers and routers are high-volume and narrow — run them on <code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code> (or <code class="language-plaintext highlighter-rouge">claude-sonnet-4-6</code> when a worker needs more reasoning).</strong> This split is where most of the cost control in a multi-agent system lives.</p>
+<h3 id="1-prompt-chaining">
+  
+  
+    <a href="#1-prompt-chaining" class="anchor-heading" aria-labelledby="1-prompt-chaining"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Prompt chaining
+  
+  
+</h3>
+    
+
+<p>Decompose a task into a <strong>fixed sequence</strong> of steps, each an LLM call, feeding the previous output into the next. Optionally <strong>gate</strong> between steps — a programmatic check that can short-circuit or retry.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input → [call 1] → (gate?) → [call 2] → [call 3] → output
+                     │
+                     └─ fail → stop / retry
+</code></pre></div></div>
+
+<p><strong>When to use it:</strong> the task cleanly splits into fixed subtasks, and trading latency for accuracy is worth it. Each call does one thing well instead of one call doing three things poorly. Classic example: draft an outline → check the outline meets a criterion → write the doc from the outline.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">write_brief</span><span class="p">(</span><span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">outline</span> <span class="o">=</span> <span class="nf">one_shot</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Write a 5-bullet outline for a brief on: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="c1"># Gate: a deterministic check between steps.
+</span>    <span class="k">if</span> <span class="n">outline</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">-</span><span class="sh">"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">outline too thin; not proceeding</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">one_shot</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Write the brief from this outline:</span><span class="se">\n</span><span class="si">{</span><span class="n">outline</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">one_shot</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The control flow is entirely in your code. The model never decides what comes next.</p>
+<h3 id="2-routing">
+  
+  
+    <a href="#2-routing" class="anchor-heading" aria-labelledby="2-routing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Routing
+  
+  
+</h3>
+    
+
+<p><strong>Classify</strong> the input, then dispatch to a specialized handler — a different prompt, a different tool set, a different model.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                 ┌─ "billing"  → [billing prompt]
+input → [classify] ─ "technical" → [technical prompt + tools]
+                 └─ "refund"   → [refund prompt, opus]
+</code></pre></div></div>
+
+<p><strong>When to use it:</strong> distinct categories of input are better served by distinct handling, and you can classify reliably. Routing lets you keep each handler’s prompt focused (no mega-prompt trying to cover every case) and send cheap categories to a cheap model while reserving the expensive model for the hard ones.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">route</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># A cheap, narrow classifier — perfect Haiku job.
+</span>    <span class="n">label</span> <span class="o">=</span> <span class="nf">one_shot</span><span class="p">(</span>
+        <span class="sa">f</span><span class="sh">"</span><span class="s">Classify into exactly one of [billing, technical, refund]. </span><span class="sh">"</span>
+        <span class="sa">f</span><span class="sh">"</span><span class="s">Reply with only the label.</span><span class="se">\n\n</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-haiku-4-5</span><span class="sh">"</span><span class="p">,</span>
+    <span class="p">).</span><span class="nf">strip</span><span class="p">()</span>
+
+    <span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">billing</span><span class="sh">"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="nf">one_shot</span><span class="p">(</span><span class="n">BILLING_PROMPT</span> <span class="o">+</span> <span class="n">q</span><span class="p">),</span>
+        <span class="sh">"</span><span class="s">technical</span><span class="sh">"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="nf">run_agent</span><span class="p">(</span><span class="n">TECH_PROMPT</span> <span class="o">+</span> <span class="n">q</span><span class="p">),</span>  <span class="c1"># a full Scout loop
+</span>        <span class="sh">"</span><span class="s">refund</span><span class="sh">"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="nf">one_shot</span><span class="p">(</span><span class="n">REFUND_PROMPT</span> <span class="o">+</span> <span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">handlers</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">handlers</span><span class="p">[</span><span class="sh">"</span><span class="s">technical</span><span class="sh">"</span><span class="p">])(</span><span class="n">query</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note the leaves differ in <em>kind</em>: one is a single call, one is a full agent, one is a single call on a bigger model. Routing is the join.</p>
+<h3 id="3-parallelization">
+  
+  
+    <a href="#3-parallelization" class="anchor-heading" aria-labelledby="3-parallelization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Parallelization
+  
+  
+</h3>
+    
+
+<p>Run multiple LLM calls concurrently and aggregate. Two distinct flavors:</p>
+
+<p><strong>Sectioning</strong> — split a task into <strong>independent</strong> subtasks that run in parallel because they don’t depend on each other.</p>
+
+<p><strong>Voting</strong> — run the <strong>same</strong> task N times and aggregate the answers (majority vote, take-any-that-passes, etc.) to raise reliability or coverage.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sectioning:                       voting:
+        ┌─[subtask A]─┐                  ┌─[run 1]─┐
+input ──┼─[subtask B]─┼─[merge]   input ─┼─[run 2]─┼─[aggregate]
+        └─[subtask C]─┘                  └─[run 3]─┘
+</code></pre></div></div>
+
+<p><strong>When to use sectioning:</strong> the work decomposes into parts with no data dependency (analyze 5 documents; review code for security, style, and performance separately). <strong>When to use voting:</strong> you want higher confidence on a single hard judgment, or broader coverage of a search space, and you’re willing to pay N× for it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+
+<span class="k">def</span> <span class="nf">section</span><span class="p">(</span><span class="n">subtasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nc">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="n">pool</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nf">one_shot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-haiku-4-5</span><span class="sh">"</span><span class="p">),</span>
+                             <span class="n">subtasks</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="nf">section</span><span class="p">([</span><span class="n">prompt</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">max</span><span class="p">(</span><span class="nf">set</span><span class="p">(</span><span class="n">answers</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">answers</span><span class="p">.</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># crude majority
+</span></code></pre></div></div>
+
+<p>The Anthropic SDK is synchronous per call; <code class="language-plaintext highlighter-rouge">ThreadPoolExecutor</code> is the simplest way to fan out (each call is I/O-bound, so threads are fine — no GIL contention on network waits). <code class="language-plaintext highlighter-rouge">asyncio</code> with <code class="language-plaintext highlighter-rouge">AsyncAnthropic</code> is the same idea with explicit concurrency.</p>
+<h3 id="4-orchestrator-worker">
+  
+  
+    <a href="#4-orchestrator-worker" class="anchor-heading" aria-labelledby="4-orchestrator-worker"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Orchestrator-worker
+  
+  
+</h3>
+    
+
+<p>A coordinator agent <strong>decomposes a task at runtime</strong> and delegates subtasks to worker sub-agents, then <strong>synthesizes</strong> their results. The key difference from sectioning: the subtasks are <strong>not fixed in advance</strong> — the orchestrator (a model) decides how many workers to spawn and what each one does, based on the input.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>              ┌─ spawns ─→ [worker 1] ─ summary ─┐
+[orchestrator]─── spawns ─→ [worker 2] ─ summary ─┼─→ [synthesize] → output
+   (opus)     └─ spawns ─→ [worker N] ─ summary ─┘
+                            (haiku, fresh loops)
+</code></pre></div></div>
+
+<p><strong>When to use it:</strong> the subtasks can’t be enumerated ahead of time because they depend on the specific input. The canonical case is open-ended research: you can’t know in advance which five sub-questions a research query decomposes into — the orchestrator reads the query and decides. This is the pattern the exercise builds.</p>
+
+<p>Sectioning is a workflow (you wrote the split); orchestrator-worker is agentic at the top (the model wrote the split). That difference is exactly the workflow-vs-agent line drawn through the parallelization pattern.</p>
+<h3 id="5-evaluator-optimizer">
+  
+  
+    <a href="#5-evaluator-optimizer" class="anchor-heading" aria-labelledby="5-evaluator-optimizer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Evaluator-optimizer
+  
+  
+</h3>
+    
+
+<p>One model <strong>generates</strong>, a second <strong>evaluates</strong> against explicit criteria, and if the work falls short, it goes back for revision — looping until it passes or you hit a cap.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>          ┌──────────────────────────────┐
+input → [generate] → [evaluate] ─ pass → output
+              ↑           │
+              └─ revise ──┘ (fail: feedback)
+</code></pre></div></div>
+
+<p><strong>When to use it:</strong> you have <strong>clear evaluation criteria</strong> and iterative refinement measurably helps — translation with a quality bar, code that must pass a review, a research synthesis that must cover certain points. The separation matters: a fresh model judging against a rubric catches things the generator, anchored on its own output, won’t. This is the same generate/judge split you’ll formalize as <strong>LLM-as-judge in Module 08 on evals</strong> — here it runs inline, as a control structure.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">generate_and_refine</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rubric</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_rounds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">draft</span> <span class="o">=</span> <span class="nf">one_shot</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">max_rounds</span><span class="p">):</span>
+        <span class="n">verdict</span> <span class="o">=</span> <span class="nf">judge</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">rubric</span><span class="p">)</span>           <span class="c1"># returns (passed, feedback)
+</span>        <span class="k">if</span> <span class="n">verdict</span><span class="p">.</span><span class="n">passed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">draft</span>
+        <span class="n">draft</span> <span class="o">=</span> <span class="nf">one_shot</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="se">\n\n</span><span class="s">Revise to fix:</span><span class="se">\n</span><span class="si">{</span><span class="n">verdict</span><span class="p">.</span><span class="n">feedback</span><span class="si">}</span><span class="se">\n\n</span><span class="sh">"</span>
+                         <span class="sa">f</span><span class="sh">"</span><span class="s">Current draft:</span><span class="se">\n</span><span class="si">{</span><span class="n">draft</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">draft</span>  <span class="c1"># best effort after the cap
+</span></code></pre></div></div>
+
+<p>We’ll make <code class="language-plaintext highlighter-rouge">judge</code> return <em>structured</em> output below — that’s how you get a reliable <code class="language-plaintext highlighter-rouge">passed</code> boolean instead of parsing prose.</p>
+<h2 id="sub-agents-in-depth-the-process-tree">
+  
+  
+    <a href="#sub-agents-in-depth-the-process-tree" class="anchor-heading" aria-labelledby="sub-agents-in-depth-the-process-tree"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sub-agents in depth: the process tree
+  
+  
+</h2>
+    
+
+<p>The orchestrator-worker and evaluator-optimizer patterns both rest on sub-agents, so let’s make the mental model precise. It’s the <strong>process tree</strong>.</p>
+
+<blockquote>
+  <p>📖 A <strong>sub-agent</strong> is a fresh inner agent loop — its own <code class="language-plaintext highlighter-rouge">messages</code> list, its own (possibly restricted) tool set, its own iteration budget — that the parent spawns to do a scoped piece of work and that returns a <strong>short summary string</strong> to the parent. The parent holds the goal; the children do scoped work in isolated context windows. The interface is exactly two natural-language strings: a <strong>task description going down</strong>, a <strong>summary coming up</strong>.</p>
+</blockquote>
+
+<p>Map it onto a Unix process tree and the engineering intuition snaps into focus. The parent <code class="language-plaintext highlighter-rouge">fork</code>s a child, hands it arguments (the task prompt), the child runs in its own address space (its own context window) where it can allocate and free as much as it wants without touching the parent’s memory, and on exit it returns a small status (the summary). The child’s heap — all that searching and reading — is torn down. Only the return value crosses back.</p>
+
+<p>Why spawn children at all? Three reasons, and they’re distinct:</p>
+
+<ol>
+  <li><strong>Context isolation</strong> (the Module 04 firewall motivation — we won’t re-teach it). The child can burn 80K tokens exploring; the parent absorbs three sentences. This keeps the parent’s window — and thus its coherence and its bill — bounded.</li>
+  <li><strong>Parallelism.</strong> Independent children run concurrently. Three research workers in parallel finish in roughly the time of the slowest one, not the sum.</li>
+  <li><strong>Specialization.</strong> Each child gets a tailored system prompt, a restricted tool set (a search worker doesn’t need <code class="language-plaintext highlighter-rouge">write_file</code>), and an appropriate model. A narrow agent on a narrow task is more reliable than a generalist juggling everything.</li>
+</ol>
+
+<p>There’s real evidence this pays off for the right shape of problem. Anthropic reported that a <strong>multi-agent research system</strong> — an orchestrator fanning out to parallel search sub-agents — substantially outperformed a single agent on broad, open-ended research queries, where the work parallelizes across many independent search directions and the bottleneck is breadth of exploration. The crucial caveat in the same breath: <strong>it burned far more tokens</strong> (multi-agent research used on the order of 15× the tokens of a plain chat interaction). Multi-agent buys you parallel breadth; you pay for it in tokens. That trade is great for high-value research and terrible for a task a single well-managed agent handles fine.</p>
+
+<p>Here’s an orchestrator-worker skeleton — the shape the exercise fleshes out. The orchestrator decomposes, fans out fresh Scout-style loops as workers (each with <code class="language-plaintext highlighter-rouge">web_search</code> / <code class="language-plaintext highlighter-rouge">search_knowledge</code> from Module 03), collects summaries, and synthesizes:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">research</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># 1. Orchestrator (opus) decomposes into sub-questions at runtime.
+</span>    <span class="n">sub_qs</span> <span class="o">=</span> <span class="nf">decompose</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>                  <span class="c1"># model decides how many &amp; what
+</span>
+    <span class="c1"># 2. Fan out one worker per sub-question, in parallel.
+</span>    <span class="k">with</span> <span class="nc">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">findings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">pool</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="n">research_worker</span><span class="p">,</span> <span class="n">sub_qs</span><span class="p">))</span>
+
+    <span class="c1"># 3. Orchestrator synthesizes the collected summaries.
+</span>    <span class="k">return</span> <span class="nf">synthesize</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">findings</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">research_worker</span><span class="p">(</span><span class="n">sub_q</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">A fresh Scout loop: web_search/search_knowledge only, returns a summary.</span><span class="sh">"""</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">sub_q</span><span class="p">}]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>                            <span class="c1"># bound the child
+</span>        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-haiku-4-5</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="n">WORKER_SYSTEM</span><span class="p">,</span>                 <span class="c1"># "research, then summarize..."
+</span>            <span class="n">tools</span><span class="o">=</span><span class="n">SEARCH_TOOLS</span><span class="p">,</span>                   <span class="c1"># restricted: no write/bash
+</span>            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">!=</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="nf">run_tools</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">)})</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="s">Worker hit its iteration cap.</span><span class="sh">"</span>
+</code></pre></div></div>
+<h2 id="the-lossy-interface-the-hard-part">
+  
+  
+    <a href="#the-lossy-interface-the-hard-part" class="anchor-heading" aria-labelledby="the-lossy-interface-the-hard-part"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The lossy interface: the hard part
+  
+  
+</h2>
+    
+
+<p>Everything above is the easy 80%. This is the 20% that decides whether your multi-agent system works or quietly produces garbage.</p>
+
+<blockquote>
+  <p>📖 The parent↔child interface is two natural-language strings: the <strong>task prompt down</strong> and the <strong>summary up</strong>. Both are <strong>lossy</strong>. Compression happens at both ends, and the parent never sees the child’s actual work — only the summary. There is no shared memory, no return of the full transcript, no type checking on natural language. Whatever didn’t make it into those two strings is gone.</p>
+</blockquote>
+
+<p>This is, in spirit, <strong>Conway’s law inside a single program</strong>: the structure of communication between your agents shapes — and limits — what they can produce together. Two failure modes dominate, and they’re the multi-agent analog of the sub-agent pitfalls flagged back in Module 04:</p>
+
+<p><strong>The child solves a slightly different problem than intended.</strong> The task prompt was ambiguous, or under-specified, or the child interpreted “find the auth bug” as “find <em>an</em> auth issue” and confidently reported a different one. The parent has no way to notice — the summary reads fine. You get a plausible answer to the wrong question. This is the most insidious failure because nothing errors; it just drifts.</p>
+
+<p><strong>The child buries the load-bearing detail.</strong> The child <em>did</em> the right work, found the exact file and line, then wrote a tidy summary — “fixed the issue in the parser” — that dropped the file path. The parent reads the summary, can’t act on it, and has to re-do the search it paid the child to do. The firewall worked; the interface leaked the one fact that mattered.</p>
+
+<p>Both failures come from treating a natural-language string as if it were a typed return value. The mitigations all push in the same direction — <strong>make the interface less lossy, or make the orchestration not depend on the model getting the interface right:</strong></p>
+
+<p><strong>1. Explicit, templated task prompts.</strong> Tell the child exactly what to report and in what shape. Not “investigate the bug” but “find the function that raises <code class="language-plaintext highlighter-rouge">KeyError</code> on empty input; report the <strong>file path and line number</strong>, the failing condition, and a one-line fix — not prose.” You’re writing the child’s contract. The Module 04 sub-agent prompt already gestured at this (“include file paths, line numbers, exact findings”); here it’s the primary defense.</p>
+
+<p><strong>2. Structured output for child results.</strong> This is the strongest single fix. Instead of free text, have the child return a schema-validated object. With the Anthropic SDK, define a Pydantic model and use <code class="language-plaintext highlighter-rouge">client.messages.parse(..., output_format=Model)</code> → <code class="language-plaintext highlighter-rouge">resp.parsed_output</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="k">class</span> <span class="nc">WorkerFinding</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">key_findings</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>    <span class="c1"># the load-bearing facts, itemized
+</span>    <span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>         <span class="c1"># urls / file:line — forces specificity
+</span>    <span class="n">confidence</span><span class="p">:</span> <span class="nb">float</span>          <span class="c1"># 0–1, so the parent can weight it
+</span>
+<span class="k">def</span> <span class="nf">research_worker</span><span class="p">(</span><span class="n">sub_q</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WorkerFinding</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-haiku-4-5</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+        <span class="n">system</span><span class="o">=</span><span class="n">WORKER_SYSTEM</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">SEARCH_TOOLS</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">sub_q</span><span class="p">}],</span>
+        <span class="n">output_format</span><span class="o">=</span><span class="n">WorkerFinding</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="p">.</span><span class="n">parsed_output</span>   <span class="c1"># a validated WorkerFinding, not a string
+</span></code></pre></div></div>
+
+<p>Now the “buried detail” failure is structurally harder: <code class="language-plaintext highlighter-rouge">sources</code> is a required field, so an empty list is a visible signal, not a silent omission. The schema <em>is</em> the contract, and the API enforces it.</p>
+
+<p><strong>3. Overlap, redundancy, and voting for high-stakes work.</strong> For a judgment you can’t afford to get wrong, run the sub-task more than once (the voting pattern) or give two workers overlapping scopes and reconcile. Redundancy is how you buy reliability across a lossy channel — same reason you’d checksum a flaky link.</p>
+
+<p><strong>4. Keep orchestration control flow as deterministic code.</strong> This is the big one. The loops, the fan-out, the barriers, the retry-on-empty-<code class="language-plaintext highlighter-rouge">sources</code> — write all of that in Python. Put the model <em>only inside the leaves</em>. <strong>Do not ask a model to manage other models freehand</strong> — “you are a manager agent, spawn whatever sub-agents you need and coordinate them” is the anti-pattern. A model orchestrating models compounds the lossy interface at every hop and gives you a system whose control flow you can neither see nor test. The orchestrator model should <em>decide the decomposition</em> (what the sub-questions are); your code should <em>execute the orchestration</em> (spawn, collect, barrier, synthesize). Decision in the model, mechanism in code.</p>
+
+<p>That last point is the synthesis of the whole module: the workflow-vs-agent line isn’t drawn once at the top of your system — you redraw it at every level. Let the model decide where deciding pays; let code do everything else.</p>
+<h2 id="cost-and-latency-think-like-a-scheduler">
+  
+  
+    <a href="#cost-and-latency-think-like-a-scheduler" class="anchor-heading" aria-labelledby="cost-and-latency-think-like-a-scheduler"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cost and latency: think like a scheduler
+  
+  
+</h2>
+    
+
+<p>Fan-out has a price, and the dataflow-scheduling intuition tells you when to pay it.</p>
+
+<p><strong>Tokens.</strong> N workers means roughly N× the worker tokens, plus the orchestrator’s decompose and synthesize calls (which re-send the collected summaries). This is why multi-agent runs 4–15× the tokens of a single agent — the high end being broad parallel research, the low end a modest two-or-three-worker fan-out. Before you fan out, ask whether a single well-managed agent with good context handling (Module 04) gets you there for a fifth of the cost. Often it does.</p>
+
+<p><strong>Pipeline vs. barrier.</strong> A <strong>barrier</strong> is a synchronization point where you wait for <em>all</em> parallel work to finish before proceeding — <code class="language-plaintext highlighter-rouge">pool.map</code> returns only when every worker is done. Barriers are correct when the next stage genuinely needs every prior result: the synthesizer can’t write the final answer until all the findings are in. But don’t barrier reflexively. If stage B only needs worker 1’s output, don’t make it wait for workers 2–5 — that’s the dataflow-scheduling lesson: synchronize on actual data dependencies, not on convenience. A barrier costs you the <strong>slowest worker</strong> every time; a pipeline that streams results as they finish hides that latency.</p>
+
+<p><strong>The slowest-worker tax.</strong> At a barrier, your latency is the <em>max</em> over workers, not the mean. One worker that takes a slow tool call or hits a retry stalls the whole stage. Mitigations: cap each worker’s iteration budget tightly, set per-call timeouts, and consider returning partial results if a worker exceeds its deadline rather than blocking the barrier indefinitely.</p>
+
+<p><strong>When multi-agent is worth it.</strong> Worth it: broad, parallelizable exploration where breadth is the bottleneck and the outcome is high-value (research, large-scale review, multi-document analysis). Not worth it: anything a single agent with truncation, compaction, and a plan file handles inside its window. The honest default is <em>one good agent</em>; reach for many only when the problem’s shape — independent, parallel, breadth-bound — actually rewards it.</p>
+<h2 id="️-exercise">
+  
+  
+    <a href="#️-exercise" class="anchor-heading" aria-labelledby="️-exercise"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise
+  
+  
+</h2>
+    
+
+<p>Build an <strong>orchestrator-worker research agent</strong> on top of Scout, then bolt an <strong>evaluator-optimizer</strong> loop onto it, and measure it against a single Scout instance. This exercises every concept in the module: runtime decomposition, parallel sub-agents, the structured-output fix for the lossy interface, the generate/judge loop, and the cost/latency reality.</p>
+
+<p>Build it in stages.</p>
+
+<p><strong>(a) The orchestrator.</strong> Write <code class="language-plaintext highlighter-rouge">decompose(question) -&gt; list[str]</code> using <code class="language-plaintext highlighter-rouge">claude-opus-4-8</code>. Prompt it to break the research question into <strong>3–5 independent sub-questions</strong>, and return them as structured output (a Pydantic <code class="language-plaintext highlighter-rouge">Decomposition</code> model with a <code class="language-plaintext highlighter-rouge">sub_questions: list[str]</code> field) so you get a clean list, not prose you have to parse. This is the agentic leaf at the top — the model decides the decomposition.</p>
+
+<p><strong>(b) The workers, in parallel, with structured returns.</strong> Write <code class="language-plaintext highlighter-rouge">research_worker(sub_q) -&gt; WorkerFinding</code> as a fresh Scout loop on <code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code> (or <code class="language-plaintext highlighter-rouge">claude-sonnet-4-6</code> if Haiku struggles), restricted to <code class="language-plaintext highlighter-rouge">web_search</code> and <code class="language-plaintext highlighter-rouge">search_knowledge</code> — no <code class="language-plaintext highlighter-rouge">write_file</code>, no <code class="language-plaintext highlighter-rouge">run_bash</code>. Return the <code class="language-plaintext highlighter-rouge">WorkerFinding</code> Pydantic model from the lossy-interface section (<code class="language-plaintext highlighter-rouge">key_findings</code>, <code class="language-plaintext highlighter-rouge">sources</code>, <code class="language-plaintext highlighter-rouge">confidence</code>) via <code class="language-plaintext highlighter-rouge">messages.parse</code>. Fan out one worker per sub-question <strong>in parallel</strong> with <code class="language-plaintext highlighter-rouge">concurrent.futures.ThreadPoolExecutor</code> (or <code class="language-plaintext highlighter-rouge">asyncio</code> + <code class="language-plaintext highlighter-rouge">AsyncAnthropic</code>). This barrier is justified — synthesis needs all findings.</p>
+
+<p><strong>(c) Synthesis.</strong> Write <code class="language-plaintext highlighter-rouge">synthesize(question, findings) -&gt; str</code> on <code class="language-plaintext highlighter-rouge">claude-opus-4-8</code>: hand it the original question and all the <code class="language-plaintext highlighter-rouge">WorkerFinding</code> objects (their structure makes the prompt clean — itemized findings with sources), and have it write the final answer with the sources woven in.</p>
+
+<p><strong>(d) The evaluator-optimizer loop.</strong> Write <code class="language-plaintext highlighter-rouge">judge(answer, question) -&gt; Verdict</code> on <code class="language-plaintext highlighter-rouge">claude-opus-4-8</code>, scoring the synthesis against a small rubric (coverage of the sub-questions, are claims sourced, internal consistency) and returning a structured <code class="language-plaintext highlighter-rouge">Verdict(passed: bool, score: int, feedback: str)</code>. If <code class="language-plaintext highlighter-rouge">passed</code> is false, send the synthesis back through <code class="language-plaintext highlighter-rouge">synthesize</code> <strong>once</strong> with the judge’s feedback appended. Cap at one revision — this is a control structure, not an infinite polish loop.</p>
+
+<p><strong>(e) The bake-off — this is the point of the exercise.</strong> Run the same research question two ways: through your multi-agent pipeline, and through a single Scout instance with the same search tools. For each, log to <code class="language-plaintext highlighter-rouge">notes.md</code>: <strong>answer quality</strong> (your own read, plus the judge’s score on both), <strong>total tokens</strong> (sum <code class="language-plaintext highlighter-rouge">usage.input_tokens + usage.output_tokens</code> across every call — orchestrator, all workers, synthesis, judge), and <strong>wall-clock latency</strong>.</p>
+
+<p><strong>What to observe and write up.</strong> You should see the multi-agent run cost several times the tokens of the single agent (quantify it — is it 4×? 10×?), take comparable or <em>better</em> wall-clock time despite more work (because the workers ran in parallel), and produce a broader, better-sourced answer on a genuinely broad question. Then try a <strong>narrow</strong> question — one a single agent handles in three tool calls — and watch the multi-agent version pay the full fan-out tax for no quality gain. That contrast is the entire module in one experiment: multi-agent earns its cost only when the problem’s shape rewards parallel breadth. Note in <code class="language-plaintext highlighter-rouge">notes.md</code> which question type each architecture won, and why.</p>
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Orchestration complexity scales badly.</strong> Agents waiting on agents waiting on agents; a worker that itself spawns workers; race conditions when two children touch shared state (a file, a database, a rate limit); cascading failures where one child’s bad output poisons the synthesis. Every layer of model-managed coordination multiplies the failure surface. This is the strongest argument for keeping orchestration in deterministic code: code’s failure modes are the ones you already know how to handle.</li>
+  <li><strong>The lossy hand-off causes wrong-problem solving.</strong> The single most common subtle bug: a child confidently, fluently answers a <em>slightly different question</em> than the one intended, and the parent has no way to detect it because the summary reads perfectly. Templated prompts and structured output reduce it; they don’t eliminate it. Build in a verification step for anything load-bearing.</li>
+  <li><strong>Cost blowup.</strong> Multi-agent routinely costs 4–15× the tokens of a single agent. Teams discover this when the bill arrives, not when they design the system. Budget the token cost <em>before</em> you fan out, and re-check whether a single agent suffices.</li>
+  <li><strong>Coordination latency — the slowest worker bottlenecks the barrier.</strong> Your p99 latency is dominated by the one worker that hit a retry or a slow tool. Tight per-worker iteration caps, per-call timeouts, and partial-result fallbacks are not optional at scale.</li>
+  <li><strong>Non-determinism compounds across agents.</strong> One non-deterministic agent is hard enough to debug; five in a tree, each making model-driven decisions, produce a different trajectory every run. Reproducing a failure becomes a research project. This is what makes <strong>observability (Module 09)</strong> non-negotiable for multi-agent systems — you need traces that span the whole tree, with every task prompt and summary captured, or you’re debugging blind.</li>
+  <li><strong>Over-engineering with multi-agent when a single agent suffices.</strong> The most common architectural mistake in the whole space: reaching for orchestration because it’s impressive, when a single agent with the context management from Module 04 would do the job faster, cheaper, and more reliably. “Could one good agent do this?” should be the first question, asked seriously, every time.</li>
+  <li><strong>The “LLM orchestrating LLMs freehand” anti-pattern.</strong> Giving a model a <code class="language-plaintext highlighter-rouge">spawn_agent</code> tool and telling it to coordinate the team itself feels elegant and is a trap: it compounds the lossy interface at every hop, makes the control flow invisible and untestable, and fails in ways you can’t reproduce. Deterministic code orchestration — model decides the decomposition, code executes the fan-out, barrier, and synthesis — is what holds up in production.</li>
+</ul>
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Give a one-sentence test that decides whether a given piece of your system is a workflow or an agent. (Hint: it’s about who chooses the next step.)</li>
+  <li>You’re handed a task: “classify incoming support emails and reply.” Which pattern(s) fit, and where — if anywhere — does a genuinely agentic leaf belong?</li>
+  <li>Sectioning and orchestrator-worker both fan out to parallel sub-agents. What is the one difference, and why does it put them on opposite sides of the workflow/agent line?</li>
+  <li>A worker reports <code class="language-plaintext highlighter-rouge">key_findings: ["the rate limit is 600 rpm"]</code> but <code class="language-plaintext highlighter-rouge">sources: []</code>. Your code is about to pass this to synthesis. What should it do, and which production issue does that guard address?</li>
+  <li>Your multi-agent research agent costs 12× a single agent and produces a marginally better answer on your test question. What’s your next move, and what does it tell you about the question?</li>
+  <li>Why is “give the model a tool to spawn and manage other agents” tempting, and why is it the wrong default? Phrase the fix as “decision in <em>__, mechanism in __</em>.”</li>
+</ul>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Anthropic, <strong>“Building Effective Agents”</strong> — the source for the workflow-vs-agent distinction and all five composable patterns. Read it twice; the taxonomy here is its taxonomy.</li>
+  <li>Anthropic engineering, <strong>“How we built our multi-agent research system”</strong> — the orchestrator-worker research case study, including the outperformance result and the ~15× token cost that came with it. The honest accounting of the tradeoff is the valuable part.</li>
+  <li>The Anthropic <strong>Messages API</strong> docs on <strong>structured output</strong> (<code class="language-plaintext highlighter-rouge">messages.parse</code>, <code class="language-plaintext highlighter-rouge">output_format</code>) — the mechanism that makes the parent↔child interface typed instead of lossy.</li>
+  <li>Module 04 (sub-agents as context firewalls — the motivation this module builds on), Module 08 (evals — where the evaluator-optimizer judge becomes LLM-as-judge), and Module 09 (observability — how you debug a non-deterministic agent tree).</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/07-frameworks.html">Module 07 — The Framework Landscape</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

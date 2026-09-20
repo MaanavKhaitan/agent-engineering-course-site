@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(21)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(21) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(21) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(21) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Glossary | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Glossary" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Glossary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"Glossary","url":"/agent-engineering-course-site/glossary.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="glossary">
+  
+  
+    <a href="#glossary" class="anchor-heading" aria-labelledby="glossary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Glossary
+  
+  
+</h1>
+    
+
+<p>Terms used throughout the course, defined plainly. Cross-references in <strong>bold</strong>.</p>
+<h3 id="core">
+  
+  
+    <a href="#core" class="anchor-heading" aria-labelledby="core"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Core
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Token</strong> — the atomic unit a model reads/writes; a subword chunk (~4 chars of English) from a fixed vocabulary, produced by a tokenizer (usually byte-pair encoding). Pricing, context limits, and several model quirks are all downstream of tokenization. (Module 1)</li>
+  <li><strong>Context window</strong> — the fixed-size buffer of tokens a model can attend to in one call (e.g. 200K–1M). The transcript must fit inside it. (Modules 1, 4)</li>
+  <li><strong>Tokenizer</strong> — the deterministic codec mapping text ↔ integer token IDs. Frozen at training time. Use the provider’s <code class="language-plaintext highlighter-rouge">count_tokens</code>, never a different model’s tokenizer.</li>
+  <li><strong>Temperature</strong> — sampling knob; divides logits before softmax. <code class="language-plaintext highlighter-rouge">T=0</code> ≈ greedy/deterministic-ish; higher = more random/creative. (Module 1)</li>
+  <li><strong>Logits / softmax</strong> — the model’s raw per-token scores (logits) turned into a probability distribution (softmax) that’s sampled from.</li>
+  <li><strong>Base model</strong> — the LLM itself: a stateless function from tokens-in to tokens-out. No memory, no tools, no clock. (Module 1)</li>
+</ul>
+<h3 id="agents">
+  
+  
+    <a href="#agents" class="anchor-heading" aria-labelledby="agents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Agents
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Agent</strong> — a base model placed in a closed loop with an environment: it picks an action, the harness executes it, the result is fed back, repeat until done. (Module 3)</li>
+  <li><strong>Agent loop</strong> — the <code class="language-plaintext highlighter-rouge">while</code> loop at the center of every agent: call model → execute tool calls → append results → call model again, until the model stops calling tools. (Module 3)</li>
+  <li><strong>Harness</strong> — everything around the model in the loop: tool implementations, the loop, context management, permissions, state, orchestration. Where most engineering lives.</li>
+  <li><strong>Tool / function calling</strong> — the trained ability of a model to emit a structured request to call a named function with JSON arguments, instead of (or with) prose. The model requests; the harness executes. (Module 2)</li>
+  <li><strong>Tool schema</strong> — name + description + JSON Schema for a tool’s parameters, sent to the model. The model reads the description at runtime; description quality changes behavior.</li>
+  <li><strong>System prompt</strong> — the engineered prefix configuring the agent’s behavior, conventions, and environment facts; sent on every call.</li>
+  <li><strong>Sub-agent</strong> — a child agent spawned with its own fresh context window and (often restricted) toolset; runs a scoped task and returns only a summary. Used as a <strong>context firewall</strong>. (Modules 4, 6)</li>
+  <li><strong>MCP (Model Context Protocol)</strong> — a standard protocol for exposing tools/data to any agent harness (“USB for agent tools”). Write an integration once, use it across products. (Modules 7, 13)</li>
+</ul>
+<h3 id="context--memory">
+  
+  
+    <a href="#context--memory" class="anchor-heading" aria-labelledby="context--memory"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Context &amp; memory
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Context engineering</strong> — the discipline of deciding what goes into the context window and when, to keep the agent effective and cheap. (Module 4)</li>
+  <li><strong>Compaction</strong> — summarizing older transcript turns and replacing them, to stay under the context limit. (Module 4)</li>
+  <li><strong>Context editing / pruning</strong> — clearing stale tool results or thinking blocks from the transcript (removed, not summarized). (Module 4)</li>
+  <li><strong>Context rot</strong> — degradation of retrieval/attention quality as the transcript grows, <em>before</em> the hard limit is hit. (Module 4)</li>
+  <li><strong>Memory (long-term)</strong> — state persisted outside the context window (files, a memory tool, a store) that survives across sessions. (Modules 4, 12)</li>
+  <li><strong>Filesystem-as-memory</strong> — the pattern of having the agent write plans/findings/state to files and re-read them, instead of holding everything in context (spilling to disk under memory pressure). (Modules 4, 13)</li>
+</ul>
+<h3 id="retrieval">
+  
+  
+    <a href="#retrieval" class="anchor-heading" aria-labelledby="retrieval"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Retrieval
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>RAG (Retrieval-Augmented Generation)</strong> — fetching relevant documents and putting them in context before the model answers. (Module 5)</li>
+  <li><strong>Embedding</strong> — a vector representation of text such that similar meanings are nearby; the basis of semantic search. (Module 5)</li>
+  <li><strong>Vector database</strong> — a store optimized for nearest-neighbor search over embeddings (Chroma, pgvector, etc.). (Module 5)</li>
+  <li><strong>Agentic RAG</strong> — retrieval driven by the agent itself: it decides when/what to search, reads, critiques, and re-searches in a loop, rather than a single fixed retrieval step. (Module 5)</li>
+  <li><strong>Chunking</strong> — splitting documents into retrievable pieces. (Module 5)</li>
+  <li><strong>Reranking</strong> — a second, more precise scoring pass over retrieved candidates. (Module 5)</li>
+</ul>
+<h3 id="orchestration">
+  
+  
+    <a href="#orchestration" class="anchor-heading" aria-labelledby="orchestration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Orchestration
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Workflow</strong> — a system where LLM calls and tools are orchestrated through <em>predefined code paths</em>. Predictable. (Module 6)</li>
+  <li><strong>Agent (vs workflow)</strong> — a system where the <em>model</em> dynamically directs its own process and tool use. Flexible. (Module 6)</li>
+  <li><strong>Orchestrator-worker</strong> — a coordinator agent that decomposes a task and delegates subtasks to worker sub-agents. (Module 6)</li>
+  <li><strong>Evaluator-optimizer</strong> — one model generates, another critiques/scores, loop until good. (Module 6)</li>
+  <li><strong>Routing</strong> — classifying an input and sending it to the appropriate specialized handler. (Module 6)</li>
+  <li><strong>Handoff</strong> — one agent explicitly transferring control (and context) to another (OpenAI Agents SDK term). (Module 7)</li>
+</ul>
+<h3 id="evaluation">
+  
+  
+    <a href="#evaluation" class="anchor-heading" aria-labelledby="evaluation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Evaluation
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Eval (evaluation)</strong> — any measurement of whether a model/agent does what you want. Usually private and bespoke to your task. (Module 8)</li>
+  <li><strong>Benchmark</strong> — a <em>standardized, shared</em> eval used to compare models (e.g. SWE-bench). All benchmarks are evals; most evals aren’t benchmarks. (Module 8)</li>
+  <li><strong>Grader</strong> — the component that scores an output: programmatic (code checks), LLM-as-judge, or human. (Module 8)</li>
+  <li><strong>LLM-as-judge</strong> — using a model to score outputs against a rubric. A fallible component you must calibrate. (Module 8)</li>
+  <li><strong>pass@k / pass^k</strong> — succeeds in <em>at least one</em> of k tries (pass@k) vs. <em>all</em> k tries (pass^k, the reliability metric). (Module 8)</li>
+  <li><strong>Regression eval</strong> — a fixed suite run on every change to catch silent degradation; CI for agents. (Module 8)</li>
+  <li><strong>Contamination</strong> — a benchmark’s questions leaking into training data, inflating scores. (Module 8)</li>
+  <li><strong>Goodhart’s law</strong> — “when a measure becomes a target, it ceases to be a good measure”; overfitting to an eval set. (Module 8)</li>
+</ul>
+<h3 id="observability--reliability">
+  
+  
+    <a href="#observability--reliability" class="anchor-heading" aria-labelledby="observability--reliability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Observability &amp; reliability
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Trace / span</strong> — a trace is the full record of one agent run; spans are the nested steps (model calls, tool calls) within it. (Module 9)</li>
+  <li><strong>LLM-as-judge online eval</strong> — sampling production traces and grading them continuously to catch drift. (Module 9)</li>
+  <li><strong>Prompt caching</strong> — provider feature that caches a request’s stable prefix so repeat requests pay ~10% for the cached part. Requires an append-only, prefix-stable transcript. (Module 10)</li>
+  <li><strong>Model tiering / routing</strong> — sending each subtask to the cheapest model that can handle it. (Module 10)</li>
+  <li><strong>Quadratic transcript</strong> — because the whole transcript is re-sent each loop iteration, naive token cost grows ~O(n²) over a task. (Module 10)</li>
+  <li><strong>Structured output / constrained decoding</strong> — forcing the model’s output to conform to a schema (e.g. JSON), validated at the boundary. (Modules 1, 10)</li>
+</ul>
+<h3 id="security">
+  
+  
+    <a href="#security" class="anchor-heading" aria-labelledby="security"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Prompt injection</strong> — adversarial instructions hidden in data the agent reads (a web page, a file) that the model may follow; “the SQL injection of this stack.” (Module 11)</li>
+  <li><strong>Excessive agency</strong> — giving an agent more capability/autonomy than the task needs, enlarging blast radius. (Module 11)</li>
+  <li><strong>Permission engine</strong> — the policy layer between “model emitted a tool call” and “tool runs”: allowlists, gating, human confirmation. (Modules 3, 11)</li>
+  <li><strong>Sandboxing</strong> — isolating tool/code execution (containers, VMs, seccomp) to limit blast radius. (Module 11)</li>
+  <li><strong>Human-in-the-loop (HITL)</strong> — requiring human approval for high-risk or irreversible actions. (Modules 11, 12)</li>
+  <li><strong>Guardrail</strong> — an input/output filter or check that blocks unsafe content or actions. (Module 11)</li>
+</ul>
+<h3 id="deployment">
+  
+  
+    <a href="#deployment" class="anchor-heading" aria-labelledby="deployment"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deployment
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Durable execution</strong> — an execution model (e.g. Temporal) that journals every step so a crashed run resumes mid-way instead of restarting. (Module 12)</li>
+  <li><strong>Checkpointing</strong> — persisting agent state so a run can be paused/resumed/recovered (LangGraph checkpointer, etc.). (Module 12)</li>
+  <li><strong>Long-running / persistent agent</strong> — an agent that operates over hours/days against an ongoing goal, across many context windows and sessions. (Modules 12, 13)</li>
+  <li><strong>Background agent</strong> — an agent that runs asynchronously (often in the cloud), not in a live request/response. (Modules 12, 13)</li>
+  <li><strong>Event-sourcing</strong> — modeling state as an append-only log of events; the natural fit for durable, resumable agents. (Module 12)</li>
+</ul>
+<h3 id="frontier">
+  
+  
+    <a href="#frontier" class="anchor-heading" aria-labelledby="frontier"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Frontier
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Goal-directed loop / outer loop</strong> — restarting the agent against a goal repeatedly until done (vs. the inner tool loop). The “loop engineering” discourse. (Module 13)</li>
+  <li><strong>Computer use</strong> — an agent controlling a GUI via screenshots + mouse/keyboard actions. (Module 13)</li>
+  <li><strong>Time horizon (METR)</strong> — the length of task an agent can complete autonomously at some reliability; observed to be doubling every few months. (Module 13)</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

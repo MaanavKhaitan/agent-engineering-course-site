@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(12)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(12) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(12) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(12) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>8 · Evals | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="8 · Evals" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="8 · Evals" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"8 · Evals","url":"/agent-engineering-course-site/08-evals.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-08--evaluation--testing">
+  
+  
+    <a href="#module-08--evaluation--testing" class="anchor-heading" aria-labelledby="module-08--evaluation--testing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 08 — Evaluation &amp; Testing
+  
+  
+</h1>
+    
+
+<p>You have built an agent. Scout reads files, runs bash, searches, retrieves from a knowledge base, manages its own context. It works in the demo. Now your manager asks the question every engineer eventually has to answer about every system they ship: <em>how do you know it works?</em> — and, the harder follow-up, <em>how will you know when it stops working?</em></p>
+
+<p>For a deterministic service you already have the answer in your bones. You write unit tests. Same input, same output, green check, merge. CI runs them on every commit; a regression turns the build red before it reaches a user. This discipline is so deeply wired into how senior engineers think that it feels less like a practice and more like gravity.</p>
+
+<p>This module is about the uncomfortable discovery that <strong>gravity does not work here.</strong> An agent is a stochastic system sitting on top of a dependency — the model — that can change behavior underneath you without a single line of your code changing. The testing instincts that have served you for a decade do not transfer cleanly, and the places where they break are specific and worth naming precisely. So we are going to do two things. First, take your testing intuition apart and show exactly which struts snap under nondeterminism. Then rebuild — not from unit testing, but from <strong>benchmarking and statistics</strong>, which is the tradition the field actually borrowed from. By the end you will have built a real, reusable eval harness for Scout, used it to make a genuine ship/no-ship decision, and calibrated the judge that grades it.</p>
+
+<p>This is the most important module in the course. Not because evals are glamorous — they are the opposite of glamorous, which is precisely why undisciplined teams skip them and ship agents that fail silently in production. The teams that ship <em>reliable</em> agents treat eval engineering as first-class work, comparable in effort to building the product itself. By the end of this module you will understand why.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you will be able to:</p>
+
+<ul>
+  <li>Explain precisely why you cannot unit-test an agent, in terms of four failures: nondeterminism, the space of acceptable answers, continuous quality, and dependency drift (“prompt rot”).</li>
+  <li>Distinguish an <strong>eval</strong> (your private, bespoke measurement) from a <strong>benchmark</strong> (a shared, standardized eval for comparing models), and know which one answers which question.</li>
+  <li>Decompose any eval into its three parts — <strong>dataset</strong>, <strong>grader</strong>, <strong>aggregation</strong> — and choose well within each.</li>
+  <li>Pick the right grader: programmatic, LLM-as-judge, or human — and know the trust ordering and failure mode of each.</li>
+  <li>Aggregate stochastic runs into <strong>rates with confidence intervals</strong>, and distinguish <code class="language-plaintext highlighter-rouge">pass@k</code> from <code class="language-plaintext highlighter-rouge">pass^k</code>.</li>
+  <li>Run a real eval operationally: isolated fixtures, mocked side effects, parallelism, smoke-vs-full tiering, full transcript capture.</li>
+  <li>Use evals to make decisions: regression gating in CI, model selection, drift detection — and validate the grader itself.</li>
+  <li>Build the production flywheel where every escalation becomes a permanent regression case.</li>
+</ul>
+
+<p>A note on scope. Evals consume <strong>traces</strong> — the full transcript of an agent run — and producing those traces well is Module 09’s job. Here we treat the trace as the raw material of a grade; there we make it observable. The <strong>evaluator-optimizer</strong> loop from Module 06 is the same machinery pointed inward at generation time rather than at CI; we connect them but don’t re-teach orchestration.</p><hr />
+<h2 id="1-why-your-testing-intuition-breaks">
+  
+  
+    <a href="#1-why-your-testing-intuition-breaks" class="anchor-heading" aria-labelledby="1-why-your-testing-intuition-breaks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Why your testing intuition breaks
+  
+  
+</h2>
+    
+
+<p>Let’s be specific about what a unit test assumes, because every assumption is about to fail.</p>
+
+<p>A unit test asserts that <code class="language-plaintext highlighter-rouge">f(x) == expected</code>. For this to be a useful, stable test, four things must hold: <code class="language-plaintext highlighter-rouge">f</code> is <strong>deterministic</strong> (same <code class="language-plaintext highlighter-rouge">x</code>, same output); there is a <strong>single correct</strong> <code class="language-plaintext highlighter-rouge">expected</code>; correctness is <strong>binary</strong> (equal or not); and <code class="language-plaintext highlighter-rouge">f</code>’s <strong>dependencies are pinned</strong> (nothing changes underneath without a version bump you control). For an agent built on an LLM, all four fail at once.</p>
+
+<p><strong>Nondeterminism: same input, different output.</strong> Call the model twice with identical inputs and you get two different completions. Sampling is probabilistic; even at <code class="language-plaintext highlighter-rouge">temperature=0</code> you are not guaranteed bit-identical output across requests, because batching, hardware, and kernel nondeterminism leak through. So <code class="language-plaintext highlighter-rouge">assert agent(task) == expected</code> is not occasionally flaky — it is <em>categorically</em> the wrong shape. There is no single output to assert against. Your CI mental model — green is green, red is red, a flake is a bug to be fixed — assumes determinism that does not exist here. A test that passes 80% of the time isn’t a broken test; it’s an accurate measurement of an 80%-reliable behavior, and the <em>information is in the 80%</em>, not in the pass/fail of any single run.</p>
+
+<p><strong>No single correct answer: a space, not a point.</strong> Ask Scout to “summarize this incident report” and there is no canonical string. There is a <em>region</em> of acceptable summaries — many phrasings, lengths, and emphases that a competent human would call correct — surrounded by a region of unacceptable ones (missed the root cause, hallucinated a service name, three paragraphs of fluff). Equality is meaningless. The question is never “does the output equal X” but “does the output land <strong>inside the acceptable region</strong>,” and that region is defined by <em>properties</em>, not by a golden string.</p>
+
+<p><strong>Continuous quality: better and worse, not pass and fail.</strong> Two summaries can both be acceptable while one is clearly better. Quality is a scalar — frequently a fuzzy, human-judgment scalar — not a boolean. A prompt change might move average quality from 7.2 to 7.6 on some rubric. There is no unit-test vocabulary for “got somewhat better.” Your suite needs to express <em>distributions over a quality scale</em>, and to tell a real 0.4 improvement from noise.</p>
+
+<p><strong>Dependency drift — “prompt rot”: the one that should scare you most.</strong> In a normal service, dependencies are pinned. <code class="language-plaintext highlighter-rouge">requests==2.31.0</code> behaves identically today and next year; an upgrade is an explicit, reviewable diff, and if it breaks an interface the <em>compiler or type checker tells you at build time</em>. The model is a dependency with none of these properties. The provider ships <code class="language-plaintext highlighter-rouge">claude-sonnet-4-6</code> → <code class="language-plaintext highlighter-rouge">claude-sonnet-4-7</code> and your behavior shifts — usually better, sometimes subtly worse on <em>your specific</em> prompts, which were implicitly tuned against quirks of the old version. Your code did not change. Your tests (if you wrote unit tests) still pass, because they assert on your code, not on model behavior. <strong>There is no compiler, no type system, no failing build to catch a model upgrade silently changing what your agent does.</strong> This is the deepest reason agents need evals: they are the <em>only</em> mechanism that turns “the model changed” from an invisible, existential risk into a visible, measured diff.</p>
+
+<p>📖 The term <strong>prompt rot</strong> names the slow divergence between a prompt and the model it was tuned against. Your prompt is a contract co-evolved with a specific model’s behavior. Upgrade the model and the contract is silently renegotiated. Without an eval suite you find out from a user, in production, weeks later.</p>
+
+<p>So unit testing is the wrong tool — not because testing is wrong but because its assumptions don’t hold. What <em>does</em> hold its assumptions? <strong>Benchmarking and statistics.</strong> You don’t ask “is this one output correct.” You run a <strong>population of tasks many times</strong> and <strong>score the results statistically</strong> — distributions, rates, confidence intervals. You stop thinking like someone asserting equality and start thinking like someone running an A/B test or a clinical trial: measuring a noisy effect against a baseline and asking whether the difference is real. <em>That</em> mental shift is the whole module. Everything below is mechanics in service of it.</p>
+
+<p>✅ <strong>The reframe in one line.</strong> Unit testing asks “is this output correct?” Evaluation asks “across a representative population of tasks, run enough times, how often does my agent land in the acceptable region — and is that rate meaningfully different from my baseline?”</p><hr />
+<h2 id="2-eval-vs-benchmark">
+  
+  
+    <a href="#2-eval-vs-benchmark" class="anchor-heading" aria-labelledby="2-eval-vs-benchmark"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Eval vs benchmark
+  
+  
+</h2>
+    
+
+<p>These words get used interchangeably and they should not be. The distinction determines which question you’re answering.</p>
+
+<p>A <strong>benchmark</strong> is the standardized, shared, leaderboard kind of eval. SWE-bench, GPQA, MMLU, τ-bench. A fixed dataset, a fixed grader, published so everyone scores the same way. Its purpose is to compare <strong>models</strong> on a common axis — it’s how you read “the new model is 12 points better at agentic coding.” Benchmarks are public goods: they let the whole field talk about capability in shared units.</p>
+
+<p>An <strong>eval</strong> is <em>any</em> measurement of system quality. Usually <strong>private</strong> and <strong>bespoke to your task</strong> — your cases, your grader, your definition of “good.” Its purpose is to answer “does <strong>my</strong> system do <strong>my</strong> job well enough to ship?”</p>
+
+<p>The clean way to hold the relationship: <strong>all benchmarks are evals; most evals are not benchmarks.</strong> A benchmark is the special case of an eval that has been standardized and shared for cross-model comparison.</p>
+
+<p>The two answer different questions and you need both:</p>
+
+<ul>
+  <li><strong>Benchmarks → model selection.</strong> “Is Opus or Sonnet better at the kind of work Scout does?” Read public benchmarks for a first cut, then <em>confirm on your own eval</em> — see below for why you can’t stop at the benchmark.</li>
+  <li><strong>Private evals → does my system work.</strong> No public benchmark measures whether <em>Scout</em> resolves <em>your customers’</em> tickets. Only a private eval built from your tasks does. This is the one you actually gate ships on.</li>
+</ul>
+
+<p>Three reasons you cannot outsource your judgment to public benchmarks:</p>
+
+<ul>
+  <li><strong>Contamination.</strong> Benchmarks leak into training data. A model scoring well on SWE-bench may have <em>seen</em> SWE-bench tasks. The score conflates capability with memorization, and you can’t tell the ratio from outside.</li>
+  <li><strong>Goodhart’s law.</strong> “When a measure becomes a target, it ceases to be a good measure.” Public benchmarks are targets the entire industry optimizes toward. Models get tuned to them, which inflates scores relative to the messy real tasks the benchmark was meant to <em>proxy</em>.</li>
+  <li><strong>Construct-validity gap.</strong> A benchmark measures a <em>proxy</em> for what you care about. SWE-bench measures “resolves GitHub issues in these 12 Python repos.” That is genuinely informative and genuinely not your codebase, your stack, your bug distribution, your definition of an acceptable fix.</li>
+</ul>
+
+<p>This is why <strong>your private eval suite is a strategic asset — a moat.</strong> Anyone can read the same public leaderboard. The thing competitors cannot copy is your curated set of <em>your</em> real tasks with <em>your</em> graders, accumulated from <em>your</em> production failures. It is the most durable artifact in your whole agent stack: models churn, frameworks churn, but a well-curated eval suite compounds in value every month you feed it. Treat it like production code, because it is.</p><hr />
+<h2 id="3-the-anatomy-of-an-eval">
+  
+  
+    <a href="#3-the-anatomy-of-an-eval" class="anchor-heading" aria-labelledby="3-the-anatomy-of-an-eval"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. The anatomy of an eval
+  
+  
+</h2>
+    
+
+<p>Every eval, from a one-off script to a 5,000-case suite, has the same three parts. Get all three right or the number lies to you.</p>
+
+<blockquote>
+  <p><strong>Dataset</strong> (what to test on) → <strong>Grader</strong> (how to score one run) → <strong>Aggregation</strong> (how to turn many noisy scores into a decision)</p>
+</blockquote>
+<h3 id="3a-the-dataset--cases-but-a-case-is-a-whole-world">
+  
+  
+    <a href="#3a-the-dataset--cases-but-a-case-is-a-whole-world" class="anchor-heading" aria-labelledby="3a-the-dataset--cases-but-a-case-is-a-whole-world"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3a. The dataset — cases, but a “case” is a whole world
+  
+  
+</h3>
+    
+
+<p>A case is one task you grade the agent on. For a <em>prompt</em> eval, a case is an input and a grading key. For an <strong>agent</strong>, a case is heavier: it is an entire <strong>environment / fixture</strong> — a directory of files, a seeded database, mocked tool responses, an initial state — because an agent <em>acts on</em> an environment, not just <em>responds to</em> a string. “Fix the failing test in this repo” only means something if “this repo” is a concrete, frozen tree of files.</p>
+
+<p>Two properties make a dataset trustworthy:</p>
+
+<ul>
+  <li><strong>Frozen and reproducible.</strong> A case must produce the same starting world every single time you run it, on any machine, today and in six months. If the fixture drifts — a file edited in place, a date that depends on <code class="language-plaintext highlighter-rouge">now()</code>, a network call to a live service — your eval measures the drift, not the agent. Freeze the fixture; copy it fresh for each trial (we do exactly this in the exercise).</li>
+  <li><strong>Tagged for slicing.</strong> Each case carries metadata: <code class="language-plaintext highlighter-rouge">category</code> (bugfix / extraction / qa), <code class="language-plaintext highlighter-rouge">difficulty</code>, <code class="language-plaintext highlighter-rouge">source</code>, whatever cleaves your task space. You almost never want one aggregate number; you want <strong>per-slice</strong> numbers, because “82% overall” can hide “bugfix collapsed from 90% to 60% while extraction rose and masked it.” Tags are how you see the collapse.</li>
+</ul>
+
+<p>Where cases come from — three sources, and the order matters:</p>
+
+<ol>
+  <li><strong>Hand-authored seeds.</strong> You sit down and write the obvious tasks the agent must handle. This bootstraps the suite and encodes your spec. It is also where every suite starts and where weak suites stop.</li>
+  <li><strong>Production-mined failures — the flywheel, and the most valuable source by far.</strong> Every time Scout fails in production — an escalation, a human correction, a thumbs-down, a reverted commit — you <strong>freeze that exact situation as a new case</strong> with the correct outcome as its grading key. Now it is a permanent regression test. The agent can never silently re-break it. This is the engine that makes an eval suite a moat: it <em>grows from reality</em>, automatically covering the failures that actually happen rather than the ones you imagined. A team with a disciplined flywheel pulls away from one without it every single week.</li>
+  <li><strong>Synthetic and adversarial.</strong> Use a model to <em>generate</em> cases — permute parameters, manufacture edge cases, write deliberately nasty inputs (injection attempts, contradictory instructions, empty files, enormous files). Cheap breadth, but lower trust: synthetic cases can be unrealistic or mislabeled, so they supplement seeds and mined cases rather than replace them.</li>
+</ol>
+
+<p>📖 The flywheel reframes incidents. In a normal service a bug is fixed and forgotten. In an agent, every production failure is a <em>free, perfectly-realistic eval case</em> handed to you by reality — provided you have the discipline to capture it before the trace scrolls away. That discipline is the difference between an agent that gets more reliable over time and one that re-breaks the same way every quarter.</p>
+<h3 id="3b-the-grader--three-families-in-descending-order-of-trust">
+  
+  
+    <a href="#3b-the-grader--three-families-in-descending-order-of-trust" class="anchor-heading" aria-labelledby="3b-the-grader--three-families-in-descending-order-of-trust"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3b. The grader — three families, in descending order of trust
+  
+  
+</h3>
+    
+
+<p>The grader scores one run. Pick the most trustworthy grader the task allows — and <strong>design tasks to allow the trustworthy ones.</strong></p>
+
+<p><strong>1. Programmatic (code checks the outcome) — the gold standard.</strong> A deterministic function inspects the resulting world and returns pass/fail or a score. Did the test suite go green? Does the file contain the expected function? Is the emitted JSON valid against the schema? Did the SQL return the right rows? When you can write a programmatic grader, you almost always should: it is deterministic, free, fast, and <strong>cannot be fooled</strong>. The constraint is that not everything is mechanically checkable — but far more is than you’d think <em>if you design the task to be checkable</em>. “Fix the bug” is fuzzy; “fix the bug such that <code class="language-plaintext highlighter-rouge">pytest</code> passes” is programmatic. Engineering the task toward a programmatic grader is one of the highest-leverage moves in eval design.</p>
+
+<p>A common, sharp sub-form is the <strong>assertion list</strong> — a set of <code class="language-plaintext highlighter-rouge">must</code> and <code class="language-plaintext highlighter-rouge">must_not</code> predicates over the output or final state. <em>Must</em> contain the ticket ID; <em>must not</em> contain a raw API key; <em>must</em> leave the test suite green. Cheap to write, composable, and surprisingly expressive for “did it do the obviously-required things and avoid the obviously-forbidden ones.”</p>
+
+<p><strong>2. LLM-as-judge (a model scores against a rubric) — for fuzzy quality at scale.</strong> When the criterion is genuinely subjective — “is this a <em>good</em> summary?” — you use a second model as the grader, prompted with an explicit rubric. This unlocks scale for criteria no <code class="language-plaintext highlighter-rouge">assert</code> can express. It is also the grader most likely to lie to you, so it comes with non-negotiable discipline:</p>
+
+<ul>
+  <li><strong>Calibrate against humans.</strong> A judge is worthless until you’ve checked its verdicts against human labels on a sample and measured agreement. An uncalibrated judge is a random number generator wearing a lab coat. (You’ll do this in part (e) of the exercise.)</li>
+  <li><strong>Know the biases.</strong> Judges exhibit <strong>length bias</strong> (longer = better, regardless of substance), <strong>self-style / self-enhancement bias</strong> (prefers outputs that read like the judge’s own model would write), and <strong>position bias</strong> (in pairwise comparison, favors whichever answer came first — so swap order and average). These are documented, reproducible, and they make a judge <em>confidently</em> wrong.</li>
+  <li><strong>Force it to cite evidence.</strong> Make the judge quote the specific spans that justify its verdict <em>before</em> it scores. This both improves accuracy and gives you something to audit — a verdict with no evidence is unfalsifiable.</li>
+  <li><strong>Use structured output.</strong> Constrain the verdict to a typed schema (Pydantic + <code class="language-plaintext highlighter-rouge">messages.parse</code>) so you get a <code class="language-plaintext highlighter-rouge">score</code>, a <code class="language-plaintext highlighter-rouge">reason</code>, and cited <code class="language-plaintext highlighter-rouge">evidence</code> — never free-form prose you have to regex. We do exactly this below.</li>
+  <li><strong>Prefer a strong judge.</strong> Use a frontier model (<code class="language-plaintext highlighter-rouge">claude-opus-4-8</code>) as judge even when the <em>system under test</em> is cheaper (Scout on Sonnet). Judging is often harder than doing, and a weak judge is the dominant source of eval noise.</li>
+</ul>
+
+<p><strong>3. Human (a person scores) — ground truth, used sparingly.</strong> The highest-trust grader and the least scalable. Reserve humans for two jobs: establishing the <strong>ground-truth labels you calibrate the judge against</strong>, and <strong>spot-reading transcripts</strong> to catch failures your automated graders miss (especially <em>passing-for-the-wrong-reason</em>). You will not human-grade your whole suite on every run; you human-grade a sample to keep the cheap graders honest.</p>
+
+<p>✅ <strong>The grader heuristic.</strong> Reach for programmatic first and engineer the task to allow it. Use an LLM judge only for genuinely fuzzy quality, and only after calibrating it against humans. Keep humans in the loop as the calibration anchor, not the bulk grader.</p>
+<h3 id="3c-aggregation--from-noisy-runs-to-a-decision">
+  
+  
+    <a href="#3c-aggregation--from-noisy-runs-to-a-decision" class="anchor-heading" aria-labelledby="3c-aggregation--from-noisy-runs-to-a-decision"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3c. Aggregation — from noisy runs to a decision
+  
+  
+</h3>
+    
+
+<p>This is where the statistics live, and where most homegrown evals quietly go wrong. Because the system is stochastic, <strong>one run of one case tells you almost nothing.</strong> You run each case <strong>k times</strong> and report <strong>rates with confidence intervals</strong> — never a single boolean.</p>
+
+<p>Two metrics, and the difference between them is the difference between a demo and an autonomous product:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">pass@k</code></strong> — “at least 1 of k runs succeeded.” Optimistic. Relevant when a human or a retry can salvage a failure: if the agent gets it right one try in three and someone picks the good one, <code class="language-plaintext highlighter-rouge">pass@k</code> is the metric you care about.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">pass^k</code></strong> — “<strong>all</strong> k runs succeeded.” The reliability metric. This is what matters for <strong>autonomy</strong>: an agent that succeeds 90% of the time per step fails a 10-step task more than 60% of the time, because errors compound multiplicatively. If you are going to let the agent run unsupervised, <code class="language-plaintext highlighter-rouge">pass^k</code> (consistency) is your true north, and it is brutal — far harsher than <code class="language-plaintext highlighter-rouge">pass@k</code>, and far more honest about whether you can trust the thing alone.</li>
+</ul>
+
+<p>And the rule that separates signal from theater:</p>
+
+<blockquote>
+  <p><strong>A change smaller than the confidence interval is noise.</strong> If your baseline is 80% ± 7% and your change measures 83%, you have learned <em>nothing</em>. The intervals overlap completely. Reporting “we improved 3 points” is, statistically, a lie. Either gather more samples (more cases × higher k) to shrink the interval, or accept that the change is in the noise floor and stop pretending otherwise.</p>
+</blockquote>
+
+<p>The width of that interval is governed by your sample size — <code class="language-plaintext highlighter-rouge">n</code> cases times <code class="language-plaintext highlighter-rouge">k</code> runs. Small suites have wide intervals and can only detect large changes; that’s a real constraint to design around, not a bug. We’ll compute these intervals with a Wilson helper in the exercise. The discipline is non-negotiable: <strong>rates with intervals, never bare booleans, and changes within the interval are noise.</strong></p><hr />
+<h2 id="4-how-evals-run-operationally">
+  
+  
+    <a href="#4-how-evals-run-operationally" class="anchor-heading" aria-labelledby="4-how-evals-run-operationally"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. How evals run, operationally
+  
+  
+</h2>
+    
+
+<p>The conceptual model is clean; the operational reality has a few hard parts worth naming, because this is where agent evals diverge most from running a unit suite.</p>
+
+<p><strong>Isolated, reproducible fixtures — one per trial.</strong> Each run must start from an identical, pristine world <em>and not contaminate the next run</em>. The pattern is dead simple and robust: keep a frozen fixture directory under version control; for each trial, <strong>copy it into a fresh temp dir</strong> and run the agent there. The agent edits the copy; you grade the copy; you delete the copy. Run 2 cannot see run 1’s mutations. (You’ll see exactly this — <code class="language-plaintext highlighter-rouge">shutil.copytree</code> into a <code class="language-plaintext highlighter-rouge">tempfile.mkdtemp()</code> — in the harness below.)</p>
+
+<p><strong>Mock the side-effecting tools — let the agent <em>think</em> it acted.</strong> If Scout’s real toolset sends emails, charges cards, opens PRs, or posts to Slack, you cannot fire those for real across thousands of eval runs. The technique: <strong>replace side-effecting tools with mocks that record the <em>intended</em> action and return a plausible success</strong>, so the agent proceeds through its loop as if the action happened. You grade the <em>recorded intent</em> (“did it attempt to email the right person with the right content?”) rather than a real send. This is the single biggest source of the <strong>mock-vs-reality gap</strong> (Real production issues, below) — the agent passed because your mock behaved more nicely than the real world does — so keep mocks faithful and treat a passing eval over mocks as necessary, not sufficient.</p>
+
+<p><strong>Parallelize — it’s embarrassingly parallel, with a cap.</strong> Cases and runs are independent: <code class="language-plaintext highlighter-rouge">n × k</code> trials with no data dependencies. Fan them out concurrently to turn an hour into a minute. The only constraint is a <strong>concurrency cap</strong> to respect API rate limits — a semaphore, nothing fancier.</p>
+
+<p><strong>Two tiers: smoke vs full — your fast-unit-vs-slow-integration split.</strong> You cannot afford to run the deep suite on every commit (agent suites are expensive — many model calls per run, times k, times n). So you tier it, exactly the way you already tier tests:</p>
+
+<ul>
+  <li><strong>Smoke suite</strong> — small, cheap, <code class="language-plaintext highlighter-rouge">k=1</code>, a dozen core cases. Runs on <strong>every change</strong> as a fast gate. Catches gross breakage in seconds-to-minutes.</li>
+  <li><strong>Full suite</strong> — the whole dataset, deep, <code class="language-plaintext highlighter-rouge">k≥3</code> (or higher), with confidence intervals. Runs <strong>nightly and pre-release</strong>. This is the suite you gate ships on.</li>
+</ul>
+
+<p><strong>Record everything: score + full transcript + op metrics.</strong> A bare score is undebuggable. For every trial, persist the <strong>complete transcript</strong> (every message, tool call, and result — this is the trace Module 09 makes first-class), the score and grader rationale, and <strong>operational metrics</strong>: tokens, latency, step count, dollar cost. When a case fails, the transcript is the only thing that tells you <em>why</em>; when it passes, the op metrics tell you whether it passed <em>efficiently</em> (an agent that takes 40 steps and $2 to do a 4-step task is failing in a way no pass/fail captures).</p><hr />
+<h2 id="5-interpreting-results--turning-numbers-into-decisions">
+  
+  
+    <a href="#5-interpreting-results--turning-numbers-into-decisions" class="anchor-heading" aria-labelledby="5-interpreting-results--turning-numbers-into-decisions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Interpreting results — turning numbers into decisions
+  
+  
+</h2>
+    
+
+<p>You have per-slice rates with intervals. Now what? <strong>Every comparison is relative.</strong> An absolute number (“76% pass”) is nearly meaningless in isolation — 76% might be triumphant or catastrophic depending on the task and your baseline. Evals earn their keep through three kinds of <em>comparison</em>:</p>
+
+<ul>
+  <li><strong>Regression gating (vs. your own baseline, in CI).</strong> Store the current production system’s scores as the baseline. On every change, re-run the suite and <strong>block the merge if any slice drops beyond its confidence interval.</strong> This is the agent-world equivalent of a red build — and the thing that makes it safe to iterate on prompts and tools at all. Per-slice, not aggregate: a 4-point drop on <code class="language-plaintext highlighter-rouge">bugfix</code> masked by a 4-point rise on <code class="language-plaintext highlighter-rouge">qa</code> nets to zero overall and ships a real regression. Gate the slices.</li>
+  <li><strong>Model selection (run the identical suite across candidates).</strong> When a new model ships, run your <em>unchanged</em> suite on old and new and read the per-slice diff. This is the payoff of the whole module: it converts a model upgrade from a terrifying leap of faith into <strong>a measured, one-day A/B test.</strong> You see precisely which slices improved and which regressed, and you decide with data. “The model changed” stops being existential and becomes a diff you can read.</li>
+  <li><strong>Trend over time.</strong> Plot scores across runs. Slow drift — from prompt rot, a dependency bump, gradual fixture decay — is invisible run-to-run and obvious over weeks. The trend line catches the slow leak.</li>
+</ul>
+
+<p><strong>Validate the grader — the step everyone skips and then regrets.</strong> Your number is only as trustworthy as the thing producing it, and the grader can lie:</p>
+
+<ul>
+  <li><strong>Calibrate the judge against humans</strong> (the discipline from §3b), and re-calibrate when you change the rubric or the judge model.</li>
+  <li><strong>Spot-read <em>passing</em> transcripts, not just failing ones.</strong> Failing transcripts get read because failures demand attention. The insidious failure is <strong>passing-for-the-wrong-reason</strong> — the agent reached the right end state by luck, by exploiting a quirk of the fixture, or by a path that won’t generalize. Your grader sees green; reality will see red. The only defense is periodically reading transcripts that <em>passed</em> and asking “did it pass for a reason that will hold up?”</li>
+</ul>
+
+<p><strong>The decision loop, concretely.</strong> Run the suite, then:</p>
+
+<ol>
+  <li><strong>Within CI on every slice → ship.</strong> No slice dropped beyond its interval; the change is at worst neutral. Merge.</li>
+  <li><strong>A slice dropped beyond its interval → read the failing transcripts.</strong> Failures <strong>cluster</strong> — a dozen failures usually share one root cause (a prompt instruction the model now over-applies, a tool returning a new error shape, a context-window overflow on big fixtures). Find the cluster, fix the root cause, re-run.</li>
+  <li><strong>A new production failure appeared → mine it into a case.</strong> Freeze the situation as a regression case (the flywheel), confirm it now reproduces the failure, then fix it. The case is permanent insurance against re-breaking.</li>
+</ol><hr />
+<h2 id="6-end-to-end-vs-component-evals-and-online-evals">
+  
+  
+    <a href="#6-end-to-end-vs-component-evals-and-online-evals" class="anchor-heading" aria-labelledby="6-end-to-end-vs-component-evals-and-online-evals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. End-to-end vs component evals; and online evals
+  
+  
+</h2>
+    
+
+<p>So far we’ve evaluated the whole agent loop end-to-end: give it a task, let it act, grade the final world. That’s the most important kind — it measures what the user experiences. But it has a weakness: when an end-to-end eval regresses, it tells you <em>that</em> something broke, not <em>what</em>. The failure could be in retrieval, in compaction, in the judge, in a tool.</p>
+
+<p><strong>Component evals</strong> localize the damage. You freeze the <em>input</em> to one component and test that component in isolation against a fixed expected behavior:</p>
+
+<ul>
+  <li><strong>Compaction</strong> (Module 04): freeze a long transcript, run your summarizer, assert the summary preserves the load-bearing facts.</li>
+  <li><strong>Retrieval</strong> (Module 05): freeze a query set with known-relevant docs, measure recall@k and precision — no agent loop at all.</li>
+  <li><strong>The judge itself</strong>: freeze a set of human-labeled outputs and measure judge agreement. (Yes — you eval your evaluator. The judge is a component like any other.)</li>
+</ul>
+
+<p>The pattern: <strong>end-to-end evals tell you the system regressed; component evals tell you which part.</strong> Run both. Component evals are cheaper, more deterministic, and they’re where a regression’s <em>location</em> becomes obvious.</p>
+
+<p><strong>Online / production evals — the bridge to Module 09.</strong> Everything above is <em>offline</em>: a fixed dataset, run in CI. But production is the real distribution, and it shifts. <strong>Online evals sample live traces and grade them continuously</strong> — run an LLM judge over (a sample of) real production runs, track the pass rate as a live metric, and alarm when it dips. This is the earliest possible warning that reality has diverged from your offline suite, and it’s where evals and observability merge. We pick it up properly in Module 09; the connection to hold now is that <strong>traces are the shared substrate</strong> — the same transcript you grade offline is the trace you watch online.</p><hr />
+<h2 id="️-exercise--build-a-real-eval-harness-for-scout">
+  
+  
+    <a href="#️-exercise--build-a-real-eval-harness-for-scout" class="anchor-heading" aria-labelledby="️-exercise--build-a-real-eval-harness-for-scout"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise — Build a real eval harness for Scout
+  
+  
+</h2>
+    
+
+<p>This is the centerpiece. You’ll build a reusable harness in <code class="language-plaintext highlighter-rouge">evals/</code>, use it to make a real ship/no-ship call, calibrate the judge, and mine a failure. Assume Scout from Module 03 is importable as <code class="language-plaintext highlighter-rouge">scout.loop.run_agent(task, cwd) -&gt; Transcript</code>, where <code class="language-plaintext highlighter-rouge">Transcript</code> carries <code class="language-plaintext highlighter-rouge">.final_text</code>, <code class="language-plaintext highlighter-rouge">.messages</code>, and <code class="language-plaintext highlighter-rouge">.usage</code> (tokens). Adapt the import to your code.</p>
+<h3 id="layout">
+  
+  
+    <a href="#layout" class="anchor-heading" aria-labelledby="layout"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Layout
+  
+  
+</h3>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>evals/
+  cases/                  # frozen fixtures + grading keys
+    bugfix_off_by_one/
+      fixture/            # the pristine world: copied fresh per trial
+        calc.py
+        test_calc.py
+      case.yaml           # task, slice tags, grader spec
+    extract_invoice/
+      fixture/
+        invoice.txt
+      case.yaml
+    summarize_incident/
+      fixture/
+        incident.md
+      case.yaml
+    ...                   # 8–12 total, mixing grader types
+  harness.py              # runner: copy fixture, run Scout k times, grade, record
+  graders.py              # programmatic + assertion-list + LLM-judge
+  stats.py                # Wilson interval + aggregation
+  runs/                   # output: per-trial transcripts, scores, op metrics
+</code></pre></div></div>
+<h3 id="a-author-the-dataset-812-cases-mixed-graders">
+  
+  
+    <a href="#a-author-the-dataset-812-cases-mixed-graders" class="anchor-heading" aria-labelledby="a-author-the-dataset-812-cases-mixed-graders"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (a) Author the dataset (8–12 cases, mixed graders)
+  
+  
+</h3>
+    
+
+<p>Each case is a directory: a <code class="language-plaintext highlighter-rouge">fixture/</code> (the frozen world) and a <code class="language-plaintext highlighter-rouge">case.yaml</code> (task + tags + grader). Mix the grader families so you exercise the whole spectrum. A representative spread:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/cases/bugfix_off_by_one/case.yaml</span>
+<span class="na">id</span><span class="pi">:</span> <span class="s">bugfix_off_by_one</span>
+<span class="na">slice</span><span class="pi">:</span> <span class="s">bugfix</span>
+<span class="na">difficulty</span><span class="pi">:</span> <span class="s">easy</span>
+<span class="na">task</span><span class="pi">:</span> <span class="s2">"</span><span class="s">There</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">failing</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">directory.</span><span class="nv"> </span><span class="s">Find</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">fix</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">bug</span><span class="nv"> </span><span class="s">so</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">tests</span><span class="nv"> </span><span class="s">pass.</span><span class="nv"> </span><span class="s">Do</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">edit</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">tests."</span>
+<span class="na">grader</span><span class="pi">:</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">programmatic</span>
+  <span class="na">check</span><span class="pi">:</span> <span class="s">pytest</span>          <span class="c1"># green test suite == pass. The gold standard.</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/cases/extract_invoice/case.yaml</span>
+<span class="na">id</span><span class="pi">:</span> <span class="s">extract_invoice</span>
+<span class="na">slice</span><span class="pi">:</span> <span class="s">extraction</span>
+<span class="na">difficulty</span><span class="pi">:</span> <span class="s">medium</span>
+<span class="na">task</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Read</span><span class="nv"> </span><span class="s">invoice.txt</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">write</span><span class="nv"> </span><span class="s">invoice.json</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="s">keys:</span><span class="nv"> </span><span class="s">invoice_number,</span><span class="nv"> </span><span class="s">total_amount</span><span class="nv"> </span><span class="s">(number),</span><span class="nv"> </span><span class="s">due_date</span><span class="nv"> </span><span class="s">(YYYY-MM-DD)."</span>
+<span class="na">grader</span><span class="pi">:</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">assertions</span>       <span class="c1"># must / must_not predicates over the output file</span>
+  <span class="na">file</span><span class="pi">:</span> <span class="s">invoice.json</span>
+  <span class="na">must_be_valid_json</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">must_contain</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">invoice_number"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">total_amount"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">due_date"</span><span class="pi">]</span>
+  <span class="na">expect_json</span><span class="pi">:</span>
+    <span class="na">invoice_number</span><span class="pi">:</span> <span class="s2">"</span><span class="s">INV-4471"</span>
+    <span class="na">total_amount</span><span class="pi">:</span> <span class="m">1840.00</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/cases/summarize_incident/case.yaml</span>
+<span class="na">id</span><span class="pi">:</span> <span class="s">summarize_incident</span>
+<span class="na">slice</span><span class="pi">:</span> <span class="s">summary</span>
+<span class="na">difficulty</span><span class="pi">:</span> <span class="s">hard</span>
+<span class="na">task</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Read</span><span class="nv"> </span><span class="s">incident.md</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">write</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">3-sentence</span><span class="nv"> </span><span class="s">summary</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">summary.txt</span><span class="nv"> </span><span class="s">covering:</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">root</span><span class="nv"> </span><span class="s">cause,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">customer</span><span class="nv"> </span><span class="s">impact,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">fix."</span>
+<span class="na">grader</span><span class="pi">:</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">judge</span>            <span class="c1"># genuinely fuzzy quality -&gt; LLM-as-judge with a rubric</span>
+  <span class="na">file</span><span class="pi">:</span> <span class="s">summary.txt</span>      <span class="c1"># the agent's output, read from the mutated fixture copy</span>
+  <span class="na">source</span><span class="pi">:</span> <span class="s">incident.md</span>    <span class="c1"># the ground-truth source, read from the pristine fixture</span>
+  <span class="na">rubric</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">Score 1-5. A 5 names the ROOT CAUSE (the database connection pool exhaustion),</span>
+    <span class="s">states the CUSTOMER IMPACT (checkout failures for ~12 minutes), and the FIX</span>
+    <span class="s">(raised pool size + added a circuit breaker). Deduct for hallucinated facts not</span>
+    <span class="s">in the source, for missing any of the three required elements, or for padding</span>
+    <span class="s">beyond 3 sentences. A 5 is concise, accurate, and complete.</span>
+  <span class="na">pass_threshold</span><span class="pi">:</span> <span class="m">4</span>
+</code></pre></div></div>
+
+<p>Round out to 8–12 with more <code class="language-plaintext highlighter-rouge">bugfix</code> cases (varying difficulty), a JSON-validity extraction, a knowledge-base QA case graded by assertions (<code class="language-plaintext highlighter-rouge">must_contain</code> the correct fact, <code class="language-plaintext highlighter-rouge">must_not</code> contain a known wrong answer), and at least one <strong>adversarial</strong> case (an empty file, a contradictory instruction) to probe the tail. The mix is deliberate: most cases programmatic/assertion (cheap, trustworthy), a few judge cases for the genuinely fuzzy ones.</p>
+<h3 id="b-the-graders">
+  
+  
+    <a href="#b-the-graders" class="anchor-heading" aria-labelledby="b-the-graders"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (b) The graders
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/graders.py
+</span><span class="kn">import</span> <span class="n">json</span><span class="p">,</span> <span class="n">subprocess</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="n">anthropic</span> <span class="kn">import</span> <span class="n">Anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">JUDGE_MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span>   <span class="c1"># strong judge, even though Scout runs on Sonnet
+</span>
+<span class="c1"># --- 1. Programmatic: run the test suite in the (mutated) fixture copy --------
+</span><span class="k">def</span> <span class="nf">grade_pytest</span><span class="p">(</span><span class="n">workdir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">pytest</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">-q</span><span class="sh">"</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="n">workdir</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span><span class="p">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">.</span><span class="n">stdout</span><span class="p">[</span><span class="o">-</span><span class="mi">2000</span><span class="p">:]</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">stderr</span><span class="p">[</span><span class="o">-</span><span class="mi">2000</span><span class="p">:]</span>
+
+<span class="c1"># --- 2. Assertion list: must / must_not predicates over an output file --------
+</span><span class="k">def</span> <span class="nf">grade_assertions</span><span class="p">(</span><span class="n">workdir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">workdir</span> <span class="o">/</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">file</span><span class="sh">"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">target</span><span class="p">.</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">expected output file </span><span class="si">{</span><span class="n">spec</span><span class="p">[</span><span class="sh">'</span><span class="s">file</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="s"> was never created</span><span class="sh">"</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">read_text</span><span class="p">()</span>
+    <span class="n">notes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">spec</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">must_be_valid_json</span><span class="sh">"</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">json</span><span class="p">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">invalid JSON: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">spec</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">expect_json</span><span class="sh">"</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">notes</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">field </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s">: expected </span><span class="si">{</span><span class="n">v</span><span class="si">!r}</span><span class="s">, got </span><span class="si">{</span><span class="n">data</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="si">!r}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">needle</span> <span class="ow">in</span> <span class="n">spec</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">must_contain</span><span class="sh">"</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">if</span> <span class="n">needle</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">notes</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">missing required substring: </span><span class="si">{</span><span class="n">needle</span><span class="si">!r}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">needle</span> <span class="ow">in</span> <span class="n">spec</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">must_not_contain</span><span class="sh">"</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">if</span> <span class="n">needle</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">notes</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">contains forbidden substring: </span><span class="si">{</span><span class="n">needle</span><span class="si">!r}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">return </span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">; </span><span class="sh">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="ow">or</span> <span class="sh">"</span><span class="s">all assertions passed</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># --- 3. LLM-as-judge: structured verdict against a rubric ---------------------
+</span><span class="k">class</span> <span class="nc">Verdict</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">evidence</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">Exact quotes from the output that justify the score. Cite BEFORE scoring.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">reasoning</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">How the evidence maps to the rubric.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">score</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">1-5 per the rubric.</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">JUDGE_SYSTEM</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sh">"</span><span class="s">You are a strict, fair grader. Apply the rubric literally. </span><span class="sh">"</span>
+    <span class="sh">"</span><span class="s">First quote the exact spans of the OUTPUT that bear on the rubric, then reason, then score. </span><span class="sh">"</span>
+    <span class="sh">"</span><span class="s">Judge only against the rubric and the SOURCE — never reward length or style. </span><span class="sh">"</span>
+    <span class="sh">"</span><span class="s">If a required element is absent from the output, it is missing even if it is </span><span class="sh">'</span><span class="s">obvious</span><span class="sh">'</span><span class="s">.</span><span class="sh">"</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">grade_judge</span><span class="p">(</span><span class="n">workdir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">source_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">workdir</span> <span class="o">/</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">file</span><span class="sh">"</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">read_text</span><span class="p">()</span> <span class="k">if</span> <span class="n">target</span><span class="p">.</span><span class="nf">exists</span><span class="p">()</span> <span class="k">else</span> <span class="sh">"</span><span class="s">(no output file was produced)</span><span class="sh">"</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">JUDGE_MODEL</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+        <span class="n">system</span><span class="o">=</span><span class="n">JUDGE_SYSTEM</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span>
+            <span class="sa">f</span><span class="sh">"</span><span class="s">RUBRIC:</span><span class="se">\n</span><span class="si">{</span><span class="n">spec</span><span class="p">[</span><span class="sh">'</span><span class="s">rubric</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s">SOURCE:</span><span class="se">\n</span><span class="si">{</span><span class="n">source_text</span><span class="si">}</span><span class="se">\n\n</span><span class="s">OUTPUT TO GRADE:</span><span class="se">\n</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="sh">"</span><span class="p">}],</span>
+        <span class="n">output_format</span><span class="o">=</span><span class="n">Verdict</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">v</span><span class="p">:</span> <span class="n">Verdict</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">parsed_output</span>
+    <span class="n">passed</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">pass_threshold</span><span class="sh">"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">passed</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">score=</span><span class="si">{</span><span class="n">v</span><span class="p">.</span><span class="n">score</span><span class="si">}</span><span class="s"> reason=</span><span class="si">{</span><span class="n">v</span><span class="p">.</span><span class="n">reasoning</span><span class="si">}</span><span class="s"> evidence=</span><span class="si">{</span><span class="n">v</span><span class="p">.</span><span class="n">evidence</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">score</span>
+</code></pre></div></div>
+
+<p>Note the structured judge: <code class="language-plaintext highlighter-rouge">evidence</code> is required <em>and ordered first</em> so the model must cite before it scores; the verdict is a typed <code class="language-plaintext highlighter-rouge">Verdict</code>, never free prose; the system prompt explicitly names and disarms the length and style biases.</p>
+<h3 id="c-the-runner--fresh-fixture-per-trial-k-runs-parallel-full-recording">
+  
+  
+    <a href="#c-the-runner--fresh-fixture-per-trial-k-runs-parallel-full-recording" class="anchor-heading" aria-labelledby="c-the-runner--fresh-fixture-per-trial-k-runs-parallel-full-recording"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (c) The runner — fresh fixture per trial, k runs, parallel, full recording
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/harness.py
+</span><span class="kn">import</span> <span class="n">shutil</span><span class="p">,</span> <span class="n">tempfile</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">yaml</span><span class="p">,</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="n">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">from</span> <span class="n">scout.loop</span> <span class="kn">import</span> <span class="n">run_agent</span>          <span class="c1"># adapt to your Scout entrypoint
+</span><span class="kn">from</span> <span class="n">graders</span> <span class="kn">import</span> <span class="n">grade_pytest</span><span class="p">,</span> <span class="n">grade_assertions</span><span class="p">,</span> <span class="n">grade_judge</span>
+
+<span class="n">CASES</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">__file__</span><span class="p">).</span><span class="n">parent</span> <span class="o">/</span> <span class="sh">"</span><span class="s">cases</span><span class="sh">"</span>
+<span class="n">RUNS</span>  <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">__file__</span><span class="p">).</span><span class="n">parent</span> <span class="o">/</span> <span class="sh">"</span><span class="s">runs</span><span class="sh">"</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">3</span>                <span class="c1"># runs per case (full suite). Smoke suite sets K=1.
+</span><span class="n">MAX_CONCURRENCY</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># respect API rate limits
+</span>
+<span class="k">def</span> <span class="nf">load_cases</span><span class="p">(</span><span class="n">slice_filter</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">cases</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">CASES</span><span class="p">.</span><span class="nf">iterdir</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="sh">"</span><span class="s">case.yaml</span><span class="sh">"</span><span class="p">).</span><span class="nf">exists</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="nf">safe_load</span><span class="p">((</span><span class="n">d</span> <span class="o">/</span> <span class="sh">"</span><span class="s">case.yaml</span><span class="sh">"</span><span class="p">).</span><span class="nf">read_text</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">slice_filter</span> <span class="ow">and</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">slice</span><span class="sh">"</span><span class="p">]</span> <span class="o">!=</span> <span class="n">slice_filter</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">cases</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">spec</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">cases</span>
+
+<span class="k">def</span> <span class="nf">run_trial</span><span class="p">(</span><span class="n">case_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">trial_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="c1"># Isolated, reproducible: copy the frozen fixture into a fresh temp dir.
+</span>    <span class="n">work</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="p">.</span><span class="nf">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">spec</span><span class="p">[</span><span class="sh">'</span><span class="s">id</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="s">_</span><span class="si">{</span><span class="n">trial_idx</span><span class="si">}</span><span class="s">_</span><span class="sh">"</span><span class="p">))</span>
+    <span class="n">shutil</span><span class="p">.</span><span class="nf">copytree</span><span class="p">(</span><span class="n">case_dir</span> <span class="o">/</span> <span class="sh">"</span><span class="s">fixture</span><span class="sh">"</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">dirs_exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="nf">run_agent</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">task</span><span class="sh">"</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="nf">str</span><span class="p">(</span><span class="n">work</span><span class="p">))</span>   <span class="c1"># Scout acts on the COPY
+</span>    <span class="n">latency</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
+
+    <span class="n">g</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">grader</span><span class="sh">"</span><span class="p">];</span> <span class="n">score_num</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">g</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">programmatic</span><span class="sh">"</span> <span class="ow">and</span> <span class="n">g</span><span class="p">[</span><span class="sh">"</span><span class="s">check</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">pytest</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">passed</span><span class="p">,</span> <span class="n">detail</span> <span class="o">=</span> <span class="nf">grade_pytest</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">g</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">assertions</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">passed</span><span class="p">,</span> <span class="n">detail</span> <span class="o">=</span> <span class="nf">grade_assertions</span><span class="p">(</span><span class="n">work</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">g</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">judge</span><span class="sh">"</span><span class="p">:</span>
+        <span class="c1"># Read the source the judge grades against from the PRISTINE fixture
+</span>        <span class="c1"># (the case names the source file under grader.source).
+</span>        <span class="n">source</span> <span class="o">=</span> <span class="p">(</span><span class="n">case_dir</span> <span class="o">/</span> <span class="sh">"</span><span class="s">fixture</span><span class="sh">"</span> <span class="o">/</span> <span class="n">g</span><span class="p">[</span><span class="sh">"</span><span class="s">source</span><span class="sh">"</span><span class="p">]).</span><span class="nf">read_text</span><span class="p">()</span>
+        <span class="n">passed</span><span class="p">,</span> <span class="n">detail</span><span class="p">,</span> <span class="n">score_num</span> <span class="o">=</span> <span class="nf">grade_judge</span><span class="p">(</span><span class="n">work</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">unknown grader </span><span class="si">{</span><span class="n">g</span><span class="p">[</span><span class="sh">'</span><span class="s">type</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="n">rec</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">case</span><span class="sh">"</span><span class="p">:</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">id</span><span class="sh">"</span><span class="p">],</span> <span class="sh">"</span><span class="s">slice</span><span class="sh">"</span><span class="p">:</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">slice</span><span class="sh">"</span><span class="p">],</span>
+        <span class="sh">"</span><span class="s">trial</span><span class="sh">"</span><span class="p">:</span> <span class="n">trial_idx</span><span class="p">,</span> <span class="sh">"</span><span class="s">passed</span><span class="sh">"</span><span class="p">:</span> <span class="nf">bool</span><span class="p">(</span><span class="n">passed</span><span class="p">),</span> <span class="sh">"</span><span class="s">score</span><span class="sh">"</span><span class="p">:</span> <span class="n">score_num</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">detail</span><span class="sh">"</span><span class="p">:</span> <span class="n">detail</span><span class="p">,</span> <span class="sh">"</span><span class="s">latency_s</span><span class="sh">"</span><span class="p">:</span> <span class="nf">round</span><span class="p">(</span><span class="n">latency</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="sh">"</span><span class="s">tokens</span><span class="sh">"</span><span class="p">:</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">transcript</span><span class="p">,</span> <span class="sh">"</span><span class="s">usage</span><span class="sh">"</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">in</span><span class="sh">"</span><span class="p">:</span> <span class="n">transcript</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">input_tokens</span><span class="p">,</span> <span class="sh">"</span><span class="s">out</span><span class="sh">"</span><span class="p">:</span> <span class="n">transcript</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">output_tokens</span><span class="p">},</span>
+        <span class="sh">"</span><span class="s">steps</span><span class="sh">"</span><span class="p">:</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">transcript</span><span class="p">.</span><span class="n">messages</span> <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="c1"># Record the FULL transcript (the trace) + score + op metrics.
+</span>    <span class="n">out</span> <span class="o">=</span> <span class="n">RUNS</span> <span class="o">/</span> <span class="n">spec</span><span class="p">[</span><span class="sh">"</span><span class="s">id</span><span class="sh">"</span><span class="p">]</span> <span class="o">/</span> <span class="sa">f</span><span class="sh">"</span><span class="s">trial_</span><span class="si">{</span><span class="n">trial_idx</span><span class="si">}</span><span class="sh">"</span>
+    <span class="n">out</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="sh">"</span><span class="s">record.json</span><span class="sh">"</span><span class="p">).</span><span class="nf">write_text</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">str</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="sh">"</span><span class="s">transcript.json</span><span class="sh">"</span><span class="p">).</span><span class="nf">write_text</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">transcript</span><span class="p">.</span><span class="n">messages</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">str</span><span class="p">))</span>
+    <span class="n">shutil</span><span class="p">.</span><span class="nf">rmtree</span><span class="p">(</span><span class="n">work</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>   <span class="c1"># clean up the copy
+</span>    <span class="k">return</span> <span class="n">rec</span>
+
+<span class="k">def</span> <span class="nf">run_suite</span><span class="p">(</span><span class="n">slice_filter</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">K</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">d</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="nf">for </span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">spec</span><span class="p">)</span> <span class="ow">in</span> <span class="nf">load_cases</span><span class="p">(</span><span class="n">slice_filter</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+    <span class="k">with</span> <span class="nc">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">MAX_CONCURRENCY</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="nf">run_trial</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="n">jobs</span><span class="p">))</span>
+</code></pre></div></div>
+<h3 id="d-aggregate-with-confidence-intervals">
+  
+  
+    <a href="#d-aggregate-with-confidence-intervals" class="anchor-heading" aria-labelledby="d-aggregate-with-confidence-intervals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (d) Aggregate with confidence intervals
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># evals/stats.py
+</span><span class="kn">import</span> <span class="n">math</span>
+<span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="k">def</span> <span class="nf">wilson</span><span class="p">(</span><span class="n">successes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.96</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="sh">"""</span><span class="s">Wilson score interval for a binomial proportion. Returns (rate, low, high).</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">successes</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">))</span> <span class="o">/</span> <span class="n">denom</span>
+    <span class="n">half</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span> <span class="o">/</span> <span class="n">denom</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="nf">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">center</span> <span class="o">-</span> <span class="n">half</span><span class="p">),</span> <span class="nf">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">center</span> <span class="o">+</span> <span class="n">half</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">aggregate</span><span class="p">(</span><span class="n">records</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="c1"># pass rate per slice, with Wilson CI — the headline numbers.
+</span>    <span class="n">by_slice</span> <span class="o">=</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>     <span class="c1"># slice -&gt; [successes, n]
+</span>    <span class="n">by_case</span>  <span class="o">=</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>               <span class="c1"># case  -&gt; [bool, ...]  (for pass^k / pass@k)
+</span>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">by_slice</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="sh">"</span><span class="s">slice</span><span class="sh">"</span><span class="p">]];</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="nf">int</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="sh">"</span><span class="s">passed</span><span class="sh">"</span><span class="p">])</span>
+        <span class="n">by_case</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="sh">"</span><span class="s">case</span><span class="sh">"</span><span class="p">]].</span><span class="nf">append</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="sh">"</span><span class="s">passed</span><span class="sh">"</span><span class="p">])</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">slices</span><span class="sh">"</span><span class="p">:</span> <span class="p">{},</span> <span class="sh">"</span><span class="s">reliability</span><span class="sh">"</span><span class="p">:</span> <span class="p">{}}</span>
+    <span class="k">for</span> <span class="n">sl</span><span class="p">,</span> <span class="p">(</span><span class="n">succ</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="ow">in</span> <span class="n">by_slice</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+        <span class="n">rate</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="nf">wilson</span><span class="p">(</span><span class="n">succ</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">report</span><span class="p">[</span><span class="sh">"</span><span class="s">slices</span><span class="sh">"</span><span class="p">][</span><span class="n">sl</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">rate</span><span class="sh">"</span><span class="p">:</span> <span class="nf">round</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="sh">"</span><span class="s">ci</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nf">round</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nf">round</span><span class="p">(</span><span class="n">hi</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="sh">"</span><span class="s">n</span><span class="sh">"</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">case</span><span class="p">,</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">by_case</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+        <span class="n">report</span><span class="p">[</span><span class="sh">"</span><span class="s">reliability</span><span class="sh">"</span><span class="p">][</span><span class="n">case</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">pass_at_k</span><span class="sh">"</span><span class="p">:</span> <span class="nf">any</span><span class="p">(</span><span class="n">results</span><span class="p">),</span>          <span class="c1"># &gt;=1 success: salvageable-with-retry
+</span>            <span class="sh">"</span><span class="s">pass_pow_k</span><span class="sh">"</span><span class="p">:</span> <span class="nf">all</span><span class="p">(</span><span class="n">results</span><span class="p">),</span>         <span class="c1"># ALL succeed: the autonomy metric
+</span>            <span class="sh">"</span><span class="s">consistency</span><span class="sh">"</span><span class="p">:</span> <span class="nf">round</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">results</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="k">return</span> <span class="n">report</span>
+</code></pre></div></div>
+
+<p>Print it and you get exactly the artifact §3c demanded — per-slice rates with intervals, plus per-case <code class="language-plaintext highlighter-rouge">pass^k</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>slice=bugfix      rate=0.83  ci=[0.59, 0.94]  n=18      &lt;- wide interval: only 18 trials
+slice=extraction  rate=0.94  ci=[0.73, 0.99]  n=12
+slice=summary     rate=0.67  ci=[0.39, 0.86]  n=9
+reliability bugfix_off_by_one  pass^k=True   consistency=1.00
+reliability summarize_incident pass^k=False  consistency=0.67   &lt;- inconsistent: autonomy risk
+</code></pre></div></div>
+<h3 id="e-use-it-for-real--a-shipno-ship-decision">
+  
+  
+    <a href="#e-use-it-for-real--a-shipno-ship-decision" class="anchor-heading" aria-labelledby="e-use-it-for-real--a-shipno-ship-decision"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (e) Use it for real — a ship/no-ship decision
+  
+  
+</h3>
+    
+
+<p>Now do the thing the whole harness exists for. Record the current <code class="language-plaintext highlighter-rouge">runs/</code> as your <strong>baseline</strong>. Then make a real change to Scout’s system prompt — say, add “Be extremely concise; prefer the shortest correct answer.” Re-run the full suite and compare per slice:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">base</span> <span class="o">=</span> <span class="nf">aggregate</span><span class="p">(</span><span class="nf">load_records</span><span class="p">(</span><span class="sh">"</span><span class="s">runs_baseline</span><span class="sh">"</span><span class="p">))</span>
+<span class="n">cand</span> <span class="o">=</span> <span class="nf">aggregate</span><span class="p">(</span><span class="nf">run_suite</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">sl</span> <span class="ow">in</span> <span class="n">base</span><span class="p">[</span><span class="sh">"</span><span class="s">slices</span><span class="sh">"</span><span class="p">]:</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">base</span><span class="p">[</span><span class="sh">"</span><span class="s">slices</span><span class="sh">"</span><span class="p">][</span><span class="n">sl</span><span class="p">],</span> <span class="n">cand</span><span class="p">[</span><span class="sh">"</span><span class="s">slices</span><span class="sh">"</span><span class="p">][</span><span class="n">sl</span><span class="p">]</span>
+    <span class="c1"># Regression rule: candidate's rate dropped BELOW the baseline's lower CI bound.
+</span>    <span class="n">regressed</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="sh">"</span><span class="s">rate</span><span class="sh">"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">[</span><span class="sh">"</span><span class="s">ci</span><span class="sh">"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">sl</span><span class="si">:</span><span class="mi">12</span><span class="si">}</span><span class="s"> base=</span><span class="si">{</span><span class="n">b</span><span class="p">[</span><span class="sh">'</span><span class="s">rate</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}{</span><span class="n">b</span><span class="p">[</span><span class="sh">'</span><span class="s">ci</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="s">  cand=</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="sh">'</span><span class="s">rate</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}{</span><span class="n">c</span><span class="p">[</span><span class="sh">'</span><span class="s">ci</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="s">  </span><span class="sh">"</span>
+          <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="sh">'</span><span class="s">❌ REGRESSION</span><span class="sh">'</span> <span class="k">if</span> <span class="n">regressed</span> <span class="k">else</span> <span class="sh">'</span><span class="s">ok</span><span class="sh">'</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Make the call.</strong> If no slice dropped below its baseline lower bound, <strong>ship</strong> — the change is at worst neutral. If <code class="language-plaintext highlighter-rouge">summary</code> rose (concise summaries score better on the rubric) but <code class="language-plaintext highlighter-rouge">bugfix</code> dropped beyond its interval (the agent got <em>too</em> terse and stopped explaining its reasoning, hurting multi-step debugging) — <strong>no-ship</strong>, and you’ve learned something real about that prompt change that you’d never have seen in a demo. This is the entire point: a prompt edit is no longer a vibe, it’s a measured per-slice diff.</p>
+<h3 id="f-calibrate-the-judge">
+  
+  
+    <a href="#f-calibrate-the-judge" class="anchor-heading" aria-labelledby="f-calibrate-the-judge"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (f) Calibrate the judge
+  
+  
+</h3>
+    
+
+<p>Before you trust the <code class="language-plaintext highlighter-rouge">summary</code> slice, prove the judge isn’t lying. Hand-grade 5 summary outputs yourself (1–5), then have the judge grade the same 5, and measure agreement:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">human</span>  <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">t0</span><span class="sh">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="sh">"</span><span class="s">t1</span><span class="sh">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="sh">"</span><span class="s">t2</span><span class="sh">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="sh">"</span><span class="s">t3</span><span class="sh">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="sh">"</span><span class="s">t4</span><span class="sh">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>     <span class="c1"># your labels
+</span><span class="n">judge</span>  <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="nf">grade_judge</span><span class="p">(...)[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">human</span><span class="p">}</span>            <span class="c1"># judge's scores
+</span><span class="n">exact</span>  <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">human</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">judge</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">human</span><span class="p">)</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">human</span><span class="p">)</span>
+<span class="n">within1</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">human</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">-</span> <span class="n">judge</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">human</span><span class="p">)</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">human</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">exact agreement=</span><span class="si">{</span><span class="n">exact</span><span class="si">:</span><span class="p">.</span><span class="mi">0</span><span class="o">%</span><span class="si">}</span><span class="s">  within-1=</span><span class="si">{</span><span class="n">within1</span><span class="si">:</span><span class="p">.</span><span class="mi">0</span><span class="o">%</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">within-1</code> is high (≈100%) and exact agreement is decent, the judge is usable — trust the <code class="language-plaintext highlighter-rouge">summary</code> slice. If they diverge, your judge is the problem, not Scout: tighten the rubric (more concrete anchors per score), add the disarm-the-bias instructions, or switch judge models, and re-calibrate. <strong>Never trust a judge slice you haven’t calibrated.</strong></p>
+<h3 id="g-mine-a-failure-into-a-regression-case">
+  
+  
+    <a href="#g-mine-a-failure-into-a-regression-case" class="anchor-heading" aria-labelledby="g-mine-a-failure-into-a-regression-case"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (g) Mine a failure into a regression case
+  
+  
+</h3>
+    
+
+<p>Find a case Scout fails (or induce one — feed it a gnarly real task it bungles). Freeze that exact situation: snapshot the input files into a new <code class="language-plaintext highlighter-rouge">cases/&lt;name&gt;/fixture/</code>, write a <code class="language-plaintext highlighter-rouge">case.yaml</code> whose grading key encodes the <em>correct</em> outcome, and confirm the case currently <em>fails</em>. It is now a permanent regression test — the flywheel in miniature. Wire <code class="language-plaintext highlighter-rouge">run_suite(slice_filter="smoke")</code> with <code class="language-plaintext highlighter-rouge">k=1</code> into your CI on every push, and the full suite into a nightly job. You now have a reusable eval harness with a smoke gate, a full suite, calibrated judging, and a flywheel. That harness is worth more than any single prompt improvement, because it makes <em>every future</em> improvement measurable.</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Flaky, noisy evals from too-low <code class="language-plaintext highlighter-rouge">k</code> or an uncalibrated judge.</strong> Run <code class="language-plaintext highlighter-rouge">k=1</code> and treat the boolean as truth and you’ll “improve” things that were noise and “regress” things that weren’t. The two fixes: raise <code class="language-plaintext highlighter-rouge">k</code> until the CI is tight enough to detect the effect you care about, and calibrate the judge so its scores mean something. Most “our evals are useless” complaints are one of these two, untreated.</li>
+  <li><strong>Goodhart / overfitting to your own suite.</strong> Iterate against a fixed eval long enough and you tune the agent to <em>the eval</em>, not the task. Defenses: keep <strong>growing</strong> the suite from production (the flywheel — a moving target can’t be overfit), and <strong>hold out</strong> a slice of cases the agent is never tuned against, checked only at release. If held-out scores lag the tuned set, you’re overfitting.</li>
+  <li><strong>The mock-vs-reality gap — passed the eval, failed in prod.</strong> Your mocked <code class="language-plaintext highlighter-rouge">send_email</code> returned a clean success; the real SMTP server rejected the address. Mocks that behave more nicely than reality manufacture false confidence. Keep mocks faithful to real failure modes, and treat a green offline suite as <em>necessary, not sufficient</em> — back it with online evals on real traces (Module 09).</li>
+  <li><strong>Passing-for-the-wrong-reason.</strong> The agent reached the right end state by exploiting a fixture quirk, or by luck that won’t generalize. The grader sees green; production sees red. Only defense: periodically <strong>read passing transcripts</strong>, not just failing ones, and ask “would this path hold on a slightly different input?”</li>
+  <li><strong>Judge biases lying with confidence.</strong> Length, self-style, and position biases make a judge <em>confidently</em> wrong — and confident wrongness is the worst kind, because it survives review. Disarm in the rubric, force evidence citation before scoring, swap order in pairwise comparisons, and re-calibrate against humans whenever you touch the judge.</li>
+  <li><strong>Coverage gaps in the long tail.</strong> A finite suite samples the task distribution; agents fail in the <em>unsampled</em> tail you never wrote a case for. You can’t test your way to full coverage. Online evals on real traffic are how the tail surfaces — and each tail failure becomes a mined case, narrowing the gap over time.</li>
+  <li><strong>Cost of big agent suites.</strong> A full agentic suite is many model calls × k × n — minutes and real dollars per run. That’s exactly why you tier: cheap smoke gate on every change, expensive full suite nightly/pre-release. Don’t run the deep suite on every commit; don’t ship on the smoke suite alone.</li>
+  <li><strong>Model upgrades silently breaking prompts (prompt rot).</strong> The provider improves the model; your prompt, tuned to the old one, regresses on a slice or two. With no eval suite this is invisible until a user reports it. With one, the upgrade is a one-day measured A/B — you read the per-slice diff and decide. <strong>This is the single most important thing evals buy you: they turn “the model changed” from existential risk into a diff you can read.</strong></li>
+  <li><strong>The temptation to skip evals because they’re unglamorous.</strong> No one demos an eval harness. It ships no user-facing feature. So under deadline it’s the first thing cut — and the teams that cut it ship agents that fail silently and degrade invisibly, because they have <em>no instrument</em> pointed at quality. The teams that ship reliable agents treat eval engineering as first-class, resourced comparably to product work, owned not delegated. <strong>Eval development is roughly as much effort as product development.</strong> That sounds expensive until you price the alternative: shipping a stochastic system into production with no way to know if it works. The eval suite <em>is</em> the product’s quality, made measurable. Build it first-class or build it never.</li>
+</ul><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Name the four reasons you cannot unit-test an agent, and for each, the unit-test assumption it violates.</li>
+  <li>What is the difference between an eval and a benchmark? Which one gates your ship, and why can’t a benchmark do that job?</li>
+  <li>Why is <code class="language-plaintext highlighter-rouge">pass^k</code> the metric that matters for autonomy, and <code class="language-plaintext highlighter-rouge">pass@k</code> the one that matters when a human is in the loop? Work out the 10-step example.</li>
+  <li>Your baseline slice is 80% ± 7%; your change measures 84%. Ship or not? What single change to your methodology would let you tell?</li>
+  <li>Order the three grader families by trust. Give a fuzzy task and rewrite it so a <em>programmatic</em> grader becomes possible.</li>
+  <li>What is “passing-for-the-wrong-reason,” why do failing-only reviews miss it, and what’s the one practice that catches it?</li>
+  <li>Explain why mocking side-effecting tools is necessary, and the specific gap it introduces. How do you guard against that gap?</li>
+  <li>A new model ships. Walk through, step by step, how your harness turns the upgrade from a gamble into a one-day decision.</li>
+  <li>Why is your private eval suite a moat, and what daily discipline keeps it growing?</li>
+</ol>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Anthropic — “Building effective agents”</strong> and the <strong>applied-AI engineering</strong> posts: evals as the backbone of agent reliability; the smoke-vs-full and online-eval patterns.</li>
+  <li><strong>Anthropic Cookbook — evaluations &amp; LLM-as-judge recipes:</strong> end-to-end judge construction, rubric design, and calibration in code.</li>
+  <li><strong>“Judging LLM-as-a-Judge” (Zheng et al., MT-Bench / Chatbot Arena):</strong> the canonical study of judge biases (length, position, self-enhancement) and how to measure judge–human agreement.</li>
+  <li><strong>SWE-bench / τ-bench papers:</strong> how agentic benchmarks are constructed and graded — and, read critically, the contamination and construct-validity caveats.</li>
+  <li><strong>Wilson score interval</strong> (Wilson, 1927) and <strong>bootstrap confidence intervals:</strong> the statistics behind “changes smaller than the CI are noise.” For most eval work the Wilson helper above is enough.</li>
+  <li><strong>Eval platforms — Braintrust, Langfuse:</strong> when your from-scratch harness outgrows scripts, these add datasets, run storage, judge orchestration, and dashboards. Learn the from-scratch harness <em>first</em> — the platform is a convenience over the concepts you just built, not a substitute for understanding them.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/09-observability.html">Module 09 — Observability, Tracing &amp; Debugging</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

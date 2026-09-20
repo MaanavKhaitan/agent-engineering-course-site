@@ -1,0 +1,854 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(18)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(18) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(18) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(18) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>12 · Deployment &amp; Durable Execution | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="12 · Deployment &amp; Durable Execution" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="12 · Deployment &amp; Durable Execution" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"12 · Deployment &amp; Durable Execution","url":"/agent-engineering-course-site/12-deployment-durable-execution.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-12--deployment--durable-execution">
+  
+  
+    <a href="#module-12--deployment--durable-execution" class="anchor-heading" aria-labelledby="module-12--deployment--durable-execution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 12 — Deployment &amp; Durable Execution
+  
+  
+</h1>
+    
+
+<p>Everything so far has assumed Scout runs in a terminal. You type a task, the loop spins, you read the answer, the process exits. That’s a fine place to <em>learn</em> an agent, and a terrible place to <em>operate</em> one. The moment an agent has to serve more than one caller, survive longer than a request timeout, or pick up tomorrow where it left off today, you’re no longer writing an agent — you’re writing a distributed system whose request handler happens to be stochastic and slow.</p>
+
+<p>You already know how to operate distributed systems. The new material here is small but it’s exactly the part your intuition will misfile. An agent’s “handler” runs for minutes to hours, not milliseconds. Its “request” is a growing transcript that <em>is</em> the application state. Its side effects are real (it sends emails, opens PRs, deletes files), it’s non-deterministic, and any individual step can fail transiently — model rate limits, a sandbox eviction, a deploy that rolls your process. The good news: the patterns that make this tractable are ones you already trust. Statelessness. Event sourcing. Idempotency. Sagas. Replay. This module is about mapping those onto agents and then reaching for the production answer — <strong>durable execution</strong> — when run duration outgrows a single process.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you should be able to:</p>
+
+<ul>
+  <li>Place a given agent workload on the <strong>script → sync API → async job → persistent agent</strong> spectrum, and pick the deployment shape its run duration demands.</li>
+  <li>Explain why the <em>harness</em>, not the model, owns all state — and externalize that state durably as an append-only event log (event sourcing applied to a stochastic handler).</li>
+  <li>Reason about the <strong>brain / hands / session</strong> split and why the session (the log) is the source of truth, not the process memory.</li>
+  <li>Survive the “discrete sessions with amnesia” problem with the <strong>initializer / worker</strong> pattern: continuity lives in files, not context.</li>
+  <li>Describe what a <strong>durable execution engine</strong> (Temporal; LangGraph checkpointing) buys you — journal-and-replay resumption — and the one footgun it forces you to confront (non-idempotent side effects on replay).</li>
+  <li>Choose between <strong>hosted</strong> (Anthropic Managed Agents) and <strong>self-hosted</strong> (your loop + Temporal/LangGraph + a sandbox vendor), and name the tradeoffs.</li>
+  <li>Implement checkpoint + resume for Scout, and a FastAPI service that streams its events.</li>
+</ul>
+
+<p>📖 This module is the <em>infrastructure</em>. Module 13 is the persistent-agent <em>concept</em> — what an agent that runs for days against an ongoing goal can become. Here we build the floor it stands on.</p><hr />
+<h2 id="1-from-script-to-service-the-spectrum">
+  
+  
+    <a href="#1-from-script-to-service-the-spectrum" class="anchor-heading" aria-labelledby="1-from-script-to-service-the-spectrum"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. From script to service: the spectrum
+  
+  
+</h2>
+    
+
+<p>There is no single “deploy an agent” answer because there is no single agent. The deployment shape is dictated almost entirely by one variable: <strong>how long does a run take?</strong> That number decides whether the run can live inside an HTTP request, must move to a background worker, or must outlive the process entirely.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Shape</th>
+      <th>Run duration</th>
+      <th>Where it lives</th>
+      <th>State concern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>(a) CLI / script</strong></td>
+      <td>seconds–minutes</td>
+      <td>one process, foreground</td>
+      <td>in-memory; dies with the process</td>
+    </tr>
+    <tr>
+      <td><strong>(b) Sync request/response API</strong></td>
+      <td>seconds–~minute</td>
+      <td>inside an HTTP request</td>
+      <td>in-memory per request; must stream</td>
+    </tr>
+    <tr>
+      <td><strong>(c) Async background job</strong></td>
+      <td>minutes–hours</td>
+      <td>queue + worker pool</td>
+      <td>externalized; survives the request</td>
+    </tr>
+    <tr>
+      <td><strong>(d) Long-running / persistent agent</strong></td>
+      <td>hours–days</td>
+      <td>a durable workflow</td>
+      <td>append-only log is the source of truth</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Scout today is (a). Most of this module is about earning your way down the table.</p>
+
+<p>The jump from (a) to (b) is mechanical: wrap the loop in a handler. The jump from (b) to (c) is the one that breaks naive designs — a 40-minute agent run cannot block an HTTP connection (load balancers, proxies, and clients all give up around 30–120s), so the run must detach from the request and report progress out-of-band. The jump from (c) to (d) is the one this module spends the most time on, because “the process might die in the middle and that has to be <em>fine</em>” is a property you have to design for, not bolt on.</p>
+<h3 id="a-deployment-shape-fastapi-wrapping-scout-with-streaming">
+  
+  
+    <a href="#a-deployment-shape-fastapi-wrapping-scout-with-streaming" class="anchor-heading" aria-labelledby="a-deployment-shape-fastapi-wrapping-scout-with-streaming"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A deployment shape: FastAPI wrapping Scout with streaming
+  
+  
+</h3>
+    
+
+<p>Here is shape (b)/(c) for Scout: a service that accepts a task, runs the loop in the background, and <strong>streams events</strong> (via Server-Sent Events) to the client as they happen, keyed by a <code class="language-plaintext highlighter-rouge">session_id</code>, with an endpoint to interrupt a run mid-flight. Streaming isn’t a nicety here — a multi-minute run with no output looks identical to a hung server, and (callback to Module 1) the Anthropic API itself wants streaming for any long call so you don’t hit request timeouts.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># service.py — FastAPI front end for Scout
+</span><span class="kn">import</span> <span class="n">asyncio</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">uuid</span>
+<span class="kn">from</span> <span class="n">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="n">fastapi.responses</span> <span class="kn">import</span> <span class="n">StreamingResponse</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">FastAPI</span><span class="p">()</span>
+
+<span class="c1"># session_id -&gt; live run handle. In-memory here for clarity; in production this
+# is Redis or a DB so multiple service replicas can find a run (see §2).
+</span><span class="n">RUNS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="sh">"</span><span class="s">Run</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">class</span> <span class="nc">Run</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">session_id</span> <span class="o">=</span> <span class="n">session_id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">queue</span><span class="p">:</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">Queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="p">.</span><span class="nc">Queue</span><span class="p">()</span>   <span class="c1"># events out to the client
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">interrupt</span> <span class="o">=</span> <span class="n">asyncio</span><span class="p">.</span><span class="nc">Event</span><span class="p">()</span>              <span class="c1"># steering: stop signal in
+</span>
+<span class="k">class</span> <span class="nc">StartReq</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="nd">@app.post</span><span class="p">(</span><span class="sh">"</span><span class="s">/runs</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">start_run</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">StartReq</span><span class="p">):</span>
+    <span class="n">session_id</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">uuid</span><span class="p">.</span><span class="nf">uuid4</span><span class="p">())</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="nc">Run</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">req</span><span class="p">.</span><span class="n">task</span><span class="p">)</span>
+    <span class="n">RUNS</span><span class="p">[</span><span class="n">session_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">run</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">create_task</span><span class="p">(</span><span class="nf">_drive</span><span class="p">(</span><span class="n">run</span><span class="p">))</span>   <span class="c1"># detach from the request
+</span>    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">session_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">session_id</span><span class="p">}</span>
+
+<span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/runs/{session_id}/events</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">stream_events</span><span class="p">(</span><span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="n">RUNS</span><span class="p">[</span><span class="n">session_id</span><span class="p">]</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">sse</span><span class="p">():</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
+            <span class="k">yield</span> <span class="sa">f</span><span class="sh">"</span><span class="s">data: </span><span class="si">{</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="si">}</span><span class="se">\n\n</span><span class="sh">"</span>
+            <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="sh">"</span><span class="s">done</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">error</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">interrupted</span><span class="sh">"</span><span class="p">):</span>
+                <span class="k">break</span>
+    <span class="k">return</span> <span class="nc">StreamingResponse</span><span class="p">(</span><span class="nf">sse</span><span class="p">(),</span> <span class="n">media_type</span><span class="o">=</span><span class="sh">"</span><span class="s">text/event-stream</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nd">@app.post</span><span class="p">(</span><span class="sh">"</span><span class="s">/runs/{session_id}/interrupt</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">interrupt_run</span><span class="p">(</span><span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">RUNS</span><span class="p">[</span><span class="n">session_id</span><span class="p">].</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">set</span><span class="p">()</span>    <span class="c1"># the loop checks this each iteration
+</span>    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">ok</span><span class="sh">"</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">_drive</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">Run</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># scout_loop is an async generator that yields events and checks
+</span>        <span class="c1"># run.interrupt at the top of each iteration (see below).
+</span>        <span class="k">async</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="nf">scout_loop</span><span class="p">(</span><span class="n">run</span><span class="p">.</span><span class="n">task</span><span class="p">,</span> <span class="n">interrupt</span><span class="o">=</span><span class="n">run</span><span class="p">.</span><span class="n">interrupt</span><span class="p">):</span>
+            <span class="k">await</span> <span class="n">run</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">run</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="nf">put</span><span class="p">({</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">done</span><span class="sh">"</span><span class="p">})</span>
+    <span class="k">except</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">CancelledError</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">run</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="nf">put</span><span class="p">({</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">interrupted</span><span class="sh">"</span><span class="p">})</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">run</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="nf">put</span><span class="p">({</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">error</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">:</span> <span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)})</span>
+</code></pre></div></div>
+
+<p>The Module 3 loop becomes an <strong>async generator</strong> that emits an event per meaningful step and honors the interrupt flag:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout_async.py — the loop, instrumented to stream and to be steerable
+</span><span class="kn">import</span> <span class="n">anthropic</span>
+<span class="n">async_client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">AsyncAnthropic</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">scout_loop</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interrupt</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">task</span><span class="p">}]</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="nf">build_system_prompt</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">MAX_ITERS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">interrupt</span><span class="p">.</span><span class="nf">is_set</span><span class="p">():</span>
+            <span class="k">return</span>                                   <span class="c1"># steering: bail cleanly
+</span>        <span class="k">async</span> <span class="k">with</span> <span class="n">async_client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="n">system</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="nf">to_schema</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">TOOLS</span><span class="p">],</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">.</span><span class="n">text_stream</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">token</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>     <span class="c1"># live tokens to the UI
+</span>            <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">stream</span><span class="p">.</span><span class="nf">get_final_message</span><span class="p">()</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">!=</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">final</span><span class="sh">"</span><span class="p">,</span>
+                   <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)}</span>
+            <span class="k">return</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="nf">dispatch</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">:</span> <span class="n">b</span><span class="p">.</span><span class="nb">input</span><span class="p">}</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">results</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>This service is real, and for short interactive runs it’s enough. But notice what’s load-bearing and fragile: <strong><code class="language-plaintext highlighter-rouge">messages</code> lives in process memory.</strong> If this worker is OOM-killed at step 30 of a 50-step task, the run is gone. There is no resume. That single fact is what the rest of the module is about.</p>
+
+<p>✅ <strong>Checkpoint:</strong> You can run Scout behind an HTTP API that streams tokens and tool-use events to a client, with a session id and an interrupt endpoint. You have <em>not</em> yet made a run survive the process dying.</p><hr />
+<h2 id="2-state-is-the-central-problem">
+  
+  
+    <a href="#2-state-is-the-central-problem" class="anchor-heading" aria-labelledby="2-state-is-the-central-problem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. State is the central problem
+  
+  
+</h2>
+    
+
+<p>Lean on your intuition here, because it’s exactly right: <strong>the model is a stateless function.</strong> Every <code class="language-plaintext highlighter-rouge">messages.create</code> call is pure — same inputs, (roughly) same output distribution; the API server remembers nothing about your previous call (Module 1). All the state that makes an agent an <em>agent</em> — the transcript, the working directory, scratch memory, open tool sessions — lives in the <strong>harness</strong>, the code <em>you</em> wrote around the model.</p>
+
+<p>That has a sharp consequence. For a single request, in-memory state is fine; the request and the state are born and die together. For anything that must outlive a single request — a job that runs across a deploy, an agent that resumes tomorrow — <strong>you must externalize the state durably.</strong> This is not an agent-specific insight. It’s the same move that took web tiers from sticky-session stateful boxes to stateless app servers backed by a database. The app server can die and be replaced; the session lives in Postgres. We are going to do exactly that to Scout: make the <em>worker</em> disposable and move the <em>run</em> into durable storage.</p>
+<h3 id="the-brain--hands--session-split">
+  
+  
+    <a href="#the-brain--hands--session-split" class="anchor-heading" aria-labelledby="the-brain--hands--session-split"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The brain / hands / session split
+  
+  
+</h3>
+    
+
+<p>The convergent architecture for serious long-running agents (Anthropic’s framing, and most practitioners’) decomposes the harness into three parts with very different durability requirements:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        ┌─────────────────────────────────────────────────────────┐
+        │  BRAIN  — model + loop (stateless, restartable)          │
+        │  decides the next action from the current log            │
+        └───────────────┬──────────────────────────┬──────────────┘
+                        │ tool calls               │ append events
+                        ▼                          ▼
+        ┌──────────────────────────┐   ┌──────────────────────────┐
+        │  HANDS — ephemeral        │   │  SESSION — append-only    │
+        │  sandboxed execution      │   │  EVENT LOG                │
+        │  (Module 11): bash, files │   │  the durable source       │
+        │  disposable, rebuildable  │   │  of truth                 │
+        └──────────────────────────┘   └──────────────────────────┘
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Brain</strong> — the model plus your loop. Stateless and restartable. Given the current log, it produces the next action. If the process dies, you spin up a new brain and hand it the same log.</li>
+  <li><strong>Hands</strong> — the ephemeral, sandboxed place where tool calls actually run (Module 11’s territory: a container, a microVM). Disposable by design. Its contents are derived state — anything important the hands produce gets recorded in the session.</li>
+  <li><strong>Session</strong> — an <strong>append-only event log</strong> that is the single durable source of truth. Every user message, model response, tool call, and tool result is an immutable entry. Recovery means: rebuild a brain, replay/reload the log, continue.</li>
+</ul>
+
+<p>If “append-only log that is the source of truth, from which you reconstruct current state” sounds familiar, it should: <strong>this is event sourcing</strong>, applied to a handler that happens to be a language model. Name the analogy and the rest follows. The transcript isn’t a convenience buffer you keep around for the model’s benefit — it’s the event store. Current state (the <code class="language-plaintext highlighter-rouge">messages</code> array, the cursor into the task) is a <em>projection</em> you fold from the log. And the log gives you the two things event sourcing always gives you: <strong>recovery</strong> (replay to reconstruct) and <strong>audit</strong> (a complete, immutable record of exactly what the agent did and why — which, for an autonomous system taking real actions, you will be very glad to have).</p>
+
+<p>📖 The bridge from Module 4: there we treated <em>files as memory</em> to fit a task into a finite context window. Here the same idea does double duty — files and the event log are how state survives a <em>process boundary</em>, not just a context boundary. Files-as-memory is the thing that makes durability possible. Hold that thought; §3 leans on it hard.</p><hr />
+<h2 id="3-discrete-sessions-with-amnesia">
+  
+  
+    <a href="#3-discrete-sessions-with-amnesia" class="anchor-heading" aria-labelledby="3-discrete-sessions-with-amnesia"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Discrete sessions with amnesia
+  
+  
+</h2>
+    
+
+<p>Here is the reality that trips up everyone coming from request/response systems. A long-running agent does not run in one continuous, ever-growing context. It runs as a sequence of <strong>discrete sessions</strong>, each bounded by a context window and, often, a process lifetime. A multi-day task is not one 9,000,000-token conversation. It’s hundreds of sessions, <strong>each of which starts with no memory of the last.</strong> The agent has amnesia at every session boundary. (Module 13 will treat this as a feature to design around; here it’s the constraint that forces our hand.)</p>
+
+<p>So where does continuity live? Not in context — context is reset every session. It has to live in <strong>files and durable state</strong> the next session can read. This is the §2 bridge made concrete: the stateless-web-tier-plus-database pattern, one layer down. Each session is a stateless worker; the filesystem and event log are the database; a fresh session <em>rehydrates</em> from disk and carries on.</p>
+
+<p>Anthropic’s pattern for this is a clean two-role split:</p>
+
+<ul>
+  <li><strong>The initializer agent</strong> runs <em>once</em>, on first start. It sets up the environment and writes the durable artifacts the workers will depend on: a <code class="language-plaintext highlighter-rouge">PLAN.md</code> (the goal, broken into steps), an empty <code class="language-plaintext highlighter-rouge">progress.log</code>, any scaffolding (a repo cloned, a venv built, fixtures fetched). It is the constructor.</li>
+  <li><strong>The worker agent</strong> runs <em>every subsequent session</em>. It does the same four things every time: (1) <strong>read</strong> <code class="language-plaintext highlighter-rouge">PLAN.md</code> and <code class="language-plaintext highlighter-rouge">progress.log</code> to figure out where things stand, (2) <strong>do</strong> the next increment of work, (3) <strong>record</strong> what it did and learned by appending to <code class="language-plaintext highlighter-rouge">progress.log</code> and updating state files, (4) <strong>leave clear artifacts</strong> so its successor — which shares none of its context — can pick up cleanly. It is the request handler, and it’s stateless.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>session 1 (initializer):  write PLAN.md, init progress.log, scaffold env
+session 2 (worker):       read PLAN+progress → do step 1 → append progress, commit
+session 3 (worker):       read PLAN+progress → do step 2 → append progress, commit
+   …                      (each session amnesiac; continuity is on disk)
+session N (worker):       read PLAN+progress → all steps done → write RESULT.md
+</code></pre></div></div>
+
+<p>The discipline this imposes on prompts and tools is the real work. The worker’s system prompt must <em>insist</em> on the read-first / record-last ritual, because a worker that forgets to write its progress has, from its successor’s point of view, done nothing — the next session will redo it. The artifacts must be written <em>for a reader with no shared context</em>: “fixed the bug” is useless; “step 3 (parser): fixed off-by-one in <code class="language-plaintext highlighter-rouge">tokenize()</code>, line 88; tests green; next: step 4, wire up the CLI flag” is a handoff. You are, in effect, writing the agent’s commit messages for it to read.</p>
+
+<p>📖 This is the conceptual core that Module 13 builds the persistent-agent vision on top of. The infrastructure point for <em>this</em> module: <strong>continuity is a file/state design problem, not a context-window problem.</strong> No bigger context window makes the amnesia go away — only durable artifacts do.</p><hr />
+<h2 id="4-durable-execution-the-production-answer-to-long-running-reliability">
+  
+  
+    <a href="#4-durable-execution-the-production-answer-to-long-running-reliability" class="anchor-heading" aria-labelledby="4-durable-execution-the-production-answer-to-long-running-reliability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Durable execution: the production answer to long-running reliability
+  
+  
+</h2>
+    
+
+<p>Now the hard part. You have a 3-hour agentic run. It fails at step 47 of 60 — a rate-limit storm, a transient sandbox eviction, a deploy that rolled the worker out from under it. <strong>It must not restart from step 1.</strong> Re-running 46 expensive, slow, side-effecting steps to get back to where you were is unacceptable on cost, on latency, and (if those steps had side effects) on correctness. Crash recovery for a multi-hour stochastic process is the problem <strong>durable execution</strong> exists to solve.</p>
+
+<p>The mechanism will be deeply familiar, because it’s a write-ahead log plus replay — the same primitive under every database’s crash recovery. A durable execution engine <strong>journals every step as an immutable event</strong> to durable storage <em>as it happens</em>. On failure, it doesn’t restart your workflow; it <strong>replays the event history</strong>, feeding each already-completed step its recorded result instead of re-executing it, until it reaches the step that hadn’t finished — and resumes <em>there</em>. The 46 completed steps are not re-run; their results are replayed from the journal in milliseconds. This is your saga / workflow-engine intuition, applied to an agent loop.</p>
+<h3 id="temporal--the-canonical-engine">
+  
+  
+    <a href="#temporal--the-canonical-engine" class="anchor-heading" aria-labelledby="temporal--the-canonical-engine"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Temporal — the canonical engine
+  
+  
+</h3>
+    
+
+<p><a href="https://temporal.io">Temporal</a> is the engine most serious long-running agents use; OpenAI runs it for Codex, and Replit, Lovable, and others build on it. (It raised $300M at a $5B valuation in early 2026, which tells you how central durable execution has become to this space.) The OpenAI Agents SDK ships a GA Temporal integration.</p>
+
+<p>Temporal’s model is “<strong>workflow as code</strong>.” You write your orchestration as ordinary code; Temporal makes it <em>durable</em> by recording every step’s result to an event history and replaying that history to reconstruct state after any failure. Two concepts:</p>
+
+<ul>
+  <li><strong>Workflow</strong> — your orchestration logic. It must be <em>deterministic</em>, because Temporal re-executes it during replay and the re-execution must follow the exact same path. So a workflow may not do I/O, call <code class="language-plaintext highlighter-rouge">time.now()</code>, or hit the network directly. (Sound restrictive? It’s the same constraint as a pure reducer folding an event log — and for the same reason.)</li>
+  <li><strong>Activity</strong> — a unit of non-deterministic, side-effecting work: a model call, a tool call, anything that touches the outside world. Temporal records each activity’s <em>result</em> in the history. On replay, completed activities are <em>not</em> re-run — their recorded result is handed back.</li>
+</ul>
+
+<p>The mapping onto an agent is direct: <strong>the model call is an activity; each tool call is an activity; the loop that strings them together is the workflow.</strong> A tiny conceptual sketch (Temporal Python, illustrative):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">temporalio</span> <span class="kn">import</span> <span class="n">workflow</span><span class="p">,</span> <span class="n">activity</span>
+
+<span class="nd">@activity.defn</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">model_step</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="c1"># The one non-deterministic thing in the loop. Its result is journaled.
+</span>    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">async_client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+        <span class="n">system</span><span class="o">=</span><span class="n">SYSTEM</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">TOOL_SCHEMAS</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="p">.</span><span class="nf">model_dump</span><span class="p">()</span>
+
+<span class="nd">@activity.defn</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">run_tool</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">dispatch_tool</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>        <span class="c1"># side effects happen HERE, journaled
+</span>
+<span class="nd">@workflow.defn</span>
+<span class="k">class</span> <span class="nc">ScoutWorkflow</span><span class="p">:</span>
+    <span class="nd">@workflow.run</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">task</span><span class="p">}]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">MAX_ITERS</span><span class="p">):</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">workflow</span><span class="p">.</span><span class="nf">execute_activity</span><span class="p">(</span>
+                <span class="n">model_step</span><span class="p">,</span> <span class="n">messages</span><span class="p">,</span> <span class="n">start_to_close_timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">)</span>
+            <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">]})</span>
+            <span class="n">tool_uses</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">]</span> <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">tool_uses</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nf">final_text</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">tu</span> <span class="ow">in</span> <span class="n">tool_uses</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="k">await</span> <span class="n">workflow</span><span class="p">.</span><span class="nf">execute_activity</span><span class="p">(</span>
+                    <span class="n">run_tool</span><span class="p">,</span> <span class="n">tu</span><span class="p">[</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">],</span> <span class="n">tu</span><span class="p">[</span><span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">],</span> <span class="n">start_to_close_timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">)</span>
+                <span class="n">results</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">tool_result</span><span class="p">(</span><span class="n">tu</span><span class="p">[</span><span class="sh">"</span><span class="s">id</span><span class="sh">"</span><span class="p">],</span> <span class="n">out</span><span class="p">))</span>
+            <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">results</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>Crash at iteration 47? Temporal spins up a fresh worker, replays the history (46 <code class="language-plaintext highlighter-rouge">model_step</code> and their <code class="language-plaintext highlighter-rouge">run_tool</code> results come back instantly from the journal, no API calls, no re-execution), and the loop continues at iteration 47 as if nothing happened. You wrote a <code class="language-plaintext highlighter-rouge">for</code> loop; you got crash-proof resumption. That is the whole pitch.</p>
+<h3 id="langgraph-checkpointing--the-lighter-weight-in-framework-alternative">
+  
+  
+    <a href="#langgraph-checkpointing--the-lighter-weight-in-framework-alternative" class="anchor-heading" aria-labelledby="langgraph-checkpointing--the-lighter-weight-in-framework-alternative"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> LangGraph checkpointing — the lighter-weight, in-framework alternative
+  
+  
+</h3>
+    
+
+<p>If you’re already in <a href="https://langchain-ai.github.io/langgraph/">LangGraph</a> (Module 7), you don’t need a separate engine for a large class of cases. LangGraph models the agent as a state graph and offers a <strong>checkpointer</strong> that persists the graph’s state after every node transition to a backing store (in-memory, SQLite, Postgres). Attach one and you get:</p>
+
+<ul>
+  <li><strong>Resume</strong> — pass the same <code class="language-plaintext highlighter-rouge">thread_id</code> and the graph rehydrates from its last checkpoint and continues from the node it stopped at.</li>
+  <li><strong>Time-travel</strong> — load <em>any</em> prior checkpoint and branch a new run from it. Invaluable for debugging a long agent (“re-run from the state right before it deleted the file”) and for human steering.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">langgraph.checkpoint.sqlite</span> <span class="kn">import</span> <span class="n">SqliteSaver</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="nf">build_scout_graph</span><span class="p">().</span><span class="nf">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="n">SqliteSaver</span><span class="p">.</span><span class="nf">from_conn_string</span><span class="p">(</span><span class="sh">"</span><span class="s">scout.db</span><span class="sh">"</span><span class="p">))</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">configurable</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">thread_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">session_id</span><span class="p">}}</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span><span class="sh">"</span><span class="s">task</span><span class="sh">"</span><span class="p">:</span> <span class="n">task</span><span class="p">},</span> <span class="n">cfg</span><span class="p">)</span>     <span class="c1"># crash, then re-invoke with the same thread_id → resumes
+</span></code></pre></div></div>
+
+<p>LangGraph Platform packages this for deployment (managed runs, persistence, a streaming API). The tradeoff vs Temporal: LangGraph’s checkpointing is lighter to adopt and tightly integrated with the graph model, but it’s checkpoint-of-state, not journal-and-replay of every step; for very long, very high-stakes orchestration with complex retry/timeout/compensation needs, Temporal’s model is more battle-tested. <strong>Inngest</strong> and <strong>Restate</strong> occupy similar ground — durable functions/workflows with journaling — and are worth a look if you want durable execution without adopting the full Temporal operational footprint.</p>
+
+<p>✅ <strong>The shape to remember:</strong> journal every step → on failure, replay the journal to skip completed work → resume at the failure. It’s a saga with a write-ahead log. Whatever engine you pick, that’s what you’re buying.</p><hr />
+<h2 id="5-human-in-the-loop-at-the-infrastructure-level">
+  
+  
+    <a href="#5-human-in-the-loop-at-the-infrastructure-level" class="anchor-heading" aria-labelledby="5-human-in-the-loop-at-the-infrastructure-level"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Human-in-the-loop, at the infrastructure level
+  
+  
+</h2>
+    
+
+<p>Module 11 made the case for human approval on dangerous actions. Durable execution makes implementing it <em>natural</em>, because pausing-and-waiting is just another kind of “this step isn’t done yet.” An agent that needs an approval can <strong>suspend, persist its entire state, and resume when a human responds</strong> — and crucially, it can wait for <em>hours or days</em> without holding a process, a thread, or a connection open. The waiting state lives in the journal, not in memory.</p>
+
+<p>In Temporal this is a workflow that blocks on a <strong>signal</strong>: the workflow reaches an approval step, parks (durably — you could deploy through the wait and it survives), and resumes the instant a <code class="language-plaintext highlighter-rouge">POST /approve</code> delivers the signal. In LangGraph it’s an <strong>interrupt</strong> before a node: the graph checkpoints, returns control, and resumes on the next <code class="language-plaintext highlighter-rouge">invoke</code> with the human’s decision. Either way, escalation/approval becomes a <strong>first-class durable step</strong>, not a hack with a polling loop and a sleep. The agent that asks “may I delete this production table?” and waits a day for a human to say yes — without burning a single token or process while it waits — is a direct payoff of durable execution.</p><hr />
+<h2 id="6-hosted-vs-self-hosted">
+  
+  
+    <a href="#6-hosted-vs-self-hosted" class="anchor-heading" aria-labelledby="6-hosted-vs-self-hosted"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Hosted vs self-hosted
+  
+  
+</h2>
+    
+
+<p>You now have two ways to run a durable, long-lived agent in production.</p>
+
+<p><strong>Self-host the whole thing.</strong> Your loop, your durable execution engine (Temporal / LangGraph / Inngest / Restate), and a sandbox vendor for the <em>hands</em> — <strong>E2B</strong>, <strong>Modal</strong>, <strong>Daytona</strong>, or raw <strong>Firecracker</strong> microVMs (Module 11). Maximum control, maximum ops burden: you operate the workflow engine, the worker pool, the sandbox fleet, the autoscaling, the upgrades. This is the right call when you need deep control over the loop, custom tools, specific compliance/residency, or you’re running at a scale where margins matter.</p>
+
+<p><strong>Use Anthropic Managed Agents.</strong> Anthropic runs the loop <em>and</em> hosts a per-session sandbox container for you. The flow (verified, from Module-1’s API surface) is: <strong>create an Agent once</strong> (model, system prompt, tools — a persisted, versioned config) → <strong>create a Session per run</strong> → <strong>stream events</strong> back over SSE while you send messages and tool results in. Anthropic runs the brain loop and provisions the hands (the per-session container) on its infrastructure. It supports <strong>scheduled deployments</strong> (run an agent on a cron cadence — the platform’s answer to “run this every night”), and self-hosted sandboxes are an option if you want the loop hosted but the <em>hands</em> on your own infra. You own state in the sense that matters — the API is stateless and the session log is yours — but you don’t run the orchestration.</p>
+
+<p>The tradeoff is the usual hosted-vs-self-hosted axis, sharpened by how new and fast-moving this layer is:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Self-hosted (loop + Temporal/LangGraph + sandbox vendor)</th>
+      <th>Hosted (Managed Agents)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Control over loop/tools</td>
+      <td>total</td>
+      <td>bounded by the platform</td>
+    </tr>
+    <tr>
+      <td>Ops burden</td>
+      <td>you run engine + sandbox fleet</td>
+      <td>Anthropic runs it</td>
+    </tr>
+    <tr>
+      <td>Lock-in</td>
+      <td>low (portable workflow code)</td>
+      <td>higher (platform-shaped)</td>
+    </tr>
+    <tr>
+      <td>Time to production</td>
+      <td>slower</td>
+      <td>fast (create agent → session)</td>
+    </tr>
+    <tr>
+      <td>Best when</td>
+      <td>deep control, scale, custom infra</td>
+      <td>speed, less ops, standard shapes</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Neither is “correct.” A team shipping a standard coding-assistant flow should probably start hosted and not build a Temporal cluster. A team whose agent <em>is</em> the product, running at scale with bespoke tools, will likely self-host. Most importantly: the <em>concepts</em> — brain/hands/session, the event log, journal-and-replay, idempotent side effects — are identical across both. Pick the operations model; the engineering doesn’t change.</p><hr />
+<h2 id="7-operational-concerns">
+  
+  
+    <a href="#7-operational-concerns" class="anchor-heading" aria-labelledby="7-operational-concerns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. Operational concerns
+  
+  
+</h2>
+    
+
+<p>Durability fixes “the process died.” It surfaces a set of problems that didn’t exist when runs were ephemeral.</p>
+
+<p><strong>Idempotency of side effects across replays — the one that bites everyone.</strong> This is the single most important paragraph in the module. Replay re-drives your workflow code, and replaying a step that <em>already ran</em> must not run its side effect again. If <code class="language-plaintext highlighter-rouge">run_tool("send_email", …)</code> succeeded and was journaled, but a crash happened <em>before the workflow recorded the next step</em>, recovery will pass back the recorded result — good. But if you wrote a side effect <em>in the deterministic workflow body</em> instead of inside an activity, replay will execute it again — and your customer gets the email twice. The rule: <strong>all side effects go inside journaled activities (or are otherwise made idempotent), never in the replayed workflow body.</strong> And belt-and-suspenders: make the effect itself idempotent with a key, so even a duplicated delivery is a no-op. A non-idempotent side effect re-firing on replay is <em>the</em> canonical durable-execution footgun (more in §Real production issues).</p>
+
+<p><strong>Observability of long runs (Module 9).</strong> A multi-hour run that you can’t see inside of is a multi-hour outage waiting to happen. The event log is your friend here — it’s already a structured, append-only trace. Emit spans per step, surface per-run cost and progress, and make “where is run X right now and what has it done” a one-query answer.</p>
+
+<p><strong>Cost over long runs (Module 10).</strong> An agent with no budget and no timeout is a way to spend money in your sleep. Every long-running agent needs a hard token budget and a wall-clock timeout, enforced by the harness — a runaway or looping agent burning tokens unattended at 3 a.m. is a real and expensive failure mode. Cap iterations, cap dollars, cap time.</p>
+
+<p><strong>Versioning while runs are in flight.</strong> You deploy a new system prompt. Runs started yesterday are mid-flight on the <em>old</em> prompt, their journals full of the old behavior. Changing the prompt under a replaying workflow can break determinism outright. Durable engines have explicit answers (Temporal’s workflow versioning / patching; pinning a run to an agent version, exactly as Managed Agents does). The point: <strong>an in-flight run is bound to the agent version it started under.</strong> Plan for old runs draining on old configs.</p>
+
+<p><strong>Graceful shutdown and resume across deploys.</strong> Because state is in the journal, a deploy is no longer a catastrophe — drain workers, let the engine reschedule in-flight runs onto fresh workers, resume from the journal. This is the <em>payoff</em> for all the discipline above: deploys, scale-downs, and spot-instance evictions stop being incidents and become routine. That’s the whole reason you externalized the state.</p><hr />
+<h2 id="️-exercise-deploy--durabilize-scout">
+  
+  
+    <a href="#️-exercise-deploy--durabilize-scout" class="anchor-heading" aria-labelledby="️-exercise-deploy--durabilize-scout"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise: Deploy &amp; durabilize Scout
+  
+  
+</h2>
+    
+
+<p>Goal: an agent that survives a crash and resumes. You’ll wrap Scout in a service, give it a durable event log keyed by session, prove resumption by <em>killing the process mid-run</em>, implement the initializer/worker pattern, and make one tool side effect idempotent.</p>
+<h3 id="a-wrap-scout-in-a-streaming-fastapi-service">
+  
+  
+    <a href="#a-wrap-scout-in-a-streaming-fastapi-service" class="anchor-heading" aria-labelledby="a-wrap-scout-in-a-streaming-fastapi-service"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (a) Wrap Scout in a streaming FastAPI service
+  
+  
+</h3>
+    
+
+<p>Stand up the service from §1: <code class="language-plaintext highlighter-rouge">POST /runs</code> starts a run (detached from the request) and returns a <code class="language-plaintext highlighter-rouge">session_id</code>; <code class="language-plaintext highlighter-rouge">GET /runs/{session_id}/events</code> streams events as SSE; <code class="language-plaintext highlighter-rouge">POST /runs/{session_id}/interrupt</code> sets the steering flag the loop checks each iteration. Convert Scout’s loop to the async generator shown in §1 so it yields <code class="language-plaintext highlighter-rouge">token</code> / <code class="language-plaintext highlighter-rouge">tool_use</code> / <code class="language-plaintext highlighter-rouge">final</code> events. <strong>Test:</strong> start a run in one terminal, <code class="language-plaintext highlighter-rouge">curl -N</code> the events endpoint in another, and confirm you see tokens and tool-use events stream in, and that hitting interrupt stops the run cleanly.</p>
+<h3 id="b-make-scouts-state-durable-checkpoint--resume">
+  
+  
+    <a href="#b-make-scouts-state-durable-checkpoint--resume" class="anchor-heading" aria-labelledby="b-make-scouts-state-durable-checkpoint--resume"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (b) Make Scout’s state durable: checkpoint + resume
+  
+  
+</h3>
+    
+
+<p>This is the heart of the exercise. Give Scout an <strong>append-only event log on disk</strong>, keyed by <code class="language-plaintext highlighter-rouge">session_id</code>, written <em>after each step</em>, so a restarted process can reload it and continue.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># checkpoint.py — the session log is the source of truth (event sourcing)
+</span><span class="kn">import</span> <span class="n">json</span><span class="p">,</span> <span class="n">os</span>
+<span class="k">def</span> <span class="nf">log_path</span><span class="p">(</span><span class="n">session_id</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">sessions/</span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s">.jsonl</span><span class="sh">"</span>
+
+<span class="k">def</span> <span class="nf">append_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">os</span><span class="p">.</span><span class="nf">makedirs</span><span class="p">(</span><span class="sh">"</span><span class="s">sessions</span><span class="sh">"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="nf">log_path</span><span class="p">(</span><span class="n">session_id</span><span class="p">),</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">.</span><span class="nf">flush</span><span class="p">();</span> <span class="n">os</span><span class="p">.</span><span class="nf">fsync</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="nf">fileno</span><span class="p">())</span>          <span class="c1"># durable before we proceed
+</span>
+<span class="k">def</span> <span class="nf">load_messages</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Fold the event log back into a messages array (a projection).</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="nf">log_path</span><span class="p">(</span><span class="n">session_id</span><span class="p">)):</span> <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nf">open</span><span class="p">(</span><span class="nf">log_path</span><span class="p">(</span><span class="n">session_id</span><span class="p">)):</span>
+        <span class="n">ev</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">:</span>      <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">]})</span>
+        <span class="k">elif</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">:</span> <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">]})</span>
+        <span class="k">elif</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_results</span><span class="sh">"</span><span class="p">:</span> <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">ev</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">]})</span>
+    <span class="k">return</span> <span class="n">messages</span>
+</code></pre></div></div>
+
+<p>Now make Scout’s loop <strong>resumable</strong>: on start, <code class="language-plaintext highlighter-rouge">load_messages(session_id)</code>; if it’s empty, this is a fresh run, so append the user task; otherwise it’s a resume, so continue from the rebuilt <code class="language-plaintext highlighter-rouge">messages</code>. After <em>every</em> model response and <em>every</em> batch of tool results, <code class="language-plaintext highlighter-rouge">append_event</code> before doing anything else. The invariant: the on-disk log always reflects completed steps, so a reload never loses or duplicates a step.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">run_resumable</span><span class="p">(</span><span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="nf">load_messages</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">messages</span><span class="p">:</span>                                   <span class="c1"># fresh run
+</span>        <span class="nf">append_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">task</span><span class="p">})</span>
+        <span class="n">messages</span> <span class="o">=</span> <span class="nf">load_messages</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nf">len</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX_ITERS</span> <span class="o">*</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="nf">build_system_prompt</span><span class="p">(),</span> <span class="n">tools</span><span class="o">=</span><span class="n">TOOL_SCHEMAS</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+        <span class="nf">append_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">)})</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">!=</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nf">final_text</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="nf">dispatch</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">]</span>
+        <span class="nf">append_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_results</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">results</span><span class="p">})</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">results</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p><strong>Test the resume — this is the point of the whole module.</strong> Start a multi-step task (the “fix the bug in <code class="language-plaintext highlighter-rouge">buggy.py</code>” task from Module 3 works; pad it so it takes several steps). <strong>Kill the process with <code class="language-plaintext highlighter-rouge">Ctrl-C</code> (or <code class="language-plaintext highlighter-rouge">kill -9</code>) partway through.</strong> Then re-run with the <em>same</em> <code class="language-plaintext highlighter-rouge">session_id</code> and no task. Scout should reload the log, skip the work it already did, and finish from where it stopped. Verify by diffing the event logs of an uninterrupted run and a killed-and-resumed run: same final state, no duplicated steps.</p>
+<h3 id="c-implement-the-initializer--worker-pattern">
+  
+  
+    <a href="#c-implement-the-initializer--worker-pattern" class="anchor-heading" aria-labelledby="c-implement-the-initializer--worker-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (c) Implement the initializer / worker pattern
+  
+  
+</h3>
+    
+
+<p>Split a longer task across multiple “sessions.” Write an <strong>initializer</strong> that runs once and produces <code class="language-plaintext highlighter-rouge">PLAN.md</code> (the task as an ordered checklist) and an empty <code class="language-plaintext highlighter-rouge">progress.log</code>. Write a <strong>worker</strong> session whose system prompt requires it to: read <code class="language-plaintext highlighter-rouge">PLAN.md</code> + <code class="language-plaintext highlighter-rouge">progress.log</code>, do exactly <em>one</em> unchecked step, append a clear handoff line to <code class="language-plaintext highlighter-rouge">progress.log</code>, and stop. Run the worker repeatedly (each invocation a fresh process — the amnesia is real) until <code class="language-plaintext highlighter-rouge">PLAN.md</code> is fully checked off. The deliverable: a task completed across N amnesiac sessions where the <em>only</em> thing carried between them is on disk.</p>
+<h3 id="d-make-one-tool-side-effect-idempotent">
+  
+  
+    <a href="#d-make-one-tool-side-effect-idempotent" class="anchor-heading" aria-labelledby="d-make-one-tool-side-effect-idempotent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (d) Make one tool side effect idempotent
+  
+  
+</h3>
+    
+
+<p>Pick a side-effecting tool (<code class="language-plaintext highlighter-rouge">write_file</code> is fine; a mock <code class="language-plaintext highlighter-rouge">send_notification</code> is better because the double-fire is visible). Give the operation an <strong>idempotency key</strong> — for <code class="language-plaintext highlighter-rouge">write_file</code>, the target path + a content hash; for <code class="language-plaintext highlighter-rouge">send_notification</code>, a caller-supplied <code class="language-plaintext highlighter-rouge">idempotency_key</code>. Keep a small on-disk set of keys already executed. On invocation, if the key is present, <strong>return the recorded result without re-executing.</strong> Then simulate a replay: feed the same tool call twice and prove the effect happens <em>once</em>. This is the §7 footgun, defused.</p>
+<h3 id="e-stretch-sketch-it-as-a-durable-workflow">
+  
+  
+    <a href="#e-stretch-sketch-it-as-a-durable-workflow" class="anchor-heading" aria-labelledby="e-stretch-sketch-it-as-a-durable-workflow"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (e) Stretch: sketch it as a durable workflow
+  
+  
+</h3>
+    
+
+<p>Take your resumable loop from (b) and rewrite it as <strong>either</strong> a Temporal workflow (model call and each tool call as activities, per §4) <strong>or</strong> a LangGraph graph with a checkpointer. You don’t need to run a Temporal cluster — a faithful sketch is enough. Then write one paragraph answering: <em>what did the durable execution engine give me for free that I hand-rolled in (b)?</em> (Answers should include: journaling and replay you didn’t write, retry/timeout/backoff per activity, the suspend-for-human-approval primitive from §5, versioning of in-flight runs, and graceful resume across deploys.)</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Runs lost to crashes, rate-limit storms, and deploys — for want of durability.</strong> The default failure mode of the §1 service: a worker dies at step 30 and the run is simply gone, with no resume. A deploy mid-run, a 529 storm, a spot eviction — all total losses. Durability (§2–4) is the fix, and the reason it’s not optional at scale.</li>
+  <li><strong>Non-idempotent side effects double-firing on replay — the #1 durable-execution footgun.</strong> A step sends an email, the workflow crashes before recording it, replay sends the email again. Or a side effect written in the replayed workflow body instead of a journaled activity fires on every replay. This is the bug that turns “durable execution saved us” into “durable execution emailed every customer three times.” Side effects go in activities; effects get idempotency keys (Exercise (d)).</li>
+  <li><strong>State drift across sessions: the successor misreads stale artifacts.</strong> A worker writes an ambiguous or out-of-date <code class="language-plaintext highlighter-rouge">progress.log</code> line; the next amnesiac session reads it, misjudges where things stand, and redoes or skips work. The fix is discipline in <em>how</em> artifacts are written (write for a reader with zero shared context) plus treating the log as append-only truth, not a mutable scratchpad.</li>
+  <li><strong>Hung / runaway background agents burning tokens unattended.</strong> An agent with no timeout and no budget loops at 3 a.m. and bills you for it (Module 10). Every background run needs a hard token budget, a wall-clock cap, and an iteration cap, enforced by the harness — and an alert when it trips them.</li>
+  <li><strong>Versioning an agent mid-flight: in-flight runs on old prompts.</strong> You ship a new system prompt; runs started before the deploy are mid-journal on the old behavior, and replaying them under the new prompt breaks determinism or changes the agent’s mind mid-task. Pin runs to the agent version they began on; let old runs drain.</li>
+  <li><strong>The hosted-vs-self-hosted lock-in / control tradeoff.</strong> Hosted (Managed Agents) gets you to production fast and off the ops treadmill, at the cost of control and some platform lock-in. Self-hosting (Temporal/LangGraph + a sandbox vendor) gives you total control and portability, at the cost of running the whole stack. The concepts port across both — choose on operations, not architecture.</li>
+  <li><strong>Sandbox provisioning cost and latency at scale (the hands layer).</strong> A per-session container that takes seconds to provision and costs money to keep warm is fine for one agent and a real bill for ten thousand. The hands layer (E2B/Modal/Daytona/Firecracker) is where long-running-agent infra cost and cold-start latency actually live — pool, pre-warm, and cap aggressively.</li>
+  <li><strong>Observability of multi-hour runs.</strong> You cannot debug what you cannot see. Lean on the event log as a native trace, emit per-step spans and per-run cost/progress (Module 9), and make “where is this run and what has it done” answerable without grepping logs.</li>
+  <li><strong>“Discrete sessions with amnesia” means continuity is a file/state design problem.</strong> The deepest one. No context window is big enough to make a multi-day agent into one conversation; continuity <em>must</em> live in durable artifacts that an amnesiac successor can read. If you design the agent assuming a continuous memory it doesn’t have, it will silently forget across every session boundary.</li>
+</ul><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Scout’s run dies at step 30 of 50 and resumes from step 1. Which architectural property is missing, and what’s the minimal change (from §2) that fixes it?</li>
+  <li>Explain the brain/hands/session split. Which of the three is the durable source of truth, and which two are disposable — and why is that exactly the event-sourcing pattern?</li>
+  <li>Why must a Temporal <em>workflow</em> be deterministic while <em>activities</em> may not be? Map that distinction onto Scout’s model call and tool calls.</li>
+  <li>A durable run replays after a crash and your customer receives the same email twice. Name the two distinct mistakes that could cause this, and the fix for each.</li>
+  <li>A long agent has amnesia at every session boundary. Where does continuity live, and why won’t a bigger context window solve it? Describe the initializer/worker handoff.</li>
+  <li>You deploy a new system prompt while a 2-hour run is in flight on the old one. What can break, and what’s the standard mitigation?</li>
+  <li>For a 30-second interactive coding turn vs an overnight multi-step refactor, how does the right deployment shape (§1) differ, and why?</li>
+  <li>What does a durable execution engine give you “for free” that you’d otherwise hand-roll? List four things.</li>
+</ul>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Module 3 — the loop you’re now wrapping, streaming, and making resumable.</li>
+  <li>Module 4 — files-as-memory: the bridge from context management to durability.</li>
+  <li>Module 9 — observability: the event log doubles as your trace for long runs.</li>
+  <li>Module 10 — reliability, cost, and budgets/timeouts for unattended background agents.</li>
+  <li>Module 11 — the <em>hands</em> layer: sandboxing and the human-in-the-loop approval this module makes durable.</li>
+  <li>Temporal docs — workflows, activities, signals, and workflow versioning; the OpenAI Agents SDK Temporal integration.</li>
+  <li>LangGraph — persistence/checkpointing and time-travel; LangGraph Platform for deployment. Also Inngest and Restate for durable functions.</li>
+  <li>Anthropic — Managed Agents (create Agent → Session → stream events; scheduled cron deployments; self-hosted sandboxes); sandbox vendors E2B, Modal, Daytona, Firecracker.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/13-frontier-and-advanced.html">Module 13 — Frontier &amp; Advanced Patterns</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

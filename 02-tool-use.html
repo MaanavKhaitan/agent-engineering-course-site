@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(6)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(6) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(6) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(6) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>2 · Tool Use | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="2 · Tool Use" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="2 · Tool Use" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"2 · Tool Use","url":"/agent-engineering-course-site/02-tool-use.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-02--tool-use--function-calling">
+  
+  
+    <a href="#module-02--tool-use--function-calling" class="anchor-heading" aria-labelledby="module-02--tool-use--function-calling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 02 — Tool Use / Function Calling
+  
+  
+</h1>
+    
+
+<p>A language model is a function from text to text. Tool use is the protocol that lets that function <em>ask the outside world for things</em> — and it is the single capability that turns a chatbot into an agent. This module is about the wire format, the design discipline, and the failure modes.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you will be able to:</p>
+
+<ul>
+  <li>Explain the core mechanic: the model emits a structured <em>request to call a tool</em> and stops; your harness executes and feeds the result back. <strong>The model proposes; the harness disposes.</strong></li>
+  <li>Define a tool: <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">description</code> (documentation the model reads at runtime), and a JSON Schema <code class="language-plaintext highlighter-rouge">input_schema</code>.</li>
+  <li>Hand-trace one full request/response cycle and write out the exact message structures — the part everyone gets wrong.</li>
+  <li>Handle parallel tool calls, the <code class="language-plaintext highlighter-rouge">tool_choice</code> modes, error results, and strict schema validation.</li>
+  <li>Apply tool <em>design</em> heuristics: when bash beats a dedicated tool, when to promote an action, why softening a description fixes over-triggering.</li>
+  <li>Recognize the SDK tool runner as the “automatic loop” and know why we build it by hand in Module 03.</li>
+</ul><hr />
+<h2 id="1-the-conceptual-unlock-a-planner-that-outputs-intents">
+  
+  
+    <a href="#1-the-conceptual-unlock-a-planner-that-outputs-intents" class="anchor-heading" aria-labelledby="1-the-conceptual-unlock-a-planner-that-outputs-intents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. The conceptual unlock: a planner that outputs intents
+  
+  
+</h2>
+    
+
+<p>Before tool use, an LLM could only produce prose. If you asked “what’s the weather in Paris?”, it would confabulate a plausible-sounding answer, because answering is the only thing it can do.</p>
+
+<p>Modern models are post-trained on a different contract. When you include <strong>tool definitions</strong> in the request, the model learns it has a second option: instead of emitting prose, it can emit a structured block that says <em>“call <code class="language-plaintext highlighter-rouge">get_weather</code> with <code class="language-plaintext highlighter-rouge">{location: 'Paris'}</code>”</em> — and then <strong>stop generating</strong>. It does not call anything. It cannot call anything. It has no network stack, no filesystem, no clock. It emits an <em>intent</em>, structured as JSON, and halts.</p>
+
+<p>Your code — the <strong>harness</strong> — receives that intent, executes the real function (hit a weather API, read a file, run a query), and sends the result back into the model’s context on the next request. The model reads the result and continues: maybe it answers, maybe it requests another tool.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        ┌──────────── model (planner) ────────────┐
+        │  reads context, emits ONE of:            │
+        │   • prose  (stop_reason "end_turn")      │
+        │   • tool_use block(s) (stop "tool_use")  │
+        └──────────────┬───────────────────────────┘
+                       │ intent
+                       ▼
+        ┌──────────── harness (executor) ─────────┐
+        │  validates args, runs the real function, │
+        │  enforces permissions, logs, returns a   │
+        │  tool_result back into the next request  │
+        └──────────────────────────────────────────┘
+</code></pre></div></div>
+
+<p>This separation is the whole game. The model is a planner with good judgment about <em>which</em> action to take and <em>what arguments</em> to pass; it has zero authority to take the action. Every guardrail you will ever build — permission prompts, audit logs, human-in-the-loop approval, rate limits — lives in the gap between “model proposes” and “harness disposes.” A systems analogy: the model is userland issuing a syscall; the harness is the kernel that decides whether to honor it. The model can <em>request</em> <code class="language-plaintext highlighter-rouge">unlink()</code>; only the kernel deletes the file.</p>
+
+<p>The API is <strong>stateless</strong>. The model has no memory of prior turns. “Context” is just the message history you resend on every request — including the tool_use blocks it emitted and the tool_results you fed back. Lose track of that history and the conversation falls apart. We exploit this statelessness heavily in Module 03 when we build the loop.</p>
+
+<p>📖 The model emitting <code class="language-plaintext highlighter-rouge">tool_use</code> and stopping is reported as <code class="language-plaintext highlighter-rouge">resp.stop_reason == "tool_use"</code>. Hold that fact; it’s the pivot of the entire control flow.</p><hr />
+<h2 id="2-the-anatomy-of-a-tool">
+  
+  
+    <a href="#2-the-anatomy-of-a-tool" class="anchor-heading" aria-labelledby="2-the-anatomy-of-a-tool"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. The anatomy of a tool
+  
+  
+</h2>
+    
+
+<p>A tool definition has exactly three load-bearing fields:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_weather</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">get_weather</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Get the current weather for a city. Call this whenever </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">the user asks about current conditions, temperature, or </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">whether to bring an umbrella.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">location</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span>
+                <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">City name, e.g. </span><span class="sh">'</span><span class="s">Paris</span><span class="sh">'</span><span class="s"> or </span><span class="sh">'</span><span class="s">San Francisco, CA</span><span class="sh">'"</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="sh">"</span><span class="s">unit</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span>
+                <span class="sh">"</span><span class="s">enum</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">celsius</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">fahrenheit</span><span class="sh">"</span><span class="p">],</span>
+                <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Temperature unit. Defaults to celsius.</span><span class="sh">"</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">location</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Consumed by</th>
+      <th>Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>model + your dispatch code</td>
+      <td>The model uses it to refer to the tool; you <code class="language-plaintext highlighter-rouge">switch</code> on it to route execution. Use specific names (<code class="language-plaintext highlighter-rouge">search_orders</code>, not <code class="language-plaintext highlighter-rouge">search</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><strong>the model, at runtime</strong></td>
+      <td>This is documentation written for an unusual reader: the model decides <em>whether and when</em> to call based on these words. Description quality measurably changes behavior.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">input_schema</code></td>
+      <td>model + (optionally) a validator</td>
+      <td>Standard JSON Schema. Tells the model the shape of the arguments. With <code class="language-plaintext highlighter-rouge">strict</code> it also constrains generation.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The mental reframe a systems engineer needs: <strong>you are writing an API whose primary consumer is a language model.</strong> Your <code class="language-plaintext highlighter-rouge">description</code> is not a code comment — it is the prompt fragment that drives a routing decision. <code class="language-plaintext highlighter-rouge">enum</code> constrains the model the way a typed parameter constrains a caller. <code class="language-plaintext highlighter-rouge">required</code> vs. optional is a real contract. Treat these fields with the same care you’d give a public API, because that is exactly what they are.</p>
+
+<p>Here are two more, to show range:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">read_file</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">read_file</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Read a UTF-8 text file from the local workspace and return </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">its contents. Use this before editing a file so you can see </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">the current contents. Returns an error if the path does not exist.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">path</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Workspace-relative path, e.g. </span><span class="sh">'</span><span class="s">src/app.py</span><span class="sh">'"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">path</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">web_search</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">web_search</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Search the web and return the top results (title, url, snippet). </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">Call this when the question depends on current information not in </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">the conversation — recent events, prices, or facts past your training cutoff.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">query</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Search query, phrased as you would type into a search engine.</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">max_results</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">integer</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">How many results to return. Default 5.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">query</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Provider note.</strong> OpenAI calls this “function calling.” The shape is near-identical: a <code class="language-plaintext highlighter-rouge">tools</code> array of function definitions with a JSON Schema, <code class="language-plaintext highlighter-rouge">tool_calls</code> in the response, and <code class="language-plaintext highlighter-rouge">role: "tool"</code> messages carrying results. The concepts in this module transfer directly; only the field names differ.</p>
+</blockquote><hr />
+<h2 id="3-the-full-requestresponse-cycle-for-one-tool-call">
+  
+  
+    <a href="#3-the-full-requestresponse-cycle-for-one-tool-call" class="anchor-heading" aria-labelledby="3-the-full-requestresponse-cycle-for-one-tool-call"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. The full request/response cycle for ONE tool call
+  
+  
+</h2>
+    
+
+<p>This is the section everyone trips on. We will trace a single tool call end to end and print the actual message structures at each step. Pay attention to <strong>what gets appended to <code class="language-plaintext highlighter-rouge">messages</code></strong> — that is the part that bites people.</p>
+<h3 id="step-0--set-up">
+  
+  
+    <a href="#step-0--set-up" class="anchor-heading" aria-labelledby="step-0--set-up"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 0 — set up
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span>
+
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_weather</span><span class="p">]</span>  <span class="c1"># the definition from §2
+</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">What</span><span class="sh">'</span><span class="s">s the weather in Paris right now?</span><span class="sh">"</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></div>
+<h3 id="step-1--send-tools--messages-the-model-asks-for-a-tool">
+  
+  
+    <a href="#step-1--send-tools--messages-the-model-asks-for-a-tool" class="anchor-heading" aria-labelledby="step-1--send-tools--messages-the-model-asks-for-a-tool"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 1 — send tools + messages; the model asks for a tool
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">)</span>   <span class="c1"># -&gt; "tool_use"
+</span><span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">resp.content</code> is a <strong>list of content blocks</strong>, not a string. With tool use it typically looks like this (often a <code class="language-plaintext highlighter-rouge">text</code> block of preamble, then one or more <code class="language-plaintext highlighter-rouge">tool_use</code> blocks):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+    <span class="nc">TextBlock</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Let me check the current weather in Paris.</span><span class="sh">"</span><span class="p">),</span>
+    <span class="nc">ToolUseBlock</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="sh">"</span><span class="s">toolu_01A2b3C4d5E6f7G8h9</span><span class="sh">"</span><span class="p">,</span>   <span class="c1"># block.id — you MUST echo this back
+</span>        <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">get_weather</span><span class="sh">"</span><span class="p">,</span>               <span class="c1"># block.name
+</span>        <span class="nb">input</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">location</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Paris</span><span class="sh">"</span><span class="p">},</span>      <span class="c1"># block.input — already parsed into a dict
+</span>    <span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>Three things to internalize:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">block.input</code> is <strong>already a parsed dict</strong>. You do not <code class="language-plaintext highlighter-rouge">json.loads</code> it.</li>
+  <li><code class="language-plaintext highlighter-rouge">block.id</code> is the correlation key. The <code class="language-plaintext highlighter-rouge">tool_result</code> you send back must reference this exact id, or the API rejects the request.</li>
+  <li><code class="language-plaintext highlighter-rouge">stop_reason == "tool_use"</code> is your signal that the model wants something. If it were <code class="language-plaintext highlighter-rouge">"end_turn"</code>, the model is done and <code class="language-plaintext highlighter-rouge">resp.content</code> is the final answer.</li>
+</ul>
+<h3 id="step-2--execute-the-tool-in-your-harness">
+  
+  
+    <a href="#step-2--execute-the-tool-in-your-harness" class="anchor-heading" aria-labelledby="step-2--execute-the-tool-in-your-harness"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 2 — execute the tool in your harness
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">execute_get_weather</span><span class="p">(</span><span class="n">tool_input</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">tool_input</span><span class="p">[</span><span class="sh">"</span><span class="s">location</span><span class="sh">"</span><span class="p">]</span>
+    <span class="c1"># ... real implementation: call a weather API ...
+</span>    <span class="k">return</span> <span class="sh">"</span><span class="s">18°C, partly cloudy, light wind from the west.</span><span class="sh">"</span>
+
+<span class="c1"># Pull out the tool_use block and run it
+</span><span class="n">tool_use</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">result_string</span> <span class="o">=</span> <span class="nf">execute_get_weather</span><span class="p">(</span><span class="n">tool_use</span><span class="p">.</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="step-3--append-the-assistant-turn-then-a-user-turn-carrying-the-result">
+  
+  
+    <a href="#step-3--append-the-assistant-turn-then-a-user-turn-carrying-the-result" class="anchor-heading" aria-labelledby="step-3--append-the-assistant-turn-then-a-user-turn-carrying-the-result"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 3 — append the assistant turn, then a user turn carrying the result
+  
+  
+</h3>
+    
+
+<p>This is the crux. You append <strong>two</strong> messages:</p>
+
+<ol>
+  <li>The assistant’s full <code class="language-plaintext highlighter-rouge">content</code> — <em>verbatim</em>, including the <code class="language-plaintext highlighter-rouge">tool_use</code> block. (If you drop the <code class="language-plaintext highlighter-rouge">tool_use</code> block, the API sees a <code class="language-plaintext highlighter-rouge">tool_result</code> with nothing to correlate to and 400s.)</li>
+  <li>A <strong>user</strong> message whose content is a list of <code class="language-plaintext highlighter-rouge">tool_result</code> blocks — one per <code class="language-plaintext highlighter-rouge">tool_use</code>, each tagged with the matching <code class="language-plaintext highlighter-rouge">tool_use_id</code>.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>   <span class="c1"># echo the WHOLE content
+</span>
+<span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_use</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>    <span class="c1"># must match the block.id from step 1
+</span>            <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">result_string</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>The conversation now reads, in full:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>      <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">What</span><span class="sh">'</span><span class="s">s the weather in Paris right now?</span><span class="sh">"</span><span class="p">},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">TextBlock</span><span class="p">(...),</span> <span class="nc">ToolUseBlock</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="sh">"</span><span class="s">toolu_01A2...</span><span class="sh">"</span><span class="p">,</span> <span class="p">...)]},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>      <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">toolu_01A2...</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">18°C, partly cloudy...</span><span class="sh">"</span><span class="p">}]},</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>Note the structural surprise: <strong>tool <em>results</em> are sent with <code class="language-plaintext highlighter-rouge">role: "user"</code>.</strong> The result is “input to the model” the same way the original question was, so it rides on the user turn — even though no human typed it. The assistant turn holds the <em>request</em>; the user turn holds the <em>result</em>.</p>
+<h3 id="step-4--call-again-the-model-uses-the-result-to-answer">
+  
+  
+    <a href="#step-4--call-again-the-model-uses-the-result-to-answer" class="anchor-heading" aria-labelledby="step-4--call-again-the-model-uses-the-result-to-answer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 4 — call again; the model uses the result to answer
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp2</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>        <span class="c1"># keep passing tools — the model may want another one
+</span>    <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">resp2</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">)</span>   <span class="c1"># -&gt; "end_turn"
+</span><span class="nf">print</span><span class="p">(</span><span class="n">resp2</span><span class="p">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># -&gt; "It's currently 18°C and partly cloudy in Paris, with a light westerly wind."
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">stop_reason == "end_turn"</code> means the model is finished. That is one complete cycle: <strong>send tools+messages → tool_use + stop “tool_use” → execute → append assistant content + tool_result → send again → end_turn.</strong></p>
+
+<p>In Module 03 you’ll wrap steps 1–4 in a <code class="language-plaintext highlighter-rouge">while</code> loop that keeps going until <code class="language-plaintext highlighter-rouge">stop_reason == "end_turn"</code>. For now, trace this by hand until the message shapes are muscle memory.</p><hr />
+<h2 id="4-parallel-tools-tool-choice-errors-strict-schemas">
+  
+  
+    <a href="#4-parallel-tools-tool-choice-errors-strict-schemas" class="anchor-heading" aria-labelledby="4-parallel-tools-tool-choice-errors-strict-schemas"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Parallel tools, tool choice, errors, strict schemas
+  
+  
+</h2>
+    
+<h3 id="parallel-tool-use">
+  
+  
+    <a href="#parallel-tool-use" class="anchor-heading" aria-labelledby="parallel-tool-use"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Parallel tool use
+  
+  
+</h3>
+    
+
+<p>A single response can contain <strong>multiple</strong> <code class="language-plaintext highlighter-rouge">tool_use</code> blocks. If you ask “compare the weather in Paris and Tokyo,” the model may emit two <code class="language-plaintext highlighter-rouge">get_weather</code> calls at once. You execute all of them and return <strong>all results in ONE user message</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tool_uses</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+
+<span class="n">tool_results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tu</span> <span class="ow">in</span> <span class="n">tool_uses</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nf">dispatch</span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">)</span>   <span class="c1"># your router
+</span>    <span class="n">tool_results</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span>
+    <span class="p">})</span>
+
+<span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_results</span><span class="p">})</span>   <span class="c1"># ALL results, one message
+</span></code></pre></div></div>
+
+<p>⚠️ Returning one <code class="language-plaintext highlighter-rouge">tool_result</code> per user message — splitting them across turns — is a classic bug. It silently teaches the model to stop making parallel calls, and it can desync the correlation. One assistant turn of <code class="language-plaintext highlighter-rouge">tool_use</code> blocks maps to <strong>one</strong> user turn of <code class="language-plaintext highlighter-rouge">tool_result</code> blocks. You may set <code class="language-plaintext highlighter-rouge">disable_parallel_tool_use: true</code> (inside <code class="language-plaintext highlighter-rouge">tool_choice</code>) to force at most one tool per response.</p>
+<h3 id="tool-choice-modes">
+  
+  
+    <a href="#tool-choice-modes" class="anchor-heading" aria-labelledby="tool-choice-modes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Tool choice modes
+  
+  
+</h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">tool_choice</code> controls <em>whether</em> the model may or must call a tool:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">tool_choice</code></th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">{"type": "auto"}</code></td>
+      <td>Default. Model decides: prose or tool.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">{"type": "any"}</code></td>
+      <td>Model <strong>must</strong> use some tool (no plain prose answer).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">{"type": "tool", "name": "get_weather"}</code></td>
+      <td>Force this specific tool.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">{"type": "none"}</code></td>
+      <td>Model may not use tools this turn.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><code class="language-plaintext highlighter-rouge">any</code> and <code class="language-plaintext highlighter-rouge">tool</code> are useful when you’re using the model purely as a structured-output engine (e.g. classification: force a <code class="language-plaintext highlighter-rouge">submit_category</code> tool with an enum). <code class="language-plaintext highlighter-rouge">auto</code> is right for genuine agents, where the model should judge when a tool is warranted.</p>
+<h3 id="error-results--let-the-model-self-correct">
+  
+  
+    <a href="#error-results--let-the-model-self-correct" class="anchor-heading" aria-labelledby="error-results--let-the-model-self-correct"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Error results — let the model self-correct
+  
+  
+</h3>
+    
+
+<p>When a tool fails, do <strong>not</strong> crash the loop. Return a <code class="language-plaintext highlighter-rouge">tool_result</code> with <code class="language-plaintext highlighter-rouge">is_error: True</code> and an informative message. The model reads the error and adapts — retries with different arguments, picks another approach, or asks the user.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nf">execute_read_file</span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">tool_result</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">}</span>
+<span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+    <span class="n">tool_result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Error: no file at </span><span class="sh">'</span><span class="si">{</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">'</span><span class="s">path</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="sh">'</span><span class="s">. Use the list_files tool </span><span class="sh">"</span>
+                   <span class="sa">f</span><span class="sh">"</span><span class="s">to see available paths, then retry.</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The message string is doing real work here. <code class="language-plaintext highlighter-rouge">"Error: ENOENT"</code> tells the model nothing actionable; the version above tells it <em>what went wrong and what to try next</em>. We return to this under Real production issues.</p>
+<h3 id="strict-tool-use--guaranteed-valid-arguments">
+  
+  
+    <a href="#strict-tool-use--guaranteed-valid-arguments" class="anchor-heading" aria-labelledby="strict-tool-use--guaranteed-valid-arguments"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Strict tool use — guaranteed-valid arguments
+  
+  
+</h3>
+    
+
+<p>By default the model <em>usually</em> produces schema-valid arguments, but “usually” isn’t “always.” Add <code class="language-plaintext highlighter-rouge">"strict": True</code> to a tool definition to <em>guarantee</em> the emitted <code class="language-plaintext highlighter-rouge">input</code> validates against your schema. Strict mode requires the schema to set <code class="language-plaintext highlighter-rouge">additionalProperties: false</code> and list <code class="language-plaintext highlighter-rouge">required</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book_flight</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">book_flight</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Book a flight.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">strict</span><span class="sh">"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">destination</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">date</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">format</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">date</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">passengers</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">integer</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">enum</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">destination</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">date</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">passengers</span><span class="sh">"</span><span class="p">],</span>
+        <span class="sh">"</span><span class="s">additionalProperties</span><span class="sh">"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">strict</code> constrains <em>generation</em> so the arguments are well-formed. It does <strong>not</strong> validate semantics — <code class="language-plaintext highlighter-rouge">destination: "Narnia"</code> is schema-valid and the model can still pass nonsense. Treat strict as “the JSON will parse and match the shape,” not “the inputs are sensible.” Your harness still validates meaning.</p><hr />
+<h2 id="5-tool-design-heuristics">
+  
+  
+    <a href="#5-tool-design-heuristics" class="anchor-heading" aria-labelledby="5-tool-design-heuristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Tool design heuristics
+  
+  
+</h2>
+    
+
+<p>You are designing an API for an unusual consumer. The usual API-design instincts mostly apply, with a few twists.</p>
+
+<p><strong>Write prescriptive descriptions.</strong> State <em>when</em> to call, not just what the tool does. “Call this when the user asks about current prices or recent events” gives measurably better triggering than “Searches the web.” On recent models — which reach for tools more conservatively — the trigger condition in the description is the single biggest lever on call rate.</p>
+
+<p><strong>Return informative results.</strong> The result string re-enters the model’s context. A bare exit code or a 10,000-line dump are both bad: the first starves the model of information, the second floods it. Return what the model needs to make the next decision, and nothing more.</p>
+
+<p><strong>Make errors recoverable.</strong> Covered above — informative <code class="language-plaintext highlighter-rouge">is_error</code> messages turn a dead end into a self-correction.</p>
+
+<p><strong>Don’t ship too many tools.</strong> A large, overlapping tool surface confuses the model and inflates every request (each definition costs tokens — see below). Keep the set focused. If you have dozens of tools, that’s a later-module problem (tool search, MCP) — not something to brute-force into one request.</p>
+
+<p><strong>Bash vs. a dedicated tool — the central tradeoff.</strong> A <code class="language-plaintext highlighter-rouge">bash</code> tool gives the model enormous leverage: it can do almost anything with a shell command. But it hands your harness only an opaque command string — the same shape for every action. A dedicated tool (<code class="language-plaintext highlighter-rouge">send_email</code>, <code class="language-plaintext highlighter-rouge">edit_file</code>) gives the harness a <em>typed, named, interceptable</em> hook.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th><code class="language-plaintext highlighter-rouge">bash</code> (broad leverage)</th>
+      <th>dedicated tool (typed/gateable)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Coverage</td>
+      <td>almost any action</td>
+      <td>one action</td>
+    </tr>
+    <tr>
+      <td>Harness sees</td>
+      <td>opaque string</td>
+      <td>structured args</td>
+    </tr>
+    <tr>
+      <td>Gate a risky action</td>
+      <td>hard (parse the string)</td>
+      <td>easy (it’s a named call)</td>
+    </tr>
+    <tr>
+      <td>Render in a UI</td>
+      <td>no</td>
+      <td>yes (custom widget)</td>
+    </tr>
+    <tr>
+      <td>Parallel-safety</td>
+      <td>unknown</td>
+      <td>declarable</td>
+    </tr>
+    <tr>
+      <td>Audit</td>
+      <td>grep logs</td>
+      <td>structured event</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>When to promote an action from bash to a dedicated tool.</strong> Promote when you need to:</p>
+
+<ul>
+  <li><strong>Gate it</strong> — security boundary. Hard-to-reverse actions (sending a message, deleting data, hitting an external write API) are natural candidates for a confirmation gate. <code class="language-plaintext highlighter-rouge">send_email</code> is trivial to gate; <code class="language-plaintext highlighter-rouge">bash -c "curl -X POST ..."</code> is not.</li>
+  <li><strong>Enforce an invariant</strong> — a dedicated <code class="language-plaintext highlighter-rouge">edit</code> tool can reject a write if the file changed since the model last read it. Bash can’t.</li>
+  <li><strong>Render it</strong> — some actions deserve custom UI. Claude Code promotes “ask the user a question” to a tool so it can render a modal and block the loop until answered.</li>
+  <li><strong>Schedule it</strong> — mark read-only tools (<code class="language-plaintext highlighter-rouge">grep</code>, <code class="language-plaintext highlighter-rouge">glob</code>) as parallel-safe so the harness can fan them out; bash can’t be assumed safe.</li>
+</ul>
+
+<p>Rule of thumb: <strong>start with bash for breadth, promote to dedicated tools when you need to gate, render, audit, or parallelize.</strong> The permission engine that does the gating is Module 03’s <code class="language-plaintext highlighter-rouge">permission_gate</code>; the full security treatment (tool args are untrusted, results can carry injected instructions) is Module 11. Here we’re just establishing the <em>shape</em> of the decision.</p><hr />
+<h2 id="6-the-sdk-tool-runner--the-automatic-loop">
+  
+  
+    <a href="#6-the-sdk-tool-runner--the-automatic-loop" class="anchor-heading" aria-labelledby="6-the-sdk-tool-runner--the-automatic-loop"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. The SDK tool runner — the automatic loop
+  
+  
+</h2>
+    
+
+<p>The Anthropic SDK ships a “batteries-included” helper that runs the whole loop for you. You decorate a typed Python function; the SDK derives the schema from its signature and docstring, calls the model, executes the tool, feeds the result back, and repeats until done.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">anthropic</span> <span class="kn">import</span> <span class="n">beta_tool</span>
+<span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+
+<span class="nd">@beta_tool</span>
+<span class="k">def</span> <span class="nf">get_weather</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">celsius</span><span class="sh">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Get current weather for a city.
+
+    Args:
+        location: City name, e.g. </span><span class="sh">'</span><span class="s">Paris</span><span class="sh">'</span><span class="s">.
+        unit: Temperature unit, </span><span class="sh">"</span><span class="s">celsius</span><span class="sh">"</span><span class="s"> or </span><span class="sh">"</span><span class="s">fahrenheit</span><span class="sh">"</span><span class="s">.
+    </span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="s">18°C, partly cloudy</span><span class="sh">"</span>   <span class="c1"># real impl here
+</span>
+<span class="n">runner</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">beta</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">tool_runner</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">get_weather</span><span class="p">],</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Weather in Paris?</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">runner</span><span class="p">:</span>    <span class="c1"># each iteration is one model turn; loop ends when done
+</span>    <span class="nf">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>No manual <code class="language-plaintext highlighter-rouge">messages.append</code>, no <code class="language-plaintext highlighter-rouge">tool_use_id</code> plumbing, no <code class="language-plaintext highlighter-rouge">stop_reason</code> check. The runner does it all.</p>
+
+<p><strong>So why does this course build the loop by hand in Module 03?</strong></p>
+
+<ul>
+  <li><strong>You learn the machine by building it.</strong> The runner hides exactly the mechanics — append-assistant-content, correlate-by-id, stop on <code class="language-plaintext highlighter-rouge">end_turn</code> — that you must understand to debug a real agent.</li>
+  <li><strong>Real harnesses need the manual control.</strong> Production agents intercept every tool call to enforce permissions, log structured events, support human-in-the-loop approval, truncate oversized results, and stream UI updates. The runner’s convenience is precisely the seam where that control has to live. You can’t insert a permission gate into a loop you don’t own.</li>
+</ul>
+
+<p>The runner is the right tool for a quick script. An agent platform owns its loop. Module 03 builds that loop; this module gave you the pieces it assembles.</p><hr />
+<h2 id="7-tools-you-dont-have-to-write">
+  
+  
+    <a href="#7-tools-you-dont-have-to-write" class="anchor-heading" aria-labelledby="7-tools-you-dont-have-to-write"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. Tools you don’t have to write
+  
+  
+</h2>
+    
+
+<p>Two escape hatches worth knowing now, covered in depth later:</p>
+
+<ul>
+  <li><strong>Server-side / built-in tools.</strong> Anthropic hosts some tools — <code class="language-plaintext highlighter-rouge">web_search</code>, <code class="language-plaintext highlighter-rouge">code_execution</code>, plus client-executed reference tools like <code class="language-plaintext highlighter-rouge">bash</code> and <code class="language-plaintext highlighter-rouge">text_editor</code>. Server-side tools run on Anthropic’s infrastructure: you declare them in <code class="language-plaintext highlighter-rouge">tools</code> and the results come back in the same response, with no client-side execution loop. They’re a fast way to add web search or a sandboxed Python environment without owning that infrastructure.</li>
+  <li><strong>MCP (Model Context Protocol).</strong> A standard for exposing tools from external servers, so you can plug in a whole catalog of tools without writing each definition by hand. Forward reference: Modules 07 and 13.</li>
+</ul>
+
+<p>You don’t need these to build Scout. But know they exist before you hand-write your fiftieth tool definition.</p><hr />
+<h2 id="️-exercise-scouttoolspy--two-real-tools-one-hand-traced-cycle">
+  
+  
+    <a href="#️-exercise-scouttoolspy--two-real-tools-one-hand-traced-cycle" class="anchor-heading" aria-labelledby="️-exercise-scouttoolspy--two-real-tools-one-hand-traced-cycle"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise: <code class="language-plaintext highlighter-rouge">scout/tools.py</code> — two real tools, one hand-traced cycle
+  
+  
+</h2>
+    
+
+<p>You’re building toward <strong>Scout</strong>, the research agent of this course. Today: implement two real tools and drive <strong>one</strong> manual tool-use cycle — no loop yet. The goal is to <em>see the message shapes</em> and hand-trace the cycle once.</p>
+<h3 id="part-a--implement-the-tools">
+  
+  
+    <a href="#part-a--implement-the-tools" class="anchor-heading" aria-labelledby="part-a--implement-the-tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part A — implement the tools
+  
+  
+</h3>
+    
+
+<p>Create <code class="language-plaintext highlighter-rouge">scout/tools.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/tools.py
+</span><span class="kn">import</span> <span class="n">os</span>
+
+<span class="n">WORKSPACE</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+
+<span class="c1"># ---- Tool 1: read_file --------------------------------------------------
+</span>
+<span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Read a UTF-8 text file from the Scout workspace.</span><span class="sh">"""</span>
+    <span class="n">full</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">WORKSPACE</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
+    <span class="c1"># Confine to the workspace — path is untrusted model output (Module 11).
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">full</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="n">WORKSPACE</span> <span class="o">+</span> <span class="n">os</span><span class="p">.</span><span class="n">sep</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Path </span><span class="sh">'</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="sh">'</span><span class="s"> escapes the workspace.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+
+<span class="n">READ_FILE_TOOL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">read_file</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Read a UTF-8 text file from the Scout workspace and return its </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">contents. Call this when you need the contents of a known file.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">path</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Workspace-relative path, e.g. </span><span class="sh">'</span><span class="s">notes.txt</span><span class="sh">'"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">path</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># ---- Tool 2: web_search (offline stub) ----------------------------------
+</span>
+<span class="c1"># Keep it runnable offline: a canned index. Swap for the `requests` library
+# against a real search API later — the tool's CONTRACT does not change.
+</span><span class="n">_FAKE_INDEX</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">anthropic</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Anthropic is an AI safety company; it builds the Claude family of models.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">tool use</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Tool use lets a model emit a structured request to call a function and stop.</span><span class="sh">"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">web_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_results</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span>
+    <span class="n">hits</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="sh">"</span><span class="s">- </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="sh">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_FAKE_INDEX</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">q</span> <span class="ow">or</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hits</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">No results for </span><span class="sh">'</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="sh">'</span><span class="s">.</span><span class="sh">"</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">hits</span><span class="p">[:</span><span class="n">max_results</span><span class="p">])</span>
+
+<span class="n">WEB_SEARCH_TOOL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">web_search</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Search the web and return short result snippets. Call this when </span><span class="sh">"</span>
+                   <span class="sh">"</span><span class="s">the question depends on information not already in the conversation.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">query</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Search query.</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">max_results</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">integer</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Max results. Default 3.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">query</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">TOOLS</span> <span class="o">=</span> <span class="p">[</span><span class="n">READ_FILE_TOOL</span><span class="p">,</span> <span class="n">WEB_SEARCH_TOOL</span><span class="p">]</span>
+<span class="n">DISPATCH</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">read_file</span><span class="sh">"</span><span class="p">:</span> <span class="n">read_file</span><span class="p">,</span> <span class="sh">"</span><span class="s">web_search</span><span class="sh">"</span><span class="p">:</span> <span class="n">web_search</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>(Drop a <code class="language-plaintext highlighter-rouge">scout/notes.txt</code> next to it so <code class="language-plaintext highlighter-rouge">read_file</code> has something to read.)</p>
+<h3 id="part-b--drive-one-manual-cycle-and-print-every-message">
+  
+  
+    <a href="#part-b--drive-one-manual-cycle-and-print-every-message" class="anchor-heading" aria-labelledby="part-b--drive-one-manual-cycle-and-print-every-message"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part B — drive ONE manual cycle and print every message
+  
+  
+</h3>
+    
+
+<p>Create <code class="language-plaintext highlighter-rouge">scout/one_cycle.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/one_cycle.py
+</span><span class="kn">import</span> <span class="n">json</span>
+<span class="kn">import</span> <span class="n">anthropic</span>
+<span class="kn">from</span> <span class="n">tools</span> <span class="kn">import</span> <span class="n">TOOLS</span><span class="p">,</span> <span class="n">DISPATCH</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Search for what </span><span class="sh">'</span><span class="s">tool use</span><span class="sh">'</span><span class="s"> means and summarize it.</span><span class="sh">"</span><span class="p">}]</span>
+
+<span class="c1"># --- request 1: model asks for a tool ---
+</span><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">TOOLS</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=== response 1 ===</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">stop_reason:</span><span class="sh">"</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">)</span>            <span class="c1"># expect "tool_use"
+</span><span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s"> block:</span><span class="sh">"</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span><span class="p">,</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">,</span> <span class="sh">""</span><span class="p">),</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">,</span> <span class="sh">""</span><span class="p">))</span>
+
+<span class="k">assert</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span>
+<span class="n">tool_use</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># --- execute in the harness ---
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">DISPATCH</span><span class="p">[</span><span class="n">tool_use</span><span class="p">.</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">tool_use</span><span class="p">.</span><span class="nb">input</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">=== executed</span><span class="sh">"</span><span class="p">,</span> <span class="n">tool_use</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">-&gt;</span><span class="sh">"</span><span class="p">,</span> <span class="nf">repr</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="sh">"</span><span class="s">===</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># --- append assistant content, then user tool_result ---
+</span><span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+<span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_use</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">}],</span>
+<span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">=== messages now ===</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># resp.content holds SDK objects; serialize loosely just to eyeball the shape
+</span><span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">([{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="n">m</span><span class="p">[</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">]}</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># --- request 2: model uses the result to answer ---
+</span><span class="n">resp2</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">MODEL</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">TOOLS</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">=== response 2 ===</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">stop_reason:</span><span class="sh">"</span><span class="p">,</span> <span class="n">resp2</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">)</span>           <span class="c1"># expect "end_turn"
+</span><span class="nf">print</span><span class="p">(</span><span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp2</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Run it and confirm: response 1 stops on <code class="language-plaintext highlighter-rouge">tool_use</code>, you execute, response 2 stops on <code class="language-plaintext highlighter-rouge">end_turn</code> with a summary built from the tool result. You just hand-traced the cycle from §3.</p>
+<h3 id="part-c-optional--feel-the-contrast-with-the-tool-runner">
+  
+  
+    <a href="#part-c-optional--feel-the-contrast-with-the-tool-runner" class="anchor-heading" aria-labelledby="part-c-optional--feel-the-contrast-with-the-tool-runner"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part C (optional) — feel the contrast with the tool runner
+  
+  
+</h3>
+    
+
+<p>Re-do Part B with <code class="language-plaintext highlighter-rouge">@beta_tool</code> and <code class="language-plaintext highlighter-rouge">client.beta.messages.tool_runner</code> (per §6). Same outcome, none of the plumbing. Notice exactly what the runner hid — that hidden machinery is what you’ll rebuild, deliberately, in Module 03.</p>
+<h3 id="stretch-goals">
+  
+  
+    <a href="#stretch-goals" class="anchor-heading" aria-labelledby="stretch-goals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stretch goals
+  
+  
+</h3>
+    
+
+<ul>
+  <li>Call <code class="language-plaintext highlighter-rouge">read_file</code> on a path that doesn’t exist; return an <code class="language-plaintext highlighter-rouge">is_error</code> result and watch the model recover.</li>
+  <li>Print <code class="language-plaintext highlighter-rouge">client.messages.count_tokens(model=MODEL, tools=TOOLS, messages=messages).input_tokens</code> before and after adding a third tool, to see schemas cost tokens.</li>
+</ul><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li>
+    <p><strong>Malformed / hallucinated arguments.</strong> The model can emit args that don’t match your schema, or invent a tool that doesn’t exist. Validate at the boundary: parse <code class="language-plaintext highlighter-rouge">block.input</code> against the schema, and on failure return an <code class="language-plaintext highlighter-rouge">is_error</code> <code class="language-plaintext highlighter-rouge">tool_result</code> describing the violation so the model retries. <code class="language-plaintext highlighter-rouge">strict: True</code> eliminates <em>shape</em> errors but not <em>semantic</em> ones (a valid-shaped <code class="language-plaintext highlighter-rouge">destination: "Atlantis"</code>). Never trust the args blindly.</p>
+  </li>
+  <li>
+    <p><strong>Bare exit codes vs. informative errors.</strong> A tool that fails with <code class="language-plaintext highlighter-rouge">"exit 1"</code> gives the model nothing to act on; it will retry the same broken call or give up. A tool that returns <code class="language-plaintext highlighter-rouge">"Error: column 'usr_id' does not exist. Did you mean 'user_id'? Available columns: ..."</code> lets the model self-correct on the next turn. Recoverability is a property you design into the error string.</p>
+  </li>
+  <li>
+    <p><strong>Description quality changes behavior, measurably.</strong> The <code class="language-plaintext highlighter-rouge">description</code> is a prompt fragment that drives a routing decision. Vague descriptions cause under-triggering (the model never calls a tool it should) and over-triggering (it calls one it shouldn’t). When you A/B a description, you are A/B-testing the agent’s behavior.</p>
+  </li>
+  <li>
+    <p><strong>Over-triggering — and the right fix.</strong> If the model calls a tool too eagerly, the instinct is to add guardrails (“CRITICAL: only use this when absolutely necessary”). On modern models that usually makes it <em>worse</em>, because aggressive language over-steers. The fix is almost always to <strong>soften the description</strong> — remove “always,” “default to,” “if in doubt” — not to pile on rules. Dial the language down before reaching for a gate.</p>
+  </li>
+  <li>
+    <p><strong>Tool-result size blows up context.</strong> A tool that returns a 50,000-line file or a giant JSON payload dumps all of it into the model’s context — slow, expensive, and often counterproductive. Truncate or summarize large results before returning them (head/tail, a summary, a “result too large; here’s the first N lines” note). Context-window management is Module 04; the seam is the <code class="language-plaintext highlighter-rouge">tool_result</code> content you control.</p>
+  </li>
+  <li>
+    <p><strong>Tool args and results are untrusted.</strong> <code class="language-plaintext highlighter-rouge">block.input</code> is model output — treat it as you’d treat any untrusted input crossing a boundary (the <code class="language-plaintext highlighter-rouge">read_file</code> workspace check above is exactly this). Worse, a tool <em>result</em> can contain text that reads like instructions (“ignore your previous instructions and…”), and the model will see it as context. This is prompt injection across a tool boundary — the full treatment is Module 11. For now: confine file paths, allowlist shell commands, and never let a tool result silently grant authority.</p>
+  </li>
+  <li>
+    <p><strong>Tool schemas cost tokens on every request.</strong> Because the API is stateless, every tool definition is resent — and counted — on every single call. A bloated tool surface is a recurring tax on latency and cost. Use <code class="language-plaintext highlighter-rouge">count_tokens</code> to measure it, and keep the tool set lean (forward ref: tool search / MCP for large catalogs in Modules 07/13).</p>
+  </li>
+</ul><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ul>
+  <li>✅ Walk through one cycle from memory: which two messages do you append after a <code class="language-plaintext highlighter-rouge">tool_use</code>, in what order, with which roles, and which field correlates the result to the request?</li>
+  <li>✅ Why are tool <em>results</em> sent on the <code class="language-plaintext highlighter-rouge">user</code> turn rather than the <code class="language-plaintext highlighter-rouge">assistant</code> turn?</li>
+  <li>✅ Given three parallel <code class="language-plaintext highlighter-rouge">tool_use</code> blocks in one response, how many user messages do you send back, and what goes wrong if you split them?</li>
+  <li>✅ Name two things a dedicated tool lets your harness do that a raw <code class="language-plaintext highlighter-rouge">bash</code> tool does not — and give one action you’d promote out of bash.</li>
+  <li>✅ The model over-triggers a tool. What’s the first fix to try, and why is “add a guardrail” usually wrong?</li>
+</ul>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>📖 Anthropic — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">Tool use overview</a>: definition schema, <code class="language-plaintext highlighter-rouge">tool_choice</code>, handling results.</li>
+  <li>📖 Anthropic — <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/implement-tool-use">Implement tool use</a>: the request/response cycle in detail, plus tool-use examples.</li>
+  <li>📖 Anthropic — <a href="https://platform.claude.com/docs/en/build-with-claude/token-counting">Token counting</a>: measuring what your tool schemas cost per request.</li>
+  <li>📖 OpenAI — <a href="https://platform.openai.com/docs/guides/function-calling">Function calling guide</a>: the near-identical shape under a different name, for provider-agnostic grounding.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/03-the-agent-loop.html">Module 03 — Build a Minimal Agent From Scratch</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

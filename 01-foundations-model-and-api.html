@@ -1,0 +1,925 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(4)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>1 · Foundations &amp; the API | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="1 · Foundations &amp; the API" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="1 · Foundations &amp; the API" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"1 · Foundations &amp; the API","url":"/agent-engineering-course-site/01-foundations-model-and-api.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-01--the-base-model--the-completion-api">
+  
+  
+    <a href="#module-01--the-base-model--the-completion-api" class="anchor-heading" aria-labelledby="module-01--the-base-model--the-completion-api"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 01 — The Base Model &amp; the Completion API
+  
+  
+</h1>
+    
+
+<p>This module gives you a precise mental model of the thing every agent is built on: a stateless function from tokens to tokens, exposed through a completion API. Everything in the rest of the course — the loop, tools, memory, evals — is scaffolding around this one primitive, so it pays to understand it exactly. This is Part I, Module 1; it assumes you’ve done Module 0 (setup) and have a working API key.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you should be able to:</p>
+
+<ul>
+  <li>Describe the LLM as a stateless pure function <code class="language-plaintext highlighter-rouge">f(tokens) -&gt; tokens</code>, and explain why “conversation” is an illusion the caller maintains.</li>
+  <li>Explain what a token is, why tokenization exists, and predict the practical consequences (cost, context limits, the “count the r’s” failure class).</li>
+  <li>Explain sampling and temperature: how the model turns a probability distribution into one token, and when to want determinism vs. variance.</li>
+  <li>Use the Messages API fluently: roles, system prompt, <code class="language-plaintext highlighter-rouge">max_tokens</code>, <code class="language-plaintext highlighter-rouge">stop_reason</code>, <code class="language-plaintext highlighter-rouge">usage</code>, multi-turn, and streaming — and explain why each exists.</li>
+  <li>Get reliably machine-parseable output via structured outputs, and articulate why that boundary matters for building systems.</li>
+  <li>Enable extended thinking and know when it earns its cost.</li>
+  <li>Recognize the production failure modes that originate at this layer and the standard mitigations.</li>
+</ul><hr />
+<h2 id="1-the-model-is-a-stateless-pure-function">
+  
+  
+    <a href="#1-the-model-is-a-stateless-pure-function" class="anchor-heading" aria-labelledby="1-the-model-is-a-stateless-pure-function"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. The model is a stateless pure function
+  
+  
+</h2>
+    
+
+<p>Strip away the chat UI and the marketing, and a large language model is one function:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f(tokens_in) -&gt; distribution over the next token
+</code></pre></div></div>
+
+<p>Call it repeatedly, appending each sampled token to the input, and you get text generation. That’s the whole engine. Three properties of this function are load-bearing for everything you’ll build, and all three are things it <em>does not</em> have:</p>
+
+<ul>
+  <li><strong>No memory.</strong> The function holds no state between calls. It does not remember your last request. Each call is evaluated from scratch against whatever tokens you pass in <em>this time</em>.</li>
+  <li><strong>No clock.</strong> It cannot tell you the current time or what happened after its training cutoff. “Today” is whatever its weights learned “today” usually means, plus whatever you put in the prompt.</li>
+  <li><strong>No tools, no side effects.</strong> On its own it cannot read a file, call an API, or run code. It emits tokens. That’s it. (Turning those tokens into actions is Module 2 — tool use — and it’s the single change that turns a text model into an agent.)</li>
+</ul>
+
+<p>If you’ve built stateless HTTP services, this is a familiar shape: the LLM is a stateless request/response service, and like any stateless service, <strong>all session state lives with the caller.</strong> The server is a pure compute function; the client holds the session.</p>
+<h3 id="conversation-is-an-illusion-the-caller-maintains">
+  
+  
+    <a href="#conversation-is-an-illusion-the-caller-maintains" class="anchor-heading" aria-labelledby="conversation-is-an-illusion-the-caller-maintains"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> “Conversation” is an illusion the caller maintains
+  
+  
+</h3>
+    
+
+<p>Here is the part that surprises people coming from chat UIs. The model does not “remember” a conversation. When you have a multi-turn chat, what actually happens is: on every single turn, the entire conversation history is re-sent to the model as input. The model re-reads the whole thing from scratch and produces the next message. Then your client appends that message to its local history, and on the next turn re-sends the <em>whole, now-longer</em> transcript again.</p>
+
+<p>The API is <strong>stateless</strong>. There is no conversation ID on the server holding your history. The “conversation” is a list of messages that <em>you</em> own and <em>you</em> resend. The model is doing the equivalent of being handed the full email thread every time and asked “what’s the next reply?” — it has no recollection of having written the earlier replies; it just reads them as input like everything else.</p>
+
+<p>This single fact explains an enormous amount downstream:</p>
+
+<ul>
+  <li>Why context windows fill up (you’re resending an ever-growing transcript).</li>
+  <li>Why cost grows super-linearly over a long conversation (more on this in §”Real production issues”).</li>
+  <li>Why “memory” is something you <em>engineer</em> (Module 4), not something the model has.</li>
+  <li>Why an agent loop is just “resend the transcript, get the next action, execute it, append the result, repeat” (Module 3).</li>
+</ul>
+
+<blockquote>
+  <p><strong>Systems analogy.</strong> Think of the model as a pure function in a functional language: same input tokens → same output distribution, no hidden state. The “conversation” is an accumulator you thread through repeated calls — like folding over a list, where the transcript is the accumulator. If that accumulator lives only in your process, the conversation lives only in your process.</p>
+</blockquote>
+
+<p>✅ <strong>Self-check:</strong> If you call the API twice — first “My name is Ada,” then (in a <em>separate</em> call with only that second message) “What’s my name?” — what happens? (Answer: it cannot know. The first call’s content is not on the server. You’ll prove this in the exercise.)</p><hr />
+<h2 id="2-tokens">
+  
+  
+    <a href="#2-tokens" class="anchor-heading" aria-labelledby="2-tokens"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Tokens
+  
+  
+</h2>
+    
+
+<p>The model does not operate on characters or words. It operates on <strong>tokens</strong> — chunks of text drawn from a fixed vocabulary, typically 50k–200k entries. The pipeline is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>text  --(tokenizer)--&gt;  [token IDs]  --(model)--&gt;  [token IDs]  --(detokenizer)--&gt;  text
+</code></pre></div></div>
+<h3 id="what-a-token-is-and-why-tokenization-exists">
+  
+  
+    <a href="#what-a-token-is-and-why-tokenization-exists" class="anchor-heading" aria-labelledby="what-a-token-is-and-why-tokenization-exists"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What a token is, and why tokenization exists
+  
+  
+</h3>
+    
+
+<p>A token is a subword chunk. Common words are usually a single token; rare words, names, and code fragments get split into several. The vocabulary is built by a process called <strong>BPE (byte-pair encoding)</strong>: start from individual bytes and repeatedly merge the most frequent adjacent pair into a new vocabulary entry, until you hit your target vocabulary size. Frequent substrings (<code class="language-plaintext highlighter-rouge">" the"</code>, <code class="language-plaintext highlighter-rouge">"ing"</code>, <code class="language-plaintext highlighter-rouge">" def"</code>) become single tokens; rare ones stay fragmented.</p>
+
+<p>Why not just use characters or whole words?</p>
+
+<ul>
+  <li><strong>Characters</strong> would make sequences far too long. A 2,000-word document is ~10,000+ characters; processing cost grows with sequence length, so a character-level model would be punishingly expensive and slow.</li>
+  <li><strong>Whole words</strong> can’t handle the open-ended vocabulary of real text — new words, typos, code identifiers, other languages, emoji. You’d need an unbounded vocabulary and you’d choke on anything unseen.</li>
+</ul>
+
+<p>Subword tokenization is the engineering compromise: a fixed vocabulary that covers any input (worst case, it falls back to bytes) while keeping sequences short for common text.</p>
+
+<blockquote>
+  <p><strong>Mental model: the embedding table.</strong> Each of the ~N vocabulary entries maps to a row in a big lookup table — a learned vector (the <em>embedding</em>). Tokenizing turns your text into a list of integer IDs; the model’s first act is to look up each ID’s row. So “the model reads your prompt” literally means “index into an embedding table with these integers.” A token is a row number.</p>
+</blockquote>
+<h3 id="practical-consequences-this-is-the-part-that-bites-you">
+  
+  
+    <a href="#practical-consequences-this-is-the-part-that-bites-you" class="anchor-heading" aria-labelledby="practical-consequences-this-is-the-part-that-bites-you"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Practical consequences (this is the part that bites you)
+  
+  
+</h3>
+    
+
+<p><strong>~4 characters per token, in English.</strong> A useful rule of thumb: English text is roughly 4 characters (~0.75 words) per token. So 1,000 tokens ≈ 750 words ≈ a page and a half. This is an estimate, not a guarantee — always measure when it matters (below).</p>
+
+<p><strong>Non-English and code cost more.</strong> The vocabulary is optimized for the training distribution, which is English-heavy. Languages with different scripts, and code (with its punctuation, indentation, and identifiers), tokenize <em>less efficiently</em> — more tokens per character. The same idea expressed in, say, Japanese or in a dense block of JSON can cost noticeably more tokens than its English-prose equivalent. Since you pay per token, <strong>tokenization efficiency is a real cost factor</strong> for non-English and code-heavy workloads.</p>
+
+<p><strong>The “count the r’s in strawberry” failure class.</strong> The famous failure where a model miscounts the letters in a word is a direct consequence of tokenization. The model never sees <code class="language-plaintext highlighter-rouge">s-t-r-a-w-b-e-r-r-y</code> as ten characters; it sees a couple of tokens (something like <code class="language-plaintext highlighter-rouge">straw</code> + <code class="language-plaintext highlighter-rouge">berry</code>). It has no native, reliable view of the characters <em>inside</em> a token. Character-level tasks — counting letters, reversing strings, strict character manipulation — are exactly the operations the representation hides. The lesson for you as an engineer: <strong>don’t ask the model to do precise character-level work; do it in code.</strong> (This is your first instance of the course’s recurring theme — move correctness to the boundary.)</p>
+
+<p><strong>Token-boundary quirks.</strong> Leading spaces matter. <code class="language-plaintext highlighter-rouge">"hello"</code> and <code class="language-plaintext highlighter-rouge">" hello"</code> (with a leading space) are often <em>different</em> tokens. This rarely bites you in normal prose, but it surfaces in edge cases like stop sequences, exact-match logic, and prompt formatting. Just know that whitespace is part of the token, not separate from it.</p>
+
+<p><strong>Everything you care about is measured in tokens.</strong> Context window size, pricing, and rate limits are all denominated in tokens, not characters or requests. A “1M token context window” and “$3 per million input tokens” and “200K tokens/minute rate limit” are all the same unit. Internalizing tokens as <em>the</em> resource unit is half the battle for cost and capacity planning (Module 10).</p>
+<h3 id="counting-tokens-correctly">
+  
+  
+    <a href="#counting-tokens-correctly" class="anchor-heading" aria-labelledby="counting-tokens-correctly"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Counting tokens correctly
+  
+  
+</h3>
+    
+
+<p>Use the provider’s own tokenizer. For Claude:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">count_tokens</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">How many tokens is this sentence?</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">).</span><span class="n">input_tokens</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>⚠️ <strong>Do not use <code class="language-plaintext highlighter-rouge">tiktoken</code> to count Claude tokens.</strong> <code class="language-plaintext highlighter-rouge">tiktoken</code> is OpenAI’s tokenizer. Different models use different vocabularies, so a <code class="language-plaintext highlighter-rouge">tiktoken</code> count is simply <em>wrong</em> for Claude (it can be off by 15–20% on prose and much more on code). Token counts are model-specific — always count with the tokenizer of the model you’re actually calling. The <code class="language-plaintext highlighter-rouge">count_tokens</code> endpoint is the source of truth for Claude.</p>
+</blockquote>
+
+<p>🛠️ <strong>Quick exercise:</strong> Run <code class="language-plaintext highlighter-rouge">count_tokens</code> on (a) an English paragraph, (b) the same length of source code, and (c) the same text in another language. Note the differences in your <code class="language-plaintext highlighter-rouge">notes.md</code>. This is your first piece of cost intuition.</p>
+
+<p>✅ <strong>Self-check:</strong> Why is “reverse this string exactly” a bad task for the raw model, and where should that logic live instead?</p><hr />
+<h2 id="3-sampling--temperature">
+  
+  
+    <a href="#3-sampling--temperature" class="anchor-heading" aria-labelledby="3-sampling--temperature"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Sampling &amp; temperature
+  
+  
+</h2>
+    
+
+<p>At each step the model outputs not a single token but a <strong>probability distribution over the entire vocabulary</strong> — a number for every one of the ~N entries saying “how likely is this the next token.” Generation then has to pick <em>one</em> token from that distribution. How it picks is <strong>sampling</strong>, and the main knob is <strong>temperature</strong>.</p>
+<h3 id="how-temperature-reshapes-the-distribution">
+  
+  
+    <a href="#how-temperature-reshapes-the-distribution" class="anchor-heading" aria-labelledby="how-temperature-reshapes-the-distribution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> How temperature reshapes the distribution
+  
+  
+</h3>
+    
+
+<p>The raw outputs of the model are called <strong>logits</strong> (unnormalized scores). To turn them into probabilities you apply <em>softmax</em>. Temperature <code class="language-plaintext highlighter-rouge">T</code> is a divisor applied to the logits <em>before</em> softmax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>probabilities = softmax(logits / T)
+</code></pre></div></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">T = 1</code></strong> uses the distribution as-is.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">T &lt; 1</code></strong> sharpens it — high-probability tokens get even more probable. At the limit <strong><code class="language-plaintext highlighter-rouge">T → 0</code></strong> you get <em>greedy</em> decoding: always pick the single most likely token. Most deterministic.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">T &gt; 1</code></strong> flattens it — probability mass spreads toward less likely tokens. More random, more “creative,” more prone to going off the rails.</li>
+</ul>
+
+<p>Intuitively: low temperature = conservative and repetitive; high temperature = diverse and risky.</p>
+<h3 id="top-p-and-top-k-briefly">
+  
+  
+    <a href="#top-p-and-top-k-briefly" class="anchor-heading" aria-labelledby="top-p-and-top-k-briefly"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> top-p and top-k (briefly)
+  
+  
+</h3>
+    
+
+<p>Two related knobs restrict <em>which</em> tokens are eligible before sampling:</p>
+
+<ul>
+  <li><strong>top-k</strong>: only consider the <code class="language-plaintext highlighter-rouge">k</code> most likely tokens.</li>
+  <li><strong>top-p (nucleus)</strong>: only consider the smallest set of tokens whose cumulative probability exceeds <code class="language-plaintext highlighter-rouge">p</code> (e.g. 0.9).</li>
+</ul>
+
+<p>Both are truncation strategies to cut off the long tail of very unlikely tokens (which is where a lot of incoherent output comes from). You’ll rarely tune all three; temperature is the one people reach for.</p>
+<h3 id="when-to-use-low-vs-high-temperature">
+  
+  
+    <a href="#when-to-use-low-vs-high-temperature" class="anchor-heading" aria-labelledby="when-to-use-low-vs-high-temperature"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> When to use low vs. high temperature
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Want</th>
+      <th>Use</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Determinism, correctness, structure</td>
+      <td>Low (<code class="language-plaintext highlighter-rouge">~0</code>)</td>
+      <td>Extraction, classification, code, anything parsed downstream, agent tool-calling</td>
+    </tr>
+    <tr>
+      <td>Some variety, natural phrasing</td>
+      <td>Mid (<code class="language-plaintext highlighter-rouge">~0.7</code>)</td>
+      <td>Chat, drafting, summaries</td>
+    </tr>
+    <tr>
+      <td>Diversity, brainstorming, exploration</td>
+      <td>High (<code class="language-plaintext highlighter-rouge">~1.0+</code>)</td>
+      <td>Idea generation, creative writing, sampling multiple candidates</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>For <strong>agents</strong>, you almost always want low temperature: an agent’s job is to take correct, predictable actions, not to be surprising.</p>
+<h3 id="two-important-caveats">
+  
+  
+    <a href="#two-important-caveats" class="anchor-heading" aria-labelledby="two-important-caveats"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Two important caveats
+  
+  
+</h3>
+    
+
+<p><strong><code class="language-plaintext highlighter-rouge">T = 0</code> is not truly deterministic.</strong> Greedy decoding removes the <em>sampling</em> randomness, but you can still get different outputs across calls. Floating-point non-associativity, batching on the provider’s GPUs, hardware and kernel differences, and model updates all introduce variation. Treat <code class="language-plaintext highlighter-rouge">T = 0</code> as “as deterministic as it gets,” not “guaranteed identical.” This matters a lot for testing agents — you cannot rely on byte-identical outputs (see §”Real production issues” and Module 8 on evals).</p>
+
+<p><strong>On the latest Claude models, temperature isn’t exposed.</strong> This is worth stating plainly because it will trip you up if you go looking for the parameter. On Claude’s current frontier models (the 4.7/4.8 generation and Fable 5), sampling parameters — <code class="language-plaintext highlighter-rouge">temperature</code>, <code class="language-plaintext highlighter-rouge">top_p</code>, <code class="language-plaintext highlighter-rouge">top_k</code> — are <strong>not accepted</strong>; passing them is a 400 error. The model manages its own sampling, and you steer behavior with prompting and with adaptive thinking (§6) instead. <strong>We still teach temperature as a fundamental concept</strong> because (a) it explains what sampling <em>is</em>, which you need in order to reason about determinism and testing, and (b) it’s a first-class parameter on most other APIs — OpenAI’s <code class="language-plaintext highlighter-rouge">chat.completions</code>, open models you run yourself, and older Claude models all expose it. So: understand it universally; just don’t expect a <code class="language-plaintext highlighter-rouge">temperature=</code> kwarg on the newest Claude calls.</p>
+
+<p>✅ <strong>Self-check:</strong> You’re writing a function that classifies support tickets into one of five categories, and a separate function that generates three different marketing taglines. Which wants low temperature and which wants high — and why?</p><hr />
+<h2 id="4-the-messages--completion-api-in-practice">
+  
+  
+    <a href="#4-the-messages--completion-api-in-practice" class="anchor-heading" aria-labelledby="4-the-messages--completion-api-in-practice"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. The Messages / Completion API in practice
+  
+  
+</h2>
+    
+
+<p>Now the concrete interface. The modern shape is a <strong>messages</strong> API: you send a list of role-tagged messages, you get back a message. Here’s the minimal Claude call:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>  <span class="c1"># reads ANTHROPIC_API_KEY from the environment
+</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">In one sentence, what is a token?</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+<h3 id="reading-the-response">
+  
+  
+    <a href="#reading-the-response" class="anchor-heading" aria-labelledby="reading-the-response"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reading the response
+  
+  
+</h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">resp.content</code> is <strong>a list of content blocks</strong>, not a string. Each block has a <code class="language-plaintext highlighter-rouge">type</code>. For plain text you’ll get a single <code class="language-plaintext highlighter-rouge">text</code> block, but the list shape exists because a response can contain multiple blocks (text, tool-use, thinking, …). Always check the type before reading <code class="language-plaintext highlighter-rouge">.text</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">block</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">block</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Two other fields you’ll read on <em>every</em> call once you care about production:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">)</span>   <span class="c1"># why generation stopped
+</span><span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">)</span>         <span class="c1"># token accounting
+</span></code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">stop_reason</code></strong> tells you why the model stopped:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">stop_reason</code></th>
+      <th>Meaning</th>
+      <th>What you do</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">end_turn</code></td>
+      <td>Finished naturally</td>
+      <td>Normal — use the output</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">max_tokens</code></td>
+      <td>Hit your <code class="language-plaintext highlighter-rouge">max_tokens</code> cap</td>
+      <td><strong>Output is truncated</strong> — raise the cap or stream; do not treat as complete</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tool_use</code></td>
+      <td>Wants to call a tool</td>
+      <td>Execute it and continue (Module 2)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">refusal</code></td>
+      <td>Declined for safety reasons</td>
+      <td>Handle it; don’t blindly read <code class="language-plaintext highlighter-rouge">content[0]</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>That <code class="language-plaintext highlighter-rouge">max_tokens</code> row is a quiet footgun — see §”Real production issues.”</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">usage</code></strong> is your billing and capacity meter:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">input_tokens</span>                  <span class="c1"># tokens you sent (the whole transcript)
+</span><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">output_tokens</span>                 <span class="c1"># tokens the model generated
+</span><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">cache_creation_input_tokens</span>   <span class="c1"># tokens written to prompt cache (Module 10)
+</span><span class="n">resp</span><span class="p">.</span><span class="n">usage</span><span class="p">.</span><span class="n">cache_read_input_tokens</span>       <span class="c1"># tokens served from cache
+</span></code></pre></div></div>
+
+<p>You pay separately for input and output (output is usually 4–5× the input price). Logging <code class="language-plaintext highlighter-rouge">usage</code> from day one is how you avoid cost surprises later.</p>
+<h3 id="roles-and-the-system-prompt">
+  
+  
+    <a href="#roles-and-the-system-prompt" class="anchor-heading" aria-labelledby="roles-and-the-system-prompt"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Roles and the system prompt
+  
+  
+</h3>
+    
+
+<p>Messages carry a <code class="language-plaintext highlighter-rouge">role</code>. The two you send are <code class="language-plaintext highlighter-rouge">user</code> and <code class="language-plaintext highlighter-rouge">assistant</code>; the model produces <code class="language-plaintext highlighter-rouge">assistant</code>. There’s a separate top-level <strong>system prompt</strong> for instructions/configuration:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">system</span><span class="o">=</span><span class="sh">"</span><span class="s">You are a terse assistant. Answer in one sentence, no preamble.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">What is a context window?</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>The system prompt sets the model’s standing instructions; the messages are the conversation. (More on the system prompt in §5.)</p>
+<h3 id="multi-turn--resend-the-history">
+  
+  
+    <a href="#multi-turn--resend-the-history" class="anchor-heading" aria-labelledby="multi-turn--resend-the-history"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Multi-turn = resend the history
+  
+  
+</h3>
+    
+
+<p>Because the API is stateless (§1), multi-turn is just list management. The rules:</p>
+
+<ul>
+  <li>The <strong>first</strong> message must be <code class="language-plaintext highlighter-rouge">role: "user"</code>.</li>
+  <li>You alternate <code class="language-plaintext highlighter-rouge">user</code> / <code class="language-plaintext highlighter-rouge">assistant</code>, appending the model’s reply back into the list.</li>
+  <li>On each turn you resend the <strong>entire</strong> list.</li>
+</ul>
+
+<p>A small manager that owns the history:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="k">class</span> <span class="nc">ConversationManager</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Holds conversation state the API itself doesn</span><span class="sh">'</span><span class="s">t keep.</span><span class="sh">"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">system</span> <span class="o">=</span> <span class="n">system</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># the accumulator we thread through calls
+</span>
+    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">user_text</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">user_text</span><span class="p">})</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">system</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">messages</span><span class="p">,</span>  <span class="c1"># resend the whole history every time
+</span>        <span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">text</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">text</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">usage</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="nc">ConversationManager</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="sh">"</span><span class="s">You are a helpful assistant.</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">chat</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="sh">"</span><span class="s">My name is Ada.</span><span class="sh">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">chat</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="sh">"</span><span class="s">What</span><span class="sh">'</span><span class="s">s my name?</span><span class="sh">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># works — because WE resent the history
+</span></code></pre></div></div>
+
+<p>The model “remembers” Ada only because <code class="language-plaintext highlighter-rouge">self.messages</code> carried the first turn into the second call. Delete that line and the memory vanishes. This class is, in miniature, the thing you’ll grow into an agent loop in Module 3.</p>
+<h3 id="streaming-and-why-it-matters">
+  
+  
+    <a href="#streaming-and-why-it-matters" class="anchor-heading" aria-labelledby="streaming-and-why-it-matters"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Streaming, and why it matters
+  
+  
+</h3>
+    
+
+<p>By default <code class="language-plaintext highlighter-rouge">messages.create</code> blocks until the full response is generated, then returns it. For long outputs that’s a problem on two fronts: <strong>timeouts</strong> (a request that takes a minute to generate can exceed HTTP idle timeouts and get dropped) and <strong>UX</strong> (users stare at a spinner instead of watching text appear). Streaming fixes both by sending tokens as they’re produced:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Explain BPE tokenization in detail.</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">.</span><span class="n">text_stream</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="sh">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">final</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="nf">get_final_message</span><span class="p">()</span>   <span class="c1"># full Message object, with usage/stop_reason
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">get_final_message()</code> reassembles the complete response (with <code class="language-plaintext highlighter-rouge">usage</code> and <code class="language-plaintext highlighter-rouge">stop_reason</code>) after the stream finishes, so you get streaming UX <em>and</em> the structured object. <strong>For large <code class="language-plaintext highlighter-rouge">max_tokens</code>, streaming is effectively required</strong> — the SDK will refuse a non-streaming request it estimates will run long enough to risk a timeout. Rule of thumb: small/quick responses can be non-streaming; anything with a big <code class="language-plaintext highlighter-rouge">max_tokens</code> or long generation should stream.</p>
+
+<p>📖 <strong>Primary-source reading:</strong> the provider’s Messages API reference and streaming guide. Read the request/response schema once, end to end — it’s short, and knowing the exact shape pays off when you debug.</p><hr />
+<h2 id="5-prompting-fundamentals-for-engineers">
+  
+  
+    <a href="#5-prompting-fundamentals-for-engineers" class="anchor-heading" aria-labelledby="5-prompting-fundamentals-for-engineers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Prompting fundamentals for engineers
+  
+  
+</h2>
+    
+
+<p>Prompting is a deep topic; this section is deliberately short and practical. The framing that matters for an engineer:</p>
+
+<p><strong>The system prompt is config — a runbook, not a chat message.</strong> It’s where the model’s role, constraints, output format, and standing rules live. Treat it like you’d treat a service’s configuration or a function’s docstring-plus-preconditions. It’s stable across turns; the messages are the variable input.</p>
+
+<p>A few principles that earn their keep:</p>
+
+<ul>
+  <li><strong>Be specific.</strong> Vague instructions get vague results. “Summarize this” is worse than “Summarize this in 3 bullet points, each under 15 words, focused on action items.” The model fills ambiguity with its priors, which may not be yours. Specificity is the cheapest quality lever you have.</li>
+  <li><strong>Give clear, ordered instructions.</strong> State the task, the constraints, and the output format explicitly. If order matters, say so. If something is forbidden, say so directly.</li>
+  <li><strong>Few-shot examples.</strong> For anything with a particular format or style, <em>show</em> don’t just <em>tell</em>. A couple of input→output examples in the prompt (the “few-shot” pattern) often outperforms paragraphs of description, because the model is very good at pattern-matching to demonstrations.</li>
+  <li><strong>Positive instructions beat negative ones.</strong> “Respond in plain text” works better than “don’t use markdown.” Tell the model what to do, not just what to avoid.</li>
+</ul>
+
+<p>And the framing that ties prompting to the rest of the course:</p>
+
+<blockquote>
+  <p><strong>Prompts are code.</strong> They are the program you ship to the model. That means: version them (a prompt change is a deploy), test them (Module 8 — a prompt change can regress behavior exactly like a code change), and review them. Don’t bury prompts as string literals scattered through your codebase; treat them as first-class, versioned artifacts. The day a model upgrade silently changes how your prompt behaves (this <em>will</em> happen — see “prompt rot” below), you’ll be glad they’re managed like code.</p>
+</blockquote>
+
+<p>We are intentionally not turning this into a prompt-engineering listicle. The high-leverage move at this layer is not clever phrasing — it’s pushing as much correctness as possible <em>out</em> of the prompt and into verifiable structure. Which is exactly the next section.</p><hr />
+<h2 id="6-structured-output">
+  
+  
+    <a href="#6-structured-output" class="anchor-heading" aria-labelledby="6-structured-output"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Structured output
+  
+  
+</h2>
+    
+
+<p>A huge amount of agent engineering happens at the boundary between the model (which emits text) and your code (which needs typed data). If you ask the model for JSON in prose and then <code class="language-plaintext highlighter-rouge">json.loads()</code> the reply, you are one stray markdown fence or trailing comma away from a crash. <strong>Structured outputs</strong> make that boundary reliable by constraining the model’s output to a schema you define.</p>
+
+<p>The clean way in Python is Pydantic plus <code class="language-plaintext highlighter-rouge">messages.parse</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="k">class</span> <span class="nc">Ticket</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">category</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span>
+        <span class="sh">"</span><span class="s">Triage: </span><span class="sh">'</span><span class="s">The export button 500s every time on the billing page. Blocking month-end close.</span><span class="sh">'"</span><span class="p">}],</span>
+    <span class="n">output_format</span><span class="o">=</span><span class="n">Ticket</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ticket</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">parsed_output</span>      <span class="c1"># a validated Ticket instance — typed, not a string
+</span><span class="nf">print</span><span class="p">(</span><span class="n">ticket</span><span class="p">.</span><span class="n">category</span><span class="p">,</span> <span class="n">ticket</span><span class="p">.</span><span class="n">priority</span><span class="p">,</span> <span class="n">ticket</span><span class="p">.</span><span class="n">summary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">resp.parsed_output</code> is an actual <code class="language-plaintext highlighter-rouge">Ticket</code> object: the field types are enforced, and you didn’t write any parsing or validation code. Under the hood the SDK derives a JSON Schema from your Pydantic model and constrains generation to it. If you don’t use Pydantic, you can pass a raw JSON Schema directly:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">}],</span>
+    <span class="n">output_config</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">format</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">json_schema</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">category</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">priority</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">integer</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">summary</span><span class="sh">"</span><span class="p">:</span>  <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">category</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">priority</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">summary</span><span class="sh">"</span><span class="p">],</span>
+        <span class="sh">"</span><span class="s">additionalProperties</span><span class="sh">"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="p">}}},</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>A note on prefill.</strong> A classic older trick was to “prefill” the assistant turn — start the assistant message with <code class="language-plaintext highlighter-rouge">{</code> to coax JSON out. On current Claude models, assistant prefill is <strong>not supported</strong> (it returns a 400). Structured outputs are the supported, and frankly better, replacement: instead of <em>nudging</em> the model toward a format and hoping, you <em>constrain</em> it to one and validate.</p>
+</blockquote>
+
+<p><strong>Why this matters for building systems.</strong> Structured output is the first concrete instance of the course’s central engineering move: <strong>move correctness to the boundary.</strong> Rather than trusting that the model produced well-formed data, you define the shape, constrain generation to it, and validate. The model’s job shrinks to “fill in the fields”; the <em>correctness</em> of the shape is handled by schema and code, not by hope. You’ll see this same move again and again — exact-match edits, permission gates, forced verification — and it starts here, at the model/code boundary.</p><hr />
+<h2 id="7-extended-thinking-reasoning-mode">
+  
+  
+    <a href="#7-extended-thinking-reasoning-mode" class="anchor-heading" aria-labelledby="7-extended-thinking-reasoning-mode"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. Extended thinking (reasoning mode)
+  
+  
+</h2>
+    
+
+<p>Current frontier models support an <strong>extended thinking</strong> mode: before producing the final answer, the model generates intermediate reasoning. This consistently improves performance on hard, multi-step problems — math, complex coding, careful analysis, agentic planning — at the cost of more latency and more tokens.</p>
+
+<p>On Claude 4.6+, you enable it adaptively and tune depth with an effort knob:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+    <span class="n">thinking</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">adaptive</span><span class="sh">"</span><span class="p">},</span>          <span class="c1"># model decides when/how much to think
+</span>    <span class="n">output_config</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">effort</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">high</span><span class="sh">"</span><span class="p">},</span>       <span class="c1"># low | medium | high | max
+</span>    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span>
+        <span class="sh">"</span><span class="s">A bat and ball cost $1.10 total. The bat costs $1.00 more than the ball. </span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">How much does the ball cost? Reason carefully.</span><span class="sh">"</span><span class="p">}],</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">block</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">thinking</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">[thinking]</span><span class="sh">"</span><span class="p">,</span> <span class="n">block</span><span class="p">.</span><span class="n">thinking</span><span class="p">)</span>   <span class="c1"># reasoning shows up as thinking blocks
+</span>    <span class="k">elif</span> <span class="n">block</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">block</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notes for now (you’ll use this heavily in later modules):</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">thinking={"type": "adaptive"}</code> lets the model decide how much to think per request; <code class="language-plaintext highlighter-rouge">effort</code> sets the overall depth/spend tradeoff. The older “fixed token budget for thinking” style is deprecated on the latest models — use adaptive.</li>
+  <li>Thinking appears in the response as blocks of <code class="language-plaintext highlighter-rouge">type == "thinking"</code>, ahead of the <code class="language-plaintext highlighter-rouge">text</code> answer. This is why checking <code class="language-plaintext highlighter-rouge">block.type</code> (§4) is not optional.</li>
+  <li><strong>When it helps:</strong> genuinely hard reasoning, planning, and verification. <strong>When it doesn’t:</strong> simple lookups, classification, formatting — it just adds latency and cost. Don’t reflexively turn it to <code class="language-plaintext highlighter-rouge">max</code>; it’s a dial, not a switch.</li>
+</ul><hr />
+<h2 id="️-exercise--scoutllmpy-the-thin-wrapper">
+  
+  
+    <a href="#️-exercise--scoutllmpy-the-thin-wrapper" class="anchor-heading" aria-labelledby="️-exercise--scoutllmpy-the-thin-wrapper"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise — <code class="language-plaintext highlighter-rouge">scout/llm.py</code>, the thin wrapper
+  
+  
+</h2>
+    
+
+<p>Everything you build in this course talks to the model through one thin layer. Build it now. The goal is a tiny, boring, well-instrumented wrapper — not a framework. You’ll import this in Module 3 when Scout gets its loop.</p>
+
+<p><strong>Part A — the wrapper.</strong> Create <code class="language-plaintext highlighter-rouge">scout/llm.py</code> with two helpers:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/llm.py
+</span><span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="n">_client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">DEFAULT_MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-sonnet-4-6</span><span class="sh">"</span>
+
+<span class="k">def</span> <span class="nf">chat</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">DEFAULT_MODEL</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Thin wrapper over messages.create. Returns (text, usage).</span><span class="sh">"""</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">_client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="n">system</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">==</span> <span class="sh">"</span><span class="s">max_tokens</span><span class="sh">"</span><span class="p">:</span>
+        <span class="c1"># Loud, not silent: truncation is a bug you want to see (see Real production issues).
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">[warn] response truncated (stop_reason=max_tokens); raise max_tokens</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">usage</span>
+
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">DEFAULT_MODEL</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Token count for a string, using the CORRECT (model-specific) tokenizer.</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="n">_client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">count_tokens</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">text</span><span class="p">}],</span>
+    <span class="p">).</span><span class="n">input_tokens</span>
+</code></pre></div></div>
+
+<p><strong>Part B — prove statelessness.</strong> Write a script that holds a 3-turn conversation <em>two</em> ways:</p>
+
+<ol>
+  <li><strong>With</strong> history: build up a <code class="language-plaintext highlighter-rouge">messages</code> list, appending each <code class="language-plaintext highlighter-rouge">assistant</code> reply, and on turn 3 ask the model something that depends on turn 1 (e.g. tell it your name in turn 1, ask for it in turn 3). It should answer correctly.</li>
+  <li><strong>Without</strong> history: make three <em>independent</em> <code class="language-plaintext highlighter-rouge">chat()</code> calls, each with only the current user message. On turn 3, ask the same name question. It should fail — it has no idea.</li>
+</ol>
+
+<p>Print both transcripts side by side. Seeing the model “forget” when you don’t resend history is the single most important intuition in this module.</p>
+
+<p><strong>Part C — tokens and cost.</strong> Take a ~200-word prompt. Use <code class="language-plaintext highlighter-rouge">count()</code> to get its token count. Then compute the input cost using Sonnet’s pricing ($3 / 1M input tokens): <code class="language-plaintext highlighter-rouge">cost = tokens / 1_000_000 * 3</code>. Print tokens and dollars. Repeat with a block of source code of similar length and note how the token count differs.</p>
+
+<p><strong>Part D — structured extraction.</strong> Define a Pydantic model (e.g. <code class="language-plaintext highlighter-rouge">Contact</code> with <code class="language-plaintext highlighter-rouge">name: str</code>, <code class="language-plaintext highlighter-rouge">email: str</code>, <code class="language-plaintext highlighter-rouge">company: str | None</code>) and use <code class="language-plaintext highlighter-rouge">messages.parse</code> to extract it from a messy sentence like <em>“reach out to Dr. Lin Wei at lwei@acme.io, she runs ML infra at Acme.”</em> Print the validated object. Then deliberately feed it an input with no email and observe what happens — this is your first taste of the boundary failing, which Module 8 will teach you to handle systematically.</p>
+
+<p><strong>Log everything in <code class="language-plaintext highlighter-rouge">notes.md</code>.</strong> For each part, record the <code class="language-plaintext highlighter-rouge">usage</code> (input/output tokens), the dollar cost, and any surprises. This notebook habit — writing down what the model actually did — is how you build taste. You’ll thank yourself in Module 8.</p>
+
+<p>✅ When Part B’s “without history” run forgets your name and the “with history” run remembers it, you’ve internalized §1. That’s the win.</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<p>These are the failure modes that originate at <em>this</em> layer — the model and the API — and that practitioners hit in real systems. This section is the highest-value part of the module; the failures here recur in every later module, so meet them now.</p>
+
+<p><strong>Nondeterminism complicates testing.</strong> Even at the most deterministic settings, the same input can yield different outputs (§3). You cannot write <code class="language-plaintext highlighter-rouge">assert output == "expected_string"</code> and trust it. This breaks every testing instinct you have from deterministic software. The mitigation is a whole discipline — <strong>evals</strong> (Module 8): instead of exact-match, you grade outputs (programmatically, or with an LLM-as-judge), run multiple samples, and measure <em>rates</em> of correctness rather than asserting single results. For now, just internalize: <strong>the unit of correctness here is statistical, not exact.</strong> Don’t build a test suite that assumes byte-identical output.</p>
+
+<p><strong>Token cost surprises.</strong> Three independent ways the bill grows faster than you expect:</p>
+<ul>
+  <li><em>Non-English and code</em> cost more tokens per character (§2). A pipeline benchmarked on English prose can cost noticeably more on code or other languages.</li>
+  <li><em>Verbose outputs.</em> Output tokens are the expensive ones (often ~4–5× input price). A model that “thinks out loud” or pads its answers burns money. Constrain output length when you don’t need it.</li>
+  <li><em>The quadratic transcript.</em> This is the big one for multi-turn and agents, and it’s worth seeing clearly. Because you resend the whole history every turn (§1), a conversation of <code class="language-plaintext highlighter-rouge">N</code> turns sends turn 1’s content <code class="language-plaintext highlighter-rouge">N</code> times, turn 2’s <code class="language-plaintext highlighter-rouge">N-1</code> times, and so on. Total input tokens processed across the conversation grows roughly with the <strong>square</strong> of its length. A long agent run isn’t linear in cost — it’s quadratic. (This is <em>the</em> motivation for context management and prompt caching, Modules 4 and 10. Just register the shape now.)</li>
+</ul>
+
+<p><strong>Context-window limits are a hard wall.</strong> The context window (e.g. 1M or 200K tokens) is a fixed cap on input + output. It is not a soft suggestion — exceed it and the request fails or, worse, gets silently truncated depending on the path. “1M tokens” feels infinite until a long-running agent, resending its growing transcript, hits it routinely. Treat the window as a managed resource with a budget, exactly the way you’d treat a fixed memory region. (Managing it is Module 4.)</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">max_tokens</code> truncation — the silent cutoff.</strong> <code class="language-plaintext highlighter-rouge">max_tokens</code> caps the <em>output</em>. If the model wants to write more than your cap allows, generation stops mid-sentence and <code class="language-plaintext highlighter-rouge">stop_reason</code> comes back as <code class="language-plaintext highlighter-rouge">"max_tokens"</code>. Crucially, <strong>you do not get an error</strong> — you get a truncated response that looks like a complete one if you don’t check. Code that reads <code class="language-plaintext highlighter-rouge">resp.content[0].text</code> without inspecting <code class="language-plaintext highlighter-rouge">stop_reason</code> will happily process half a JSON object. <em>Always</em> check <code class="language-plaintext highlighter-rouge">stop_reason == "max_tokens"</code> and either raise the cap, stream, or handle the truncation explicitly. (The exercise wrapper warns on this deliberately.)</p>
+
+<p><strong>Structured-output drift and parse failures.</strong> Even with structured outputs, things can go wrong: a refusal (<code class="language-plaintext highlighter-rouge">stop_reason == "refusal"</code>) means the output may not match your schema at all; a <code class="language-plaintext highlighter-rouge">max_tokens</code> cutoff can truncate the JSON mid-object; and if you’re hand-parsing model JSON <em>without</em> structured outputs, the model occasionally adds prose, fences, or trailing commas. Mitigations, in order of preference: (1) use structured outputs / <code class="language-plaintext highlighter-rouge">messages.parse</code> so the shape is enforced and validated; (2) check <code class="language-plaintext highlighter-rouge">stop_reason</code> before trusting the output; (3) wrap parsing in a try/except and, on failure, retry — often a single retry with the error message fed back fixes it. The pattern is <em>detect cheaply, retry</em> — the boundary’s job is to make failures visible and recoverable, not to never fail.</p>
+
+<p><strong>Prompt brittleness across model upgrades (“prompt rot”).</strong> A prompt carefully tuned for one model version can behave differently — sometimes worse — on the next. A model upgrade is, behaviorally, a dependency upgrade: it can change outputs even with your code untouched. This is why “prompts are code” (§5) is not a slogan: you want your prompts versioned and covered by evals (Module 8) so that when you bump the model, you can <em>measure</em> whether behavior regressed instead of finding out from users. The real-world cadence: pin your model ID, change it deliberately, and re-run your eval suite on every model change.</p>
+
+<p><strong>No clock, no fresh knowledge.</strong> The model has a training cutoff and no access to the current time or to anything that happened after that cutoff (§1). Ask it about today’s date, a recent event, or your private data, and it will either decline or — worse — confidently make something up (a “hallucination”). The model doesn’t <em>know</em> what it doesn’t know. This single limitation is the entire motivation for two later topics: <strong>tools</strong> (Module 2 — give it a clock, a search function, a way to fetch fresh data) and <strong>retrieval / RAG</strong> (Module 5 — give it access to your documents). When you find yourself wishing the model knew something it can’t, that’s the signal that you need to <em>give</em> it that knowledge through the harness, not hope it’s in the weights.</p><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<p>✅ Explain, without notes, why a multi-turn chat costs roughly quadratically in tokens as it grows. Tie your answer to statelessness.</p>
+
+<p>✅ You call the API with <code class="language-plaintext highlighter-rouge">max_tokens=256</code> and get back a confident-looking but truncated answer. What field tells you it was cut off, and what are your three options for fixing it?</p>
+
+<p>✅ A colleague counts tokens with <code class="language-plaintext highlighter-rouge">tiktoken</code> to estimate Claude API costs and gets numbers that don’t match the bill. What’s wrong, and what should they use instead?</p>
+
+<p>✅ Why is “count the number of ‘e’s in this paragraph” an unreliable task for the raw model, and where should that computation actually happen?</p>
+
+<p>✅ You need the model to return data your code will <code class="language-plaintext highlighter-rouge">for</code>-loop over. Describe the reliable way to get that, and explain how it’s an instance of “move correctness to the boundary.”</p>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<p>📖 The provider’s <strong>Messages API reference</strong> — read the full request/response schema once, end to end.
+📖 The <strong>streaming</strong> guide — event types and the <code class="language-plaintext highlighter-rouge">get_final_message</code> pattern.
+📖 The <strong>structured outputs</strong> documentation — JSON Schema constraints and what’s supported.
+📖 The <strong>token-counting</strong> guide — and a short explainer on <strong>BPE tokenization</strong> (Sennrich et al.’s original subword-NMT paper is the canonical source; any good “byte-pair encoding for NLP” writeup will do).
+📖 The provider’s <strong>extended/adaptive thinking</strong> documentation — when reasoning mode earns its cost.</p>
+
+<p>→ Next: <a href="/agent-engineering-course-site/01b-prompting-and-steering.html">Module 1B — Prompting, Instructions &amp; Steering</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

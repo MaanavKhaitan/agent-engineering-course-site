@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(19)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(19) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(19) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(19) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>13 · Frontier &amp; Advanced | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="13 · Frontier &amp; Advanced" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="13 · Frontier &amp; Advanced" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"13 · Frontier &amp; Advanced","url":"/agent-engineering-course-site/13-frontier-and-advanced.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-13--frontier--advanced-patterns">
+  
+  
+    <a href="#module-13--frontier--advanced-patterns" class="anchor-heading" aria-labelledby="module-13--frontier--advanced-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 13 — Frontier &amp; Advanced Patterns
+  
+  
+</h1>
+    
+
+<p>You have built an agent (Modules 1–6), evaluated it (Module 8), instrumented it (Module 9), made it reliable and cheap (Module 10), secured it (Module 11), and given it durable execution (Module 12). You can ship the thing. This module is the one that goes stale fastest, and that is exactly why it exists: the field is moving, and the most valuable skill you can leave this course with is a <em>map</em> — a way to read the frontier so you can tell which new capability is real, which is demo-ware, and which of your hard-won harness code is about to be deleted by the next model.</p>
+
+<p>The honest framing up front: most of what gets called “the frontier” in agents right now is one of two things. Either it is a genuine capability shift — agents completing longer tasks, models trained against their own tools — or it is a <em>packaging</em> shift: the same inner loop from Module 3, wrapped in a new product surface (a standing identity, a cron schedule, an outer restart loop) and given a more ambitious name. Both matter. But they fail differently, and conflating them is how teams ship a “digital employee” that demos beautifully and drifts into confidently doing the wrong thing for six hours overnight. This module is about telling them apart.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you will be able to:</p>
+
+<ul>
+  <li>Distinguish the three things people mean by “long-running agent” — long-horizon reasoning, long-running execution, and persistent agency — and reason about each separately.</li>
+  <li>Explain the outer loop and the “Ralph Wiggum” technique, why the dumbest version of it accidentally gets the architecture right, and what “loop engineering” makes you design explicitly.</li>
+  <li>Cite the one quantitative capability trend worth anchoring on (METR’s task-length doubling) and state its honest caveat.</li>
+  <li>Predict which parts of your harness will <em>appreciate</em> and which will <em>depreciate</em> as models improve, and invest accordingly.</li>
+  <li>Place computer use and MCP correctly in your toolbox — what each is for, and where each is still brittle.</li>
+  <li>Name the binding constraints on long-running agents (verification, drift, the human-inspection problem) and explain why they are harder than raw capability.</li>
+</ul><hr />
+<h2 id="1-from-task-to-role-the-three-senses-of-long-running">
+  
+  
+    <a href="#1-from-task-to-role-the-three-senses-of-long-running" class="anchor-heading" aria-labelledby="1-from-task-to-role-the-three-senses-of-long-running"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. From task to role: the three senses of “long-running”
+  
+  
+</h2>
+    
+
+<p>The phrase “long-running agent” is doing too much work. It bundles three different engineering problems that happen to co-occur, and you cannot design well until you split them:</p>
+
+<ol>
+  <li>
+    <p><strong>Long-horizon reasoning</strong> — one big task that requires many coherent steps. “Migrate this service from REST to gRPC.” The hard part is <em>staying on-goal</em> across hundreds of model turns without losing the thread. This is a model-capability problem, and it is the one METR measures (§3).</p>
+  </li>
+  <li>
+    <p><strong>Long-running execution</strong> — the operational problem of staying alive: the process survives restarts, resumes after a crash, doesn’t lose state when a tool call hangs for an hour. This is <strong>durable execution</strong> — Module 12 — and it is solved infrastructure (initializer/worker patterns, hosted loops, checkpointing). It is plumbing, and good plumbing.</p>
+  </li>
+  <li>
+    <p><strong>Persistent agency</strong> — a standing <em>identity</em> with accumulated memory and an open-ended <em>charter</em>, operating across many sessions over days and weeks. Not “do this task” but “be the on-call triage agent.” This is the “AI employee” / “digital worker” framing: a company gives an agent a name, credentials, a permission scope, and a human manager, and lets work <em>arrive</em> at it over time.</p>
+  </li>
+</ol>
+
+<p>Most of the breathless writing is about (3), but (3) is mostly built out of (1) and (2). An honest read is that persistent agency today is <em>partly aspirational</em> — the demos are real, the production deployments are narrow, and the gap between them is the subject of §7.</p>
+<h3 id="what-is-actually-architecturally-new">
+  
+  
+    <a href="#what-is-actually-architecturally-new" class="anchor-heading" aria-labelledby="what-is-actually-architecturally-new"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What is actually architecturally new
+  
+  
+</h3>
+    
+
+<p>If you strip the marketing, persistent agency changes three concrete things about how you build:</p>
+
+<p><strong>Work arrives over time.</strong> A task agent is a function: input → trajectory → output → exit. A <em>role</em> agent is a <strong>service</strong>. It mostly sits blocked on the outside world — a new ticket, a scheduled tick, a webhook — and wakes to handle an event. The LLM is no longer “the program”; it is the <em>handler logic</em> the service invokes when an event arrives. This is the most useful reframe in the whole module: <strong>a persistent agent is an event-driven service where an LLM decides the handler body.</strong> Everything you know about event-driven services — idempotency, queues, backpressure, dead-letter handling — applies directly and is mostly absent from “agent” tutorials.</p>
+
+<p><strong>The human moves from the loop to the exception path.</strong> In an interactive agent (Module 3), a human is in the loop on every turn. In a role agent, the human is <em>out</em> of the loop by design — the whole point is unattended operation — and only re-enters on an <strong>exception</strong>: the agent escalates because it is stuck, hit a confirmation gate (Module 11’s blast-radius controls), or tripped a drift detector. Designing the exception path well is now the high-leverage work, because it is the only place a human can correct a run before damage compounds.</p>
+
+<p><strong>Continuity lives in durable state, not context.</strong> A conversation’s continuity lives in its context window. A role agent outlives any single context window — it gets compacted (Module 4), restarted, run fresh. So “what this agent is, what it has learned, what it is responsible for” must live in <strong>durable external state</strong> (a memory store, a database, the filesystem), not in the transcript. The transcript is ephemeral scratch; the durable state is the agent. Get this backwards and your agent forgets who it is every time the context compacts.</p>
+<h3 id="a-worked-example-the-recruiting-coordinator-agent">
+  
+  
+    <a href="#a-worked-example-the-recruiting-coordinator-agent" class="anchor-heading" aria-labelledby="a-worked-example-the-recruiting-coordinator-agent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A worked example: the recruiting-coordinator agent
+  
+  
+</h3>
+    
+
+<p>Make it concrete. You are asked to build an agent that owns “first-round recruiting coordination” — not a task, a <em>charter</em>. It should monitor an inbox, schedule screens, nudge stalled candidates, and escalate edge cases.</p>
+
+<p>As a service, its shape is:</p>
+
+<ul>
+  <li><strong>Triggers</strong> (work arrives): a new application webhook, a candidate reply, a daily 9am “chase stalled threads” tick.</li>
+  <li><strong>Durable state</strong> (the agent <em>is</em> this): per-candidate status, what’s been promised, scheduling constraints, a running log of decisions. Not the context window.</li>
+  <li><strong>Handler</strong> (the LLM call): given this event plus the relevant slice of durable state, decide the next action — draft a reply, propose times, or escalate.</li>
+  <li><strong>Blast-radius gates</strong> (Module 11): “send an email to a candidate” is irreversible and outward-facing, so it goes behind a confirmation policy or a strict template, not raw model output.</li>
+  <li><strong>Exception path</strong>: candidate asks something off-script, or a scheduling conflict can’t be resolved → stop and ping the human recruiter with context.</li>
+</ul>
+
+<p>Notice what dominates: almost none of this is “prompt the model better.” It is event plumbing, state design, and gate placement. The model is one component. That ratio — mostly systems, a little model — is the signature of a real persistent-agent build, and the inverse ratio is the signature of a demo.</p>
+
+<p>📖 <em>Why this is the flagship example.</em> Role-based / recruiting agents recur as the canonical “AI employee” demo precisely because recruiting coordination is a long-lived charter with discrete events, low-but-nonzero blast radius, and a natural human-escalation path. It is the easiest place to make persistent agency <em>look</em> solved — which is also why it is the easiest place to ship something that drifts.</p><hr />
+<h2 id="2-the-outer-loop-and-loop-engineering">
+  
+  
+    <a href="#2-the-outer-loop-and-loop-engineering" class="anchor-heading" aria-labelledby="2-the-outer-loop-and-loop-engineering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. The outer loop and “loop engineering”
+  
+  
+</h2>
+    
+
+<p>Module 3 built the <strong>inner loop</strong>: model → tool → result → model, iterating until the task is done within a single context window. The frontier added a second loop <em>around</em> it.</p>
+
+<p>The <strong>outer loop</strong> is brutally simple: restart the agent on the same goal, repeatedly, until the goal is met. Fresh process, fresh context, same objective.</p>
+<h3 id="the-ralph-wiggum-technique">
+  
+  
+    <a href="#the-ralph-wiggum-technique" class="anchor-heading" aria-labelledby="the-ralph-wiggum-technique"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Ralph Wiggum technique
+  
+  
+</h3>
+    
+
+<p>The purest expression of this — named by Geoffrey Huntley after the Simpsons character, with affection — is literally:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> :<span class="p">;</span> <span class="k">do </span><span class="nb">cat </span>PROMPT.md | claude <span class="nt">-p</span> <span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<p>Run the agent against a prompt. When it finishes (or dies, or rots), the loop just runs it again. Forever, or until you stop it. The prompt says, roughly, “read the current state, figure out what’s left to do, do the next increment, update the state.” That’s the whole technique.</p>
+
+<p>It looks like a joke. It accidentally gets the long-running architecture <em>right</em>, for three reasons that are worth internalizing because they are the same three reasons §1’s persistent agents work:</p>
+
+<ul>
+  <li><strong>Fresh context each iteration = no rot.</strong> Module 4’s nemesis is context degradation — the slow accumulation of stale tool output, contradictory notes, and goal reinterpretation that builds up over a long single run. The outer loop sidesteps it entirely: every iteration starts from a clean window. There is nothing to rot because nothing carries over <em>in context</em>.</li>
+  <li><strong>State lives in the filesystem = durable.</strong> What <em>does</em> carry over is on disk: a <code class="language-plaintext highlighter-rouge">TODO.md</code>, a progress file, the actual code being written. This is Module 12’s durable-state principle arrived at by the dumbest possible route. The filesystem is the checkpoint.</li>
+  <li><strong>The model re-derives “what’s next” from ground truth.</strong> Because it can’t rely on a remembered plan (there is no memory across iterations), each pass <em>re-reads reality</em> — the current files, the current test output, the current todo list — and decides the next step from that. It is continuously re-grounding against the world instead of against its own increasingly-unreliable narrative of the world.</li>
+</ul>
+
+<p>That third point is the deep one. Goal drift (§7) is largely a story about an agent trusting its own stale summary of where it is. The Ralph loop can’t drift the same way, because it has no stale summary to trust — it has to look.</p>
+
+<p>The technique spread through YC startups precisely because it is so cheap to try and works embarrassingly well for grind-it-out tasks (build this CLI, port this module, get this test suite green). Anthropic eventually shipped an official plugin around the pattern. None of that makes it magic — it burns tokens, it can loop forever on a goal it can’t actually complete, and it has no taste — but it is the existence proof that the <em>architecture</em> of long-running agents is simple. The hard parts are elsewhere.</p>
+<h3 id="loop-engineering">
+  
+  
+    <a href="#loop-engineering" class="anchor-heading" aria-labelledby="loop-engineering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Loop engineering
+  
+  
+</h3>
+    
+
+<p>Once you take the outer loop seriously, the <strong>unit of design stops being the prompt and becomes the loop</strong>. “Loop engineering” is just naming the four questions you must now answer explicitly:</p>
+
+<ol>
+  <li><strong>What persists across iterations?</strong> The durable state. Exactly which files / records carry the agent’s progress, and what format keeps them legible to a fresh-context model.</li>
+  <li><strong>What is verified each pass?</strong> Before an iteration declares progress, what <em>external</em> check confirms it? Tests pass, the file exists, the API returns 200. This is the anti-drift mechanism — see §7.</li>
+  <li><strong>When does it terminate?</strong> A naive <code class="language-plaintext highlighter-rouge">while :;</code> never stops. A real loop has a completion gate (programmatic or LLM-judged — Module 8) and a budget/iteration cap so a stuck goal doesn’t run up an infinite bill.</li>
+  <li><strong>When does it escalate?</strong> If the loop makes no progress for N iterations, or repeats the same failed action, it should stop and ask a human — the exception path from §1.</li>
+</ol>
+
+<p>🛠️ Notice these are the same four knobs that define a <em>persistent</em> agent (§1: triggers, state, termination, escalation). The outer loop and the role agent are the same architecture at different cadences — one restarts in a tight loop, the other wakes on events over days. Learn the loop and you’ve learned both.</p>
+
+<p>This shows up in product surfaces as <strong>goal-directed primitives</strong> — e.g. a <code class="language-plaintext highlighter-rouge">/goal</code> command that hands the loop an objective and lets <em>the agent</em> decide when it’s met rather than counting turns — and <strong>scheduled / background agents</strong> that fire the loop on a cron or a queue. Those are just §1’s “work arrives over time” with a UI on it.</p>
+
+<p>✅ When you hear “agent,” ask which loop. Most clever-prompt tricks live in the inner loop and depreciate (§4). The durable wins — what persists, what’s verified, when it stops — live in the outer loop and they are <em>yours</em> to engineer, not the model’s to obsolete.</p><hr />
+<h2 id="3-the-capability-trend-worth-anchoring-on">
+  
+  
+    <a href="#3-the-capability-trend-worth-anchoring-on" class="anchor-heading" aria-labelledby="3-the-capability-trend-worth-anchoring-on"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. The capability trend worth anchoring on
+  
+  
+</h2>
+    
+
+<p>If you anchor on one number from the frontier, anchor on this one. METR (Model Evaluation &amp; Threat Research) measures the <strong>length of task</strong> an agent can complete autonomously — operationalized as the human-time-to-complete of tasks the model can finish at a given reliability. Their headline finding: that length has been <strong>doubling roughly every seven months</strong>, and recent data suggests the doubling time is <em>shortening</em> toward ~4 months. The 50%-reliability time horizon sits in the tens of minutes and is climbing.</p>
+
+<p>Why this is the right thing to track: it is a <em>capability</em> measurement that maps directly onto the engineering question you actually care about — “how much can I hand the agent before it falls apart?” A task-length horizon of ~minutes means agents reliably do bounded sub-tasks and you orchestrate; a horizon of hours means you can hand off genuinely long-horizon work (§1, sense 1). The doubling trend is the single best forecast of how much harness scaffolding you’ll be able to delete next year (§4).</p>
+
+<p>Now the caveat, and it is load-bearing: <strong>reliability over long horizons lags raw capability badly.</strong> The “50% reliability” qualifier matters enormously. An agent that completes a 1-hour task half the time is a research result; it is not something you deploy unattended against a 1-hour task, because the other half of the time it fails — and, worse, it often fails <em>silently</em>, by drifting (§7) rather than crashing. The headline number describes a frontier of <em>what is possible at coin-flip odds</em>, not what is <em>trustworthy</em>. The gap between “an agent can sometimes do this” and “I will let an agent do this overnight without watching” is the entire subject of §7, and it is widening even as the headline number improves.</p>
+
+<p>📖 Track the trend; do not deploy the trend. The doubling curve tells you where to place bets for <em>next year’s</em> architecture. It does not tell you that <em>this year’s</em> agent can be trusted with this year’s longest measured task.</p><hr />
+<h2 id="4-rl-trained-agents-and-the-disappearing-harness">
+  
+  
+    <a href="#4-rl-trained-agents-and-the-disappearing-harness" class="anchor-heading" aria-labelledby="4-rl-trained-agents-and-the-disappearing-harness"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. RL-trained agents and the disappearing harness
+  
+  
+</h2>
+    
+
+<p>Here is the structural force that will obsolete more of your code than any single feature: <strong>models are increasingly trained against their own harnesses.</strong></p>
+
+<p>Early agents were a frontier model wrapped in a thick scaffold of human-engineered glue — retry logic, retrieval pipelines, output parsers, tool-format coaxing, prompt patterns to stop the model doing dumb things. Each of those scaffold components encodes an <em>assumption about what the model can’t do.</em> The output parser exists because the model used to emit malformed JSON. The retrieval scaffold exists because the model couldn’t decide what to fetch. The “CRITICAL: you MUST use the tool” prompt exists because the model under-called tools.</p>
+
+<p>Reinforcement learning is now moving those capabilities <strong>into the weights.</strong> Research lines like Search-R1 and ReSearch train models to do agentic retrieval — to decide when and what to search — as a learned behavior rather than a scaffolded one. The Anthropic models you’ve used throughout this course are trained against tool-use formats directly. The general direction is unmistakable: capability migrates from the harness into the model.</p>
+
+<p>The consequence is a one-line principle with enormous practical weight:</p>
+
+<blockquote>
+  <p><strong>Every harness component encodes an assumption about what the model can’t do — and that assumption gets invalidated as models improve.</strong></p>
+</blockquote>
+
+<p>So the strategic question for an engineer is no longer “what scaffold makes this work?” It is <strong>“what am I building that appreciates as models get better, versus what depreciates?”</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Depreciates (the model absorbs it)</th>
+      <th>Appreciates (the model can’t give you this)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prompt tricks that coax behavior (“you MUST…”)</td>
+      <td>Your <strong>evals</strong> — the ground-truth definition of “good” for <em>your</em> task (Module 8)</td>
+    </tr>
+    <tr>
+      <td>Output parsers / format-repair logic</td>
+      <td>Your <strong>proprietary data</strong> and the pipelines that produce it</td>
+    </tr>
+    <tr>
+      <td>Retrieval scaffolding the model can now drive</td>
+      <td>Your <strong>integrations</strong> — the connections to your systems, with auth and side effects</td>
+    </tr>
+    <tr>
+      <td>Tool-format coaxing</td>
+      <td>Your <strong>guardrails</strong> — the blast-radius and trust controls (Module 11)</td>
+    </tr>
+    <tr>
+      <td>Multi-step decomposition the model now does itself</td>
+      <td>Your <strong>domain context</strong> and the human-in-the-loop interfaces around it</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The depreciating column is real work you may need <em>today</em> — Module 10’s schema-validate-and-retry exists because today’s models still occasionally fail. But it is a <strong>wasting asset.</strong> Build it deliberately, comment it as a model-gap workaround, and expect to delete it. The appreciating column is where durable engineering value lives: a model getting smarter makes your eval suite, your data, and your secure integrations <em>more</em> valuable, because there’s a more capable engine to point at them.</p>
+
+<p>🛠️ A useful habit: when you write a piece of harness, label it. Is this compensating for a current model limitation (depreciating — write it cheap, plan to delete it), or is it durable infrastructure (appreciating — invest in it)? The teams that stay ahead spend their best engineering on the second column and treat the first as disposable.</p>
+
+<p>✅ This is also a defensibility argument. “Our agent has a clever prompt” is not a moat; the next model erases it. “Our agent has ten years of labeled domain data, a battle-tested eval harness, and audited integrations into systems no one else can touch” is a moat that <em>grows</em> with model quality.</p><hr />
+<h2 id="5-computer-use-the-universal-interface-bet">
+  
+  
+    <a href="#5-computer-use-the-universal-interface-bet" class="anchor-heading" aria-labelledby="5-computer-use-the-universal-interface-bet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Computer use: the universal-interface bet
+  
+  
+</h2>
+    
+
+<p><strong>Computer use</strong> lets an agent operate a graphical interface the way a person does: it receives a screenshot, reasons about it, and emits mouse and keyboard actions (click here, type this, scroll). Anthropic’s computer use and OpenAI’s computer-using-agent are the two flagship implementations; Claude models support it as a client-side tool (you run the screen; the model decides the actions).</p>
+
+<p>The bet behind it is large and worth stating plainly: <strong>if an agent can use a screen, it can use any software — no API required.</strong> Every legacy system, every internal tool with no integration, every SaaS app that never shipped a usable API becomes reachable through the one interface every application already has: the GUI. That is a genuinely universal adapter, and for the long tail of software that will never expose an API, it may be the <em>only</em> adapter.</p>
+
+<p>How it works, mechanically, is just the Module 3 loop with vision and a different action space:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screenshot → model reasons → action (click/type/scroll) → new screenshot → …
+</code></pre></div></div>
+
+<p>The model never touches an API; it looks at pixels and moves a cursor.</p>
+
+<p>And now the honest part. Computer use today is <strong>powerful, slow, and brittle.</strong> It is slow because every step is a full screenshot round-trip plus vision processing — seconds per click, where an API call is milliseconds. It is brittle because pixel-level grounding is error-prone: a moved button, an unexpected modal, a slow-loading page, and the agent clicks the wrong thing or stalls. The error rate per action, compounded over a multi-step GUI flow (Module 10’s <code class="language-plaintext highlighter-rouge">0.95^N</code> arithmetic), gets ugly fast. It is also high blast-radius by nature — it’s driving a real UI with real buttons.</p>
+
+<p>Where it fits: <strong>reach for computer use when there is no API and the alternative is a human doing the clicking.</strong> It is a last-resort universal adapter, not a default. If a tool exposes an API or an MCP server (§6), use that — it is faster, more reliable, and easier to gate. Computer use earns its slot when the only interface is the screen. Treat it as the brilliant, twitchy specialist it is, not the workhorse.</p>
+
+<p>📖 The capability trend (§3) bears directly on computer use: as models get better at vision grounding and longer horizons, the brittleness recedes and the universal-adapter bet looks better. It is a “wait and watch the curve” capability — under-powered for most production today, plausibly transformative on a 12–24 month horizon.</p><hr />
+<h2 id="6-mcp-and-the-tool-ecosystem">
+  
+  
+    <a href="#6-mcp-and-the-tool-ecosystem" class="anchor-heading" aria-labelledby="6-mcp-and-the-tool-ecosystem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. MCP and the tool ecosystem
+  
+  
+</h2>
+    
+
+<p>The <strong>Model Context Protocol (MCP)</strong> is the converging interoperability standard for connecting agents to tools and data — the “USB for agent tools.” The problem it solves is combinatorial: before MCP, every (agent harness × tool) pair needed bespoke integration glue. MCP makes tools and data sources speak one protocol, so you <strong>write a tool/data server once and use it across any MCP-speaking harness</strong> — Claude, other models, IDEs, custom agents.</p>
+
+<p>The result is an ecosystem of MCP servers — GitHub, Slack, databases, search, internal systems — that you can compose into an agent’s tool surface without writing per-harness adapters. For a team, this is leverage: expose your internal systems as one MCP server and every agent surface you adopt can use them.</p>
+
+<p>Two practical notes for when your tool count gets large:</p>
+
+<ul>
+  <li><strong>Deferred / dynamic tool loading.</strong> Loading hundreds of tool schemas into context upfront is wasteful and degrades tool selection (Module 2’s “too many tools confuse the model”). The pattern is <em>tool search</em>: keep most tools’ schemas out of context and let the model search/discover the few it needs per request, appending their schemas dynamically. Crucially, well-designed dynamic loading <em>appends</em> schemas rather than swapping them, which preserves the prompt cache (Module 10) — a detail that matters for cost at scale.</li>
+  <li><strong>Security caveats (Module 11, applied).</strong> MCP’s strength — easy composition of third-party servers — is also its supply-chain risk. An MCP server is code (or a remote endpoint) you are granting into your agent’s trust boundary. A malicious or compromised server can exfiltrate whatever the agent can see, inject instructions via tool output (prompt injection through tool results), or abuse credentials you handed it. Treat every MCP server the way Module 11 taught you to treat any dependency: vet the source, scope its credentials minimally, isolate its egress, and never assume tool output is trusted text. The convenience of “just add this server” is exactly the attack surface.</li>
+</ul>
+
+<p>✅ MCP is the integration layer that <em>appreciates</em> (§4): it is durable plumbing into your systems, not a prompt trick. Build your internal capabilities as MCP servers and that investment survives every model upgrade — and works across whatever harness wins.</p><hr />
+<h2 id="7-the-open-problems-easy-to-build-hard-to-trust">
+  
+  
+    <a href="#7-the-open-problems-easy-to-build-hard-to-trust" class="anchor-heading" aria-labelledby="7-the-open-problems-easy-to-build-hard-to-trust"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. The open problems: easy to build, hard to trust
+  
+  
+</h2>
+    
+
+<p>This is the section that matters most, because it is where the marketing and the engineering reality diverge hardest. The blunt version:</p>
+
+<blockquote>
+  <p><strong>Long-running agents are easy to build and hard to trust. Verification and the human-agent interface — not raw capability — are the binding constraints.</strong></p>
+</blockquote>
+
+<p>You can stand up a “persistent AI employee” in an afternoon (§1 + §2 give you the whole architecture). It will demo beautifully. Then you let it run unattended for hours and it <strong>drifts</strong> — and the failure modes below are why “it demoed well” tells you almost nothing about whether you can trust it.</p>
+<h3 id="goal-drift">
+  
+  
+    <a href="#goal-drift" class="anchor-heading" aria-labelledby="goal-drift"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Goal drift
+  
+  
+</h3>
+    
+
+<p>The central failure of long unsupervised runs. The agent slowly stops doing what you asked and starts doing something subtly adjacent, while remaining fluent and confident the whole time. Three mechanisms:</p>
+
+<ul>
+  <li><strong>Reinterpretation across compaction.</strong> Every time the context compacts (Module 4), the goal gets re-summarized — and summaries lose nuance. “Refactor the auth module without changing behavior” becomes “refactor the auth module” becomes “improve the auth module” over successive compactions, and now the agent is rewriting behavior you told it to preserve. Each compaction is a lossy generation of telephone, and the goal degrades a little each time.</li>
+  <li><strong>Error accumulation in persistent state.</strong> A persistent agent’s durable state (§1) is supposed to be its strength, but a <em>bad</em> entry compounds. One wrong fact written to a memory store — a mislabeled candidate status, an incorrect assumption recorded as fact — gets read back as ground truth on every subsequent iteration and silently warps everything downstream. The durable state is only as good as its worst write.</li>
+  <li><strong>Confidently working on the wrong thing.</strong> The most dangerous compound of the above: the agent is <em>productive</em> and <em>fluent</em> while building the wrong thing. It’s not erroring. It’s not stuck. It’s cheerfully spending six hours and a real budget perfecting a solution to a problem you didn’t have. Nothing in the transcript looks alarming.</li>
+</ul>
+<h3 id="verification-at-scale-who-authors-success-criteria">
+  
+  
+    <a href="#verification-at-scale-who-authors-success-criteria" class="anchor-heading" aria-labelledby="verification-at-scale-who-authors-success-criteria"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Verification at scale: who authors success criteria?
+  
+  
+</h3>
+    
+
+<p>The only defense against drift is <strong>verification</strong> — but verification has a foundational hole. <em>Who writes the success criteria, and against what are they grounded?</em></p>
+
+<ul>
+  <li>If a <strong>human</strong> authors them, you have Module 8’s evals, and they’re trustworthy but they don’t scale to every sub-goal a long-horizon agent invents along the way.</li>
+  <li>If the <strong>agent</strong> authors its own success criteria, you have a circularity problem: an agent that has drifted will write success criteria that match where it drifted <em>to</em>, and then triumphantly verify against them. Self-graded homework. The agent that’s confidently wrong (§above) is also confidently <em>right</em> about having succeeded.</li>
+</ul>
+
+<p>The partial answer is to ground self-set criteria in <strong>external signals</strong> — tests that actually run, APIs that actually return, the world pushing back (this is <em>why</em> the Ralph loop’s per-pass verification, §2, matters; it re-grounds against reality, not against the agent’s narrative). But “ground everything in an external check” is much easier to say than to engineer for an open-ended charter, and it is an open problem, not a solved one.</p>
+<h3 id="the-human-inspectcorrect-problem">
+  
+  
+    <a href="#the-human-inspectcorrect-problem" class="anchor-heading" aria-labelledby="the-human-inspectcorrect-problem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The human inspect/correct problem
+  
+  
+</h3>
+    
+
+<p>When a long run is going wrong, you want to look inside and fix it. Both halves are genuinely hard.</p>
+
+<ul>
+  <li><strong>Inspection</strong> of a 6-hour, post-multiple-compaction run is not like reading a 20-line transcript. The thing you need to catch — the moment the goal quietly reinterpreted — may be buried in a compaction boundary you can’t even see anymore.</li>
+  <li><strong>Correction</strong> is harder still. Mutating a <em>running</em> agent’s state is dangerous: edit its durable state mid-run and you risk corrupting it in ways the agent can’t reconcile, because it has in-flight assumptions built on the old state. The emerging discipline is to <strong>steer by appending events, not by editing state</strong> — you don’t reach in and rewrite the agent’s memory; you send it a new instruction/event (“actually, stop and reconsider X”) and let <em>it</em> reconcile, the same way you’d correct a service by sending it a message rather than reaching into its database. (This is exactly why §1’s “the human is on the exception path” and Module 12’s event-sourced state matter: append-only correction is the only safe correction.)</li>
+</ul>
+<h3 id="blast-radius-and-trust">
+  
+  
+    <a href="#blast-radius-and-trust" class="anchor-heading" aria-labelledby="blast-radius-and-trust"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Blast radius and trust
+  
+  
+</h3>
+    
+
+<p>Tie it back to Module 11. An unattended agent’s <em>mistakes are unattended too.</em> A drifted agent with email access sends drifted emails. A drifted agent with deploy access deploys the wrong thing. The longer and more autonomous the run, the larger the blast radius of any single drift — and the later you’ll notice. This is why the gates (§1, Module 11) live on <em>irreversible, outward-facing</em> actions specifically: those are the ones where unattended drift becomes an incident instead of a wasted iteration.</p>
+<h3 id="where-this-leaves-you">
+  
+  
+    <a href="#where-this-leaves-you" class="anchor-heading" aria-labelledby="where-this-leaves-you"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where this leaves you
+  
+  
+</h3>
+    
+
+<p>The capability frontier (§3) is racing ahead. The <em>trust</em> frontier — verification, drift detection, inspectability, safe correction — is lagging, and it is the actual bottleneck for production long-running agents. A team that obsesses over “can the model do a longer task?” and ignores “can I tell when it’s quietly doing the wrong one?” will ship something that demos and then drifts.</p>
+
+<p>📖 The durable skill — the thing this whole course has been building toward — is <strong>taste for where the model still needs scaffolding, and where it no longer does.</strong> You cannot get that taste from a changelog or a benchmark. You get it from <strong>reading transcripts</strong>: watching real runs, seeing exactly where this model drifts, over-thinks, under-tools, or confidently fabricates, and where it has quietly gotten good enough that your old scaffold is now just in the way. That is why Module 9’s observability is the foundation for everything here. The frontier changes; the skill of reading what your agent actually did, and adjusting, does not.</p><hr />
+<h2 id="️-exercise-build-an-outer-loop-for-scout">
+  
+  
+    <a href="#️-exercise-build-an-outer-loop-for-scout" class="anchor-heading" aria-labelledby="️-exercise-build-an-outer-loop-for-scout"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise: build an outer loop for Scout
+  
+  
+</h2>
+    
+
+<p>Smaller and exploratory — the goal is to <em>feel</em> the long-running architecture and its failure modes firsthand, not to ship anything.</p>
+
+<p><strong>(a) Build a Ralph-style loop.</strong> Write a script that repeatedly runs Scout against a goal in <code class="language-plaintext highlighter-rouge">PROMPT.md</code>, with all state on the filesystem (a <code class="language-plaintext highlighter-rouge">TODO.md</code> or <code class="language-plaintext highlighter-rouge">progress.json</code>), until a completion condition or a max-iterations / budget cap. Each iteration must: start with <strong>fresh context</strong>, read the state file, do <strong>one increment</strong>, update the state file, exit. The loop, not the model, owns continuity.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Sketch — the loop is the unit of design (§2). Scout is your agent from earlier modules.
+</span><span class="kn">import</span> <span class="n">json</span><span class="p">,</span> <span class="n">pathlib</span><span class="p">,</span> <span class="n">anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">state_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="p">.</span><span class="nc">Path</span><span class="p">(</span><span class="sh">"</span><span class="s">progress.json</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">MAX_ITERS</span><span class="p">,</span> <span class="n">stuck_limit</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">stuck</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">load_state</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">state_path</span><span class="p">.</span><span class="nf">read_text</span><span class="p">())</span> <span class="k">if</span> <span class="n">state_path</span><span class="p">.</span><span class="nf">exists</span><span class="p">()</span> <span class="k">else</span> <span class="p">{</span><span class="sh">"</span><span class="s">todo</span><span class="sh">"</span><span class="p">:</span> <span class="p">[],</span> <span class="sh">"</span><span class="s">done</span><span class="sh">"</span><span class="p">:</span> <span class="p">[]}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">MAX_ITERS</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="nf">load_state</span><span class="p">()</span>                       <span class="c1"># durable state, NOT context
+</span>    <span class="n">goal</span> <span class="o">=</span> <span class="n">pathlib</span><span class="p">.</span><span class="nc">Path</span><span class="p">(</span><span class="sh">"</span><span class="s">PROMPT.md</span><span class="sh">"</span><span class="p">).</span><span class="nf">read_text</span><span class="p">()</span>
+
+    <span class="c1"># Fresh context every pass — the model re-derives "what's next" from the state file (§2).
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="nf">run_scout_one_increment</span><span class="p">(</span>          <span class="c1"># your Module-3 inner loop, single increment
+</span>        <span class="n">goal</span><span class="o">=</span><span class="n">goal</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">thinking</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">adaptive</span><span class="sh">"</span><span class="p">},</span>         <span class="c1"># adaptive thinking — no budget_tokens on Opus 4.8
+</span>    <span class="p">)</span>
+    <span class="nf">write_state</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">updated_state</span><span class="p">)</span>          <span class="c1"># persist progress to disk
+</span>
+    <span class="k">if</span> <span class="nf">goal_met</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>                       <span class="c1"># (b) termination gate — programmatic or LLM-judge
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">done in </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s"> iterations</span><span class="sh">"</span><span class="p">);</span> <span class="k">break</span>
+    <span class="k">if</span> <span class="nf">made_no_progress</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>        <span class="c1"># (b) escalation: stuck N times → ask the human
+</span>        <span class="n">stuck</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">stuck</span> <span class="o">&gt;=</span> <span class="n">stuck_limit</span><span class="p">:</span>
+            <span class="nf">escalate_to_human</span><span class="p">(</span><span class="n">state</span><span class="p">);</span> <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stuck</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p><strong>(b) Add the gates.</strong> A <strong>termination check</strong> — an LLM-judge (callback to Module 8) or a programmatic “is the goal met?” test — and an <strong>escalation hook</strong>: if the loop makes no progress <code class="language-plaintext highlighter-rouge">stuck_limit</code> times in a row, stop and ask the human instead of grinding forever. These are two of the four loop-engineering knobs from §2.</p>
+
+<p><strong>(c) Give it a real multi-step goal.</strong> Something with genuine sub-structure: “build a small CLI tool with passing tests” or “research X and produce a cited report.” Watch it grind across iterations.</p>
+
+<p><strong>(d) Observe and document the drift.</strong> This is the actual point. Where does it lose the thread? Does it repeat work it already finished (state-file format too vague to read back cleanly)? Does it confidently mark something done that isn’t? Does it reinterpret the goal as the <code class="language-plaintext highlighter-rouge">TODO.md</code> gets summarized? Write down each failure and map it to a mechanism in §7. You will learn more from one drifted run you diagnosed than from re-reading §7.</p>
+
+<p><strong>(e) Stretch — add a fresh-context verifier.</strong> Each iteration, spawn a <em>separate</em> sub-agent with a clean context whose only job is to check the current state against the <strong>original</strong> goal in <code class="language-plaintext highlighter-rouge">PROMPT.md</code> and flag drift. Note how a fresh-context check catches reinterpretation that the working agent — carrying its own drifted narrative — cannot see in itself. That asymmetry is the §7 verification problem in miniature.</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Fragile loops that drift under long unsupervised runs.</strong> The central one. The loop demos perfectly in a 5-minute run and drifts in a 5-hour one. Test at <em>production duration</em>, not demo duration — short runs systematically hide the failure mode.</li>
+  <li><strong>Goal reinterpretation across compaction boundaries.</strong> “Don’t change behavior” survives turn 1 and is gone by compaction 4. Pin the immutable goal somewhere that <em>never</em> gets compacted (a re-read-every-pass <code class="language-plaintext highlighter-rouge">PROMPT.md</code>, not the transcript), and re-ground against it each iteration.</li>
+  <li><strong>Error accumulation in persistent state.</strong> One bad memory write becomes ground truth forever. Treat writes to durable state as high-stakes: validate before persisting, version it (Module 12), and make it possible to audit and redact a bad entry.</li>
+  <li><strong>Confidently working on the wrong thing for hours.</strong> No error, full fluency, real budget, wrong deliverable. Only external verification catches this — the agent’s own confidence is worthless as a signal.</li>
+  <li><strong>Outward-facing unattended mistakes (blast radius).</strong> A drifted agent’s irreversible actions are also unattended. Gate irreversible/outward actions behind confirmation or strict templates (Module 11); never wire raw model output straight to <code class="language-plaintext highlighter-rouge">send</code>/<code class="language-plaintext highlighter-rouge">deploy</code>/<code class="language-plaintext highlighter-rouge">delete</code> in an unattended loop.</li>
+  <li><strong>The difficulty of inspecting/correcting a live run.</strong> You can’t easily read a 6-hour post-compaction run, and editing its state mid-flight corrupts it. Build inspection in from the start (Module 9), and correct by <em>appending events</em>, not mutating state.</li>
+  <li><strong>Depreciating scaffolding.</strong> Today’s clever harness trick is deleted by next quarter’s model — and worse, an obsolete scaffold can <em>fight</em> a now-capable model (the “you MUST use the tool” prompt makes a model that now self-decides over-call it). Label scaffolding as a model-gap workaround; re-evaluate it on every model upgrade.</li>
+  <li><strong>Computer-use brittleness.</strong> Slow, pixel-fragile, high blast radius. Don’t put it on the critical path of a production flow that has any API alternative; reserve it for the no-API long tail and budget generous retries.</li>
+  <li><strong>MCP supply-chain risk.</strong> A third-party MCP server is inside your trust boundary. Vet it, scope its credentials, isolate egress, and treat its output as untrusted (prompt-injection vector) — Module 11 applied.</li>
+  <li><strong>The demo-to-production gap.</strong> The honest closing issue: an impressive demo and a trustworthy production agent are <em>different artifacts</em>. The bottleneck between them is verification and the human interface, not capability. Budget your engineering accordingly — most of it goes into trust, not into making the model do more.</li>
+</ul><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Name the three senses of “long-running agent” and say which one Module 12 already solved for you.</li>
+  <li>Why does the Ralph Wiggum outer loop avoid context rot, and where does its state actually live?</li>
+  <li>State the four questions “loop engineering” forces you to answer explicitly.</li>
+  <li>METR’s task-length horizon is doubling every ~7 months. Why is it a mistake to deploy an agent against the longest task at that horizon?</li>
+  <li>Give two examples of harness code that <em>depreciates</em> as models improve and two that <em>appreciate</em>. What makes the difference?</li>
+  <li>When should you reach for computer use instead of an API or MCP server — and why is it a last resort?</li>
+  <li>You discover a long-running agent has drifted. Why is editing its durable state the <em>wrong</em> way to correct it, and what’s the right way?</li>
+  <li>“Long-running agents are easy to build and hard to trust.” What, specifically, is the binding constraint — and how do you get the taste to manage it?</li>
+</ol><hr />
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>METR, “Measuring AI Ability to Complete Long Tasks”</strong> — the task-length-doubling result; the quantitative backbone of §3 and the source for the reliability caveat.</li>
+  <li><strong>Geoffrey Huntley, “Ralph Wiggum as a software engineer”</strong> — the outer-loop technique, why it works, and how it spread.</li>
+  <li><strong>Anthropic, “Building effective agents”</strong> and the computer-use / MCP documentation — the inner loop, tool design, computer use, and MCP from the source.</li>
+  <li><strong>Search-R1 / ReSearch papers</strong> — RL-trained agentic retrieval; concrete instances of capability migrating from harness into weights (§4).</li>
+  <li><strong>Model Context Protocol specification and server registry</strong> — the interop standard and the ecosystem (§6).</li>
+  <li><strong>Module 8 (Evals), Module 9 (Observability), Module 11 (Security), Module 12 (Durable Execution)</strong> of this course — every open problem in §7 routes back to one of these. The frontier doesn’t replace the fundamentals; it raises the stakes on them.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/14-capstone.html">Module 14 — Capstone Project</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

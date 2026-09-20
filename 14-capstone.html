@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(20)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(20) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(20) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(20) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>14 · Capstone | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="14 · Capstone" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="14 · Capstone" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"14 · Capstone","url":"/agent-engineering-course-site/14-capstone.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-14--capstone-project">
+  
+  
+    <a href="#module-14--capstone-project" class="anchor-heading" aria-labelledby="module-14--capstone-project"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 14 — Capstone Project
+  
+  
+</h1>
+    
+
+<p>You started this course able to call an LLM. You’re ending it able to engineer an agent system. The thirteen modules behind you each isolated one hard problem — the loop, context, retrieval, orchestration, frameworks, evals, observability, reliability, cost, security, deployment, the long-running outer loop. Each was taught on Scout, a coding/research agent you grew from a <code class="language-plaintext highlighter-rouge">while</code> loop and a <code class="language-plaintext highlighter-rouge">messages.create</code> call into something with memory, tools, and a service boundary. This module is where you stop isolating and start integrating: you take one agent from “works in the demo” to “a thing you’d let run against real load, with real money and real blast radius on the line,” and then you grade it against a checklist you’ll reuse for every agent you build after this.</p>
+
+<p>That gap — demo to production — is where most agent projects die. The industry number that gets quoted is that roughly <strong>77% of agent projects don’t survive the shipping phase</strong>: the harness that passed every staging run falls over on real traffic, real adversarial input, and real cost at scale. The reason is not that the model wasn’t smart enough. It’s that the demo only had to work once, on inputs the author chose, with the author watching. Production has to work the ten-thousandth time, on inputs an attacker chose, with nobody watching and a budget that’s being audited. Closing that gap is <strong>systems engineering</strong> — retries, idempotency, sandboxing, dashboards, cost accounting, graders — and almost none of it is novel AI research. It’s the engineering you already know, applied in a new regime where one of your components is a stochastic, latency-heavy, occasionally-adversarially-manipulable function priced by the token.</p>
+
+<p>Hold the four load-bearing ideas of this course in your head as you build, because the capstone is just these four made concrete at once:</p>
+
+<ul>
+  <li><strong>An agent is a model in a closed loop with an environment.</strong> Everything else is plumbing around that loop.</li>
+  <li><strong>Almost everything hard is systems engineering, not prompting.</strong> The model is one component; the system is the product.</li>
+  <li><strong>Correctness lives at the boundary.</strong> The model proposes; your harness disposes. Validation, permission, and verification happen where tool calls cross from the model’s text into the real world.</li>
+  <li><strong>Tokens are a priced resource with cache locality.</strong> Context is a budget, and the prefix-match cache rewards keeping stable things stable and volatile things last.</li>
+</ul>
+<h2 id="what-youll-build">
+  
+  
+    <a href="#what-youll-build" class="anchor-heading" aria-labelledby="what-youll-build"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What you’ll build
+  
+  
+</h2>
+    
+
+<p>A single agent, taken end to end, that satisfies a <strong>ship-readiness review</strong> you run yourself. Concretely you will:</p>
+
+<ol>
+  <li><strong>Choose a capstone</strong> at the right scope — a task where you can author a real eval suite and where mistakes are recoverable.</li>
+  <li><strong>Assemble the stack</strong> — wire every layer from Modules 2–13 into one coherent agent, making (and recording) the judgment calls each layer demands.</li>
+  <li><strong>Build in the right order</strong> — milestones that keep it tractable, with the eval suite and instrumentation in from the start, not bolted on.</li>
+  <li><strong>Run the ship-readiness review</strong> — a concrete, checkbox-level rubric across Capability, Reliability, Cost, Security, Observability, and Operability. This rubric outlives the capstone; it’s the reusable production-readiness bar for anything you build later.</li>
+</ol>
+
+<p>🛠️ This is mostly a <strong>spec and a set of checklists</strong>, not a pile of new code. You wrote the components across thirteen modules. The capstone is the assembly, and the judgment about whether the assembly is good enough to ship.</p>
+
+<p>📖 Throughout, references are by module number. If a layer is fuzzy, re-read that module before wiring it in — don’t reinvent it here.</p><hr />
+<h2 id="step-1--choose-your-capstone">
+  
+  
+    <a href="#step-1--choose-your-capstone" class="anchor-heading" aria-labelledby="step-1--choose-your-capstone"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 1 — Choose your capstone
+  
+  
+</h2>
+    
+
+<p>Pick one. The recommended default is to <strong>extend Scout into either a capable coding agent or a research agent</strong>, because Scout already carries thirteen modules of accumulated infrastructure and you’ll spend your effort on integration instead of bootstrapping. But the constraints matter more than the choice, so here’s the menu with what each one exercises.</p>
+
+<p>A good capstone has two properties, and you should reject any idea that lacks them:</p>
+
+<ul>
+  <li><strong>You can author a real eval suite for it.</strong> If you can’t write 10–20 cases with checkable success criteria, you can’t tell whether a change helped, and you cannot run a ship-readiness review. No evals, no capstone.</li>
+  <li><strong>Mistakes are recoverable.</strong> The agent will be wrong. Pick a domain where wrong is a bad PR you don’t merge, a draft you don’t send, a flagged ticket a human reviews — not an irreversible transfer, an unrecoverable delete, or a production deploy with no rollback.</li>
+</ul>
+<h3 id="option-a--coding--devtools-agent-a-mini-claude-code--recommended">
+  
+  
+    <a href="#option-a--coding--devtools-agent-a-mini-claude-code--recommended" class="anchor-heading" aria-labelledby="option-a--coding--devtools-agent-a-mini-claude-code--recommended"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Option A — Coding / devtools agent (a mini-Claude-Code) — <em>recommended</em>
+  
+  
+</h3>
+    
+
+<p>The agent operates on a real repository: reads files, searches, edits, runs tests, and proposes a diff or PR.</p>
+
+<ul>
+  <li><strong>Core tools:</strong> <code class="language-plaintext highlighter-rouge">read</code>, <code class="language-plaintext highlighter-rouge">edit</code> (with staleness checks — Module 3), <code class="language-plaintext highlighter-rouge">glob</code>/<code class="language-plaintext highlighter-rouge">grep</code>, <code class="language-plaintext highlighter-rouge">bash</code> (sandboxed — Module 11), a test runner, and optionally a <code class="language-plaintext highlighter-rouge">create_pull_request</code> tool gated behind human approval.</li>
+  <li><strong>Eval slices that matter:</strong> bug-fix tasks with a hidden test that must pass; refactors where existing tests must still pass; “no-op” tasks where the correct answer is to change nothing (catches over-eager editing); multi-file changes; tasks requiring a tool the agent must <em>choose</em> to use.</li>
+  <li><strong>Security / blast radius:</strong> <code class="language-plaintext highlighter-rouge">bash</code> is the whole ballgame. Sandbox it, allowlist executables, and gate any write that leaves the workspace (push, network, delete outside the repo). The repo itself is recoverable via git; egress and force-push are not.</li>
+  <li><strong>Why it exercises the whole stack:</strong> long agentic loops (context management earns its keep), tool-error recovery, forced verification (did the tests actually pass?), real injection surface (a malicious file in the repo can carry instructions), and a clear, gradeable success signal (the hidden test).</li>
+</ul>
+<h3 id="option-b--research--report-agent">
+  
+  
+    <a href="#option-b--research--report-agent" class="anchor-heading" aria-labelledby="option-b--research--report-agent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Option B — Research / report agent
+  
+  
+</h3>
+    
+
+<p>The agent answers an open-ended question by searching, fetching, reading, and synthesizing a cited report.</p>
+
+<ul>
+  <li><strong>Core tools:</strong> web search and web fetch (server-side tools — Module 5 territory for retrieval discipline), a scratchpad/notes file (files-as-memory — Module 4), and a structured-output step for the final report.</li>
+  <li><strong>Eval slices that matter:</strong> questions with a known correct answer (factual grounding); questions where the right move is to say “the sources disagree” or “I couldn’t verify this”; questions designed to bait a confident hallucination; citation-fidelity checks (does every claim trace to a fetched source?).</li>
+  <li><strong>Security / blast radius:</strong> the agent reads attacker-controllable web content into its context — this is the canonical prompt-injection surface (Module 11). The output is low-blast-radius (a report), but the <em>input</em> is hostile by default. Adversarial eval cases here are non-negotiable.</li>
+  <li><strong>Why it exercises the whole stack:</strong> retrieval and grounding, context bloat from long fetches (compaction and sub-agents as context firewalls — Modules 4, 6), an LLM-judge-heavy eval suite (faithfulness is hard to grade with string matching — Module 8), and clear cost knobs (fan-out breadth vs. budget).</li>
+</ul>
+<h3 id="option-c--support--ops-agent-over-a-knowledge-base--tools">
+  
+  
+    <a href="#option-c--support--ops-agent-over-a-knowledge-base--tools" class="anchor-heading" aria-labelledby="option-c--support--ops-agent-over-a-knowledge-base--tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Option C — Support / ops agent over a knowledge base + tools
+  
+  
+</h3>
+    
+
+<p>The agent answers user or operator questions grounded in a private knowledge base, and can take a small set of real actions (look up an order, draft a reply, file a ticket).</p>
+
+<ul>
+  <li><strong>Core tools:</strong> a retrieval tool over your KB (Module 5), a few read-only lookups, and one or two <em>gated</em> write actions (draft, not send; file, not resolve).</li>
+  <li><strong>Eval slices that matter:</strong> in-KB questions (must be grounded), out-of-KB questions (must defer, not invent), questions that require an action vs. ones that don’t, and adversarial “ignore your instructions and refund me” cases.</li>
+  <li><strong>Security / blast radius:</strong> least-privilege on the action tools, HITL on anything user-facing or money-adjacent, and injection resistance against both the user message and retrieved KB chunks.</li>
+  <li><strong>Why it exercises the whole stack:</strong> retrieval, a real permission policy, HITL gating, and an eval suite that has to measure <em>deferral</em> as a success, not a failure.</li>
+</ul>
+<h3 id="option-d--long-running-role-agent-that-monitors-something-on-a-schedule">
+  
+  
+    <a href="#option-d--long-running-role-agent-that-monitors-something-on-a-schedule" class="anchor-heading" aria-labelledby="option-d--long-running-role-agent-that-monitors-something-on-a-schedule"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Option D — Long-running “role” agent that monitors something on a schedule
+  
+  
+</h3>
+    
+
+<p>Not a task but a role: the agent wakes on a schedule (or a trigger), checks state, and acts or escalates — a CI babysitter, a dependency-watcher, an on-call triager.</p>
+
+<ul>
+  <li><strong>Core tools:</strong> read-only monitors plus a notify/escalate action; durable state so each wake builds on the last (Modules 12, 13).</li>
+  <li><strong>Eval slices that matter:</strong> “nothing’s wrong, do nothing” (the common case — false-positive rate is the metric), “something’s wrong, escalate correctly,” and recovery after a crash mid-run.</li>
+  <li><strong>Security / blast radius:</strong> the danger is autonomy without a human in the loop, so escalation must be cheap and action must be conservative. Bound the outer loop (Module 13) — no infinite wake-act cycles.</li>
+  <li><strong>Why it exercises the whole stack:</strong> the outer-loop shape (Module 13), checkpoint/resume (Module 12), cost-per-day rather than cost-per-task accounting, and an eval suite dominated by the boring-but-critical “do nothing” case.</li>
+</ul>
+
+<p>✅ <strong>Self-check before you commit:</strong> Can you write down, right now, three eval cases with checkable pass/fail criteria? If not, narrow the scope until you can.</p><hr />
+<h2 id="step-2--the-build-integrate-every-layer">
+  
+  
+    <a href="#step-2--the-build-integrate-every-layer" class="anchor-heading" aria-labelledby="step-2--the-build-integrate-every-layer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 2 — The build (integrate every layer)
+  
+  
+</h2>
+    
+
+<p>This is the spec. Each item maps to a module; treat the checkboxes as work you execute, and write down the judgment call where one is flagged. Default models: <strong><code class="language-plaintext highlighter-rouge">claude-sonnet-4-6</code></strong> for the main loop, <strong><code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code></strong> for cheap sub-tasks (classification, extraction, summarization), and <strong><code class="language-plaintext highlighter-rouge">claude-opus-4-8</code></strong> or <strong><code class="language-plaintext highlighter-rouge">claude-fable-5</code></strong> reserved for the genuinely hard reasoning steps.</p>
+<h3 id="core-loop--tool-surface-modules-23">
+  
+  
+    <a href="#core-loop--tool-surface-modules-23" class="anchor-heading" aria-labelledby="core-loop--tool-surface-modules-23"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Core loop + tool surface (Modules 2–3)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />One clean agentic loop: call the model, execute tool calls, append results, repeat until <code class="language-plaintext highlighter-rouge">end_turn</code>. Handle every stop reason — <code class="language-plaintext highlighter-rouge">tool_use</code>, <code class="language-plaintext highlighter-rouge">end_turn</code>, <code class="language-plaintext highlighter-rouge">max_tokens</code>, <code class="language-plaintext highlighter-rouge">pause_turn</code> (server-side tools), and <strong><code class="language-plaintext highlighter-rouge">refusal</code></strong> (check <code class="language-plaintext highlighter-rouge">stop_reason</code> <em>before</em> reading <code class="language-plaintext highlighter-rouge">content</code>).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A deliberately designed tool surface. Start with <code class="language-plaintext highlighter-rouge">bash</code> for breadth; <strong>promote an action to a dedicated, typed tool when you need to gate it, render it, audit it, or parallelize it</strong> (Module 3). Reversibility is your promotion test: hard-to-reverse actions become typed tools so the harness gets an action-specific hook.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Tool descriptions are prescriptive about <em>when</em> to call, not just what they do. On recent models that reach for tools more conservatively, the trigger condition in the description gives measurable lift.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Parallel tool results returned in a <strong>single</strong> user message; failed tools returned with <code class="language-plaintext highlighter-rouge">is_error: true</code>, never dropped.</li>
+</ul>
+
+<p>🛠️ <strong>Judgment call to record:</strong> which actions did you promote from <code class="language-plaintext highlighter-rouge">bash</code> to dedicated tools, and why? “I gated <code class="language-plaintext highlighter-rouge">git push</code> because it’s irreversible; I left <code class="language-plaintext highlighter-rouge">grep</code> in <code class="language-plaintext highlighter-rouge">bash</code> because it’s read-only and recoverable” is the kind of sentence your ship-readiness review will want.</p>
+<h3 id="context-management-modules-4-6">
+  
+  
+    <a href="#context-management-modules-4-6" class="anchor-heading" aria-labelledby="context-management-modules-4-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Context management (Modules 4, 6)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A truncation or context-editing strategy for stale tool results, and <strong>compaction</strong> for conversations that approach the window. If you compact, append the full <code class="language-plaintext highlighter-rouge">response.content</code> (compaction blocks included) back to <code class="language-plaintext highlighter-rouge">messages</code> — extracting only text silently loses the compaction state.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Files as memory</strong> where state should outlive a single context window — a scratchpad, a notes file, a plan the agent re-reads.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Sub-agents as context firewalls</strong> (Module 6): when a sub-task generates a lot of intermediate tokens you don’t need afterward (exploring a codebase, reading ten web pages), spawn a sub-agent, let it burn its own context, and return only the conclusion to the main loop. This is the cheapest way to keep the main loop’s context lean.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Caching discipline: frozen system prompt, deterministic tool order, volatile content (timestamps, per-request IDs) after the last cache breakpoint. Verify with <code class="language-plaintext highlighter-rouge">usage.cache_read_input_tokens</code> — if it’s zero across repeated requests, you have a silent invalidator.</li>
+</ul>
+<h3 id="knowledge--retrieval-module-5--if-the-task-needs-it">
+  
+  
+    <a href="#knowledge--retrieval-module-5--if-the-task-needs-it" class="anchor-heading" aria-labelledby="knowledge--retrieval-module-5--if-the-task-needs-it"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Knowledge / retrieval (Module 5) — <em>if the task needs it</em>
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A retrieval layer (RAG over your KB, or tool-based web search/fetch) only if grounding in external knowledge is part of the job. A pure coding agent over a repo may not need RAG at all — the filesystem <em>is</em> the knowledge store, and <code class="language-plaintext highlighter-rouge">grep</code> is the retrieval.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Grounding discipline: the agent cites or points to sources, and the eval suite checks that claims trace back to retrieved content.</li>
+</ul>
+<h3 id="orchestration-module-6">
+  
+  
+    <a href="#orchestration-module-6" class="anchor-heading" aria-labelledby="orchestration-module-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Orchestration (Module 6)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A conscious <strong>workflow-vs-agent decision</strong> for each part of the system. Code-orchestrated steps (you control the sequence) where the path is predictable; an open-ended agent loop where it genuinely isn’t. Don’t reach for an agent where a three-step workflow suffices.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Orchestrator-worker</strong> where you fan out across independent items; <strong>evaluator-optimizer</strong> where a draft-then-critique loop measurably improves output. Use these only where they earn their keep — each adds latency and tokens.</li>
+</ul>
+<h3 id="framework-or-a-justified-rolled-my-own-module-7">
+  
+  
+    <a href="#framework-or-a-justified-rolled-my-own-module-7" class="anchor-heading" aria-labelledby="framework-or-a-justified-rolled-my-own-module-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Framework, or a justified “rolled my own” (Module 7)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Either adopt a framework if it fits your shape, <strong>or</strong> write down a deliberate justification for staying hand-rolled. “I kept the manual loop because I need human-in-the-loop approval gates and custom audit logging that the framework’s tool runner abstracts away” is a legitimate answer. An unexamined default is not.</li>
+</ul>
+<h3 id="evals--the-non-negotiable-spine-module-8">
+  
+  
+    <a href="#evals--the-non-negotiable-spine-module-8" class="anchor-heading" aria-labelledby="evals--the-non-negotiable-spine-module-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Evals — the non-negotiable spine (Module 8)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A <strong>private</strong> eval suite of <strong>10–20+ cases</strong>, authored by you, that the model has never seen. This is your ground truth. Without it, you cannot run a ship-readiness review — you have vibes, not a verdict.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Mixed graders:</strong> exact-match or hidden-test for objective cases; an LLM judge for the subjective ones (faithfulness, helpfulness, tone). Keep the judge’s rubric explicit and gradeable.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Slices, not just an average.</strong> Break results out by the categories that matter for your task (in-KB vs. out-of-KB, bug-fix vs. no-op, benign vs. adversarial). A single aggregate number hides the regression that matters.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>k &gt; 1 with confidence intervals.</strong> Agents are stochastic; run each case several times and report a CI, not a point estimate. A 1/3 → 2/3 “improvement” on a single run is noise.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Adversarial cases baked in</strong> — at least a few injection / jailbreak / “ignore your instructions” cases as their own slice (this is the Module 11 hook landing in your eval suite).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>The suite gates changes.</strong> A change that drops a slice below its threshold doesn’t ship. This is what makes “production-grade” a measurable claim instead of an aspiration.</li>
+</ul>
+
+<p>✅ <strong>Self-check:</strong> If a teammate changed your system prompt, could your eval suite catch a regression <em>before</em> it reached users? If not, the suite isn’t doing its job yet.</p>
+<h3 id="observability-module-9">
+  
+  
+    <a href="#observability-module-9" class="anchor-heading" aria-labelledby="observability-module-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Observability (Module 9)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Every run traced.</strong> Each model call, tool call, and result captured with timing and token counts — log the <code class="language-plaintext highlighter-rouge">_request_id</code> on every call so you can report failures to Anthropic.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Dashboards (or at minimum queryable logs) for <strong>cost per run, latency per run, and tool-error rate</strong>. You can’t manage what you can’t see, and “cost per task” is a ship-readiness line item.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Replay.</strong> Given a failed run, you can reconstruct exactly what the model saw and did. Debugging an agent without replay is debugging by séance.</li>
+</ul>
+
+<p>🛠️ Instrument from the <em>first</em> milestone, not the last. Retrofitting tracing onto a working agent is far more painful than building it in, and you’ll want the traces while you’re developing the evals.</p>
+<h3 id="reliability--cost-module-10">
+  
+  
+    <a href="#reliability--cost-module-10" class="anchor-heading" aria-labelledby="reliability--cost-module-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reliability + cost (Module 10)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Retries with backoff</strong> on transient errors (the SDK retries 429/5xx by default — extend it where you need to). <strong>Fallbacks</strong> for hard failures. <strong>Forced verification</strong> for high-stakes outputs — the agent must check its own work (re-run the test, re-read the file it claims to have written) before declaring done.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Prompt caching</strong> active and <em>verified</em> (Module 4’s cache discipline, confirmed via <code class="language-plaintext highlighter-rouge">cache_read_input_tokens</code>).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Model tiering</strong> wired in: Haiku for the cheap sub-tasks, Sonnet for the loop, Opus/Fable only for the hard reasoning. Don’t downgrade silently for cost where correctness matters — tier deliberately.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>A known cost-per-task.</strong> A real number, measured from traces, that you’d put in a budget. “I don’t know what a run costs” fails the review.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>No infinite loops.</strong> Bound iterations; detect and break repetitive tool-call cycles.</li>
+</ul>
+<h3 id="security-module-11">
+  
+  
+    <a href="#security-module-11" class="anchor-heading" aria-labelledby="security-module-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security (Module 11)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Sandboxed execution.</strong> <code class="language-plaintext highlighter-rouge">bash</code> / code execution runs isolated (container or restricted user), with an executable allowlist and resource/timeout limits. Commands are untrusted model output — treat them that way.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>A real permission policy.</strong> Least-privilege on every tool. Read-only tools are read-only; write tools are scoped to exactly what the task needs.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>HITL on irreversible actions.</strong> Anything that can’t be undone — send, push, delete-outside-workspace, money-adjacent — pauses for human approval. Use the manual loop’s approval gate, not the auto-runner, for these.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Injection resistance</strong>, tested. Untrusted content (web pages, repo files, KB chunks, user messages) cannot redirect the agent’s behavior. Operator instructions go through the system channel (or a <code class="language-plaintext highlighter-rouge">&lt;system-reminder&gt;</code> block), never trusted from user/tool content. The adversarial eval slice from the eval step is how you <em>prove</em> this, not just assert it.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Secrets never enter the model’s context or the sandbox.</strong> Credentials are injected at the boundary, not handed to the agent.</li>
+</ul>
+<h3 id="deployment-module-12">
+  
+  
+    <a href="#deployment-module-12" class="anchor-heading" aria-labelledby="deployment-module-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deployment (Module 12)
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A real <strong>service or durable/background shape</strong> — not a script you run by hand. An HTTP service, a queue worker, or a managed/background runner.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Checkpoint + resume.</strong> A crash mid-run doesn’t lose the work; state is externalized (DB, object store, durable queue), not held in process memory.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Idempotency</strong> on anything that triggers a side effect, so a retry after a crash doesn’t double-act.</li>
+</ul>
+<h3 id="outer-loop--long-running-shape-module-13--if-the-task-is-a-role-not-a-task">
+  
+  
+    <a href="#outer-loop--long-running-shape-module-13--if-the-task-is-a-role-not-a-task" class="anchor-heading" aria-labelledby="outer-loop--long-running-shape-module-13--if-the-task-is-a-role-not-a-task"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Outer loop / long-running shape (Module 13) — <em>if the task is a role, not a task</em>
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />If you chose Option D (or your task is genuinely a standing role), the outer loop is scheduled or triggered, <strong>bounded</strong> (no runaway wake-act cycles), and resumable. State accumulates across wakes via durable memory, and escalation to a human is cheap and conservative.</li>
+</ul><hr />
+<h2 id="step-3--build-order-and-milestones">
+  
+  
+    <a href="#step-3--build-order-and-milestones" class="anchor-heading" aria-labelledby="step-3--build-order-and-milestones"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 3 — Build order and milestones
+  
+  
+</h2>
+    
+
+<p>Don’t build all of this at once — you’ll drown. Build in milestones, each shippable in the sense that it works end to end at that scope. The ordering principle: <strong>the eval suite and instrumentation come first</strong>, because they’re how you’ll judge every later change, and <strong>security and durability come before you point it at anything real.</strong></p>
+
+<p><strong>v1 — Working loop + tools + evals.</strong> Get the core loop running with a minimal tool surface. Then — before adding anything clever — write the eval suite (10+ cases) and turn on tracing. This is deliberately early. The evals are your ground truth; every later milestone is judged against them, so they have to exist before there’s anything to judge. By the end of v1 you have a working agent, a number that says how good it is, and traces that say what it did.</p>
+
+<p><strong>v2 — Context + reliability + observability.</strong> Add context management (truncation/compaction, files-as-memory, sub-agents where they help). Add retries, fallbacks, forced verification, prompt caching, and model tiering. Flesh out the dashboards. Re-run the evals after each addition — context and caching changes are exactly the kind that silently regress a slice. By the end of v2 you have an agent that’s robust, observable, and has a known cost-per-task.</p>
+
+<p><strong>v3 — Security + deployment.</strong> Sandbox execution, write the permission policy, add HITL gates on irreversible actions, and harden against injection (and add the adversarial eval slice if it isn’t there yet). Then give it a durable deployment shape: service or worker, checkpoint/resume, externalized state, idempotency. By the end of v3 you have something you could actually point at real input without flinching.</p>
+
+<p><strong>v4 — Polish / long-running.</strong> Tighten cost, tune the model tiering against measured traces, improve the prompt against eval slices that are lagging, and — if your task is a role — add the bounded outer loop. This is also where you do a real adversarial pass: try to break your own agent the way an attacker would.</p>
+
+<p>📖 At every milestone boundary, <strong>run the full eval suite and check it against the previous milestone’s numbers.</strong> A milestone that regressed a slice isn’t done.</p><hr />
+<h2 id="ship-readiness-review">
+  
+  
+    <a href="#ship-readiness-review" class="anchor-heading" aria-labelledby="ship-readiness-review"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ship-readiness review
+  
+  
+</h2>
+    
+
+<p>This is the deliverable. Run it against your capstone, checkbox by checkbox. Every “no” is either a gap to close or a risk to consciously accept and document — there’s no third option. Keep this rubric; it’s the reusable production-readiness bar for every agent you build after this one.</p>
+<h3 id="capability--does-it-do-the-job-measured">
+  
+  
+    <a href="#capability--does-it-do-the-job-measured" class="anchor-heading" aria-labelledby="capability--does-it-do-the-job-measured"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Capability — does it do the job, measured?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A private eval suite of 10–20+ cases gates changes.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Results are reported by <strong>slice</strong>, not just an aggregate.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cases run <strong>k &gt; 1</strong> with confidence intervals; “improvements” are distinguishable from noise.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Mixed graders: objective cases checked objectively, subjective cases judged with an explicit rubric.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />The current scores clear the bar <em>you</em> set for shipping, and you wrote that bar down.</li>
+</ul>
+<h3 id="reliability--does-it-recover-verify-and-stay-bounded">
+  
+  
+    <a href="#reliability--does-it-recover-verify-and-stay-bounded" class="anchor-heading" aria-labelledby="reliability--does-it-recover-verify-and-stay-bounded"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reliability — does it recover, verify, and stay bounded?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Transient failures retry with backoff; hard failures have a fallback.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />High-stakes outputs are <strong>verified</strong> by the agent before “done” (tests re-run, files re-read).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No infinite loops: iterations bounded, repetitive cycles detected and broken.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A crash mid-run is recoverable; state is externalized, not in process memory.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">refusal</code> and <code class="language-plaintext highlighter-rouge">max_tokens</code> stop reasons are handled, not assumed away.</li>
+</ul>
+<h3 id="cost--known-controlled-no-surprises-at-scale">
+  
+  
+    <a href="#cost--known-controlled-no-surprises-at-scale" class="anchor-heading" aria-labelledby="cost--known-controlled-no-surprises-at-scale"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cost — known, controlled, no surprises at scale?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A measured <strong>cost-per-task</strong> (or cost-per-day for a role agent), from real traces.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Prompt caching is active and <strong>verified</strong> via <code class="language-plaintext highlighter-rouge">cache_read_input_tokens</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Model tiering is deliberate: cheap models for cheap sub-tasks, expensive only where correctness demands.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cost scales sanely with load — no per-request work that’s accidentally O(history).</li>
+</ul>
+<h3 id="security--sandboxed-least-privilege-gated-injection-tested">
+  
+  
+    <a href="#security--sandboxed-least-privilege-gated-injection-tested" class="anchor-heading" aria-labelledby="security--sandboxed-least-privilege-gated-injection-tested"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security — sandboxed, least-privilege, gated, injection-tested?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code/<code class="language-plaintext highlighter-rouge">bash</code> execution is sandboxed with an allowlist and resource limits.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Every tool runs at least-privilege; write tools are scoped to the task.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Irreversible actions require human approval (HITL).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Injection resistance is <strong>tested</strong> by an adversarial eval slice, not merely claimed.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Secrets never enter the model context or the sandbox; operator instructions use the system channel.</li>
+</ul>
+<h3 id="observability--every-run-traced-every-failure-debuggable">
+  
+  
+    <a href="#observability--every-run-traced-every-failure-debuggable" class="anchor-heading" aria-labelledby="observability--every-run-traced-every-failure-debuggable"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Observability — every run traced, every failure debuggable?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Every run is traced: model calls, tool calls, results, timing, tokens, <code class="language-plaintext highlighter-rouge">_request_id</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cost, latency, and tool-error rate are visible (dashboard or queryable logs).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />You can <strong>replay</strong> a failed run and see exactly what the model saw.</li>
+</ul>
+<h3 id="operability--deployable-resumable-steerable-by-a-human">
+  
+  
+    <a href="#operability--deployable-resumable-steerable-by-a-human" class="anchor-heading" aria-labelledby="operability--deployable-resumable-steerable-by-a-human"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operability — deployable, resumable, steerable by a human?
+  
+  
+</h3>
+    
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Deployed as a durable service/worker, not a hand-run script.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Checkpoint + resume works; side effects are idempotent under retry.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />A human can inspect a run in flight, correct it, or stop it — and escalation is cheap.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Long-running/role agents are bounded and don’t run away.</li>
+</ul>
+
+<p>✅ <strong>The verdict:</strong> if every box is checked, or every unchecked box is a risk you’ve consciously written down and accepted, you have a production-grade agent. If you can’t say which it is for some box, that box is your next task.</p><hr />
+<h2 id="where-to-go-next">
+  
+  
+    <a href="#where-to-go-next" class="anchor-heading" aria-labelledby="where-to-go-next"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where to go next
+  
+  
+</h2>
+    
+
+<p>You’ve built the thing. Here’s how to keep getting better at building the next one.</p>
+
+<ul>
+  <li><strong>Keep reading primary sources.</strong> The frontier moves fast and the secondhand summaries lag it. Point yourself at the lab engineering blogs, the API docs, and the model cards — <code class="language-plaintext highlighter-rouge">resources.md</code> collects the ones worth your time. The capability boundary in particular is worth tracking directly: follow <strong>METR</strong> and the lab evaluations to know what agents can newly do <em>before</em> it shows up in a product.</li>
+  <li><strong>Build a real thing for real users.</strong> This is the fastest teacher by a wide margin. A capstone graded against your own evals is a great rehearsal; an agent that strangers depend on teaches you the failure modes you didn’t think to put in the eval suite. Ship something small and real.</li>
+  <li><strong>Study and contribute to open frameworks.</strong> Reading how a mature agent framework handles the tool loop, retries, and context management — and where it chose <em>not</em> to abstract — is a fast way to sharpen your own judgment about what to build versus borrow.</li>
+  <li><strong>Develop taste by reading transcripts.</strong> The single highest-leverage habit: read your agent’s actual run transcripts, the good and the bad. Where did it loop? Where did it give up early? Where did it confidently do the wrong thing? Taste for agent behavior is built from reading transcripts the way taste for code is built from reading code.</li>
+</ul>
+<h2 id="closing">
+  
+  
+    <a href="#closing" class="anchor-heading" aria-labelledby="closing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Closing
+  
+  
+</h2>
+    
+
+<p>You came in able to call an LLM. You leave able to engineer agent systems — to take a stochastic, token-priced, occasionally-adversarial model and wrap it in a loop, a context budget, a tool surface, an eval harness, a tracing layer, a permission boundary, and a durable runtime, until the whole thing is something you’d trust on real load.</p>
+
+<p>The quiet lesson of the whole course is the one the demo-to-prod gap keeps teaching: the hard parts were never the model. They were retries and idempotency, graders and slices, sandboxes and least-privilege, dashboards and replay, caches and cost accounting — the systems engineering you already knew, applied in a new regime where one component happens to think. The model got you the demo. The engineering got you to production. Now go build the next one, and run it through the review.</p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

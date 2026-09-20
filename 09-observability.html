@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(13)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(13) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(13) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(13) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>9 · Observability | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="9 · Observability" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="9 · Observability" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"9 · Observability","url":"/agent-engineering-course-site/09-observability.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-09--observability-tracing--debugging">
+  
+  
+    <a href="#module-09--observability-tracing--debugging" class="anchor-heading" aria-labelledby="module-09--observability-tracing--debugging"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 09 — Observability, Tracing &amp; Debugging
+  
+  
+</h1>
+    
+
+<p>You already know distributed tracing. You know what a span is, you know context propagation, you know how to read a flame graph and spot the slow downstream call. This module is not going to re-teach any of that. It’s going to show you what’s <em>different</em> when the thing you’re instrumenting is an agent — and why the observability stack you’d reach for on a normal service is necessary but nowhere near sufficient.</p>
+
+<p>Here’s the thesis up front, because the rest of the module hangs off it: <strong>an agent’s behavior is a causal chain, and the interesting failures live in the relationship between steps, not inside any single step.</strong> A microservice request fails because <em>this</em> span returned a 500. An agent run fails because the model misread a tool result five steps ago, formed a wrong belief, and then executed flawlessly on that wrong belief for the next twelve steps. Every individual span is <code class="language-plaintext highlighter-rouge">status: ok</code>. The trace is a disaster. Your normal logs — request in, response out, latency, error rate — will show you a clean, successful, expensive run that produced garbage. You will not be able to debug it, cost-control it, or improve it, because you cannot see it.</p>
+
+<p>Teams that ship good harnesses instrument them like high-traffic production services, because that’s what they are: nondeterministic, multi-step, expensive, and failure-prone in ways that don’t surface as exceptions. You cannot improve what you can’t see. For agents, “seeing” means capturing the full session as a replayable causal chain.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you will be able to:</p>
+
+<ul>
+  <li>Articulate why agents need first-class observability <em>more</em> than ordinary services, and why call-level LLM monitoring is not agent observability.</li>
+  <li>Map the trace/span data model onto an agent run, and name what each span must carry that a normal RPC span does not.</li>
+  <li>Build a from-scratch trace logger (decorator + context manager) that writes per-run JSONL, and a tree-printer + summary over it.</li>
+  <li>Instrument Scout’s loop with Langfuse, and place LangSmith and Braintrust correctly in the landscape.</li>
+  <li>Debug a multi-step failure by finding where the chain went wrong (usually far upstream of the symptom) and <strong>replaying</strong> it deterministically.</li>
+  <li>Wire production trace sampling into online evals — closing the loop back to Module 8.</li>
+</ul>
+<h2 id="why-agents-need-this-more-than-normal-services">
+  
+  
+    <a href="#why-agents-need-this-more-than-normal-services" class="anchor-heading" aria-labelledby="why-agents-need-this-more-than-normal-services"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Why agents need this more than normal services
+  
+  
+</h2>
+    
+
+<p>Four properties of agents each break a load-bearing assumption of conventional observability.</p>
+
+<p><strong>Nondeterminism.</strong> The same input produces different trajectories. A bug that appears one run in twenty is not reproducible by re-running — the model just does something else. Without a recording of <em>exactly</em> what happened, the bug is gone. (This is why replay, below, is not a nice-to-have.)</p>
+
+<p><strong>Multi-step causality.</strong> A single user request fans out into 5, 20, 80 model calls and tool calls. The failure is rarely in the step that threw. It’s a belief the model formed early and carried forward. Your trace has to preserve the whole chain so you can walk <em>backward</em> from symptom to cause.</p>
+
+<p><strong>Cost.</strong> Every step burns tokens, and tokens are money and latency. A run that silently takes 40 steps instead of 8 costs 5x and you’ll never notice from a latency dashboard that says “p95: 45s, within SLO.” You need per-step token accounting to see it. (Module 10 is where you <em>fix</em> cost; here you <em>measure</em> it.)</p>
+
+<p><strong>Invisible failure.</strong> The worst one. The agent returns a confident, well-formed answer that is wrong. HTTP 200. No exception. No log line that says “I made this up.” In production agent fleets it’s common for a meaningful fraction of tasks to fail this way — silently, looking exactly like success. Your error-rate dashboard reads 0.1% while the real task-failure rate is 18%. The only way to see the gap is to capture full traces and grade their <em>content</em>, not their status codes.</p>
+
+<p>✅ <strong>Checkpoint.</strong> If your mental model is “agent observability = log the prompt and completion and track token spend,” you have LLM monitoring, not agent observability. The difference is the full-session causal chain. Hold that distinction — everything below builds on it.</p>
+<h2 id="the-data-model-traces-and-spans-agent-flavored">
+  
+  
+    <a href="#the-data-model-traces-and-spans-agent-flavored" class="anchor-heading" aria-labelledby="the-data-model-traces-and-spans-agent-flavored"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The data model: traces and spans, agent-flavored
+  
+  
+</h2>
+    
+
+<p>Lean on what you know. A <strong>trace</strong> is one full agent run — one session, one user request driven to completion. A <strong>span</strong> is a nested step within it: each model call, each tool call, each sub-agent invocation, each retrieval. Spans nest exactly the way you’d expect — a sub-agent span contains the model and tool spans of that sub-agent’s own loop. A trace ID threads the whole thing; span IDs and parent-span IDs give you the tree. None of this is new.</p>
+
+<p>What’s new is two things.</p>
+
+<p><strong>The payload is huge, semi-structured text.</strong> A normal span carries <code class="language-plaintext highlighter-rouge">http.method=GET</code>, <code class="language-plaintext highlighter-rouge">http.status=200</code>, <code class="language-plaintext highlighter-rouge">db.rows=42</code> — small, structured, cheap. An agent span carries the full rendered prompt (which can be tens of thousands of tokens), the full completion, the tool arguments, the tool result (which might be a 5,000-line file the model just read). The “attributes” on an agent span are prompts and completions and tool I/O. This changes everything downstream — storage cost, query patterns, PII exposure, redaction needs (more in Real production issues).</p>
+
+<p><strong>The interesting failure is semantic and lives <em>between</em> spans.</strong> On a microservice, you find the bad span by its status code and you’re basically done. On an agent, every span succeeded. The failure is: span 7 was a <code class="language-plaintext highlighter-rouge">read_file</code> that returned an old version of the config; span 8’s model call read it correctly but the file was stale; spans 9 through 20 confidently built on a wrong fact. No span is red. The bug is the <em>relationship</em> between span 7’s output and span 20’s behavior. You find it by reading the transcript as a narrative, not by filtering for errors.</p>
+
+<p>The consequence: <strong>capture the full session, not just call-level metrics.</strong> A dashboard of “mean tokens per call” and “tool call p99 latency” is useful but it is aggregate. To debug a specific bad run you need that run’s complete, ordered, nested trace with every payload intact. Aggregates tell you <em>that</em> something is wrong; the full trace tells you <em>what</em>.</p>
+
+<p>📖 <strong>OpenTelemetry note.</strong> OTel has emerging GenAI semantic conventions — standardized span names (<code class="language-plaintext highlighter-rouge">gen_ai.completion</code>), attributes (<code class="language-plaintext highlighter-rouge">gen_ai.usage.input_tokens</code>, <code class="language-plaintext highlighter-rouge">gen_ai.request.model</code>), and event shapes for LLM and agent operations. They’re still stabilizing in mid-2026, but they matter: they’re the interop substrate that lets you emit one trace and view it in any OTel-compatible backend. Treat them as the standard you instrument <em>toward</em>, even when you’re using a vendor SDK that wraps them. We’ll come back to lock-in vs. portability at the end.</p>
+<h3 id="what-every-span-must-carry">
+  
+  
+    <a href="#what-every-span-must-carry" class="anchor-heading" aria-labelledby="what-every-span-must-carry"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What every span must carry
+  
+  
+</h3>
+    
+
+<p>Per-span, capture:</p>
+
+<ul>
+  <li><strong>Full prompt + completion</strong> (or a reference/hash if you’re storing payloads out-of-band for size or PII reasons).</li>
+  <li><strong>Tool name, arguments, and result</strong> for tool spans.</li>
+  <li><strong>Token counts</strong> — <code class="language-plaintext highlighter-rouge">input</code>, <code class="language-plaintext highlighter-rouge">output</code>, <code class="language-plaintext highlighter-rouge">cache_read</code>, <code class="language-plaintext highlighter-rouge">cache_creation</code> — straight off <code class="language-plaintext highlighter-rouge">resp.usage</code>. This is the raw material for cost.</li>
+  <li><strong>Latency</strong> (you already do this).</li>
+  <li><strong>Model and params</strong> — model ID, <code class="language-plaintext highlighter-rouge">effort</code>, <code class="language-plaintext highlighter-rouge">max_tokens</code>, whatever shapes the call.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">stop_reason</code></strong> — <code class="language-plaintext highlighter-rouge">end_turn</code>, <code class="language-plaintext highlighter-rouge">tool_use</code>, <code class="language-plaintext highlighter-rouge">max_tokens</code>, <code class="language-plaintext highlighter-rouge">refusal</code>. A run that ends on <code class="language-plaintext highlighter-rouge">max_tokens</code> truncated mid-thought; a run that ends on <code class="language-plaintext highlighter-rouge">refusal</code> was declined. These are first-class signals, not footnotes.</li>
+  <li><strong>Errors</strong> — tool failures, API errors, denials from the permission gate.</li>
+  <li><strong>The trace/session ID</strong> threading it all.</li>
+</ul>
+
+<p>Per-run (aggregate the spans), compute:</p>
+
+<ul>
+  <li><strong>Steps per task</strong> — the single best health metric. A task that used to take 8 steps now takes 30: something regressed.</li>
+  <li><strong>Tool-error rate</strong> — per tool. The insight you will <em>never</em> get from anecdote: “the <code class="language-plaintext highlighter-rouge">search</code> tool has a 30% error rate” is invisible one run at a time and screaming at you across a thousand traces.</li>
+  <li><strong>Cache-hit rate</strong> — <code class="language-plaintext highlighter-rouge">cache_read / (input + cache_read)</code>. Drops silently when someone interpolates a timestamp into the system prompt (Module 4’s silent invalidators).</li>
+  <li><strong>Compaction frequency</strong> — how often you’re hitting the context ceiling.</li>
+  <li><strong>Total tokens and cost.</strong></li>
+  <li><strong>Success</strong> — from an eval or a label, not from <code class="language-plaintext highlighter-rouge">stop_reason</code>. (The whole point: success is semantic.)</li>
+</ul>
+<h2 id="️-build-it-from-scratch-first">
+  
+  
+    <a href="#️-build-it-from-scratch-first" class="anchor-heading" aria-labelledby="️-build-it-from-scratch-first"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Build it from scratch first
+  
+  
+</h2>
+    
+
+<p>Before reaching for a platform, build the data model by hand. It’s ~60 lines, it makes the abstraction concrete, and — genuinely — a JSONL-per-run tracer is a legitimate production tool. You’ll understand exactly what Langfuse is doing for you when you adopt it, instead of treating it as magic.</p>
+
+<p>We’re instrumenting Scout’s loop from Module 3. Recall its shape: a <code class="language-plaintext highlighter-rouge">while</code> loop calling <code class="language-plaintext highlighter-rouge">client.messages.create(...)</code>, dispatching <code class="language-plaintext highlighter-rouge">tool_use</code> blocks through a permission gate, feeding <code class="language-plaintext highlighter-rouge">tool_result</code> blocks back. We want a span for every model call and every tool call, all sharing one trace ID, written to one file per run.</p>
+<h3 id="the-tracer">
+  
+  
+    <a href="#the-tracer" class="anchor-heading" aria-labelledby="the-tracer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The tracer
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/tracing.py
+</span><span class="kn">import</span> <span class="n">json</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">contextvars</span>
+<span class="kn">from</span> <span class="n">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="n">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">asdict</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># The current trace travels implicitly via a contextvar, so the model-call and
+# tool-call wrappers don't have to thread a `trace` argument through every layer.
+</span><span class="n">_current_trace</span><span class="p">:</span> <span class="n">contextvars</span><span class="p">.</span><span class="n">ContextVar</span> <span class="o">=</span> <span class="n">contextvars</span><span class="p">.</span><span class="nc">ContextVar</span><span class="p">(</span><span class="sh">"</span><span class="s">trace</span><span class="sh">"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Span</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">span_type</span><span class="p">:</span> <span class="nb">str</span>                       <span class="c1"># "model" | "tool" | "agent"
+</span>    <span class="n">span_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">uuid</span><span class="p">.</span><span class="nf">uuid4</span><span class="p">().</span><span class="nb">hex</span><span class="p">[:</span><span class="mi">8</span><span class="p">])</span>
+    <span class="n">parent_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="bp">None</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">tokens</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="nf">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>   <span class="c1"># input/output/cache_read/cache_creation
+</span>    <span class="n">cost_usd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">error</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="bp">None</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">latency_ms</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">round</span><span class="p">((</span><span class="n">self</span><span class="p">.</span><span class="n">end</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">start</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Trace</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">log_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">traces</span><span class="sh">"</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">trace_id</span> <span class="o">=</span> <span class="n">uuid</span><span class="p">.</span><span class="nf">uuid4</span><span class="p">().</span><span class="nb">hex</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">spans</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Span</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># parent span ids, for nesting
+</span>        <span class="nc">Path</span><span class="p">(</span><span class="n">log_dir</span><span class="p">).</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">-</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">trace_id</span><span class="si">}</span><span class="s">.jsonl</span><span class="sh">"</span>
+
+    <span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">({</span><span class="sh">"</span><span class="s">trace_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="p">})</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">spans</span><span class="p">:</span>
+                <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">({</span><span class="o">**</span><span class="nf">asdict</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="sh">"</span><span class="s">latency_ms</span><span class="sh">"</span><span class="p">:</span> <span class="n">s</span><span class="p">.</span><span class="n">latency_ms</span><span class="p">})</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">trace_run</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="nc">Trace</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">_current_trace</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">tr</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">tr</span><span class="p">.</span><span class="nf">flush</span><span class="p">()</span>
+        <span class="n">_current_trace</span><span class="p">.</span><span class="nf">reset</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">span</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">span_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">_current_trace</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">tr</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>                            <span class="c1"># tracing disabled — no-op
+</span>        <span class="k">yield</span> <span class="bp">None</span>
+        <span class="k">return</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nc">Span</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">span_type</span><span class="o">=</span><span class="n">span_type</span><span class="p">,</span>
+             <span class="n">parent_id</span><span class="o">=</span><span class="n">tr</span><span class="p">.</span><span class="n">_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">tr</span><span class="p">.</span><span class="n">_stack</span> <span class="k">else</span> <span class="bp">None</span><span class="p">,</span>
+             <span class="n">start</span><span class="o">=</span><span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">())</span>
+    <span class="n">tr</span><span class="p">.</span><span class="n">spans</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">tr</span><span class="p">.</span><span class="n">_stack</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">span_id</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">s</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">error</span> <span class="o">=</span> <span class="nf">repr</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">raise</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+        <span class="n">tr</span><span class="p">.</span><span class="n">_stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Two design notes worth pausing on. The <code class="language-plaintext highlighter-rouge">contextvar</code> is doing the same job OTel’s context propagation does — making the active trace ambient so deep call sites don’t have to pass it explicitly. And the <code class="language-plaintext highlighter-rouge">_stack</code> is what gives you <em>nesting</em>: a tool span opened inside a model span gets the model span as its parent, so sub-agent trees fall out naturally.</p>
+<h3 id="pricing-helper">
+  
+  
+    <a href="#pricing-helper" class="anchor-heading" aria-labelledby="pricing-helper"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pricing helper
+  
+  
+</h3>
+    
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Opus 4.8: $5 / $25 per 1M in/out; cache reads ~0.1x input, writes ~1.25x.
+</span><span class="n">PRICES</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">:</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">)}</span>
+
+<span class="k">def</span> <span class="nf">cost_of</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">usage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">pin</span><span class="p">,</span> <span class="n">pout</span> <span class="o">=</span> <span class="n">PRICES</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nf">round</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">usage</span><span class="p">.</span><span class="n">input_tokens</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">*</span> <span class="n">pin</span>
+        <span class="o">+</span> <span class="p">(</span><span class="n">usage</span><span class="p">.</span><span class="n">output_tokens</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">*</span> <span class="n">pout</span>
+        <span class="o">+</span> <span class="p">(</span><span class="nf">getattr</span><span class="p">(</span><span class="n">usage</span><span class="p">,</span> <span class="sh">"</span><span class="s">cache_read_input_tokens</span><span class="sh">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">*</span> <span class="n">pin</span> <span class="o">*</span> <span class="mf">0.1</span>
+        <span class="o">+</span> <span class="p">(</span><span class="nf">getattr</span><span class="p">(</span><span class="n">usage</span><span class="p">,</span> <span class="sh">"</span><span class="s">cache_creation_input_tokens</span><span class="sh">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">*</span> <span class="n">pin</span> <span class="o">*</span> <span class="mf">1.25</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+<h3 id="wiring-it-into-the-loop">
+  
+  
+    <a href="#wiring-it-into-the-loop" class="anchor-heading" aria-labelledby="wiring-it-into-the-loop"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Wiring it into the loop
+  
+  
+</h3>
+    
+
+<p>The instrumentation is two wrappers. Around the model call:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">call_model</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">messages</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">tools</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">span</span><span class="p">(</span><span class="sh">"</span><span class="s">model_call</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+            <span class="n">system</span><span class="o">=</span><span class="n">system</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">.</span><span class="nb">input</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="n">messages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span> <span class="sh">"</span><span class="s">n_messages</span><span class="sh">"</span><span class="p">:</span> <span class="nf">len</span><span class="p">(</span><span class="n">messages</span><span class="p">)}</span>  <span class="c1"># last turn + depth
+</span>            <span class="n">s</span><span class="p">.</span><span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">stop_reason</span><span class="sh">"</span><span class="p">:</span> <span class="n">resp</span><span class="p">.</span><span class="n">stop_reason</span><span class="p">,</span>
+                        <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="nf">model_dump</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span><span class="p">]}</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">resp</span><span class="p">.</span><span class="n">usage</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">:</span> <span class="n">u</span><span class="p">.</span><span class="n">input_tokens</span><span class="p">,</span> <span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">:</span> <span class="n">u</span><span class="p">.</span><span class="n">output_tokens</span><span class="p">,</span>
+                        <span class="sh">"</span><span class="s">cache_read</span><span class="sh">"</span><span class="p">:</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="sh">"</span><span class="s">cache_read_input_tokens</span><span class="sh">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                        <span class="sh">"</span><span class="s">cache_creation</span><span class="sh">"</span><span class="p">:</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="sh">"</span><span class="s">cache_creation_input_tokens</span><span class="sh">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">cost_usd</span> <span class="o">=</span> <span class="nf">cost_of</span><span class="p">(</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resp</span>
+</code></pre></div></div>
+
+<p>And around each tool dispatch (Scout’s <code class="language-plaintext highlighter-rouge">dispatch</code> from Module 3):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="n">tool_use_block</span><span class="p">,</span> <span class="n">gate</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">span</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">tool:</span><span class="si">{</span><span class="n">tool_use_block</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">.</span><span class="nb">input</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">args</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_use_block</span><span class="p">.</span><span class="nb">input</span><span class="p">}</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nf">run_tool_with_gate</span><span class="p">(</span><span class="n">tool_use_block</span><span class="p">,</span> <span class="n">gate</span><span class="p">)</span>   <span class="c1"># your Module 3 logic
+</span>        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+                        <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">][:</span><span class="mi">2000</span><span class="p">]}</span>  <span class="c1"># truncate huge results
+</span>        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<p>Then the top-level call site opens the trace:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nf">trace_run</span><span class="p">(</span><span class="sh">"</span><span class="s">scout-session</span><span class="sh">"</span><span class="p">):</span>
+    <span class="nf">run_scout_loop</span><span class="p">(</span><span class="n">user_prompt</span><span class="p">)</span>        <span class="c1"># everything inside is now traced
+</span></code></pre></div></div>
+
+<p>Notice what we captured per model span: last message + history depth (full prompt is recoverable but huge), the <em>content blocks</em> of the response (so we keep <code class="language-plaintext highlighter-rouge">tool_use</code> blocks, not just text), <code class="language-plaintext highlighter-rouge">stop_reason</code>, all four token counts, and cost. That’s the full per-span checklist from above. And note we truncate tool results to 2,000 chars in the <em>output view</em> — the trade-off between storing everything (replayable but expensive) and storing enough to debug. For real replay you’d store the untruncated result keyed by span ID; here we keep it simple.</p>
+<h3 id="reading-the-trace-tree--summary">
+  
+  
+    <a href="#reading-the-trace-tree--summary" class="anchor-heading" aria-labelledby="reading-the-trace-tree--summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reading the trace: tree + summary
+  
+  
+</h3>
+    
+
+<p>A JSONL file is not a debugging tool until you can read it as a narrative. The pretty-printer turns the flat span list back into the nested tree, and the summary computes the per-run metrics:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/trace_view.py
+</span><span class="kn">import</span> <span class="n">json</span><span class="p">,</span> <span class="n">sys</span>
+<span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>          <span class="c1"># header, spans
+</span>
+<span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="n">spans</span><span class="p">):</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">spans</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">children</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">parent_id</span><span class="sh">"</span><span class="p">]].</span><span class="nf">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">parent_id</span><span class="sh">"</span><span class="p">]</span> <span class="k">else</span> <span class="n">roots</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+        <span class="n">tok</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">tokens</span><span class="sh">"</span><span class="p">].</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">tokens</span><span class="sh">"</span><span class="p">]</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sh">"</span><span class="s">  ERROR</span><span class="sh">"</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">error</span><span class="sh">"</span><span class="p">]</span> <span class="k">else</span> <span class="sh">""</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  stop=</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="sh">'</span><span class="s">output</span><span class="sh">'</span><span class="p">].</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">stop_reason</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span>
+                 <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">span_type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">model</span><span class="sh">"</span> <span class="k">else</span> <span class="sh">""</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="sh">'</span><span class="s">  </span><span class="sh">'</span><span class="o">*</span><span class="n">depth</span><span class="si">}{</span><span class="n">s</span><span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="o">&lt;</span><span class="mi">28</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="sh">'</span><span class="s">latency_ms</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="o">&gt;</span><span class="mi">7</span><span class="si">}</span><span class="s">ms </span><span class="sh">"</span>
+              <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">tok</span><span class="si">:</span><span class="o">&gt;</span><span class="mi">5</span><span class="si">}</span><span class="s">tok $</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="sh">'</span><span class="s">cost_usd</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}{</span><span class="n">extra</span><span class="si">}{</span><span class="n">err</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">children</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">span_id</span><span class="sh">"</span><span class="p">]]:</span>
+            <span class="nf">walk</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+        <span class="nf">walk</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="n">spans</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">spans</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">span_type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">]</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">spans</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">span_type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool</span><span class="sh">"</span><span class="p">]</span>
+    <span class="n">tool_errs</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tools</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">].</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">))</span>
+    <span class="n">tok</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nf">sum</span><span class="p">((</span><span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">tokens</span><span class="sh">"</span><span class="p">]</span> <span class="ow">or</span> <span class="p">{}).</span><span class="nf">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">model</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">--- run summary ---</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">model calls (steps): </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">tool calls:          </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span><span class="si">}</span><span class="s">  errors: </span><span class="si">{</span><span class="n">tool_errs</span><span class="si">}</span><span class="s"> </span><span class="sh">"</span>
+          <span class="sa">f</span><span class="sh">"</span><span class="s">(</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">tool_errs</span><span class="o">/</span><span class="nf">max</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">tools</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="si">}</span><span class="s">%)</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">tokens in/out:       </span><span class="si">{</span><span class="nf">tok</span><span class="p">(</span><span class="sh">'</span><span class="s">input</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="s"> / </span><span class="si">{</span><span class="nf">tok</span><span class="p">(</span><span class="sh">'</span><span class="s">output</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">cache hit rate:      </span><span class="sh">"</span>
+          <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="nf">tok</span><span class="p">(</span><span class="sh">'</span><span class="s">cache_read</span><span class="sh">'</span><span class="p">)</span><span class="o">/</span><span class="nf">max</span><span class="p">(</span><span class="nf">tok</span><span class="p">(</span><span class="sh">'</span><span class="s">input</span><span class="sh">'</span><span class="p">)</span><span class="o">+</span><span class="nf">tok</span><span class="p">(</span><span class="sh">'</span><span class="s">cache_read</span><span class="sh">'</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">total cost:          $</span><span class="si">{</span><span class="nf">sum</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="sh">'</span><span class="s">cost_usd</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">model</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">spans</span> <span class="o">=</span> <span class="nf">load</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nf">print_tree</span><span class="p">(</span><span class="n">spans</span><span class="p">)</span>
+    <span class="nf">summary</span><span class="p">(</span><span class="n">spans</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Run it and you get the run as a tree — every model call, every nested tool call, latency and tokens and cost on each line, <code class="language-plaintext highlighter-rouge">stop_reason</code> on model calls, <code class="language-plaintext highlighter-rouge">ERROR</code> flags where things failed — followed by the summary block. That summary line “tool calls: 14 errors: 4 (29%)” is the “tool X has a 30% error rate” insight, made visible. You built it.</p>
+
+<p>✅ <strong>Checkpoint.</strong> You now have, in ~120 lines, the core of every agent observability platform: nested spans, per-span token/cost capture, a tree view, and run-level aggregates. Everything a vendor adds is <em>operational scale</em> on top of this model — a database, a UI, search, multi-run analytics, retention. Worth understanding what you’re paying for.</p>
+<h2 id="swap-in-langfuse">
+  
+  
+    <a href="#swap-in-langfuse" class="anchor-heading" aria-labelledby="swap-in-langfuse"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Swap in Langfuse
+  
+  
+</h2>
+    
+
+<p>For a single dev loop, JSONL files are great. For a fleet — thousands of runs a day, multiple engineers, “show me every run last week where the <code class="language-plaintext highlighter-rouge">search</code> tool errored” — you want a backend with a database and a UI. Langfuse is the open-source baseline here: self-hostable (so it’s data-residency friendly — your prompts and completions never leave your infra), and as of January 2026 it’s backed by ClickHouse, which acquired it — a signal that the storage layer underneath is built for the high-cardinality, high-volume trace workloads agents generate.</p>
+
+<p>Two ways to instrument. The decorator is the fastest:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">langfuse</span> <span class="kn">import</span> <span class="n">observe</span><span class="p">,</span> <span class="n">get_client</span>
+
+<span class="n">langfuse</span> <span class="o">=</span> <span class="nf">get_client</span><span class="p">()</span>
+
+<span class="nd">@observe</span><span class="p">()</span>                              <span class="c1"># this function becomes a span
+</span><span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="n">tool_use_block</span><span class="p">,</span> <span class="n">gate</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nf">run_tool_with_gate</span><span class="p">(</span><span class="n">tool_use_block</span><span class="p">,</span> <span class="n">gate</span><span class="p">)</span>
+    <span class="n">langfuse</span><span class="p">.</span><span class="nf">update_current_span</span><span class="p">(</span>
+        <span class="nb">input</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">tool</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_use_block</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sh">"</span><span class="s">args</span><span class="sh">"</span><span class="p">:</span> <span class="n">tool_use_block</span><span class="p">.</span><span class="nb">input</span><span class="p">},</span>
+        <span class="n">output</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">,</span> <span class="bp">False</span><span class="p">)},</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="nd">@observe</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">run_scout_loop</span><span class="p">(</span><span class="n">user_prompt</span><span class="p">):</span>        <span class="c1"># the whole run becomes the trace
+</span>    <span class="bp">...</span>
+</code></pre></div></div>
+
+<p>Any <code class="language-plaintext highlighter-rouge">@observe()</code>-decorated function called inside another becomes a child span — the nesting you built by hand with <code class="language-plaintext highlighter-rouge">_stack</code>, done by the decorator via the same kind of context propagation. For the model call specifically, Langfuse ships an Anthropic wrapper that auto-captures the request, response, model, and — critically — <code class="language-plaintext highlighter-rouge">usage</code>, so you get token counts and cost without writing the <code class="language-plaintext highlighter-rouge">cost_of</code> plumbing:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">langfuse.anthropic</span> <span class="kn">import</span> <span class="n">Anthropic</span>   <span class="c1"># drop-in for anthropic.Anthropic
+</span>
+<span class="n">client</span> <span class="o">=</span> <span class="nc">Anthropic</span><span class="p">()</span>
+<span class="c1"># Every client.messages.create(...) inside an @observe() context is now a span
+# with prompt, completion, model, stop_reason, and token usage captured.
+</span><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+    <span class="n">system</span><span class="o">=</span><span class="n">system</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you need finer control than the decorator gives — custom span boundaries, manual nesting — there’s <code class="language-plaintext highlighter-rouge">langfuse.start_as_current_span(...)</code> as a context manager, which is the direct analog of your hand-built <code class="language-plaintext highlighter-rouge">span()</code>. Set a stable <code class="language-plaintext highlighter-rouge">session_id</code> per Scout run and every span lands under one trace in the UI, where you get the tree view, token/cost rollups, latency breakdowns, and search across runs — the same data model you built, operationalized.</p>
+
+<p>📖 <strong>The alternatives, placed correctly.</strong></p>
+<ul>
+  <li><strong>LangSmith</strong> — best when your stack is LangChain / LangGraph. The tracing is deeply native to those frameworks; spans map onto chains, agents, and graph nodes with near-zero instrumentation. If you’re not on LangChain, its advantage mostly evaporates.</li>
+  <li><strong>Braintrust</strong> — eval-first. Its center of gravity is treating evals as CI gates: you wire trace-derived test cases into a suite that blocks a deploy on regression. Generous free tier. Reach for it when your discipline is “no agent change ships without passing the eval gate” (the Module 8 mindset, productized).</li>
+</ul>
+
+<p><strong>Which one?</strong> Default to <strong>Langfuse</strong> if you want open-source, self-hosting, or data residency — it’s the safe baseline and the data model is the one you just learned. Choose <strong>LangSmith</strong> if you live in LangChain/LangGraph. Choose <strong>Braintrust</strong> if eval-gated CI is the workflow you’re building around. And whichever you pick, prefer the OTel GenAI conventions underneath so the <em>trace</em> outlives the <em>vendor</em>.</p>
+<h2 id="debugging-multi-step-failures">
+  
+  
+    <a href="#debugging-multi-step-failures" class="anchor-heading" aria-labelledby="debugging-multi-step-failures"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Debugging multi-step failures
+  
+  
+</h2>
+    
+
+<p>This is the part your microservice instincts mislead you on, so go slow.</p>
+
+<p>The workflow:</p>
+
+<ol>
+  <li><strong>Capture the full trace.</strong> You can’t debug what you didn’t record — and because of nondeterminism, you can’t reliably reproduce it by re-running. The trace is the evidence.</li>
+  <li><strong>Find where the chain went wrong.</strong> The symptom — wrong final answer, infinite loop, blown budget — appears at the <em>end</em>. The cause is almost always <em>upstream</em>. Read the transcript forward as a narrative and find the first span where the model’s belief diverged from reality. That’s your bug. It is rarely the span that looks broken.</li>
+  <li><strong>Form a hypothesis.</strong> “At span 7 the model read a stale config and believed the flag was off; everything after is correct reasoning on a wrong premise.”</li>
+  <li><strong>Replay.</strong> Re-run the loop logic against the recorded model responses to confirm the hypothesis deterministically.</li>
+</ol>
+
+<p>Step 4 is the superpower, so let’s build it.</p>
+<h3 id="replay">
+  
+  
+    <a href="#replay" class="anchor-heading" aria-labelledby="replay"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Replay
+  
+  
+</h3>
+    
+
+<p>The idea: record every <code class="language-plaintext highlighter-rouge">(request, response)</code> pair from the model during a run. Then re-run your loop with the model <em>mocked</em> — instead of calling the API, you replay the recorded responses in order. Now your loop logic runs deterministically against the exact trajectory that failed. You can add logging, set breakpoints, fix a dispatch bug, and re-run as many times as you want, and it’s the <em>same run</em> every time. The nondeterminism is frozen.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scout/replay.py
+</span><span class="kn">import</span> <span class="n">json</span>
+<span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">class</span> <span class="nc">Recorder</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Wrap the client; record every model response to a file.</span><span class="sh">"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_records</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">model_dump</span><span class="p">())</span>   <span class="c1"># full response, serializable
+</span>        <span class="k">return</span> <span class="n">resp</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_path</span><span class="p">.</span><span class="nf">write_text</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">_records</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">Player</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Replay recorded responses in order. No network, fully deterministic.</span><span class="sh">"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_records</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="nc">Path</span><span class="p">(</span><span class="n">path</span><span class="p">).</span><span class="nf">read_text</span><span class="p">())</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="n">anthropic.types</span> <span class="kn">import</span> <span class="n">Message</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_records</span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">_i</span><span class="p">]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">Message</span><span class="p">.</span><span class="nf">model_validate</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>         <span class="c1"># reconstruct the SDK object
+</span></code></pre></div></div>
+
+<p>Record on a live run, replay forever after:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Record:
+</span><span class="n">rec</span> <span class="o">=</span> <span class="nc">Recorder</span><span class="p">(</span><span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">(),</span> <span class="sh">"</span><span class="s">fail-run.json</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">run_scout_loop</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="n">rec</span><span class="p">);</span> <span class="n">rec</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
+
+<span class="c1"># Replay against your loop logic, no API calls, deterministic:
+</span><span class="nf">run_scout_loop</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="nc">Player</span><span class="p">(</span><span class="sh">"</span><span class="s">fail-run.json</span><span class="sh">"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Because <code class="language-plaintext highlighter-rouge">Player.create</code> reconstructs the real SDK <code class="language-plaintext highlighter-rouge">Message</code> object, your loop’s <code class="language-plaintext highlighter-rouge">resp.stop_reason</code>, <code class="language-plaintext highlighter-rouge">resp.content</code>, <code class="language-plaintext highlighter-rouge">resp.usage</code> all work unchanged — the loop can’t tell it’s talking to a recording. Now the failing run reproduces on demand. You step through it, you find that span 7 returned a stale read, you fix the staleness check, and you replay to confirm the chain now goes right. <em>That</em> is how you debug nondeterministic systems: you make them deterministic.</p>
+
+<p>📖 <strong>And this is how you build taste.</strong> Reading transcripts — not metrics, the actual prompt/completion/tool-IO narrative of real runs — is the single highest-leverage habit in agent engineering. It’s the same skill Module 8 leaned on for writing evals: you cannot write a good judge or a good unit eval for a failure mode you’ve never seen in a real transcript. Replay and transcript-reading are two sides of one practice.</p>
+<h3 id="common-failure-signatures-in-a-trace">
+  
+  
+    <a href="#common-failure-signatures-in-a-trace" class="anchor-heading" aria-labelledby="common-failure-signatures-in-a-trace"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Common failure signatures in a trace
+  
+  
+</h3>
+    
+
+<p>Once you’ve read a few hundred traces, the shapes become recognizable:</p>
+
+<ul>
+  <li><strong>Context starvation</strong> — the model is reasoning without a fact it needs, because compaction (Module 4) dropped it or it was never retrieved. In the trace: a model span whose <em>input</em> is missing something an earlier span produced. Often co-occurs with a compaction span just upstream.</li>
+  <li><strong>A bad tool result the model trusted</strong> — a tool returned wrong/stale/empty data, the model took it at face value, everything downstream is built on it. The tool span looks <code class="language-plaintext highlighter-rouge">is_error: false</code> (it didn’t <em>crash</em>, it just lied). The classic upstream-cause bug.</li>
+  <li><strong>Tool-arg hallucination</strong> — the model calls a tool with an argument it invented (a file path that doesn’t exist, an ID it made up). In the trace: a tool span whose input doesn’t correspond to anything any prior span surfaced, usually followed by an error result and a confused recovery.</li>
+  <li><strong>Infinite loop</strong> — the same tool span with the same args repeating. Trivially obvious in the tree, invisible in a latency metric until the run blows its budget. (Your steps-per-task metric catches this in aggregate.)</li>
+  <li><strong>Sub-agent solved the wrong problem</strong> — a sub-agent span tree that’s internally coherent and successful but answers a question the parent didn’t ask, because the delegated instruction was ambiguous. You have to open the <em>child trace</em> to see it; the parent just sees a plausible result come back.</li>
+</ul>
+<h2 id="online-evals-closing-the-loop-to-module-8">
+  
+  
+    <a href="#online-evals-closing-the-loop-to-module-8" class="anchor-heading" aria-labelledby="online-evals-closing-the-loop-to-module-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Online evals: closing the loop to Module 8
+  
+  
+</h2>
+    
+
+<p>Observability and evals are two sides of the same coin. <strong>Traces are the substrate evals run on, and production failures become new eval cases.</strong> Module 8 built the eval methodology; this is where it meets production.</p>
+
+<p>The pattern is continuous: sample live traces, run a grader on each, alert on drift. Three layers stack here:</p>
+
+<ul>
+  <li><strong>Unit evals</strong> on discrete steps — programmatic, cheap, run on every (or sampled) trace. “Did the <code class="language-plaintext highlighter-rouge">write_file</code> span ever write outside the project root?” “Did any tool span exceed 3 retries?”</li>
+  <li><strong>LLM-as-judge regression suites</strong> — the Module 8 judge, run against sampled production traces, scoring final-answer quality on traces where you have no ground-truth label. This is how you measure the <em>real</em> task-failure rate — the 18% that <code class="language-plaintext highlighter-rouge">stop_reason</code> hides.</li>
+  <li><strong>Continuous production sampling for drift</strong> — grade, say, 2% of all traces on a rolling basis, track the score over time, and alert when it drifts down. A model update, a prompt change, a tool that started returning a new error shape — drift catches regressions your CI evals didn’t anticipate.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">online_eval</span><span class="p">(</span><span class="n">trace_path</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="n">random</span>
+    <span class="k">if</span> <span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">sample_rate</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">spans</span> <span class="o">=</span> <span class="nf">load</span><span class="p">(</span><span class="n">trace_path</span><span class="p">)</span>
+    <span class="n">final</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nf">reversed</span><span class="p">(</span><span class="n">spans</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">span_type</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">model</span><span class="sh">"</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">s</span><span class="p">[</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">].</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">stop_reason</span><span class="sh">"</span><span class="p">)</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="nf">llm_judge</span><span class="p">(</span><span class="n">final</span><span class="p">[</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">])</span>   <span class="c1"># your Module 8 judge
+</span>    <span class="nf">log_score</span><span class="p">(</span><span class="n">trace_path</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>                     <span class="c1"># to Langfuse, a metrics sink, etc.
+</span>    <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">THRESHOLD</span><span class="p">:</span>
+        <span class="nf">flag_for_review</span><span class="p">(</span><span class="n">trace_path</span><span class="p">)</span>                  <span class="c1"># ← becomes a new eval case
+</span></code></pre></div></div>
+
+<p>That last line is the flywheel. A low-scoring production trace gets flagged, a human looks at it, and if it’s a real failure it becomes a permanent regression case in your Module 8 suite. Observability feeds evals; evals catch regressions; caught regressions harden the suite. The trace you captured to <em>debug</em> today is the eval case that <em>prevents</em> the same failure tomorrow.</p>
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>The 18%-fail-silently problem.</strong> Worth restating because it’s the whole reason this module exists: a large fraction of agent task failures produce HTTP 200, no exception, no error log — a confident wrong answer. Your ops dashboards are blind to it by construction. Only content-level grading of sampled traces surfaces it. If you take one thing from this module: error rate is not failure rate.</li>
+  <li><strong>PII and cost in captured prompts.</strong> You are now logging full prompts and completions — which means full user data, possibly PII, possibly secrets the user pasted. This is a security surface (Module 11): you need redaction at capture time, sampling to limit volume, and a retention policy. “We log every prompt forever” is a breach waiting to happen and a compliance problem in regulated domains. Redact before it hits storage, not after.</li>
+  <li><strong>Trace volume and cost at scale.</strong> Agent traces are big (huge text payloads) and numerous (many spans per run). Storing 100% of full payloads for a high-traffic fleet gets expensive fast. Sampling strategies: keep 100% of <em>metadata</em> (cheap, enables aggregates and the steps/error/cost metrics) but sample <em>full payloads</em> — and bias the sample toward the interesting tail (always keep failed runs, runs over a step threshold, runs that hit <code class="language-plaintext highlighter-rouge">refusal</code> or <code class="language-plaintext highlighter-rouge">max_tokens</code>). Head-based random sampling throws away exactly the failures you most need.</li>
+  <li><strong>Symptom far from cause.</strong> Internalize that the red span is rarely the bug. The discipline is reading backward from symptom to the first divergence, not jumping to the span that threw. New engineers waste days “fixing” the downstream span that was correctly processing upstream garbage.</li>
+  <li><strong>Nondeterminism makes bugs non-reproducible — without replay.</strong> “Works on the rerun” is not a fix; it’s the bug hiding. Record-and-replay is the only reliable way to reproduce, and you should build it into the harness early, not bolt it on during an incident.</li>
+  <li><strong>Vendor lock-in vs. OTel portability.</strong> Vendor SDKs are convenient and their auto-instrumentation saves real work. The risk is that your traces become a proprietary asset you can’t move. Mitigate by instrumenting toward the OTel GenAI conventions — emit standard spans and attributes, let the vendor consume them. Then switching backends is a config change, not a re-instrumentation project.</li>
+  <li><strong>Instrumenting through framework abstraction layers.</strong> If you’re on a framework (Module 7), the loop is <em>inside</em> the library — you don’t own the call site where you’d drop a span. This is exactly why the framework-native integrations (LangSmith for LangChain, Langfuse’s callback handlers) exist: they hook the framework’s internals. The flip side, and the Module 7 warning made concrete: when the framework owns the loop, your observability is only as good as its instrumentation hooks. If it doesn’t surface a span boundary you need, you can’t add one. Evaluate that before you adopt.</li>
+  <li><strong>Observability is the prerequisite for everything downstream.</strong> You cannot do cost control (Module 10) without per-step token accounting. You cannot detect drift without continuous trace grading. The industry framing — that something like 40% of enterprise AI failures will trace to inadequate eval and monitoring rather than to model capability — is a way of saying: the model is usually good enough; the failure is that nobody could <em>see</em> what it was doing. Instrumentation is not the polish you add at the end. It’s the foundation the rest of the production stack stands on.</li>
+</ul>
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Your error-rate dashboard shows 0.2% over the last day, but users are complaining the agent “gets things wrong a lot.” Both can be true. Explain how, and what you’d instrument to measure the real number.</li>
+  <li>Why does re-running a failed agent task usually fail to reproduce the bug, and how does record-and-replay solve it? What exactly are you mocking?</li>
+  <li>A run produces a wrong final answer at span 40. You read the trace. Where do you start looking, and why is span 40 almost certainly <em>not</em> where the bug is?</li>
+  <li>Name three things an agent model span must carry that a normal RPC span does not, and say what each one lets you compute or debug.</li>
+  <li>You’re storing full traces for a fleet doing 500K runs/day and the bill is alarming. Describe a sampling strategy that cuts cost without blinding you to failures.</li>
+  <li>Explain the flywheel between observability and evals (Module 8) in two sentences. What’s the artifact that flows from one to the other?</li>
+  <li>You picked a vendor for tracing. What’s the one architectural choice that keeps you from being locked in, and why does it matter?</li>
+</ol>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>OpenTelemetry GenAI semantic conventions — the span/attribute standard for LLM and agent operations; instrument toward it.</li>
+  <li>Langfuse docs — <code class="language-plaintext highlighter-rouge">@observe()</code>, the Anthropic wrapper, manual spans, sessions, self-hosting, and online evals (scores on traces).</li>
+  <li>LangSmith docs — tracing for LangChain/LangGraph stacks; useful even as a contrast to see what framework-native instrumentation buys you.</li>
+  <li>Braintrust docs — eval-gated CI and trace-to-eval workflows.</li>
+  <li>Anthropic SDK: <code class="language-plaintext highlighter-rouge">resp.usage</code> fields (<code class="language-plaintext highlighter-rouge">input_tokens</code>, <code class="language-plaintext highlighter-rouge">output_tokens</code>, <code class="language-plaintext highlighter-rouge">cache_read_input_tokens</code>, <code class="language-plaintext highlighter-rouge">cache_creation_input_tokens</code>) — the raw material for every cost number in this module.</li>
+  <li>Module 8 (Evals) — the grading methodology that online evals run; re-read the LLM-judge section alongside this module’s online-eval pattern.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/10-reliability-cost-performance.html">Module 10 — Reliability, Cost &amp; Performance</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

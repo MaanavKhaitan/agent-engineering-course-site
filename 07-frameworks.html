@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(11)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(11) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(11) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(11) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>7 · Frameworks | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="7 · Frameworks" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="7 · Frameworks" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"7 · Frameworks","url":"/agent-engineering-course-site/07-frameworks.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-07--the-framework-landscape">
+  
+  
+    <a href="#module-07--the-framework-landscape" class="anchor-heading" aria-labelledby="module-07--the-framework-landscape"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 07 — The Framework Landscape
+  
+  
+</h1>
+    
+
+<p>You spent Modules 3 through 6 building Scout from nothing: a <code class="language-plaintext highlighter-rouge">while</code> loop that calls the model, a tool dispatcher, a context-management strategy, sub-agents. It works. It is maybe 400 lines. And it taught you the thing that matters most for this module — you now know, concretely, what an agent <em>is</em> underneath. A loop, a tool schema, a message list, a stop-reason check.</p>
+
+<p>So when someone says “just use LangGraph” or “you should be on the OpenAI Agents SDK,” you are no longer in a position of taking it on faith. You can ask the only question that matters: <strong>what does this framework actually abstract, and is that abstraction worth the control I give up?</strong></p>
+
+<p>That is the entire frame for this module. We are not going to re-teach the loop — you built it. We are going to look at frameworks as <em>packaging</em> of the things you built, evaluate them on concrete axes, and develop an honest, opinionated decision procedure. Including the option you’ve already earned the right to choose: no framework at all.</p>
+
+<p>One idea to carry through the whole module, because it sharpens every judgment you’ll make: <strong>every framework component encodes an assumption about what the model can’t do.</strong> A retry-with-reflection helper assumes the model won’t recover on its own. A rigid output-parsing layer assumes the model can’t be trusted to emit clean JSON. A verbose planning scaffold assumes the model won’t plan unprompted. Some of those assumptions were true in 2023 and are false now. As models improve, a fraction of every framework’s scaffolding quietly turns into dead weight — code that fights a model that no longer needs the help. Keep asking, for each abstraction: <em>is this solving a real problem, or a problem the model already solved?</em></p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end of this module you will be able to:</p>
+
+<ul>
+  <li>Articulate what a framework buys you over a hand-rolled loop, and what it costs in control, learning curve, and lock-in.</li>
+  <li>Evaluate any agent framework on a fixed set of axes (control-flow model, state/persistence, streaming, tool/MCP integration, multi-agent, observability, deployment, model-agnosticism, maturity).</li>
+  <li>Place LangGraph, the OpenAI Agents SDK, the Claude Agent SDK (+ Managed Agents), CrewAI, and Google ADK on those axes, and name the core abstraction and tradeoff of each.</li>
+  <li>Apply a decision procedure that maps your situation to a recommended choice — including “roll your own.”</li>
+  <li>Recognize the real production failure modes of frameworks: leaky abstractions, debugging through layers, version churn, and scaffolding rot.</li>
+</ul><hr />
+<h2 id="what-a-framework-actually-gives-you-and-takes">
+  
+  
+    <a href="#what-a-framework-actually-gives-you-and-takes" class="anchor-heading" aria-labelledby="what-a-framework-actually-gives-you-and-takes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What a framework actually gives you (and takes)
+  
+  
+</h2>
+    
+
+<p>Start from what you have. Scout is an imperative loop. You call the model, you read <code class="language-plaintext highlighter-rouge">stop_reason</code>, you dispatch tools, you append results, you loop. You own every line. When something breaks you set a breakpoint and you are <em>in</em> the code that broke.</p>
+
+<p>A framework offers a trade. In exchange for adopting its conventions and its abstraction, you get some subset of these for free:</p>
+
+<ul>
+  <li><strong>Persistence and checkpointing</strong> — the loop’s state survives a process restart; you can resume, replay, or “time-travel” to a prior step.</li>
+  <li><strong>Streaming plumbing</strong> — token and event streaming wired through the whole stack, not just the raw model call.</li>
+  <li><strong>A tool/MCP integration layer</strong> — decorators or schema helpers that turn a function into a tool, plus a standard way to mount external tool servers.</li>
+  <li><strong>Multi-agent primitives</strong> — first-class handoffs, sub-agents, or role-based crews instead of your hand-spawned sub-agent.</li>
+  <li><strong>Observability hooks</strong> — traces, spans, and a UI to see what the agent did, usually paired with the vendor’s platform.</li>
+  <li><strong>A deployment story</strong> — a blessed path from local loop to a running, scalable service.</li>
+  <li><strong>An ecosystem</strong> — integrations, examples, a community that has already hit your bug.</li>
+</ul>
+
+<p>And in exchange you pay:</p>
+
+<ul>
+  <li><strong>Control.</strong> The loop is now theirs. When you want to do something the framework didn’t anticipate, you fight it.</li>
+  <li><strong>A learning curve.</strong> Nodes, edges, state reducers, handoffs, crews — vocabulary you must learn before you’re productive.</li>
+  <li><strong>Abstraction leak.</strong> The framework’s model of the world is not the model API’s model of the world, and at the seams that mismatch surfaces as confusing bugs.</li>
+  <li><strong>Dependency and lock-in risk.</strong> Especially with the lab SDKs, you may be coupling your control flow to one model provider.</li>
+</ul>
+
+<p>📖 The mature stance is not “frameworks bad” or “frameworks good.” It’s: <em>understand the primitives — which you now do — so you can evaluate the trade on a per-axis basis.</em> A framework that gives you durable checkpointing you genuinely need is a great deal. The same framework adopted for a single-turn classification task is pure overhead.</p>
+<h3 id="the-axes">
+  
+  
+    <a href="#the-axes" class="anchor-heading" aria-labelledby="the-axes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The axes
+  
+  
+</h3>
+    
+
+<p>When you evaluate any framework — including ones invented after this module is written — score it on these:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Axis</th>
+      <th>The question to ask</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Control-flow model</strong></td>
+      <td>Imperative loop? Graph/state machine? Role-based crew? Handoff? How much determinism does it give you, and how much does it hide?</td>
+    </tr>
+    <tr>
+      <td><strong>State / persistence / checkpointing</strong></td>
+      <td>Does it persist loop state? Can you resume after a crash? Replay? Time-travel?</td>
+    </tr>
+    <tr>
+      <td><strong>Streaming</strong></td>
+      <td>Are model tokens and intermediate events streamable end-to-end?</td>
+    </tr>
+    <tr>
+      <td><strong>Tool / MCP integration</strong></td>
+      <td>How do you define a tool? Does it speak MCP (Module 13) for interop?</td>
+    </tr>
+    <tr>
+      <td><strong>Multi-agent</strong></td>
+      <td>Are sub-agents / handoffs / crews first-class, or do you build them?</td>
+    </tr>
+    <tr>
+      <td><strong>Observability</strong></td>
+      <td>Built-in tracing? Tied to a specific platform (Module 9)?</td>
+    </tr>
+    <tr>
+      <td><strong>Deployment</strong></td>
+      <td>Is there a blessed path to production (Module 12)? Durable execution?</td>
+    </tr>
+    <tr>
+      <td><strong>Model-agnosticism vs. lock-in</strong></td>
+      <td>Can you swap the model provider, or are you married to one?</td>
+    </tr>
+    <tr>
+      <td><strong>Learning curve &amp; maturity</strong></td>
+      <td>How long to first useful agent? How stable is the API? How big is the community?</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Keep this table in your head for the tour.</p><hr />
+<h2 id="a-tour-of-the-major-frameworks">
+  
+  
+    <a href="#a-tour-of-the-major-frameworks" class="anchor-heading" aria-labelledby="a-tour-of-the-major-frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A tour of the major frameworks
+  
+  
+</h2>
+    
+
+<p>APIs in this space churn fast — treat every snippet below as <em>illustrative of the shape</em>, not as a copy-paste contract. Always check the current docs. The point is the abstraction, not the exact method name.</p>
+<h3 id="langgraph-from-the-langchain-team">
+  
+  
+    <a href="#langgraph-from-the-langchain-team" class="anchor-heading" aria-labelledby="langgraph-from-the-langchain-team"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> LangGraph (from the LangChain team)
+  
+  
+</h3>
+    
+
+<p><strong>Philosophy:</strong> an agent is a graph of explicit state transitions, and you should be able to see and audit every one.</p>
+
+<p><strong>Core abstraction:</strong> <strong>nodes and edges over a shared state object.</strong> A node is a function that reads state and returns an update. An edge — often <em>conditional</em> — decides which node runs next. Your agent loop becomes a graph: a “call the model” node, a “run tools” node, and a conditional edge that routes back to the model on <code class="language-plaintext highlighter-rouge">tool_use</code> or exits on <code class="language-plaintext highlighter-rouge">end_turn</code>. That is <em>exactly the control flow you hand-wrote in Scout</em>, lifted into a declarative graph.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">END</span>
+<span class="kn">from</span> <span class="n">langgraph.checkpoint.memory</span> <span class="kn">import</span> <span class="n">InMemorySaver</span>
+
+<span class="k">def</span> <span class="nf">call_model</span><span class="p">(</span><span class="n">state</span><span class="p">):</span> <span class="p">...</span>        <span class="c1"># returns {"messages": [...]}
+</span><span class="k">def</span> <span class="nf">run_tools</span><span class="p">(</span><span class="n">state</span><span class="p">):</span> <span class="p">...</span>         <span class="c1"># executes tool calls, returns results
+</span>
+<span class="k">def</span> <span class="nf">route</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>                 <span class="c1"># the conditional edge
+</span>    <span class="n">last</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="s">tools</span><span class="sh">"</span> <span class="k">if</span> <span class="n">last</span><span class="p">.</span><span class="n">tool_calls</span> <span class="k">else</span> <span class="n">END</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="nc">StateGraph</span><span class="p">(</span><span class="n">AgentState</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">add_node</span><span class="p">(</span><span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">,</span> <span class="n">call_model</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">add_node</span><span class="p">(</span><span class="sh">"</span><span class="s">tools</span><span class="sh">"</span><span class="p">,</span> <span class="n">run_tools</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">set_entry_point</span><span class="p">(</span><span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">add_conditional_edges</span><span class="p">(</span><span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="p">{</span><span class="sh">"</span><span class="s">tools</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tools</span><span class="sh">"</span><span class="p">,</span> <span class="n">END</span><span class="p">:</span> <span class="n">END</span><span class="p">})</span>
+<span class="n">graph</span><span class="p">.</span><span class="nf">add_edge</span><span class="p">(</span><span class="sh">"</span><span class="s">tools</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">graph</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="nc">InMemorySaver</span><span class="p">())</span>  <span class="c1"># persistence for free
+</span></code></pre></div></div>
+
+<p><strong>Best at:</strong> production-grade, stateful, auditable workflows — the regulated / high-stakes end of the spectrum where you need explicit control flow plus durable checkpointing and the ability to inspect or replay a run. The checkpointer is the headline feature: built-in persistence and time-travel that you’d otherwise build yourself. Pairs with LangSmith for tracing and LangGraph Platform for deployment. Model-agnostic.</p>
+
+<p><strong>Tradeoffs:</strong> the steepest concept curve here. Nodes, edges, state reducers, and channels are real machinery to learn, and for a simple agent it can feel like you’ve drawn an elaborate diagram of a <code class="language-plaintext highlighter-rouge">while</code> loop. The payoff is real only when you actually need the state machine to be explicit and durable.</p>
+<h3 id="openai-agents-sdk">
+  
+  
+    <a href="#openai-agents-sdk" class="anchor-heading" aria-labelledby="openai-agents-sdk"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> OpenAI Agents SDK
+  
+  
+</h3>
+    
+
+<p><strong>Philosophy:</strong> keep it lightweight and opinionated; agents collaborate by handing off control to each other.</p>
+
+<p><strong>Core abstraction:</strong> the <strong>handoff.</strong> You define agents, each with instructions and tools, and an agent can transfer the conversation to another agent. Add guardrails (input/output validation), sessions (conversation state), and built-in tracing. It’s the GA successor to the experimental “Swarm.”</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">agents</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Runner</span>
+
+<span class="n">billing</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">Billing</span><span class="sh">"</span><span class="p">,</span> <span class="n">instructions</span><span class="o">=</span><span class="sh">"</span><span class="s">Handle billing questions.</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">triage</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">Triage</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">instructions</span><span class="o">=</span><span class="sh">"</span><span class="s">Route the user to the right specialist.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">handoffs</span><span class="o">=</span><span class="p">[</span><span class="n">billing</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Runner</span><span class="p">.</span><span class="nf">run_sync</span><span class="p">(</span><span class="n">triage</span><span class="p">,</span> <span class="sh">"</span><span class="s">I was double-charged.</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Best at:</strong> clean multi-agent designs with low ceremony, when you’re already in the OpenAI ecosystem. The learning curve is shallow — you can read the whole mental model in an afternoon. Integrates with Temporal for durable execution when you outgrow in-memory runs.</p>
+
+<p><strong>Tradeoffs:</strong> OpenAI-models-centric by default (you <em>can</em> point it at other providers, but the affordances and examples assume OpenAI). The handoff model is elegant but opinionated — if your control flow doesn’t decompose into agent-to-agent transfers, you’re swimming upstream.</p>
+<h3 id="claude-agent-sdk-anthropic">
+  
+  
+    <a href="#claude-agent-sdk-anthropic" class="anchor-heading" aria-labelledby="claude-agent-sdk-anthropic"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Claude Agent SDK (Anthropic)
+  
+  
+</h3>
+    
+
+<p><strong>Philosophy:</strong> give you the production primitives from Claude Code’s harness lineage, so you’re building on the same machinery that powers a shipping coding agent.</p>
+
+<p><strong>Core abstraction:</strong> a <strong>harness of production primitives</strong> around the agent loop — tool use, <strong>hooks</strong> (intercept and gate tool calls before they execute), <strong>MCP integration</strong>, <strong>subagents</strong>, <strong>skills</strong>, and built-in <strong>context management</strong>. If you remember promoting actions to dedicated tools and gating them in Module 5, hooks are the framework-level version of that instinct: a clean interception point for every tool call.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">claude_agent_sdk</span> <span class="kn">import</span> <span class="n">query</span><span class="p">,</span> <span class="n">ClaudeAgentOptions</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="nc">ClaudeAgentOptions</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span>
+    <span class="c1"># tools, MCP servers, hooks, subagents configured here
+</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="nf">query</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="sh">"</span><span class="s">Audit this module for dead code.</span><span class="sh">"</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Best at:</strong> Claude-centric agents that want the same battle-tested harness behavior as Claude Code — strong context management, hooks for governance, MCP-native tool mounting, and subagents out of the box.</p>
+
+<p><strong>Tradeoffs:</strong> Claude-centric. The affordances assume Claude models, so it’s the wrong choice if model-swapping across providers is a hard requirement.</p>
+
+<p><strong>Managed Agents (also Anthropic):</strong> a different shape entirely — a <em>hosted</em> offering rather than a library you run. You create an <strong>Agent</strong> once (model, system prompt, tools), then create a <strong>Session</strong> per run; Anthropic runs the agent loop <em>and</em> hosts a sandboxed container where the agent’s tools execute. You stream events back and send messages and tool results in. This is the “I don’t want to host the loop or the sandbox” option. We treat deployment depth in Module 12 — for now, just know the shape exists: <strong>create Agent once → create Session per run → Anthropic runs the loop.</strong></p>
+<h3 id="crewai">
+  
+  
+    <a href="#crewai" class="anchor-heading" aria-labelledby="crewai"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CrewAI
+  
+  
+</h3>
+    
+
+<p><strong>Philosophy:</strong> model the team. A “crew” of role-playing agents collaborates on tasks.</p>
+
+<p><strong>Core abstraction:</strong> <strong>role-based agents plus tasks.</strong> You declare agents with a role, a goal, and a backstory, then assign tasks and let the crew execute (sequentially or in parallel).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">crewai</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">Crew</span>
+
+<span class="n">researcher</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="sh">"</span><span class="s">Researcher</span><span class="sh">"</span><span class="p">,</span> <span class="n">goal</span><span class="o">=</span><span class="sh">"</span><span class="s">Find the facts</span><span class="sh">"</span><span class="p">,</span> <span class="n">backstory</span><span class="o">=</span><span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="sh">"</span><span class="s">Writer</span><span class="sh">"</span><span class="p">,</span> <span class="n">goal</span><span class="o">=</span><span class="sh">"</span><span class="s">Draft the summary</span><span class="sh">"</span><span class="p">,</span> <span class="n">backstory</span><span class="o">=</span><span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">crew</span> <span class="o">=</span> <span class="nc">Crew</span><span class="p">(</span><span class="n">agents</span><span class="o">=</span><span class="p">[</span><span class="n">researcher</span><span class="p">,</span> <span class="n">writer</span><span class="p">],</span> <span class="n">tasks</span><span class="o">=</span><span class="p">[</span><span class="n">research_task</span><span class="p">,</span> <span class="n">write_task</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="p">.</span><span class="nf">kickoff</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Best at:</strong> the fastest path from idea to running prototype. The role/task metaphor is intuitive and the API is high-level, so you get a multi-agent demo working quickly. Model-agnostic.</p>
+
+<p><strong>Tradeoffs:</strong> higher-level and more opinionated means less control when you need to do something off the paved path. The same abstraction that makes the demo fast can fight you when the real requirements arrive.</p>
+<h3 id="google-adk-agent-development-kit">
+  
+  
+    <a href="#google-adk-agent-development-kit" class="anchor-heading" aria-labelledby="google-adk-agent-development-kit"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Google ADK (Agent Development Kit)
+  
+  
+</h3>
+    
+
+<p><strong>Philosophy:</strong> Google’s agent framework, with tight integration into Vertex AI and Gemini.</p>
+
+<p><strong>Core abstraction:</strong> structured agents and workflows with first-class Google-cloud and Gemini integration, while remaining reasonably model-agnostic.</p>
+
+<p><strong>Best at:</strong> teams already on Google Cloud / Vertex who want native integration and deployment into that ecosystem.</p>
+
+<p><strong>Tradeoffs:</strong> the gravity well is Google’s stack; the payoff scales with how much of your infrastructure already lives there.</p>
+<h3 id="briefly-worth-knowing">
+  
+  
+    <a href="#briefly-worth-knowing" class="anchor-heading" aria-labelledby="briefly-worth-knowing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Briefly worth knowing
+  
+  
+</h3>
+    
+
+<ul>
+  <li><strong>Pydantic AI</strong> — type-safe and Pythonic; if you love Pydantic’s validation model, this brings it to agents.</li>
+  <li><strong>Microsoft AutoGen / AG2</strong> — research-flavored multi-agent conversation framework.</li>
+  <li><strong>Mastra</strong> — a TypeScript-native agent framework, for teams whose stack is JS/TS rather than Python.</li>
+  <li><strong>LlamaIndex</strong> — retrieval-centric; the natural reach when your agent is fundamentally a RAG pipeline with tools bolted on.</li>
+  <li><strong>Strands</strong> — another entrant in the model-agnostic agent-framework space; worth a look when surveying.</li>
+</ul>
+
+<p>📖 <strong>A note on MCP (Module 13):</strong> the <strong>Model Context Protocol</strong> is becoming the standard wire format for tool and data servers, and increasingly <em>every</em> framework above speaks it. That matters for your decision: a tool you expose as an MCP server is portable across frameworks. MCP is steadily turning “which framework” into a less load-bearing question for the <em>tool</em> layer — you can keep your tools and swap the harness.</p><hr />
+<h2 id="a-decision-framework">
+  
+  
+    <a href="#a-decision-framework" class="anchor-heading" aria-labelledby="a-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A decision framework
+  
+  
+</h2>
+    
+
+<p>Match the tool to the constraint that actually binds you. The four that matter most:</p>
+
+<ol>
+  <li><strong>Control-flow determinism</strong> — how much do you need the path to be explicit, auditable, resumable?</li>
+  <li><strong>Model affinity</strong> — are you committed to one provider, or must you stay portable?</li>
+  <li><strong>Team preference</strong> — speed-to-prototype, or control and minimal deps?</li>
+  <li><strong>Production / regulatory needs</strong> — checkpointing, durability, audit trails?</li>
+</ol>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Your situation</th>
+      <th>Lean toward</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>High-stakes / regulated; need explicit, auditable, resumable control flow</td>
+      <td><strong>LangGraph</strong></td>
+      <td>Graph state machine + durable checkpointing + time-travel are its core competence.</td>
+    </tr>
+    <tr>
+      <td>Speed-to-prototype is <em>the</em> constraint</td>
+      <td><strong>CrewAI</strong></td>
+      <td>Highest-level, fastest idea→demo; role/task metaphor needs no ceremony.</td>
+    </tr>
+    <tr>
+      <td>Committed to OpenAI models; want clean multi-agent</td>
+      <td><strong>OpenAI Agents SDK</strong></td>
+      <td>Handoff model is tight and low-ceremony; native OpenAI integration.</td>
+    </tr>
+    <tr>
+      <td>Committed to Claude; want Claude Code’s harness (hooks, subagents, context mgmt)</td>
+      <td><strong>Claude Agent SDK</strong></td>
+      <td>Production primitives from a shipping agent, MCP-native.</td>
+    </tr>
+    <tr>
+      <td>Want Anthropic to run the loop <em>and</em> the sandbox</td>
+      <td><strong>Managed Agents</strong></td>
+      <td>Hosted: create Agent once, run Sessions; no infra to own.</td>
+    </tr>
+    <tr>
+      <td>Deep in Google Cloud / Vertex / Gemini</td>
+      <td><strong>Google ADK</strong></td>
+      <td>Native integration where your infra already lives.</td>
+    </tr>
+    <tr>
+      <td>Full control, minimal deps, simple or deeply custom harness needs</td>
+      <td><strong>Roll your own</strong> (what you built)</td>
+      <td>No abstraction to leak, no version churn, you own every line.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The flowchart version, compressed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Need explicit/durable/auditable control flow?  ── yes ─▶  LangGraph
+        │ no
+Strong single-model affinity + want vendor integration?  ── yes ─▶  that lab's SDK
+        │ no                                                         (OpenAI / Claude / Google)
+Speed-to-prototype the binding constraint?  ── yes ─▶  CrewAI
+        │ no
+Simple needs, or you want full control / minimal deps?  ── yes ─▶  roll your own
+</code></pre></div></div>
+
+<p>This is a synthesis heuristic, not a law. Real systems blend: a hand-rolled loop that mounts MCP tools; a LangGraph core with a CrewAI prototype that proved the idea; a lab SDK for the model-facing parts and your own code for orchestration.</p><hr />
+<h2 id="do-you-even-need-a-framework">
+  
+  
+    <a href="#do-you-even-need-a-framework" class="anchor-heading" aria-labelledby="do-you-even-need-a-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Do you even need a framework?
+  
+  
+</h2>
+    
+
+<p>You have already shipped an agent without one. So this is a real question, not a rhetorical one.</p>
+
+<p><strong>Reach for your own loop when:</strong></p>
+
+<ul>
+  <li><strong>Your needs are simple.</strong> A single-turn tool-using agent, or a short fixed pipeline, does not need a state-machine framework. The loop you wrote is less code than the framework’s “hello world.”</li>
+  <li><strong>You want full control.</strong> When the control flow <em>is</em> the product — bespoke gating, custom scheduling, an unusual context strategy — a framework’s opinions are friction, not help.</li>
+  <li><strong>You need to deeply customize the harness.</strong> If you’re doing things no framework anticipated, you’ll spend more time escaping the abstraction than you’d spend writing the loop.</li>
+  <li><strong>You want minimal dependencies.</strong> Every framework is a large dependency tree with its own release cadence and CVEs. Your loop depends on one SDK.</li>
+</ul>
+
+<p><strong>The hidden costs of frameworks — the failure modes to weigh:</strong></p>
+
+<ul>
+  <li><strong>Debugging through abstraction layers.</strong> When the agent misbehaves, the stack trace runs through the framework’s internals, not your code. You debug <em>their</em> state machine, with <em>their</em> mental model, often without a clean breakpoint where your logic lives.</li>
+  <li><strong>Leaky abstractions.</strong> The framework’s model of an agent and the model API’s actual behavior diverge at the seams — a new content-block type, a stop reason the framework doesn’t surface, a streaming event it swallows. The leak shows up as a bug you can’t fix without reading the framework’s source.</li>
+  <li><strong>Version churn.</strong> This space moves fast. Breaking changes between minor versions are common; an upgrade can rewrite your control flow out from under you.</li>
+  <li><strong>Thin-wrapper reality.</strong> A surprising amount of any framework <em>is</em> a loop you could have written — the same <code class="language-plaintext highlighter-rouge">while</code>, the same <code class="language-plaintext highlighter-rouge">stop_reason</code> check, the same message append. You’re sometimes adopting a dependency to get 40 lines you already understand.</li>
+</ul>
+
+<p>📖 The honest industry pattern, mid-2026: <strong>many strong teams converge on a thin custom harness plus a few targeted libraries</strong>, rather than an all-in framework. They keep the loop — because they understand it and it never leaks — and they reach for a library exactly where it earns its keep: a checkpointer, an observability SDK, an MCP client. That is not anti-framework dogma; it’s the same per-axis evaluation this module is teaching, applied honestly. The framework wins the axes where it genuinely saves you work, and you keep the rest.</p><hr />
+<h2 id="️-exercise">
+  
+  
+    <a href="#️-exercise" class="anchor-heading" aria-labelledby="️-exercise"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise
+  
+  
+</h2>
+    
+
+<p><strong>Goal: form an evidence-based opinion, not a vibe.</strong> You will rebuild a slice of Scout in one framework, then write down — concretely — what it gave you and what it took.</p>
+
+<p><strong>Default to LangGraph</strong> (it’s the most production-representative of the control-flow-explicit camp). If you have strong model affinity, the stretch goal lets you compare against a lab SDK.</p>
+<h3 id="part-1--reimplement-scouts-core-in-langgraph">
+  
+  
+    <a href="#part-1--reimplement-scouts-core-in-langgraph" class="anchor-heading" aria-labelledby="part-1--reimplement-scouts-core-in-langgraph"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part 1 — Reimplement Scout’s core in LangGraph
+  
+  
+</h3>
+    
+
+<p>Take Scout’s agent loop plus <strong>two</strong> of its tools (pick the two you understand best — say, a file-read tool and a shell/bash tool) and express them as a LangGraph graph:</p>
+
+<ol>
+  <li>A <strong><code class="language-plaintext highlighter-rouge">model</code> node</strong> that calls the model with the current message state and tool schemas.</li>
+  <li>A <strong><code class="language-plaintext highlighter-rouge">tools</code> node</strong> that executes any requested tool calls and appends their results to state.</li>
+  <li>A <strong>conditional edge</strong> out of <code class="language-plaintext highlighter-rouge">model</code> that routes to <code class="language-plaintext highlighter-rouge">tools</code> when <code class="language-plaintext highlighter-rouge">stop_reason</code> (or the equivalent tool-call signal) indicates tool use, and to <code class="language-plaintext highlighter-rouge">END</code> otherwise.</li>
+  <li>An edge from <code class="language-plaintext highlighter-rouge">tools</code> back to <code class="language-plaintext highlighter-rouge">model</code>.</li>
+  <li>A <strong>checkpointer</strong> so the run is persistent.</li>
+</ol>
+
+<p>Then exercise the persistence: run the agent, interrupt it mid-task (kill the process), and resume from the checkpoint. Confirm it picks up where it left off.</p>
+
+<p>✅ <strong>Check:</strong> the graph terminates on <code class="language-plaintext highlighter-rouge">end_turn</code>, loops on tool use, and a resumed run does <em>not</em> repeat tool calls it already made before the interrupt.</p>
+<h3 id="part-2--reflect-in-notesmd">
+  
+  
+    <a href="#part-2--reflect-in-notesmd" class="anchor-heading" aria-labelledby="part-2--reflect-in-notesmd"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part 2 — Reflect in <code class="language-plaintext highlighter-rouge">notes.md</code>
+  
+  
+</h3>
+    
+
+<p>Write honest answers, with specifics:</p>
+
+<ul>
+  <li><strong>What did the framework give you for free?</strong> Be concrete. Persistence you didn’t write. Time-travel/replay. A graph object you can inspect or visualize. Streaming plumbing. Name the lines of <em>your</em> Scout code that this replaced.</li>
+  <li><strong>What did it take?</strong> The boilerplate to declare nodes and edges. New concepts (state reducers, channels) you had to learn. The indirection — when you set a breakpoint, where did you actually land?</li>
+  <li><strong>The decisive question:</strong> for <em>your</em> use case, did the checkpointer (and the rest) earn the concept curve? Would you ship Scout on this, or keep your loop and add only a checkpointing library?</li>
+</ul>
+<h3 id="stretch">
+  
+  
+    <a href="#stretch" class="anchor-heading" aria-labelledby="stretch"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stretch
+  
+  
+</h3>
+    
+
+<p>Reimplement the <strong>same slice</strong> in the <strong>OpenAI Agents SDK</strong> or the <strong>Claude Agent SDK</strong> and compare developer experience head-to-head. Where did each one make the easy thing easy? Where did each one make the custom thing hard? Add a short comparison table to <code class="language-plaintext highlighter-rouge">notes.md</code>. The deliverable is a defensible opinion you could give a teammate who asks “which one should we use?”</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<p>War stories, condensed, so you recognize them before they cost you a sprint:</p>
+
+<ul>
+  <li><strong>The abstraction fought your model of the world.</strong> You needed to inject a system-level instruction mid-conversation, or handle a content-block type the framework didn’t model, or read a stop reason it abstracted away. The framework’s worldview and the API’s worldview disagreed, and you lost a day at the seam.</li>
+  <li><strong>You debugged through the layers.</strong> A tool wasn’t being called. The bug was four frames deep in the framework’s router, not in your tool. Without the framework you’d have set one breakpoint; with it you read source code for an abstraction you didn’t write.</li>
+  <li><strong>A minor version broke your graph.</strong> An upgrade for a security patch also changed how state reducers compose, and your control flow silently changed behavior. Pin versions; read changelogs; budget for churn.</li>
+  <li><strong>The framework was a thin wrapper.</strong> You profiled what it actually did for you and found it was your <code class="language-plaintext highlighter-rouge">while</code> loop with a dependency tree attached. The honest move was to delete it and keep the 40 lines.</li>
+  <li><strong>Lock-in surfaced late — especially with lab SDKs.</strong> The control flow was quietly coupled to one provider. When you needed to evaluate a cheaper model from a different vendor, the “model-agnostic in principle” SDK turned out to be agnostic in principle only.</li>
+  <li><strong>Scaffolding rotted as the model improved.</strong> A reflection-retry loop, a verbose output parser, an aggressive planning prompt — all added to compensate for an older model — now fought a model that did the right thing on its own. The scaffolding became a net negative, and nobody had revisited the assumption it encoded.</li>
+  <li><strong>You picked a heavy framework for a light task.</strong> A state-machine framework wrapped a single-turn classifier. All cost, no benefit.</li>
+</ul>
+
+<p>The thread through all of these: the failure is rarely the framework being <em>bad</em>. It’s a framework adopted for the wrong axis, or kept past the point its assumptions held. You now have the primitives to make that call deliberately — which is the whole point of having built Scout first.</p><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Name the core abstraction of LangGraph, the OpenAI Agents SDK, the Claude Agent SDK, and CrewAI in one phrase each. (Graph nodes/edges; handoffs; harness primitives/hooks; role-based crew + tasks.)</li>
+  <li>For each axis in the evaluation table, which framework is strongest — and why is “strongest” use-case-dependent?</li>
+  <li>A teammate wants durable, auditable, resumable workflows for a regulated product. Which framework, and which <em>specific feature</em> is the reason?</li>
+  <li>A teammate wants a multi-agent demo by Friday and doesn’t care about the harness. Which framework, and what’s the risk they’re accepting?</li>
+  <li>Explain “every framework component encodes an assumption about what the model can’t do” using one concrete example of scaffolding that could rot.</li>
+  <li>Give two situations where rolling your own loop is the <em>correct</em> engineering call, not a failure to adopt a framework.</li>
+  <li>What is the difference between the Claude Agent SDK and Anthropic’s Managed Agents, in terms of who runs the loop?</li>
+</ul>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>LangGraph docs — graph construction, checkpointers, time-travel, and LangSmith/Platform.</li>
+  <li>OpenAI Agents SDK docs — agents, handoffs, guardrails, sessions, tracing, and the Temporal durability integration.</li>
+  <li>Claude Agent SDK docs — tool use, hooks, MCP, subagents, skills, context management; and Managed Agents (Agent/Session model, hosted sandbox).</li>
+  <li>CrewAI docs — crews, agents, tasks, and the role/goal/backstory model.</li>
+  <li>Google ADK docs — agent/workflow construction and Vertex/Gemini integration.</li>
+  <li>Survey the briefly-named entrants — Pydantic AI, AutoGen/AG2, Mastra (TS), LlamaIndex, Strands — to calibrate the breadth of the space.</li>
+  <li>Forward reference: <strong>Module 13 (MCP)</strong> for the interop layer that’s making the tool question framework-independent.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/08-evals.html">Module 08 — Evaluation &amp; Testing</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

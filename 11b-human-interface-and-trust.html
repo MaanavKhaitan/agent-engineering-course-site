@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(17)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(17) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(17) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(17) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>11B · Human Interface &amp; Trust | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="11B · Human Interface &amp; Trust" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="11B · Human Interface &amp; Trust" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"11B · Human Interface &amp; Trust","url":"/agent-engineering-course-site/11b-human-interface-and-trust.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-11b--the-human-interface-steering-escalation--trust">
+  
+  
+    <a href="#module-11b--the-human-interface-steering-escalation--trust" class="anchor-heading" aria-labelledby="module-11b--the-human-interface-steering-escalation--trust"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 11B — The Human Interface: Steering, Escalation &amp; Trust
+  
+  
+</h1>
+    
+
+<p>Module 11 was about keeping the agent <em>inside the fence</em> — guardrails, sandboxing, the permission gate, human-in-the-loop as a security control. This module is about the other half of the same problem: an agent you cannot make perfectly reliable still has to be <em>useful</em>, and the only way it becomes useful is if a human is willing to hand it real work. That willingness is not a function of the model’s benchmark scores. It is a function of how the human and the agent talk to each other.</p>
+
+<p>Here is the thesis, stated plainly and meant to be taken literally: <strong>for agents, the human-agent interface is the mechanism by which you manage the risk of mistakes and earn the trust to grant autonomy.</strong> UX is not the polish you add at the end. It is the load-bearing trust-and-control layer. The gap between an impressive demo and “I’ll let it touch production / talk to real customers / move money” is overwhelmingly <em>interaction design and recoverability</em>, not raw capability.</p>
+
+<p>And the sharp version of the claim, the one worth internalizing: <strong>the reliability problem and the UX problem are two sides of the same coin.</strong> A perfectly reliable agent would need no steering, no escalation, no legibility surface, no undo — you’d fire it and forget it. Because no such agent exists, every gap in reliability has to be covered by an affordance at the human boundary. The interface is where you <em>spend</em> whatever reliability you couldn’t <em>build</em>. Designing that interface is engineering, not decoration, and it’s what this module teaches.</p>
+
+<p>This is deliberately a module about the <em>design and engineering of the human/agent boundary</em> — not about visual design, color, or layout. Every surface here is something you build into Scout’s loop.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end you will be able to:</p>
+
+<ul>
+  <li>Articulate why the human interface is a risk-management and trust mechanism, not a cosmetic layer, and connect it to the reliability problem.</li>
+  <li>Implement <strong>steering</strong> of a running agent: streaming output, cancellable tool execution, and queuing/injecting user messages at loop boundaries — without killing the run.</li>
+  <li>Treat <strong>escalation</strong> as a first-class design surface: design “ask” into the toolset and calibrate ask-rate by reversibility, blast radius, and confidence.</li>
+  <li>Build a <strong>legibility surface</strong> that lets a human understand a multi-hour run in seconds, and use it as a cheap drift-detector.</li>
+  <li>Reason about <strong>inspecting and correcting</strong> a live run — why true mid-run correction is a frontier problem, and why append-an-event is the clean approach (and how it collides with prompt caching’s append-only invariant).</li>
+  <li>Deepen the approval/confirmation gate into a real product surface: previews, blast-radius rendering, “always allow,” batching, plan mode, and graduated autonomy levels.</li>
+  <li>Recognize the production failure modes — the demo-to-trust gap, ask-rate miscalibration, illegible long runs, over-automation — and design against them.</li>
+</ul><hr />
+<h2 id="1-why-the-interface-is-the-trust-layer">
+  
+  
+    <a href="#1-why-the-interface-is-the-trust-layer" class="anchor-heading" aria-labelledby="1-why-the-interface-is-the-trust-layer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Why the interface <em>is</em> the trust layer
+  
+  
+</h2>
+    
+
+<p>Start from a fact you already accepted in Modules 08–11: agents fail. They hallucinate tool arguments, misread state, pursue the wrong sub-goal, and drift over long runs. You mitigate with evals, observability, guardrails — but you never reach zero. The residual risk is permanent.</p>
+
+<p>A reliable system you can’t fully trust is useless; a trustworthy interface around an unreliable system is <em>deployable</em>. The difference is entirely in the affordances at the boundary:</p>
+
+<ul>
+  <li>If stopping the agent is one keystroke and instantly safe, a user will let it run on far riskier tasks than if stopping means killing a process and cleaning up a half-finished mess.</li>
+  <li>If every action shows a preview and a diff before it commits, a user will grant write access they’d never grant to an opaque black box.</li>
+  <li>If a mistake is one <code class="language-plaintext highlighter-rouge">git revert</code> away, the user’s downside is bounded, so they tolerate more autonomy.</li>
+</ul>
+
+<p>None of those properties live in the model. They live in the harness — in the interface you build. This is why two products on the <em>identical</em> model can have wildly different adoption: the one with better steering, clearer approvals, and cheaper recovery gets trusted with real work, and the other stays a demo.</p>
+
+<p>That is the whole game. <strong>Autonomy granted is a function of how cheap inspection is and how survivable mistakes are.</strong> Every section below is one lever on that function.</p>
+
+<p>📖 <em>Reading:</em> Re-skim Module 11’s reversibility criterion for gating — it returns here as the calibration axis for escalation. Re-skim Module 03’s agent loop and permission gate; everything here hangs off them.</p><hr />
+<h2 id="2-steering-a-running-agent">
+  
+  
+    <a href="#2-steering-a-running-agent" class="anchor-heading" aria-labelledby="2-steering-a-running-agent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Steering a running agent
+  
+  
+</h2>
+    
+
+<p>Classic chat is request/response: you send, the model answers, done. Agents break that model. A Scout run is not a turn — it’s a <em>trajectory</em> that can last minutes to hours across many tool calls. During that time the user is not absent; they’re <em>watching</em>, and they need to be able to interrupt, redirect, or answer a question <strong>mid-flight, without killing the run.</strong></p>
+
+<p>That requires four engineering primitives. These are not exotic — every serious agent platform exposes exactly them, which is the tell that they’re the real load-bearing set:</p>
+
+<ol>
+  <li>
+    <p><strong>Streaming output, token-by-token, while tools run.</strong> Use <code class="language-plaintext highlighter-rouge">client.messages.stream(...)</code> and surface <code class="language-plaintext highlighter-rouge">text_stream</code> as it arrives. Streaming is not a latency nicety here — it’s the <em>observability channel for the human steerer.</em> A silent agent is an un-steerable agent; you can only redirect what you can see.</p>
+  </li>
+  <li>
+    <p><strong>Cancellable / interruptible tool execution.</strong> When the user hits interrupt mid-<code class="language-plaintext highlighter-rouge">bash</code>, what happens to the half-finished command? You need a policy: kill the subprocess, mark the tool result as <code class="language-plaintext highlighter-rouge">interrupted</code>, and feed <em>that</em> back to the model so it knows the action didn’t complete. The agent’s belief and reality must stay consistent.</p>
+  </li>
+  <li>
+    <p><strong>Queuing user messages typed mid-turn, injected at the next loop boundary.</strong> The user types “actually, focus on the backend” while the agent is three tool calls deep. You don’t splice it into the current turn — you enqueue it and inject it as a new message at the <em>next</em> loop boundary, where the message list is in a clean, consistent state.</p>
+  </li>
+  <li>
+    <p><strong>A permission / confirmation gate</strong> (Modules 03/11) — the synchronous pause point. Deepened in §6.</p>
+  </li>
+</ol>
+
+<p>Why is <em>instant, safe</em> interruption so disproportionately load-bearing? Because it inverts the user’s risk calculus. If stopping is one keystroke and reversible, the cost of letting the agent try something is small — worst case you stop it and undo. People grant far more autonomy when the exit is cheap. The interrupt button is, paradoxically, the feature that lets you <em>remove</em> yourself from the loop.</p>
+
+<p>This connects forward to Module 12: streaming and interruptibility are exactly what durable execution makes robust. A run that can suspend/resume can also pause cleanly for a human and pick up where it left off.</p>
+<h3 id="scouts-loop-made-steerable">
+  
+  
+    <a href="#scouts-loop-made-steerable" class="anchor-heading" aria-labelledby="scouts-loop-made-steerable"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Scout’s loop, made steerable
+  
+  
+</h3>
+    
+
+<p>Scout’s loop (Module 03) is roughly: build messages → call the model → if tool calls, execute them → append results → repeat. The steering version threads a queue and an interrupt flag through it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">queue</span><span class="p">,</span> <span class="n">threading</span>
+
+<span class="k">class</span> <span class="nc">Steerable</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Steering state shared between the UI thread and the agent loop.</span><span class="sh">"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">inbox</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="nc">Queue</span><span class="p">()</span>      <span class="c1"># user messages typed mid-run
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">interrupt</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="nc">Event</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>        <span class="c1"># called from the UI / input thread
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">inbox</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>                     <span class="c1"># the one-keystroke interrupt
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">set</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">drain</span><span class="p">(</span><span class="n">steer</span><span class="p">:</span> <span class="n">Steerable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+    <span class="sh">"""</span><span class="s">Pull any queued user messages; called at loop boundaries only.</span><span class="sh">"""</span>
+    <span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">steer</span><span class="p">.</span><span class="n">inbox</span><span class="p">.</span><span class="nf">empty</span><span class="p">():</span>
+        <span class="n">msgs</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">steer</span><span class="p">.</span><span class="n">inbox</span><span class="p">.</span><span class="nf">get</span><span class="p">()})</span>
+    <span class="k">return</span> <span class="n">msgs</span>
+
+<span class="k">def</span> <span class="nf">run_loop</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">messages</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">steer</span><span class="p">:</span> <span class="n">Steerable</span><span class="p">):</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c1"># --- inject queued steering at the boundary, never mid-turn ---
+</span>        <span class="n">messages</span> <span class="o">+=</span> <span class="nf">drain</span><span class="p">(</span><span class="n">steer</span><span class="p">)</span>
+
+        <span class="c1"># --- stream the assistant turn so the human can see + react ---
+</span>        <span class="k">with</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">16000</span><span class="p">,</span>
+            <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">.</span><span class="n">text_stream</span><span class="p">:</span>
+                <span class="nf">render</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>                      <span class="c1"># the steering observability channel
+</span>                <span class="k">if</span> <span class="n">steer</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">is_set</span><span class="p">():</span>
+                    <span class="n">stream</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>                <span class="c1"># stop generating immediately
+</span>                    <span class="k">break</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="nf">get_final_message</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">steer</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">is_set</span><span class="p">():</span>
+            <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+                             <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">[interrupted by user — awaiting new direction]</span><span class="sh">"</span><span class="p">})</span>
+            <span class="n">steer</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">clear</span><span class="p">()</span>
+            <span class="k">continue</span>                              <span class="c1"># loop back; pick up queued redirect
+</span>
+        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">assistant</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="n">stop_reason</span> <span class="o">!=</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="c1"># --- execute tools; honor interrupt between (and inside) calls ---
+</span>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">tu</span> <span class="ow">in</span> <span class="p">(</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">response</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">tool_use</span><span class="sh">"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">steer</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">is_set</span><span class="p">():</span>
+                <span class="n">results</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+                                <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Skipped: run interrupted by user.</span><span class="sh">"</span><span class="p">,</span>
+                                <span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span>
+                <span class="k">continue</span>
+            <span class="n">results</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">execute_tool</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span> <span class="n">steer</span><span class="p">))</span>   <span class="c1"># see cancellable bash below
+</span>        <span class="n">messages</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">results</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>The cancellable tool — what to do with a half-finished <code class="language-plaintext highlighter-rouge">bash</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">subprocess</span>
+
+<span class="k">def</span> <span class="nf">execute_tool</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span> <span class="n">steer</span><span class="p">:</span> <span class="n">Steerable</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">bash</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nc">Popen</span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">"</span><span class="s">command</span><span class="sh">"</span><span class="p">],</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">proc</span><span class="p">.</span><span class="nf">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">steer</span><span class="p">.</span><span class="n">interrupt</span><span class="p">.</span><span class="nf">is_set</span><span class="p">():</span>
+                <span class="n">proc</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>                  <span class="c1"># kill the half-finished command
+</span>                <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+                        <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Command terminated mid-execution by user interrupt.</span><span class="sh">"</span><span class="p">,</span>
+                        <span class="sh">"</span><span class="s">is_error</span><span class="sh">"</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>          <span class="c1"># tell the model it did NOT complete
+</span>            <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">proc</span><span class="p">.</span><span class="nf">communicate</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">out</span><span class="p">}</span>
+    <span class="c1"># ... other tools
+</span></code></pre></div></div>
+
+<p>The key discipline: <strong>steering enters the conversation only at loop boundaries, always as appended messages.</strong> We never reach in and rewrite the in-flight turn. §5 explains why this is the <em>only</em> clean way, and §6 of the prompt-caching story (Module 10) explains why the cache forces it.</p>
+
+<p>🛠️ <strong>Exercise (warm-up):</strong> Add the interrupt flag and the queue to Scout. Verify: (a) pressing interrupt mid-<code class="language-plaintext highlighter-rouge">bash</code> terminates the subprocess and the model sees an <code class="language-plaintext highlighter-rouge">is_error</code> result; (b) a message typed during a tool call shows up as a new user turn at the <em>next</em> boundary, not spliced into the current one.</p>
+
+<p>✅ <strong>Self-check:</strong> Why feed the model an <code class="language-plaintext highlighter-rouge">is_error</code> tool_result on interrupt instead of just dropping the tool call? <em>(Because the message list must reflect reality: every <code class="language-plaintext highlighter-rouge">tool_use</code> block needs a matching <code class="language-plaintext highlighter-rouge">tool_result</code>, and the model must know the action didn’t complete so it doesn’t assume success on the next turn.)</em></p><hr />
+<h2 id="3-escalation-as-a-first-class-design-surface">
+  
+  
+    <a href="#3-escalation-as-a-first-class-design-surface" class="anchor-heading" aria-labelledby="3-escalation-as-a-first-class-design-surface"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Escalation as a first-class design surface
+  
+  
+</h2>
+    
+
+<p>The defining question of an autonomous agent is: <strong>when does it ASK the human, and when does it just ACT?</strong> This is the <em>calibration problem</em>, and it is where most agent products live or die.</p>
+
+<p>The clean way to implement “ask” is to make it a tool. Give Scout an <code class="language-plaintext highlighter-rouge">ask_human</code> (or <code class="language-plaintext highlighter-rouge">request_approval</code>) tool alongside <code class="language-plaintext highlighter-rouge">bash</code> and <code class="language-plaintext highlighter-rouge">edit</code>. Now asking is a normal action in the agent’s vocabulary — the model decides to call it, the loop blocks for a human answer, and the answer comes back as a tool result. This reframes the human’s role: they move from <strong>operator IN the loop</strong> (approving every step) to <strong>manager ON the exception path</strong> (available when the agent decides it needs them).</p>
+
+<p>There are two ways to get the calibration wrong, and they fail in opposite directions:</p>
+
+<ul>
+  <li><strong>Asks too much.</strong> You’ve quietly rebuilt the human-in-the-loop you were trying to remove. Every action becomes a confirmation prompt; the human becomes a clicking machine; <strong>alarm fatigue</strong> sets in and they start rubber-stamping without reading — which is <em>worse</em> than no gate, because now the gate gives false assurance.</li>
+  <li><strong>Asks too little.</strong> The agent barrels ahead and commits a costly, possibly <strong>irreversible</strong> mistake while unattended — a <code class="language-plaintext highlighter-rouge">DROP TABLE</code>, an email to the wrong customer, a force-push. The whole point of escalation was to catch exactly this, and it didn’t.</li>
+</ul>
+
+<p>The calibration axis is the <strong>reversibility / blast-radius / confidence</strong> triple — and reversibility is the same criterion from Module 11’s gating discussion, reused here as a <em>design</em> knob:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Signal</th>
+      <th>Ask</th>
+      <th>Act</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reversibility</td>
+      <td>Hard/impossible to undo (delete, send, deploy, pay)</td>
+      <td>Cheaply reversible (read, local edit, scratch file)</td>
+    </tr>
+    <tr>
+      <td>Blast radius</td>
+      <td>Affects prod, real users, money, external parties</td>
+      <td>Affects only the workspace / a sandbox</td>
+    </tr>
+    <tr>
+      <td>Confidence</td>
+      <td>Model is uncertain or arguments are ambiguous</td>
+      <td>Model is confident, action is well-specified</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The escalation tool, with policy baked in:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ASK_HUMAN_TOOL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">ask_human</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="p">(</span>
+        <span class="sh">"</span><span class="s">Ask the supervising human a question and wait for their answer. </span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">Call this BEFORE any action that is hard to reverse, affects production </span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">or real users, or when you are uncertain how to proceed. Do NOT call it </span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">for reversible, low-blast-radius actions you can confidently take.</span><span class="sh">"</span>
+    <span class="p">),</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">question</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">proposed_action</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">reversible</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">boolean</span><span class="sh">"</span><span class="p">,</span>
+                           <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Whether the proposed action can be cheaply undone.</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">question</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">handle_ask_human</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span> <span class="n">steer</span><span class="p">:</span> <span class="n">Steerable</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">"</span><span class="s">question</span><span class="sh">"</span><span class="p">]</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nf">prompt_human</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">proposed</span><span class="o">=</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">proposed_action</span><span class="sh">"</span><span class="p">))</span>   <span class="c1"># blocks the loop
+</span>    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">tool_result</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">tool_use_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="n">answer</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then enforce the policy in the harness too — don’t trust the model to self-gate. Classify each <em>outgoing</em> action by reversibility (the Module 11 classification) and force an approval for the irreversible ones regardless of whether the model asked:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gate</span><span class="p">(</span><span class="n">tu</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">Return True if this action must be approved by a human before executing.</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">bash</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">"</span><span class="s">command</span><span class="sh">"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nf">any</span><span class="p">(</span><span class="n">p</span> <span class="ow">in</span> <span class="n">cmd</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="sh">"</span><span class="s">rm -rf</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">git push</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">DROP</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">curl -X POST</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">kubectl delete</span><span class="sh">"</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="bp">True</span>               <span class="c1"># irreversible / high blast radius → always ask
+</span>    <span class="k">if</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="sh">"</span><span class="s">send_email</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">deploy</span><span class="sh">"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>                      <span class="c1"># reversible, low blast radius → act
+</span></code></pre></div></div>
+
+<p>The art is tuning the ask-rate. Run Scout on a handful of representative tasks, log every <code class="language-plaintext highlighter-rouge">ask_human</code> call and every harness-forced gate, and look at the rate. Too high → loosen the descriptions and the gate predicates. Too low and you saw a near-miss → tighten them. This is an <em>eval-able</em> property (Module 08): you can build a small suite of tasks with known “should-ask” / “should-act” labels and measure precision/recall on the escalation decision, exactly like any other classifier.</p>
+
+<p>🛠️ <strong>Exercise (escalation):</strong> Add <code class="language-plaintext highlighter-rouge">ask_human</code> to Scout with the policy above. Run it on three tasks of varying risk. Record the ask-rate. Deliberately mis-tune it once in each direction and feel the failure: an over-asking Scout is exhausting; an under-asking Scout does something you didn’t want.</p>
+
+<p>✅ <strong>Self-check:</strong> Why enforce reversibility in the <em>harness</em> gate as well as in the tool description? <em>(The description is a soft prompt the model may ignore or miscalibrate; the harness gate is a hard, non-bypassable control. Defense in depth — the same belt-and-suspenders logic as Module 11’s security gating.)</em></p><hr />
+<h2 id="4-making-a-long--autonomous-run-legible">
+  
+  
+    <a href="#4-making-a-long--autonomous-run-legible" class="anchor-heading" aria-labelledby="4-making-a-long--autonomous-run-legible"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Making a long / autonomous run legible
+  
+  
+</h2>
+    
+
+<p>You let Scout run overnight on a 6-hour task. In the morning, you have a 40,000-line transcript. The question that decides whether this product is usable is: <strong>can you understand what it did, and why, in <em>seconds</em> — or do you have to re-read the whole trace?</strong></p>
+
+<p>If the answer is “re-read the trace,” the product is dead on arrival for autonomous use. Nobody audits an overnight run line by line. So you must <em>design legibility in</em> — build a second, human-facing view of the run that is not the raw log.</p>
+
+<p>The surfaces that matter:</p>
+
+<ul>
+  <li><strong>A concise progress summary</strong> — where the run stands, what’s done, what’s left.</li>
+  <li><strong>A “what I did and why” decision journal</strong> — the key <em>decisions</em>, each with the reasoning, not every tool call. “Chose to skip the staging deploy because the diff was config-only” is a journal entry; <code class="language-plaintext highlighter-rouge">ls -la</code> is not.</li>
+  <li><strong>Surfaced uncertainty</strong> — the places the agent was unsure, made an assumption, or guessed. This is gold: it tells the human exactly where to look.</li>
+</ul>
+
+<p>Why does this matter beyond convenience? Because <strong>a human glancing at a well-designed summary and going “wait, that’s not what I meant” is the cheapest drift-detector you have.</strong> It catches goal drift (Module 13 — agents wandering off-objective over long unsupervised runs) <em>before any eval can</em>, because the human has the actual intent in their head and the eval only has its proxy. Legibility is not a nicety; it’s an <em>instrument</em> — the human’s eyeball is a sensor, and the summary is what you connect it to.</p>
+
+<p>Contrast sharply with the observability traces from Module 09. Those traces are for <em>engineers debugging the agent</em> — spans, token counts, tool latencies, full inputs/outputs. The legibility surface is for the <em>supervising human steering the work</em> — decisions and uncertainty, in their language, at their altitude. Same run, two completely different views, two different audiences. Don’t conflate them; a debugging trace shown as a “summary” is illegible, and a decision journal is useless for debugging a tool-call failure.</p>
+
+<p>Implementation: give Scout a tool to write journal entries as it works, and synthesize a summary at the end. The journal entries cost a little context but buy you the entire legibility surface for free.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">JOURNAL_TOOL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">log_decision</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">description</span><span class="sh">"</span><span class="p">:</span> <span class="p">(</span>
+        <span class="sh">"</span><span class="s">Record a notable DECISION and the reasoning behind it, or an uncertainty/</span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">assumption you are making. Use this for choices a supervising human would </span><span class="sh">"</span>
+        <span class="sh">"</span><span class="s">want to review later — not for routine actions.</span><span class="sh">"</span>
+    <span class="p">),</span>
+    <span class="sh">"</span><span class="s">input_schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">decision</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">why</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">},</span>
+            <span class="sh">"</span><span class="s">uncertain</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">boolean</span><span class="sh">"</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">decision</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">why</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">journal</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># appended to by handle_log_decision(...)
+</span>
+<span class="k">def</span> <span class="nf">end_of_run_summary</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">messages</span><span class="p">,</span> <span class="n">journal</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Synthesize the legibility surface — decisions + uncertainty, not raw logs.</span><span class="sh">"""</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span> <span class="o">+</span> <span class="p">[{</span>
+            <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">(</span>
+                <span class="sh">"</span><span class="s">Write a concise report for the human who left you running: </span><span class="sh">"</span>
+                <span class="sh">"</span><span class="s">(1) what you did, (2) why — the key decisions, </span><span class="sh">"</span>
+                <span class="sh">"</span><span class="s">(3) what you</span><span class="sh">'</span><span class="s">re UNSURE about or assumed. Decisions, not a log.</span><span class="sh">"</span>
+            <span class="p">),</span>
+        <span class="p">}],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">summary</span><span class="sh">"</span><span class="p">:</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">),</span>
+            <span class="sh">"</span><span class="s">decision_journal</span><span class="sh">"</span><span class="p">:</span> <span class="n">journal</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>🛠️ <strong>Exercise (legibility):</strong> Add <code class="language-plaintext highlighter-rouge">log_decision</code> and the end-of-run summary to Scout. Run a multi-step task. Then read <em>only</em> the summary and journal — not the transcript — and ask yourself whether you could catch a goal-drift mistake from them alone. Tune the journal-entry description until the answer is yes.</p>
+
+<p>✅ <strong>Self-check:</strong> Why is the summary a better drift-detector than an eval? <em>(The human holds the true intent; the eval holds a fixed proxy written in advance. The human catches “that’s not what I meant” — a divergence the eval’s proxy can’t represent because nobody anticipated it.)</em></p><hr />
+<h2 id="5-inspecting-and-correcting-a-live-run">
+  
+  
+    <a href="#5-inspecting-and-correcting-a-live-run" class="anchor-heading" aria-labelledby="5-inspecting-and-correcting-a-live-run"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Inspecting and correcting a <em>live</em> run
+  
+  
+</h2>
+    
+
+<p>Steering at the boundary (§2) handles redirection. But two harder questions remain, and they’re where the frontier is.</p>
+
+<p><strong>INSPECT: can a human see a live run’s state?</strong> The honest answer is “not directly.” The agent’s durable state — its message list, scratch files, memory — is optimized for <em>the next model call</em>, not for a human to read. It’s a wall of tool-call JSON and intermediate reasoning. So inspection requires building a <strong>second, human-facing projection</strong> of that state: the same legibility surface from §4, but rendered live. You don’t show the human the raw state; you show them a <em>view</em> derived from it. This is exactly the read-model / write-model split from CQRS, applied to agents: the write model (durable state) serves the agent; the read model (projection) serves the human.</p>
+
+<p><strong>CORRECT: can a human fix a live run’s state mid-flight?</strong> This is genuinely hard, and most teams <em>punt</em> on it — for good reasons.</p>
+
+<p>Editing a running agent’s state mid-flight is live surgery on a system that has beliefs about itself. If you reach in and change a fact the agent already “knows,” you create an inconsistency between what the agent believes (from earlier in its context) and what is now true. The agent’s later reasoning may still reference the old value; you get incoherence, not correction.</p>
+
+<p>Worse, it collides head-on with <strong>prompt caching’s append-only / prefix-stable invariant</strong> (Module 10). Recall: caching is a <em>prefix match</em> — any byte change anywhere in the cached prefix invalidates everything after it. If you mutate message 5 of a 200-message run, you’ve (a) created the belief inconsistency above and (b) blown away the entire cache from message 5 onward, re-billing the whole tail at full price. The cache is <em>structurally</em> an append-only log; editing the past fights its deepest assumption.</p>
+
+<p>So the clean approach is the same one §2 already used, and now you can see <em>why</em> it’s clean: <strong>steer by APPENDING an event/message, never by editing past state.</strong> Instead of rewriting “source senior candidates” to “source mid-level,” you append:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"role": "user", "content": "Update: stop sourcing senior candidates. Pivot to mid-level. Ignore the earlier seniority instruction."}
+</code></pre></div></div>
+
+<p>The agent observes this at the next loop boundary, reconciles it against its prior context itself (it’s good at this — that’s what the model is <em>for</em>), and the cached prefix stays byte-stable, so the entire history before the new message is still a cache hit. Append-only steering is correct <em>both</em> as a state-consistency strategy <em>and</em> as a caching strategy. The two constraints point the same direction — which is a strong signal it’s the right design.</p>
+
+<p>This append-an-instruction pattern is the same shape platforms standardize: an out-of-band “interrupt” or “user message” event that the orchestrator delivers at a safe boundary, leaving prior history intact. (Some setups even formalize a mid-conversation <em>system</em> message appended to the message list — an operator channel that preserves the cached prefix; see Module 10.)</p>
+
+<p>True <em>live correction</em> — surgically rewriting the agent’s belief mid-turn so it’s instantly consistent and cache-friendly — has <strong>no clean general solution.</strong> Be honest about this with whoever you’re building for. The pragmatic workaround almost everyone ships: <strong>kill the run and restart from a corrected state file.</strong> Checkpoint the run (Module 12), let the human edit the <em>checkpoint</em> (which is at rest, so no in-flight inconsistency), and resume from the edited checkpoint. You’re not editing a live agent; you’re editing a paused one and starting fresh. It’s coarse, it’s correct, and it sidesteps both the consistency and the caching problems.</p>
+
+<p>✅ <strong>Self-check:</strong> Why does appending an instruction preserve the cache while editing message 5 destroys it? <em>(The cache key is the exact byte prefix. Appending leaves the entire prior prefix unchanged → full cache hit on the history. Editing message 5 changes a byte in the prefix → everything from message 5 onward is invalidated and re-billed.)</em></p><hr />
+<h2 id="6-approval--confirmation-ux--deepening-the-gate">
+  
+  
+    <a href="#6-approval--confirmation-ux--deepening-the-gate" class="anchor-heading" aria-labelledby="6-approval--confirmation-ux--deepening-the-gate"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Approval &amp; confirmation UX — deepening the gate
+  
+  
+</h2>
+    
+
+<p>Module 03 gave you a yes/no permission gate; Module 11 gave you the security rationale. Here we treat the gate as what it actually is: <strong>a product surface, not an afterthought.</strong> A bad approval prompt either gets rubber-stamped (useless) or exhausts the user (abandoned). A good one makes the right decision <em>cheap and obvious.</em></p>
+
+<p>What a real approval prompt renders:</p>
+
+<ul>
+  <li><strong>The action</strong> — what the agent wants to do, in plain language, not raw JSON.</li>
+  <li><strong>A preview / diff of the change</strong> — for an <code class="language-plaintext highlighter-rouge">edit</code>, the unified diff; for a <code class="language-plaintext highlighter-rouge">bash</code>, the exact command; for an API call, the request. <em>Seeing the change is the entire trust transaction.</em> An approval without a preview is a blind signature.</li>
+  <li><strong>The blast radius</strong> — what this touches. “Modifies 1 file in your workspace” vs. “Deletes 4 rows from the production <code class="language-plaintext highlighter-rouge">users</code> table.” This is the reversibility/blast-radius signal from §3, surfaced to the human at the decision point.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">render_approval</span><span class="p">(</span><span class="n">tu</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">edit</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">return </span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">EDIT  </span><span class="si">{</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">'</span><span class="s">path</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="sh">"</span>
+                <span class="sa">f</span><span class="sh">"</span><span class="s">blast radius: 1 file (workspace, reversible via git)</span><span class="se">\n\n</span><span class="sh">"</span>
+                <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="nf">unified_diff</span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">'</span><span class="s">path</span><span class="sh">'</span><span class="p">],</span> <span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">'</span><span class="s">new_text</span><span class="sh">'</span><span class="p">])</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="sh">"</span><span class="s">bash</span><span class="sh">"</span><span class="p">:</span>
+        <span class="n">risky</span> <span class="o">=</span> <span class="nf">gate</span><span class="p">(</span><span class="n">tu</span><span class="p">)</span>
+        <span class="nf">return </span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">BASH  </span><span class="si">{</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">[</span><span class="sh">'</span><span class="s">command</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="sh">"</span>
+                <span class="sa">f</span><span class="sh">"</span><span class="s">blast radius: </span><span class="si">{</span><span class="sh">'</span><span class="s">HIGH — irreversible / prod</span><span class="sh">'</span> <span class="k">if</span> <span class="n">risky</span> <span class="k">else</span> <span class="sh">'</span><span class="s">low — workspace</span><span class="sh">'</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">tu</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">  </span><span class="si">{</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">tu</span><span class="p">.</span><span class="nb">input</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span>
+</code></pre></div></div>
+
+<p>Beyond the single prompt, the surfaces that reduce friction without reducing safety:</p>
+
+<ul>
+  <li><strong>“Always allow X for this session.”</strong> After the user approves <code class="language-plaintext highlighter-rouge">edit</code> once, stop asking for <code class="language-plaintext highlighter-rouge">edit</code> this session. This directly fights alarm fatigue (§3). Scope it carefully — “always allow” should never silently cover the irreversible class.</li>
+  <li><strong>Batching approvals.</strong> When the agent proposes five reversible edits, show them as one batch with five diffs and one approve button, not five sequential prompts. One decision, full visibility.</li>
+  <li><strong>Plan mode / dry-run</strong> — <strong>the single highest-trust pattern.</strong> The agent proposes a complete step-by-step plan and <em>waits for approval before executing anything.</em> The human reviews the whole strategy up front, while it’s still free to change, rather than approving (or catching) actions one at a time after they’ve started. Plan mode front-loads the trust transaction to the cheapest possible moment.</li>
+  <li><strong>Graduated autonomy levels — a user-facing dial.</strong> Expose the autonomy level as an explicit control the user sets per run:</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>Behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>read-only</strong></td>
+      <td>Scout can read and analyze; every write/exec is gated.</td>
+    </tr>
+    <tr>
+      <td><strong>auto-edit</strong></td>
+      <td>Reversible edits auto-apply; irreversible/external actions gated.</td>
+    </tr>
+    <tr>
+      <td><strong>full-auto</strong></td>
+      <td>Everything runs; the human watches via the legibility surface and interrupts if needed.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The dial is the user’s primary lever for <em>spending</em> trust as they earn it. New task in an unfamiliar area → read-only. Routine task they’ve watched succeed ten times → full-auto. The same Scout, the same model — the human just chose how much rope to give it. (Plan mode and auto-accept levels are exactly the pattern shipped by coding agents like Claude Code and Cursor — strong evidence this is the standard, not a one-off.)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AUTO_ALLOW</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">read-only</span><span class="sh">"</span><span class="p">:</span>  <span class="k">lambda</span> <span class="n">tu</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="sh">"</span><span class="s">read</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">grep</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">glob</span><span class="sh">"</span><span class="p">),</span>
+    <span class="sh">"</span><span class="s">auto-edit</span><span class="sh">"</span><span class="p">:</span>  <span class="k">lambda</span> <span class="n">tu</span><span class="p">:</span> <span class="n">tu</span><span class="p">.</span><span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="sh">"</span><span class="s">read</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">grep</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">glob</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">edit</span><span class="sh">"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nf">gate</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span>
+    <span class="sh">"</span><span class="s">full-auto</span><span class="sh">"</span><span class="p">:</span>  <span class="k">lambda</span> <span class="n">tu</span><span class="p">:</span> <span class="ow">not</span> <span class="nf">gate</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span>     <span class="c1"># gate() still stops the irreversible class
+</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">needs_approval</span><span class="p">(</span><span class="n">tu</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">AUTO_ALLOW</span><span class="p">[</span><span class="n">level</span><span class="p">](</span><span class="n">tu</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notice <code class="language-plaintext highlighter-rouge">gate()</code> (the irreversible-class predicate from §3) is honored at <em>every</em> level including full-auto. The autonomy dial controls the <em>reversible</em> surface; the irreversible class is a hard floor. That’s the design rule: <strong>let the user dial up autonomy on what’s recoverable, never on what isn’t.</strong></p>
+
+<p>🛠️ <strong>Exercise (approval UX):</strong> Upgrade Scout’s gate to render action + diff/preview + blast radius, add session-level “always allow,” and wire the autonomy dial. Confirm that <code class="language-plaintext highlighter-rouge">full-auto</code> still stops a <code class="language-plaintext highlighter-rouge">rm -rf</code> via <code class="language-plaintext highlighter-rouge">gate()</code>.</p><hr />
+<h2 id="7-the-audit--review-surface--the-performance-review-for-your-agent">
+  
+  
+    <a href="#7-the-audit--review-surface--the-performance-review-for-your-agent" class="anchor-heading" aria-labelledby="7-the-audit--review-surface--the-performance-review-for-your-agent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. The audit / review surface — the performance review for your agent
+  
+  
+</h2>
+    
+
+<p>Everything above is <em>during</em> the run. The audit surface is <em>after</em>: letting a human review what the agent decided and why, retrospectively. Think of it as <strong>the performance review for your agent.</strong></p>
+
+<p>This ties two earlier modules together into a flywheel:</p>
+
+<ul>
+  <li>It builds on the <strong>observability traces</strong> (Module 09) — the audit surface is a human-readable rendering of the trace, joined with the decision journal (§4).</li>
+  <li>It feeds <strong>evals</strong> (Module 08) — when a human reviews a run and finds a bad decision, that run becomes a <em>new eval case</em>. Human review of production runs is the single richest source of eval data you have. Review → find failure → add eval → fix → review again. The interface closes the loop.</li>
+</ul>
+
+<p>And underpinning all of it: <strong>recoverability is part of the interface.</strong> The audit surface is only valuable if, having found a mistake, the human can <em>undo</em> it. So recoverability is a design requirement, not an afterthought:</p>
+
+<ul>
+  <li><strong>Git for everything the agent touches</strong> — every edit is a commit, so every edit is one <code class="language-plaintext highlighter-rouge">git revert</code> away.</li>
+  <li><strong>Dry-runs and previews</strong> (§6) — catch the mistake <em>before</em> it commits.</li>
+  <li><strong>Confirmations on irreversible actions</strong> (§3) — the things git can’t undo (sent email, deployed code, charged card) get the hard gate.</li>
+</ul>
+
+<p>The throughline of the whole module lands here: <strong>making mistakes survivable is what lets users grant autonomy.</strong> A user who knows any bad action is one revert away will let the agent run on far more, because their downside is bounded. Recoverability doesn’t reduce the <em>rate</em> of mistakes — that’s the reliability problem — it reduces their <em>cost</em>, which is the trust problem. Two sides of the same coin, again.</p><hr />
+<h2 id="8-adoption--trust-dynamics-in-regulated--outward-facing-domains">
+  
+  
+    <a href="#8-adoption--trust-dynamics-in-regulated--outward-facing-domains" class="anchor-heading" aria-labelledby="8-adoption--trust-dynamics-in-regulated--outward-facing-domains"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 8. Adoption &amp; trust dynamics in regulated / outward-facing domains
+  
+  
+</h2>
+    
+
+<p>Sharpen the stakes. For an internal coding agent, a mistake costs some rework. For an <strong>outward-facing or regulated agent</strong> — recruiting, customer support, finance, healthcare — a wrong autonomous action is <em>expensive</em> and <em>accountable</em>: a discriminatory candidate rejection, a wrong financial figure quoted to a customer, a HIPAA-relevant disclosure. Here the model’s reliability is <em>not</em> the safety story, because you can never get it to zero and the cost of the residual is too high to eat.</p>
+
+<p><strong>The interface and recoverability <em>are</em> the safety mechanism.</strong> In these domains:</p>
+
+<ul>
+  <li>The escalation surface (§3) is where regulatory and policy judgment enters — anything with legal or financial consequence routes to a human by design, not by the model’s discretion.</li>
+  <li>The audit surface (§7) is the <em>accountability</em> record — who decided what, when, why, and who approved it. In a regulated domain this isn’t a nicety; it’s a compliance requirement.</li>
+  <li>Recoverability bounds the blast radius of the residual errors you can’t eliminate.</li>
+</ul>
+
+<p>The autonomy a user (or an institution) grants is exactly the function we opened with: <strong>a function of how cheap inspection is and how survivable mistakes are.</strong> In a regulated domain both terms are scrutinized hard — inspection has to satisfy an auditor, and “survivable” has to satisfy a regulator. Which is precisely why, for these agents, the human-interface layer <em>is</em> the product, and the model is the commodity underneath it.</p><hr />
+<h2 id="️-exercise-a-human-interface-layer-for-scout">
+  
+  
+    <a href="#️-exercise-a-human-interface-layer-for-scout" class="anchor-heading" aria-labelledby="️-exercise-a-human-interface-layer-for-scout"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise: a human-interface layer for Scout
+  
+  
+</h2>
+    
+
+<p>Build all of the following onto Scout’s loop (Module 03) and its permission gate (Modules 03/11). Keep Scout framework-free. After each part, write in <code class="language-plaintext highlighter-rouge">notes.md</code> how that surface changed your <em>willingness to let Scout run unattended</em> — that subjective shift is the actual deliverable.</p>
+
+<p><strong>(a) Plan mode (dry-run).</strong> Before executing a task, Scout first proposes a step-by-step plan and <strong>waits for approval.</strong> Only on approval does it run the loop. Implement the propose → approve → execute gate.</p>
+
+<p><strong>(b) Interruptible execution.</strong> Let the user interrupt mid-run (Ctrl-C or a typed message) and inject a redirect that Scout picks up at the <em>next loop boundary</em>, without killing the run. Implement the queue + interrupt flag from §2, including the cancellable <code class="language-plaintext highlighter-rouge">bash</code>.</p>
+
+<p><strong>(c) Legibility surface.</strong> After a run, Scout emits a concise “what I did / why / what I’m unsure about” summary plus a decision journal — <em>not</em> the raw transcript. Use <code class="language-plaintext highlighter-rouge">log_decision</code> + <code class="language-plaintext highlighter-rouge">end_of_run_summary</code> from §4.</p>
+
+<p><strong>(d) Calibrated escalation.</strong> Add <code class="language-plaintext highlighter-rouge">ask_human</code> with a policy: ask on irreversible / ambiguous / low-confidence actions, act on reversible ones (reuse the Module 11 reversibility classification). Run Scout on a few tasks, <strong>measure the ask-rate</strong>, and tune it.</p>
+
+<p><strong>(e) Approval UX.</strong> When Scout proposes a write/bash action, render the <strong>action + a preview/diff + blast radius</strong>, and remember “always allow X for this session.” Deepen the Module 03 gate per §6.</p>
+
+<p><strong>(f) Stretch — autonomy dial.</strong> Add a <code class="language-plaintext highlighter-rouge">read-only / auto-edit / full-auto</code> dial the user sets per run that changes which actions are auto-allowed vs. gated. Confirm the irreversible class is gated at <em>every</em> level.</p>
+
+<p>Reflect in <code class="language-plaintext highlighter-rouge">notes.md</code>: which single surface most increased your willingness to walk away while Scout worked? For most people it’s plan mode or one-keystroke interrupt — notice <em>why</em>.</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>The demo-to-trust gap.</strong> The agent demos beautifully and then stalls the moment a human has to oversee it for real. The fix was never a better model — it’s steering, approval previews, legibility, and undo. Teams that treat UX as “later” ship demos, not products.</li>
+  <li><strong>Ask-rate miscalibration → alarm fatigue.</strong> Too many confirmations and the human rubber-stamps blindly, which is <em>worse</em> than no gate because it manufactures false confidence. Too few and the agent commits an unattended irreversible mistake. Calibrate by reversibility/blast-radius; make the gate an eval-able classifier (§3).</li>
+  <li><strong>Illegible long runs.</strong> You can’t tell what an overnight run did, so you can’t catch drift, so you can’t trust it overnight — a vicious circle. The decision journal + summary (§4) is the way out; the raw trace is not.</li>
+  <li><strong>Can’t inspect or correct a live run.</strong> Durable state is built for the agent, not the human, and true mid-run correction has no clean solution. Ship the read-model projection for inspection and the kill-and-restart-from-checkpoint workaround for correction; don’t promise live surgery you can’t deliver.</li>
+  <li><strong>Over-automation.</strong> Removing the human before the agent has <em>earned</em> the trust — defaulting to full-auto out of the gate. Earn autonomy with the dial; start gated, loosen as the human watches it succeed.</li>
+  <li><strong>Steering that fights the cache.</strong> Implementing “correction” by editing past messages blows the prompt cache (Module 10) and creates belief inconsistency. Append events at boundaries; never rewrite history.</li>
+  <li><strong>Regulated/outward-facing reality.</strong> For these agents the interface + recoverability <em>are</em> the safety mechanism, not model reliability — and the audit surface is a compliance artifact, not a convenience.</li>
+</ul>
+
+<p>The thread that ties every one of these back to the thesis: each is a place where insufficient <em>reliability</em> had to be covered by <em>interaction design</em>, and the failure is what happens when the interface wasn’t there to catch it. The reliability problem and the UX problem are the same problem. You manage what you couldn’t make perfect by building the boundary where the human and the agent meet.</p>
+
+<p>In Module 12 these surfaces stop being toy loop-hooks and become real infrastructure: streaming over SSE to a UI, <strong>durable suspend/resume</strong> that makes pause-for-approval natural (a run can wait days for a human and resume exactly where it left off), and checkpoints that make kill-and-restart-from-corrected-state a first-class operation rather than a hack.</p>
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ol>
+  <li>State the module’s thesis in one sentence, and explain why “the reliability problem and the UX problem are two sides of the same coin.”</li>
+  <li>Why is <em>instant, safe</em> interruption disproportionately important for how much autonomy a user will grant?</li>
+  <li>Give the two failure directions of escalation miscalibration and the signal you calibrate on to avoid both.</li>
+  <li>Why is a human glancing at a run summary a <em>cheaper</em> drift-detector than an eval — and what can it catch that the eval can’t?</li>
+  <li>Why does correcting a live run by appending a message preserve the prompt cache while editing a past message destroys it? Connect this to Module 10’s prefix invariant.</li>
+  <li>Explain why plan mode is described as “the single highest-trust pattern.”</li>
+  <li>Why does the irreversible-action class stay gated even at the <code class="language-plaintext highlighter-rouge">full-auto</code> autonomy level?</li>
+  <li>For a regulated, outward-facing agent, why are the interface and recoverability — not model reliability — the actual safety mechanism?</li>
+</ol>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Module 03 — the agent loop and the permission gate (the foundation everything here hooks into).</li>
+  <li>Module 10 — prompt caching’s append-only / prefix-stable invariant (why steering must append, never edit).</li>
+  <li>Module 09 — observability traces (the engineer-facing view; contrast with the human-facing legibility surface here).</li>
+  <li>Module 08 — evals (human review of runs feeds new eval cases — the flywheel of §7).</li>
+  <li>Module 11 — security, HITL, and the reversibility criterion (reused here as the escalation calibration axis).</li>
+  <li>Module 13 — long-running agents and goal drift (what the legibility surface is built to catch early).</li>
+  <li>Agent platforms as evidence the primitives are standard: Anthropic’s Managed Agents expose interrupt events, tool-confirmation round-trips, and SSE event streams; Claude Code and Cursor expose plan mode, auto-accept/autonomy levels, and one-keystroke interrupt. The patterns in this module are conceptual reimplementations of surfaces these products ship.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/12-deployment-durable-execution.html">Module 12 — Deployment &amp; Durable Execution</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

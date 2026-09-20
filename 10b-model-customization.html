@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/agent-engineering-course-site/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(15)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(15) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(15) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(15) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/agent-engineering-course-site/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/agent-engineering-course-site/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>10B · Model Customization | Agent Engineering</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="10B · Model Customization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta name="twitter:description" property="og:description" content="From Fundamentals to Production — a hands-on course for engineers." />
+<meta property="og:site_name" content="Agent Engineering" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="10B · Model Customization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"From Fundamentals to Production — a hands-on course for engineers.","headline":"10B · Model Customization","url":"/agent-engineering-course-site/10b-model-customization.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/agent-engineering-course-site/" class="site-title lh-tight">
+  Agent Engineering
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/agent-engineering-course-site/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00-setup.html" class="nav-list-link">0 · Setup & Orientation</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/00b-python-for-scout.html" class="nav-list-link">0B · Python for Scout</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01-foundations-model-and-api.html" class="nav-list-link">1 · Foundations & the API</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/01b-prompting-and-steering.html" class="nav-list-link">1B · Prompting & Steering</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/02-tool-use.html" class="nav-list-link">2 · Tool Use</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/03-the-agent-loop.html" class="nav-list-link">3 · The Agent Loop</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/04-context-and-memory.html" class="nav-list-link">4 · Context & Memory</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/05-retrieval-and-rag.html" class="nav-list-link">5 · Retrieval & RAG</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/06-multi-agent-orchestration.html" class="nav-list-link">6 · Multi-Agent Orchestration</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/07-frameworks.html" class="nav-list-link">7 · Frameworks</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/08-evals.html" class="nav-list-link">8 · Evals</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/09-observability.html" class="nav-list-link">9 · Observability</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10-reliability-cost-performance.html" class="nav-list-link">10 · Reliability, Cost & Performance</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/10b-model-customization.html" class="nav-list-link">10B · Model Customization</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11-security-and-safety.html" class="nav-list-link">11 · Security & Safety</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/11b-human-interface-and-trust.html" class="nav-list-link">11B · Human Interface & Trust</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/12-deployment-durable-execution.html" class="nav-list-link">12 · Deployment & Durable Execution</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/13-frontier-and-advanced.html" class="nav-list-link">13 · Frontier & Advanced</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/14-capstone.html" class="nav-list-link">14 · Capstone</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/glossary.html" class="nav-list-link">Glossary</a></li><li class="nav-list-item"><a href="/agent-engineering-course-site/resources.html" class="nav-list-link">Resources</a></li></ul>
+  
+</nav>
+
+
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Agent Engineering" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Agent Engineering</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/MaanavKhaitan/agent-engineering-course" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          GitHub repo
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="module-10b--model-customization-fine-tuning-rft--when-to-train">
+  
+  
+    <a href="#module-10b--model-customization-fine-tuning-rft--when-to-train" class="anchor-heading" aria-labelledby="module-10b--model-customization-fine-tuning-rft--when-to-train"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Module 10B — Model Customization: Fine-Tuning, RFT &amp; When to Train
+  
+  
+</h1>
+    
+
+<p>Modules 1–10 taught you to push a <em>frozen, general-purpose</em> model as far as it goes: prompting, context, RAG, tools, evals, and the reliability/cost/performance levers. This module is about the lever you reach for <strong>last</strong> — changing the weights themselves.</p>
+
+<p>Here is the dominant message, stated up front so you don’t lose it in the details: <strong>for most teams, the right answer is “not yet.”</strong> Fine-tuning is the highest-cost, highest-ops, least-flexible lever in your toolbox. It freezes behavior into a frozen artifact at the exact moment when base models are leaping forward every few months. The teams that win the customization game are almost never the ones who fine-tuned early — they’re the ones who built evals and data flywheels (which <em>appreciate</em>) and reached for training only when a real capability or cost ceiling forced their hand, with the data and evals in hand to prove it worked.</p>
+
+<p>This is an engineering-economics module, not an ML-internals module. We will not teach you backprop or LoRA rank selection. We <em>will</em> teach you the decision framework: which gap each lever closes, when training is the wrong tool entirely (it usually is), and the one case — distillation — where the ROI is genuinely clean.</p>
+<h2 id="learning-objectives">
+  
+  
+    <a href="#learning-objectives" class="anchor-heading" aria-labelledby="learning-objectives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Learning objectives
+  
+  
+</h2>
+    
+
+<p>By the end you will be able to:</p>
+
+<ul>
+  <li>Place any capability gap on the <strong>prompting → few-shot → context/RAG → tools → fine-tuning</strong> ladder and justify the cheapest lever that closes it.</li>
+  <li>Explain precisely what supervised fine-tuning (SFT) does and does <strong>not</strong> do — and why “fine-tune the model on our docs” is the classic wrong-tool error.</li>
+  <li>Distinguish SFT, preference tuning (DPO/RLHF), reinforcement fine-tuning (RFT) with verifiable rewards, LoRA/PEFT, and distillation at an engineer’s level of detail.</li>
+  <li>Connect RFT directly to your Module 08 eval grader (the grader <em>is</em> the reward signal).</li>
+  <li>Make the honest call on when to fine-tune vs. when not to — and recognize the data-quality and “frozen asset” traps that silently sink fine-tuning projects.</li>
+  <li>Run a small distillation demo: label with a strong model, serve a cheap one, measure the delta with your eval harness.</li>
+</ul><hr />
+<h2 id="1-the-capabilitycost-ladder">
+  
+  
+    <a href="#1-the-capabilitycost-ladder" class="anchor-heading" aria-labelledby="1-the-capabilitycost-ladder"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. The capability/cost ladder
+  
+  
+</h2>
+    
+
+<p>Every customization decision starts here. When the model isn’t doing what you need, walk <em>down</em> this ladder and stop at the first rung that closes the gap. Each rung is cheaper, faster to iterate, and more flexible than the one below it.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Lever</th>
+      <th>Closes the gap when…</th>
+      <th>Iteration speed</th>
+      <th>Ops cost</th>
+      <th>Flexibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Prompting</strong></td>
+      <td>The model <em>can</em> do it but isn’t, given the current instructions</td>
+      <td>Seconds (edit a string)</td>
+      <td>~0</td>
+      <td>Total — change anytime</td>
+    </tr>
+    <tr>
+      <td><strong>Few-shot examples</strong></td>
+      <td>The model needs to <em>see</em> the format/pattern, not be told</td>
+      <td>Seconds</td>
+      <td>~0</td>
+      <td>Total</td>
+    </tr>
+    <tr>
+      <td><strong>Context / RAG</strong></td>
+      <td>The model lacks <strong>knowledge</strong> — facts, docs, current data</td>
+      <td>Minutes (index docs)</td>
+      <td>Low–medium</td>
+      <td>High — update the index, not the model</td>
+    </tr>
+    <tr>
+      <td><strong>Tools</strong></td>
+      <td>The model needs to <em>act</em> or fetch live state (APIs, code, search)</td>
+      <td>Hours (build a tool)</td>
+      <td>Medium</td>
+      <td>High — add/remove tools</td>
+    </tr>
+    <tr>
+      <td><strong>Fine-tuning</strong></td>
+      <td>A real gap remains after all of the above <strong>and</strong> you have data + evals</td>
+      <td>Days–weeks per cycle</td>
+      <td>High (training + serving + retraining treadmill)</td>
+      <td><strong>Low — behavior is frozen into weights</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The asymmetry is the whole point. A prompt edit is a one-line diff you can ship and revert in the same afternoon. A fine-tune is a multi-day pipeline, a new serving artifact, a new thing to monitor, and a behavior you’ve <em>frozen</em> into weights that go stale the moment the base model improves. You should feel real resistance dropping to the bottom rung.</p>
+
+<p>A rough decision tree:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Is the model missing KNOWLEDGE (facts, docs, fresh data)?
+  → RAG / context.  Fine-tuning does NOT add knowledge. (See §2.)
+
+Does it need to ACT or read live state?
+  → Tools.
+
+Does it know what to do but produce the wrong FORMAT / STYLE / TONE?
+  → Try prompting + few-shot first.
+  → If you need it bit-exact every time → structured outputs, or SFT as a last resort.
+
+Is it correct but too SLOW / EXPENSIVE at high volume on a NARROW task?
+  → Distillation (the one clean fine-tuning win). (See §6.)
+
+None of the above, real gap remains, you have data + evals?
+  → Now consider fine-tuning.
+</code></pre></div></div>
+
+<p>Note that “the model is too expensive” usually has a cheaper answer than training: prompt caching, model tiering (route easy calls to a cheaper model), and batching capture most of the cost win without any custom weights (Module 10). Exhaust those first.</p>
+
+<p>✅ <strong>Rule of thumb:</strong> if you can close the gap with a string you can edit in production, do that. Reserve weight changes for gaps that survive every cheaper lever.</p><hr />
+<h2 id="2-what-fine-tuning-is--and-what-it-isnt">
+  
+  
+    <a href="#2-what-fine-tuning-is--and-what-it-isnt" class="anchor-heading" aria-labelledby="2-what-fine-tuning-is--and-what-it-isnt"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. What fine-tuning is — and what it isn’t
+  
+  
+</h2>
+    
+
+<p>This is the single most expensive misconception in the field, so we lead with it:</p>
+
+<blockquote>
+  <p><strong>Supervised fine-tuning teaches FORMAT, STYLE, TONE, and narrow task BEHAVIOR. It does NOT reliably inject new FACTS or KNOWLEDGE, and it won’t substantially improve reasoning.</strong></p>
+</blockquote>
+
+<p>SFT continues training a base model on a dataset of input→output examples. Gradient descent nudges the weights so the model’s outputs look more like your examples. What that reliably changes:</p>
+
+<ul>
+  <li><strong>Format</strong> — “always emit our exact ticket JSON,” “always answer in this rubric structure.”</li>
+  <li><strong>Style and tone</strong> — terse vs. expansive, our brand voice, a specific persona.</li>
+  <li><strong>Narrow task behavior</strong> — a classification boundary, an extraction pattern, a consistent way of handling a specific kind of request.</li>
+</ul>
+
+<p>What it does <strong>not</strong> reliably do:</p>
+
+<ul>
+  <li><strong>Add knowledge.</strong> Training on your internal wiki does not make the model <em>know</em> your wiki. It will absorb the surface form and may parrot a few facts, but it will also confidently hallucinate, can’t be updated when a doc changes without retraining, and gives you no citations. <strong>Knowledge is RAG’s job</strong> (Module 05). If the gap is “the model doesn’t know X,” fine-tuning is the wrong tool, full stop. This is the error to internalize: <em>the request “fine-tune the model on our docs” is almost always a RAG request in disguise.</em></li>
+  <li><strong>Make the model fundamentally smarter.</strong> SFT teaches the model to <em>imitate</em> outputs; it does not teach it to reason better than its base capability. If the base model can’t solve the problem, examples of solved problems mostly teach it to imitate the <em>shape</em> of a solution, not to actually reason to one.</li>
+</ul>
+
+<p>The clean mental model: <strong>RAG and tools change what the model can SEE; fine-tuning changes how the model BEHAVES with what it already sees.</strong> Confuse the two and you’ll spend weeks training a model to do something a retrieval index does better, cheaper, and updatably.</p>
+
+<p>📖 The corollary: fine-tuning works best on tasks that are <em>narrow and stable in behavior but high in volume</em> — exactly the profile where you’d also want the cheaper, faster model. That’s why distillation (§6) is the sweet spot.</p><hr />
+<h2 id="3-the-methods-engineers-eye-view">
+  
+  
+    <a href="#3-the-methods-engineers-eye-view" class="anchor-heading" aria-labelledby="3-the-methods-engineers-eye-view"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. The methods (engineer’s-eye view)
+  
+  
+</h2>
+    
+
+<p>You don’t need the math, but you should know what each technique buys you. Each of these is one tight paragraph.</p>
+
+<p><strong>SFT (supervised fine-tuning).</strong> The baseline. Train on <code class="language-plaintext highlighter-rouge">(input, ideal_output)</code> pairs; the model learns to produce outputs like your examples. Best for format/style/behavior on a narrow task. This is what “fine-tuning” means by default and what most provider fine-tuning APIs expose.</p>
+
+<p><strong>Preference tuning (DPO / RLHF).</strong> Instead of one ideal output per input, you provide <em>pairs</em> — a preferred and a rejected response — and the model learns to favor the preferred style. RLHF does this via a learned reward model and reinforcement learning; DPO (Direct Preference Optimization) skips the separate reward model and optimizes preferences directly, which is simpler and cheaper to run. Use this to align <em>to subjective preferences</em> (“we like answers that hedge less,” “we prefer this tone”) where there’s no single correct output but there is a clear better/worse.</p>
+
+<p><strong>RFT / reinforcement fine-tuning with verifiable rewards.</strong> The most agent-relevant method. Instead of labeled outputs, you fine-tune against a <strong>reward signal</strong>: the model generates attempts, a grader scores each one, and the weights are updated toward higher-scoring behavior. The grader can be <em>anything programmatic</em> — did the unit test pass? did the extracted JSON validate against the schema? did the eval mark it correct? This is powerful precisely when you can <em>check</em> an answer more easily than you can <em>write</em> the ideal one. The direct tie to this course: <strong>your Module 08 eval grader can BE the reward.</strong> If you already have a programmatic grader that returns a score, you already have the hardest piece of an RFT pipeline. (More in §7’s exercise.)</p>
+
+<p><strong>LoRA / PEFT (parameter-efficient fine-tuning).</strong> Full fine-tuning updates every weight — expensive to train and to serve (a whole new model copy). LoRA and other PEFT methods train a small set of <em>adapter</em> weights on top of a frozen base, capturing most of the benefit at a fraction of the training cost and storage. Practically: cheaper to train, faster to iterate, and many adapters can share one base model in serving. For most teams doing SFT, PEFT is the default; full fine-tuning is reserved for cases where adapters genuinely underperform.</p>
+
+<p><strong>Distillation.</strong> Train a <em>small, cheap</em> model to imitate a <em>large, expensive</em> one on a narrow task. You generate high-quality labels with a frontier model (here: <code class="language-plaintext highlighter-rouge">claude-opus-4-8</code> or <code class="language-plaintext highlighter-rouge">claude-fable-5</code>), then fine-tune a small model (or few-shot a cheap one like <code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code>) on those labels. The payoff is the cleanest in this whole module: <strong>near-frontier quality at a fraction of the cost and latency</strong>, on a task narrow enough that the small model can actually cover it. This is the one fine-tuning play that routinely pays for itself, and it’s the focus of the exercise.</p><hr />
+<h2 id="4-the-agent-connection--the-frontier">
+  
+  
+    <a href="#4-the-agent-connection--the-frontier" class="anchor-heading" aria-labelledby="4-the-agent-connection--the-frontier"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. The agent connection &amp; the frontier
+  
+  
+</h2>
+    
+
+<p>Here’s why this module sits <em>before</em> the security module and not in a vacuum: customization is increasingly about the <strong>boundary between your scaffolding and the model’s weights</strong> — and that boundary is moving.</p>
+
+<p>Frontier models are now routinely RL-trained against <em>their own harnesses</em> — the exact tool-call formats, retrieval patterns, and interaction loops they’re expected to use in production. Research like Search-R1 (training a model to interleave reasoning and search calls) is the visible edge of a broad trend: <strong>capability that used to live in your scaffolding is migrating into the weights.</strong> A model RL-trained to call search well doesn’t need your elaborate retrieval-orchestration prompt. A model trained against a coding harness doesn’t need your hand-tuned “here’s how to use the edit tool” instructions.</p>
+
+<p>The implication, which connects directly to Module 13 (the frontier): <strong>every component of your scaffolding encodes an assumption about what the model can’t do.</strong> Your clever multi-step prompt assumes the model can’t plan. Your retrieval reranker assumes it can’t filter results itself. Your output-repair logic assumes it can’t follow the format. Each new model generation <em>deletes</em> some of those assumptions — and with them, the scaffolding you built around them.</p>
+
+<p>This reframes the whole customization decision as an <strong>appreciation vs. depreciation</strong> question:</p>
+
+<ul>
+  <li><strong>Appreciating assets:</strong> your evals, your labeled data, your tool/integration surface, your guardrails. These survive — and get <em>more</em> valuable — across model generations. A good eval suite tells you instantly whether the new model is better. A clean dataset can re-train or re-distill onto the new base. Tools and integrations are model-agnostic.</li>
+  <li><strong>Depreciating assets:</strong> prompt-engineering tricks <em>and</em> frozen fine-tunes. A scaffolding hack that squeezes 5 points out of this generation’s model may be irrelevant — or actively harmful — on the next. A fine-tune frozen against today’s base model goes stale the moment a better base ships.</li>
+</ul>
+
+<p>So when you’re deciding whether to fine-tune, ask: <em>am I building an appreciating asset or a depreciating one?</em> Pour effort into evals, data, and integrations. Treat both scaffolding tricks and frozen fine-tunes as things you expect to throw away when the base model leaps.</p><hr />
+<h2 id="5-the-data-problem">
+  
+  
+    <a href="#5-the-data-problem" class="anchor-heading" aria-labelledby="5-the-data-problem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. The data problem
+  
+  
+</h2>
+    
+
+<p>Fine-tuning runs on a dataset of <em>good examples</em>, and this is where most projects quietly fail. Three sources:</p>
+
+<ol>
+  <li><strong>Production traces — the data flywheel (Modules 08/09).</strong> Your logged agent runs, filtered to the good ones (and ideally graded by your eval harness), are the highest-signal training data you have: real inputs, real distribution, real edge cases. This is the asset that compounds — every day in production grows it. If you have good tracing and eval infrastructure, you’re already accumulating the dataset.</li>
+  <li><strong>Human labeling.</strong> Experts write or correct ideal outputs. Highest quality per example, most expensive per example. Use it to seed or to fix the failure modes your traces don’t cover.</li>
+  <li><strong>Distillation from a bigger model.</strong> Generate labels with a frontier model (§6). Cheap, fast, and scalable — the quality ceiling is the frontier model’s quality on the task.</li>
+</ol>
+
+<p>The non-negotiable rule: <strong>quality beats quantity, by a lot.</strong> Dozens-to-hundreds of <em>excellent</em> examples routinely outperform thousands of mediocre ones. And the failure is <em>silent</em>: a fine-tune trained on inconsistent, mislabeled, or off-distribution data doesn’t error — it trains perfectly well and produces a model that’s confidently worse, in ways you won’t see unless your evals catch them. Garbage in, confidently-wrong out. This is why evals are a <em>prerequisite</em>, not a nice-to-have: without them you cannot tell whether your data was good or whether your fine-tune helped.</p><hr />
+<h2 id="6-the-honest-decision--when-to-fine-tune-and-when-not-to">
+  
+  
+    <a href="#6-the-honest-decision--when-to-fine-tune-and-when-not-to" class="anchor-heading" aria-labelledby="6-the-honest-decision--when-to-fine-tune-and-when-not-to"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. The honest decision — when to fine-tune (and when not to)
+  
+  
+</h2>
+    
+
+<p>This is the crux of the module. Be ruthless here.</p>
+<h3 id="-do-consider-fine-tuning-when-all-of-these-hold">
+  
+  
+    <a href="#-do-consider-fine-tuning-when-all-of-these-hold" class="anchor-heading" aria-labelledby="-do-consider-fine-tuning-when-all-of-these-hold"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ✅ DO consider fine-tuning when ALL of these hold
+  
+  
+</h3>
+    
+
+<ul>
+  <li>You’ve genuinely <strong>maxed out prompting + context + tools</strong> and a real, measured gap remains.</li>
+  <li>You need <strong>lower latency or cost at scale</strong> — most cleanly, <em>distilling a frontier model into a small one for a narrow, high-volume task</em> (e.g. millions of classification calls/day).</li>
+  <li>You need <strong>very consistent format/style/behavior</strong> that prompting can’t reliably enforce.</li>
+  <li>You <strong>have, or can generate, good training data</strong> (production traces, human labels, or distillation).</li>
+  <li>You have <strong>evals that can PROVE it helped.</strong> Non-negotiable.</li>
+</ul>
+<h3 id="-dont-fine-tune-when-any-of-these-hold">
+  
+  
+    <a href="#-dont-fine-tune-when-any-of-these-hold" class="anchor-heading" aria-labelledby="-dont-fine-tune-when-any-of-these-hold"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛑 DON’T fine-tune when ANY of these hold
+  
+  
+</h3>
+    
+
+<ul>
+  <li>You need <strong>new or changing knowledge</strong> → use RAG (Module 05). Fine-tuning can’t add it and can’t keep it current.</li>
+  <li>The <strong>task is broad or the spec is still moving</strong> → fine-tuning <em>freezes</em> behavior; you’ll be freezing the wrong thing and retraining constantly.</li>
+  <li>You <strong>lack eval infrastructure</strong> → you literally cannot tell whether it worked. Build evals first; you may find you don’t need to fine-tune at all.</li>
+  <li>A <strong>frontier model already does it with prompting</strong> → you’d be trading a flexible, improving asset for a frozen, depreciating one.</li>
+  <li>You’re <strong>early-stage</strong> → your spec, your data, and your understanding of the problem are all still changing. Freezing any of them is premature.</li>
+</ul>
+
+<p>For the large majority of teams, the honest read on these lists is <strong>“not yet.”</strong> That is the correct, responsible answer, and saying it out loud has saved more engineering-quarters than any fine-tuning success story.</p><hr />
+<h2 id="7-economics--ops-reality">
+  
+  
+    <a href="#7-economics--ops-reality" class="anchor-heading" aria-labelledby="7-economics--ops-reality"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. Economics &amp; ops reality
+  
+  
+</h2>
+    
+
+<p>Even when fine-tuning is justified, price in the full lifecycle — not just the training run:</p>
+
+<ul>
+  <li><strong>Upfront training cost</strong> — compute for the run, plus the (larger) cost of building and cleaning the dataset.</li>
+  <li><strong>The retraining treadmill.</strong> Your data drifts (new product, new edge cases) and the base model improves. Both force re-training. A fine-tune is not a one-time cost; it’s a <em>standing maintenance commitment.</em></li>
+  <li><strong>A frozen asset that goes stale.</strong> The fine-tuned model is pinned to whatever base it was trained on. When a markedly better base model ships, your fine-tune doesn’t automatically inherit the gains — and your scaffolding around it rots (Module 13). You’re often choosing between “stay on a now-worse fine-tuned model” and “redo the whole pipeline on the new base.”</li>
+  <li><strong>Provider lock-in.</strong> Your fine-tune lives on the platform you trained it on. It’s not portable; switching providers means re-training.</li>
+  <li><strong>Contrast with evals + data — the appreciating asset.</strong> Every dollar into your eval suite and labeled dataset retains value across model generations and providers. Every dollar into a specific frozen fine-tune is pinned to one base model on one platform.</li>
+</ul>
+
+<p>Two practical conclusions:</p>
+
+<ol>
+  <li><strong>Distillation is the cleanest ROI</strong> because it targets exactly the case where the economics work: a <em>stable, narrow, high-volume</em> task where shaving cost and latency compounds across millions of calls, and where re-distilling onto a new base is cheap (you regenerate labels and retrain the small model).</li>
+  <li><strong>The cost levers from Module 10 usually capture most of the win without any fine-tuning.</strong> Prompt caching, model tiering, and batching can cut your bill substantially with zero custom weights, zero retraining treadmill, and zero lock-in. Try them first; reach for distillation only when you’ve measured that they’re not enough.</li>
+</ol><hr />
+<h2 id="️-exercise">
+  
+  
+    <a href="#️-exercise" class="anchor-heading" aria-labelledby="️-exercise"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛠️ Exercise
+  
+  
+</h2>
+    
+
+<p>This exercise is deliberately lighter than other modules’ — customization is infrastructure-heavy, and the real learning here is <strong>judgment</strong>, not pipeline-plumbing. Do part (a) carefully (it’s the whole point), run the small demo in (b), and sketch (c).</p>
+<h3 id="a-decision-drill--the-core-of-this-exercise">
+  
+  
+    <a href="#a-decision-drill--the-core-of-this-exercise" class="anchor-heading" aria-labelledby="a-decision-drill--the-core-of-this-exercise"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (a) Decision drill — the core of this exercise
+  
+  
+</h3>
+    
+
+<p>For each problem, decide: <strong>prompt / few-shot / RAG / tools / fine-tune</strong> (and if fine-tune, which <em>method</em>). Write one sentence of justification before reading the answer.</p>
+
+<ol>
+  <li><em>“Our agent must answer questions from our internal wiki, which is updated daily.”</em></li>
+  <li><em>“Our agent must output our exact ticket-JSON schema, every single time, with no drift.”</em></li>
+  <li><em>“We run 5M cheap text-classification calls per day and want frontier-model quality at Haiku cost.”</em></li>
+</ol>
+
+<details>
+<summary>Answers</summary>
+
+1. **RAG (Module 05) — not fine-tuning.** The gap is *knowledge*, and it *changes daily*. Fine-tuning can't add it and can't keep it current; you'd be retraining every day and still hallucinating. Index the wiki, retrieve, and cite. This is the canonical wrong-tool trap.
+2. **Structured outputs first; SFT only if that's not enough.** The gap is *format consistency*. Try the cheapest lever — structured-output / JSON-schema enforcement (Module 04/08) — which guarantees the shape without touching weights. If you genuinely need behavior beyond what schema enforcement covers (e.g. consistent *content* choices within the schema), SFT on a few hundred clean examples is the next rung. Note: format/style is exactly what SFT is *good* at.
+3. **Distillation.** This is the textbook case: narrow task, enormous volume, cost/latency-sensitive. Generate high-quality labels with `claude-opus-4-8`, then either few-shot `claude-haiku-4-5` or fine-tune a small model on those labels. Verify with your eval harness that the cheap model is close enough, and the cost delta pays for the whole project many times over. (First confirm prompt caching + tiering alone don't already get you there.)
+
+The three answers trace the ladder: **knowledge → RAG, format → structured-output/SFT, cost-at-scale → distillation.**
+
+</details>
+<h3 id="b-distillation-mini-demo">
+  
+  
+    <a href="#b-distillation-mini-demo" class="anchor-heading" aria-labelledby="b-distillation-mini-demo"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (b) Distillation mini-demo
+  
+  
+</h3>
+    
+
+<p>Pick one narrow task (sentiment of support messages, intent classification, short-text categorization — anything with a checkable answer). Then:</p>
+
+<p><strong>Step 1 — Generate ~50 high-quality labels with a strong model.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">anthropic</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="p">.</span><span class="nc">Anthropic</span><span class="p">()</span>
+<span class="n">STRONG_MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-opus-4-8</span><span class="sh">"</span>   <span class="c1"># or "claude-fable-5" for the hardest tasks
+</span>
+<span class="c1"># Your raw, unlabeled inputs for the narrow task.
+</span><span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="sh">"</span><span class="s">The new dashboard is gorgeous but it logs me out every 10 minutes.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">Cancel my subscription. This is the third time I</span><span class="sh">'</span><span class="s">ve asked.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">Works fine, no complaints.</span><span class="sh">"</span><span class="p">,</span>
+    <span class="c1"># ... ~50 total
+</span><span class="p">]</span>
+
+<span class="n">LABELS</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">positive</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">negative</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">neutral</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">mixed</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">strong_label</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">STRONG_MODEL</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">16000</span><span class="p">,</span>
+        <span class="n">thinking</span><span class="o">=</span><span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">adaptive</span><span class="sh">"</span><span class="p">},</span>
+        <span class="n">output_config</span><span class="o">=</span><span class="p">{</span>
+            <span class="sh">"</span><span class="s">format</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">json_schema</span><span class="sh">"</span><span class="p">,</span>
+                <span class="sh">"</span><span class="s">schema</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">,</span>
+                    <span class="sh">"</span><span class="s">properties</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">label</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">string</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">enum</span><span class="sh">"</span><span class="p">:</span> <span class="n">LABELS</span><span class="p">}},</span>
+                    <span class="sh">"</span><span class="s">required</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">label</span><span class="sh">"</span><span class="p">],</span>
+                    <span class="sh">"</span><span class="s">additionalProperties</span><span class="sh">"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+                   <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="sa">f</span><span class="sh">"</span><span class="s">Classify the sentiment of this support message.</span><span class="se">\n\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="sh">"</span><span class="p">}],</span>
+    <span class="p">)</span>
+    <span class="kn">import</span> <span class="n">json</span>
+    <span class="n">text_block</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">text_block</span><span class="p">)[</span><span class="sh">"</span><span class="s">label</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="c1"># This labeled set is your distillation dataset (and a held-out eval slice).
+</span><span class="n">dataset</span> <span class="o">=</span> <span class="p">[{</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="sh">"</span><span class="s">label</span><span class="sh">"</span><span class="p">:</span> <span class="nf">strong_label</span><span class="p">(</span><span class="n">t</span><span class="p">)}</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><strong>Step 2 — Approximate it cheaply.</strong> Two options:</p>
+
+<p><em>Option A — few-shot a cheap model (no training infra needed):</em> pick your 5–8 clearest labeled examples as few-shot exemplars and run <code class="language-plaintext highlighter-rouge">claude-haiku-4-5</code> against them.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CHEAP_MODEL</span> <span class="o">=</span> <span class="sh">"</span><span class="s">claude-haiku-4-5</span><span class="sh">"</span>
+
+<span class="n">few_shot</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>   <span class="c1"># use your cleanest, most representative examples
+</span><span class="n">exemplars</span> <span class="o">=</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Message: </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">text</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s">Label: </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">label</span><span class="sh">'</span><span class="p">]</span><span class="si">}</span><span class="sh">"</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">few_shot</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">cheap_label</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">messages</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">CHEAP_MODEL</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span>
+            <span class="sa">f</span><span class="sh">"</span><span class="s">Classify sentiment as one of </span><span class="si">{</span><span class="n">LABELS</span><span class="si">}</span><span class="s">.</span><span class="se">\n\n</span><span class="si">{</span><span class="n">exemplars</span><span class="si">}</span><span class="se">\n\n</span><span class="s">Message: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s">Label:</span><span class="sh">"</span><span class="p">}],</span>
+    <span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">.</span><span class="n">content</span> <span class="k">if</span> <span class="n">b</span><span class="p">.</span><span class="nb">type</span> <span class="o">==</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">).</span><span class="nf">strip</span><span class="p">().</span><span class="nf">lower</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nf">next</span><span class="p">((</span><span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">LABELS</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">out</span><span class="p">),</span> <span class="sh">"</span><span class="s">neutral</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>Option B — fine-tune a small model (if you have access).</em> Using a provider with a public fine-tuning API — OpenAI is the concrete example here — the flow is conceptually: write your <code class="language-plaintext highlighter-rouge">dataset</code> to JSONL as <code class="language-plaintext highlighter-rouge">(prompt, completion)</code> / chat pairs, upload it, and kick off a job:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Provider-honest note: OpenAI exposes a public fine-tuning API (and reinforcement
+# fine-tuning). Anthropic's general guidance leans toward prompting + context + tools
+# over fine-tuning for most cases; some fine-tuning is available via cloud platforms —
+# check provider docs rather than assuming a first-party endpoint.
+</span>
+<span class="kn">from</span> <span class="n">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="n">oai</span> <span class="o">=</span> <span class="nc">OpenAI</span><span class="p">()</span>
+
+<span class="c1"># 1. Upload your distillation dataset as JSONL (chat-format examples).
+</span><span class="n">training_file</span> <span class="o">=</span> <span class="n">oai</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="nb">file</span><span class="o">=</span><span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">distill_dataset.jsonl</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">rb</span><span class="sh">"</span><span class="p">),</span>
+    <span class="n">purpose</span><span class="o">=</span><span class="sh">"</span><span class="s">fine-tune</span><span class="sh">"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Launch the fine-tuning job on a small base model.
+</span><span class="n">job</span> <span class="o">=</span> <span class="n">oai</span><span class="p">.</span><span class="n">fine_tuning</span><span class="p">.</span><span class="n">jobs</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">training_file</span><span class="o">=</span><span class="n">training_file</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">gpt-4.1-mini</span><span class="sh">"</span><span class="p">,</span>   <span class="c1"># a small/cheap base — the distillation target
+</span><span class="p">)</span>
+<span class="c1"># 3. Poll job status; when it succeeds, you get a fine-tuned model ID to serve.
+</span></code></pre></div></div>
+
+<p><strong>Step 3 — Measure with your Module 08 eval harness.</strong> Hold out a labeled slice the cheap model never saw, and compare cheap-vs-strong on <em>both</em> quality and cost/latency:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">holdout</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">40</span><span class="p">:]</span>   <span class="c1"># never used as few-shot / training
+</span>
+<span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">predict_fn</span><span class="p">):</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">predict_fn</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">])</span> <span class="o">==</span> <span class="n">d</span><span class="p">[</span><span class="sh">"</span><span class="s">label</span><span class="sh">"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">holdout</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">correct</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">holdout</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Cheap model accuracy vs. strong-model labels:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">cheap_label</span><span class="p">))</span>
+
+<span class="c1"># Cost delta (per the Module 10 pricing levers):
+#   claude-opus-4-8 : $5.00 in / $25.00 out per 1M tokens
+#   claude-haiku-4-5: $1.00 in /  $5.00 out per 1M tokens
+# → ~5x cheaper per token AND lower latency. Across 5M calls/day, that delta is the
+#   entire business case. The eval number tells you whether the quality is acceptable.
+</span></code></pre></div></div>
+
+<p>The learning: distillation is only worth it if the <strong>eval says the cheap model is close enough</strong> <em>and</em> the <strong>cost/latency delta is large enough</strong>. Both numbers come from your existing harness — that’s why evals are the prerequisite.</p>
+<h3 id="c-connect-rft-to-your-eval-grader">
+  
+  
+    <a href="#c-connect-rft-to-your-eval-grader" class="anchor-heading" aria-labelledby="c-connect-rft-to-your-eval-grader"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> (c) Connect RFT to your eval grader
+  
+  
+</h3>
+    
+
+<p>Sketch (no need to run) how the programmatic grader you built in Module 08 becomes a verifiable reward:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Module 08 gave you something shaped like this — a grader that returns a score.
+</span><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">model_output</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="c1"># e.g. did the JSON validate? did the unit test pass? exact-match the gold label?
+</span>    <span class="k">return</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="nf">is_correct</span><span class="p">(</span><span class="n">model_output</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+<span class="c1"># In an RFT loop, that grader IS the reward signal:
+#   1. Sample N candidate outputs from the model for each training input.
+#   2. Score each with grade(...)  ← your eval grader, unchanged.
+#   3. Update weights toward higher-scoring outputs.
+# No labeled "ideal output" required — only the ability to CHECK an output.
+</span></code></pre></div></div>
+
+<p>The insight worth keeping: <strong>anywhere you can programmatically check an answer more easily than write the ideal one, you have a candidate reward function.</strong> Your eval harness isn’t just how you <em>measure</em> customization — it can be the thing you <em>train against</em>.</p><hr />
+<h2 id="real-production-issues">
+  
+  
+    <a href="#real-production-issues" class="anchor-heading" aria-labelledby="real-production-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Real production issues
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Fine-tuning to add knowledge (the #1 wrong tool).</strong> A team fine-tunes on their docs to make the agent “know” the product, ships it, and gets confident hallucinations with no citations and no way to update when a doc changes. The fix is always RAG (Module 05). Watch for this disguised as “train it on our data.”</li>
+  <li><strong>Frozen fine-tunes going stale.</strong> You fine-tuned on last year’s base model. This year’s base model, used with plain prompting, beats your fine-tune outright — but you’re pinned to the old base. Now you’re on the retraining treadmill just to keep pace, or stuck shipping a model that’s worse than the default.</li>
+  <li><strong>Provider lock-in.</strong> Your fine-tune lives on one platform. Switching providers — for cost, capability, or compliance — means re-doing the whole pipeline. The dataset is portable; the fine-tune is not.</li>
+  <li><strong>The data-quality trap (silent).</strong> Inconsistent or mislabeled training data produces a confidently-worse model with no error and no warning. You only catch it if your evals are good enough to see the regression. Many teams don’t, and ship a quiet degradation.</li>
+  <li><strong>Fine-tuning without evals.</strong> With no eval harness you cannot answer “did this help?” — so you can’t justify the cost, can’t catch regressions, and can’t tell good data from bad. This is the most common reason a fine-tuning project produces no defensible value.</li>
+  <li><strong>Premature fine-tuning (freezing the wrong behavior).</strong> An early-stage team fine-tunes before the spec stabilizes, freezes a behavior that turns out to be wrong two weeks later, and spends the next month retraining. Frozen behavior + moving target = thrash.</li>
+  <li><strong>Underestimating ops cost.</strong> Teams budget the training run and forget the dataset curation, the serving artifact, the monitoring, the retraining cadence, and the lock-in. The training run is often the cheapest line item.</li>
+  <li><strong>The strategic miss: optimizing the depreciating asset.</strong> Effort poured into scaffolding tricks and frozen fine-tunes depreciates as models improve; effort poured into evals, data, integrations, and guardrails appreciates. The teams that win invest in the latter and reach for fine-tuning only <strong>at scale, with data and evals in hand</strong> — most often for distillation. For most teams, the right posture is exactly: <strong>prompt + context + tools + a frontier model, and revisit fine-tuning only when scale forces it.</strong></li>
+</ul><hr />
+<h2 id="check-yourself">
+  
+  
+    <a href="#check-yourself" class="anchor-heading" aria-labelledby="check-yourself"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Check yourself
+  
+  
+</h2>
+    
+
+<ol>
+  <li>A stakeholder says “let’s fine-tune the model on our help center so it can answer support questions.” What’s wrong with this, and what should you do instead?</li>
+  <li>Name the five rungs of the capability/cost ladder in order, cheapest to most expensive. Which one freezes behavior?</li>
+  <li>What does SFT reliably change, and what does it reliably <em>not</em> change? Give one example of each.</li>
+  <li>You have a programmatic eval grader from Module 08 that returns 1.0 for a passing output and 0.0 otherwise. How could it serve as a reward signal, and which fine-tuning method does that describe?</li>
+  <li>Why is distillation singled out as the cleanest ROI? What three properties must the task have for the economics to work?</li>
+  <li>Give two reasons evals + labeled data are described as <em>appreciating</em> assets while frozen fine-tunes are <em>depreciating</em> — and what that implies for where you spend effort.</li>
+  <li>Before fine-tuning to reduce cost, which Module 10 levers should you try first, and why do they usually capture most of the win?</li>
+</ol>
+<h2 id="further-reading">
+  
+  
+    <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further reading
+  
+  
+</h2>
+    
+
+<ul>
+  <li><strong>Module 05 — Retrieval &amp; RAG:</strong> the correct home for “knowledge” gaps, and the sharp contrast to fine-tuning.</li>
+  <li><strong>Module 08 — Evals:</strong> the hard prerequisite for any customization. Your grader is both the measurement and a potential RFT reward.</li>
+  <li><strong>Modules 08/09 — Tracing &amp; the data flywheel:</strong> where your highest-signal fine-tuning data comes from.</li>
+  <li><strong>Module 10 — Reliability, cost &amp; performance:</strong> prompt caching, model tiering, and batching — the cheaper alternatives to distillation for cost.</li>
+  <li><strong>Module 13 — The frontier:</strong> models RL-trained against their own harnesses, capability migrating into the weights, and scaffolding rot — the strategic backdrop for the appreciate/depreciate framing.</li>
+  <li><strong>Provider fine-tuning &amp; RFT docs:</strong> OpenAI’s fine-tuning and reinforcement fine-tuning APIs are the concrete public examples; for Anthropic, the general guidance leans toward prompting + context + tools, with some fine-tuning available via cloud platforms — check current provider docs rather than assuming a first-party endpoint.</li>
+</ul>
+
+<p>→ Next: <a href="/agent-engineering-course-site/11-security-and-safety.html">Module 11 — Security, Safety &amp; Guardrails</a></p>
+
+          
+
+          
+            
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    
+
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+
